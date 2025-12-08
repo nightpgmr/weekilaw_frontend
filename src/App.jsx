@@ -9,6 +9,8 @@ import AboutAITechnology from './components/AboutAITechnology.jsx';
 import LegalNetwork from './components/LegalNetwork.jsx';
 import Careers from './components/Careers.jsx';
 import Sailing from './components/Sailing.jsx';
+import Company from './components/Company.jsx';
+import SignUp from './components/SignUp.jsx';
 
 function App() {
   return (
@@ -21,8 +23,10 @@ function App() {
           <Route path="/en-us/:areaSlug" element={<EstateProbate />} />
           <Route path="/en-us/about/ai-technology" element={<AboutAITechnology />} />
           <Route path="/en-us/about/legal-network" element={<LegalNetwork />} />
+          <Route path="/en-us/about/company" element={<Company />} />
           <Route path="/en-us/about/careers" element={<Careers />} />
           <Route path="/en-us/about/sailing" element={<Sailing />} />
+          <Route path="/en-us/for-lawyers/sign-up" element={<SignUp />} />
         </Routes>
         <Footer />
       </div>

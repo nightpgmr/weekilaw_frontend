@@ -20,7 +20,7 @@ const Header = () => {
   const aboutItems = [
     { title: "Our AI technology", description: "Harnesses the power of advanced AI.", to: "/en-us/about/ai-technology" },
     { title: "Our legal network", description: "Specialist lawyers across all areas of law.", to: "/en-us/about/legal-network" },
-    { title: "Company", description: "Our values and structure.", href: "https://lawconnect.com/en-us/about/company" },
+    { title: "Company", description: "Our values and structure.", to: "/en-us/about/company" },
     { title: "Careers", description: "Opportunities with LawConnect.", to: "/en-us/about/careers" },
     { title: "Sailing", description: "About the Sydney to Hobart supermaxi.", to: "/en-us/about/sailing" },
   ];
@@ -195,12 +195,12 @@ const Header = () => {
                 </div>
                 {activeDropdown === 'lawyers' && (
                   <div className="styles-module__childContainer___I131v styles-module__hoverMenu___Ix9kX">
-                    <a href="https://lawconnect.com/en-us/for-lawyers/legal-network" className="styles-module__menuItem___uDn4w">
+                    <Link to="/en-us/for-lawyers/legal-network" className="styles-module__menuItem___uDn4w">
                       <span className="styles-module__menuItemText___7pErb">Our legal network</span>
-                    </a>
-                    <a href="https://lawconnect.com/en-us/for-lawyers/register-interest" className="styles-module__menuItem___uDn4w">
-                      <span className="styles-module__menuItemText___7pErb">Register interest</span>
-                    </a>
+                    </Link>
+                    <Link to="/en-us/for-lawyers/sign-up" className="styles-module__menuItem___uDn4w">
+                      <span className="styles-module__menuItemText___7pErb">Sign up</span>
+                    </Link>
                   </div>
                 )}
               </div>
