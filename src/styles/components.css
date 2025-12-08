@@ -9036,7 +9036,8 @@ to {
   flex-direction:row;
   align-items:center;
   gap:4px;
-  text-decoration:none
+  text-decoration:none;
+  width:100%
 }
 .content_descriptionHeader__ad9mQ .intro_moreInfoContainer__aY8_y .intro_categoryActionContainer__3wC42:hover {
   text-decoration:none
@@ -9087,10 +9088,216 @@ to {
   display:flex
 }
 .subcategories_carouselWrapper__PVbzb .subcategories_actionBarWrapper__7ioqg .subcategories_arrowButtonContainer__uD9nD {
-  display:none
+  display:flex
 }
 .subcategories_cardsContainer__1VbkX {
-  --carousel-offset-width:calc((100vw - (var(--inner-content-max-width) - var(--large-desktop-gap) * 2)) / 2)
+  --carousel-offset-width:calc((100vw - (var(--inner-content-max-width) - var(--large-desktop-gap) * 2)) / 2);
+  margin-left:calc(var(--carousel-offset-width) * -1);
+  margin-right:calc(var(--carousel-offset-width) * -1);
+  width:calc(100% + var(--carousel-offset-width) * 2);
+  overflow:visible;
+  padding-left:clamp(80px, calc((100vw - var(--inner-content-max-width)) / 2 + 120px), 540px);
+  padding-right:clamp(80px, calc((100vw - var(--inner-content-max-width)) / 2 + 40px), 200px)
+}
+
+/* -------------------------
+ * About AI Technology page
+ * ------------------------- */
+.ai-tech_page {
+  --ai-tech-max-width: 1140px;
+  color: #191919;
+  font-family: var(--secondary-font-family, 'Inter'), sans-serif;
+}
+.ai-tech_section {
+  padding: 72px 24px;
+}
+.ai-tech_hero {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: var(--ai-tech-max-width);
+  margin: 0 auto;
+}
+.ai-tech_heroText .ai-tech_kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: #0e5fe3;
+  margin-bottom: 8px;
+}
+.ai-tech_title {
+  font-size: 40px;
+  line-height: 48px;
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+.ai-tech_body {
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+  font-weight: 400;
+}
+.ai-tech_heroIcon img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.ai-tech_grid {
+  max-width: var(--ai-tech-max-width);
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.ai-tech_card {
+  background: #f8f9fb;
+  border: 1px solid #e6e9f0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+.ai-tech_card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  line-height: 28px;
+}
+.ai-tech_card p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 26px;
+  color: #333333;
+}
+.ai-tech_cardSecondary {
+  background: #ffffff;
+}
+.ai-tech_help {
+  max-width: var(--ai-tech-max-width);
+  margin: 0 auto;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+}
+.ai-tech_helpText h2 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  line-height: 36px;
+}
+.ai-tech_helpText p {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #333333;
+}
+.ai-tech_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #0e5fe3;
+  text-decoration: none;
+}
+.ai-tech_linkArrow {
+  font-size: 18px;
+}
+.ai-tech_helpImage img {
+  width: 100%;
+  max-width: 520px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.ai-tech_stats {
+  max-width: var(--ai-tech-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.ai-tech_statCard {
+  background: linear-gradient(135deg, #f2f6ff 0%, #eef1f6 100%);
+  border: 1px solid #dbe3f5;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ai-tech_statIcon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.ai-tech_statLabel {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+.ai-tech_sectionHeader {
+  max-width: var(--ai-tech-max-width);
+  margin: 0 auto 24px;
+}
+.ai-tech_sectionHeader h2 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 34px;
+}
+.ai-tech_cta {
+  max-width: var(--ai-tech-max-width);
+  margin: 0 auto;
+  background: linear-gradient(135deg, #b78fe2 -20%, #0e5fe3 80%);
+  border-radius: 16px;
+  padding: 32px;
+  color: #ffffff;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.ai-tech_ctaContent h2 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  line-height: 34px;
+}
+.ai-tech_ctaContent p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+.ai-tech_ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: #ffffff;
+  color: #0e5fe3;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 768px) {
+  .ai-tech_section {
+    padding: 56px 16px;
+  }
+  .ai-tech_title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .ai-tech_body {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .ai-tech_cta {
+    align-items: flex-start;
+  }
 }
 @media (max-width:1600px) and (min-width:1185px) {
   .subcategories_cardsContainer__1VbkX {
@@ -9305,17 +9512,21 @@ to {
   overflow:hidden;
   transition:all .4s ease-in-out;
   z-index:3;
-  background-color:rgba(255,255,255,.2)
+  background-color:transparent;
+  position:relative
 }
 .styles_buttonWrapper__XXBD1:hover .styles_buttonArrow__iKFSw {
   background-color:var(--white)
 }
 .styles_arrowIconWrapper__QocWn {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
   display:flex;
   align-items:center;
   justify-content:center;
-  min-width:48px;
-  height:48px;
   transition:all .3s ease-in-out;
   transform:translateX(0);
   opacity:1;
@@ -9328,11 +9539,14 @@ to {
   }
 }
 .styles_arrowIconWrapperHover__hrNLa {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
   display:flex;
   align-items:center;
   justify-content:center;
-  min-width:48px;
-  height:48px;
   transition:all .3s ease-in-out;
   transform:translateX(-100%);
   opacity:0;
@@ -9348,7 +9562,7 @@ to {
   }
 }
 .styles_buttonWrapper__XXBD1:hover .styles_arrowIconWrapper__QocWn {
-  transform:translateX(-100%);
+  transform:translateX(100%);
   opacity:0
 }
 .styles_buttonWrapper__XXBD1:hover .styles_arrowIconWrapperHover__hrNLa {

@@ -1,0 +1,352 @@
+.ai-page {
+  color: #191919;
+  font-family: var(--secondary-font-family, "Inter", sans-serif);
+}
+
+.ai-hero {
+  padding: 64px 24px 32px;
+  max-width: var(--library-content-width, 1120px);
+  margin: 0 auto;
+}
+
+.ai-hero__breadcrumb {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 12px;
+}
+
+.ai-hero__breadcrumb a {
+  color: #0e5fe3;
+  text-decoration: none;
+}
+
+.ai-hero__breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.ai-hero__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: center;
+  gap: 24px;
+}
+
+.ai-hero__title {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #191919;
+}
+
+.ai-hero__body {
+  font-size: 18px;
+  line-height: 28px;
+  color: #333333;
+  margin: 0;
+}
+
+.ai-hero__icon {
+  text-align: right;
+}
+
+.ai-hero__icon img {
+  width: 260px;
+  height: 260px;
+  object-fit: contain;
+}
+
+.ai-intro {
+  position: relative;
+  overflow: hidden;
+  margin: 32px 0 48px;
+}
+
+.ai-intro__bg img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.ai-intro__text {
+  max-width: 980px;
+  margin: -80px auto 24px;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+  line-height: 28px;
+  color: #191919;
+  text-align: center;
+}
+
+.ai-card-grid {
+  max-width: var(--inner-content-max-width, 1200px);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.ai-card {
+  background: #f8f9fb;
+  border: 1px solid #e6e9f0;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.ai-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.ai-card h3 {
+  font-size: 20px;
+  line-height: 28px;
+  margin: 0 0 8px;
+  color: #191919;
+}
+
+.ai-card p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 26px;
+  color: #333333;
+}
+
+.ai-need-lawyer {
+  max-width: var(--inner-content-max-width, 1200px);
+  margin: 48px auto;
+  padding: 0 24px;
+}
+
+.ai-need-lawyer__wrap {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f8f7f3;
+  min-height: 320px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.ai-need-lawyer__image {
+  position: relative;
+}
+
+.ai-need-lawyer__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ai-need-lawyer__content {
+  position: relative;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.ai-need-lawyer__title {
+  font-size: 28px;
+  line-height: 36px;
+  margin: 0;
+  color: #191919;
+}
+
+.ai-need-lawyer__desc {
+  font-size: 16px;
+  line-height: 26px;
+  margin: 0;
+  color: #333333;
+}
+
+.ai-need-lawyer__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #0e5fe3;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  width: fit-content;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ai-need-lawyer__button:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+}
+
+.ai-need-lawyer__button img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.ai-stats {
+  max-width: var(--inner-content-max-width, 1200px);
+  margin: 56px auto;
+  padding: 0 24px;
+  position: relative;
+}
+
+.ai-stats__circle {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.ai-stats__circle img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ai-stats__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.ai-stats__card {
+  background: linear-gradient(135deg, #f2f6ff 0%, #eef1f6 100%);
+  border: 1px solid #dbe3f5;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-stats__card img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.ai-stats__card span {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #191919;
+}
+
+.ai-capabilities {
+  max-width: var(--inner-content-max-width, 1200px);
+  margin: 48px auto;
+  padding: 0 24px 40px;
+}
+
+.ai-capabilities__header {
+  margin-bottom: 20px;
+}
+
+.ai-capabilities__header h2 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  line-height: 34px;
+  color: #191919;
+}
+
+.ai-capabilities__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.ai-capabilities__card {
+  background: #ffffff;
+  border: 1px solid #e6e9f0;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.ai-capabilities__card h3 {
+  margin: 12px 0 8px;
+  font-size: 20px;
+  line-height: 28px;
+  color: #191919;
+}
+
+.ai-capabilities__card p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 26px;
+  color: #333333;
+}
+
+.ai-cta {
+  max-width: var(--inner-content-max-width, 1200px);
+  margin: 24px auto 64px;
+  padding: 0 24px;
+}
+
+@media (max-width: 1024px) {
+  .ai-hero__title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .ai-hero__icon img {
+    width: 200px;
+    height: 200px;
+  }
+  .ai-intro__text {
+    margin: -60px auto 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-hero {
+    padding-top: 48px;
+  }
+  .ai-hero__title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .ai-hero__body {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .ai-hero__icon {
+    text-align: center;
+  }
+  .ai-hero__icon img {
+    width: 180px;
+    height: 180px;
+  }
+  .ai-intro__bg img {
+    height: 200px;
+  }
+  .ai-intro__text {
+    margin: -40px auto 16px;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 20px;
+  }
+  .ai-need-lawyer__wrap {
+    grid-template-columns: 1fr;
+  }
+}
+

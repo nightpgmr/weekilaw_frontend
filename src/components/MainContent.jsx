@@ -183,13 +183,13 @@ const MainContent = () => {
             <div className="hero_heroImageContainer__xiPzN">
               <div className="hero_heroImageWrapper__tmeC0">
                 {[1, 2, 3].map((imageNum, index) => (
-                  <img 
+                <img 
                     key={index}
                     alt={`Hero Image ${imageNum}`}
                     fetchPriority={index === 0 ? "high" : undefined}
                     loading={index === 0 ? undefined : "lazy"}
-                    width="0" 
-                    height="0" 
+                  width="0" 
+                  height="0" 
                     className={`hero_heroImage__nVizP ${index === heroStep ? 'hero_active__vpAMc' : 'hero_deactive__Xucyz'}`}
                     src={`/assets/header-hero-${imageNum}-1x.webp`}
                   />

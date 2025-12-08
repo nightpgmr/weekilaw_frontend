@@ -1,111 +1,34 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { areasOfLawContent, defaultAreaSlug } from '../data/areas';
 
 const EstateProbate = () => {
+  const { areaSlug } = useParams();
+  const area = areasOfLawContent[areaSlug] || areasOfLawContent[defaultAreaSlug];
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
-  const subCategories = [
-    {
-      title: "Making or updating your will",
-      image: "/assets/family-property-finances.webp",
-      description: "Considering writing your first will or updating an existing one? Our legal chat assistant explains will requirements, what makes a will valid in your state, witness requirements, and when you might need to update your will. Learn about different types of wills and what happens if you die without one (intestate)."
-    },
-    {
-      title: "Understanding estate planning options",
-      image: "/assets/what-expert-lawyer-referral-2x.webp",
-      description: "Planning how your assets will be distributed? Get clear information about federal estate tax thresholds, lifetime gifts, and how to structure your estate efficiently. Our AI guide explains the basics of estate planning and when professional advice becomes essential for complex situations."
-    },
-    {
-      title: "Free help with probate",
-      image: "/assets/what-navigating-probate-2x.webp",
-      description: "Dealing with probate after losing someone close? LawConnect clarifies the probate process, when probate is needed, how to file for probate in your state, and your duties as an executor or personal representative. Understand the difference between formal and informal probate procedures, and learn about the timescales involved."
-    },
-    {
-      title: "Understanding inheritance & estate taxes",
-      image: "/assets/what-letters-admin-2x.webp",
-      description: "Concerned about estate tax implications? Our AI assistant explains current federal estate tax exemptions, state estate taxes, and common strategies for tax reduction. Learn about the annual gift tax exclusion, marital deductions, and when estate taxes become payable."
-    },
-    {
-      title: "Setting up or administering a trust",
-      image: "/assets/commercial-business-contract.webp",
-      description: "Considering setting up a trust or dealing with trust administration? Get information about different types of trusts, their tax implications, and trustee responsibilities. Our legal chatbot explains revocable living trusts, irrevocable trusts, and when trusts might be appropriate for your circumstances."
-    },
-    {
-      title: "Help with wills, trusts & estate disputes",
-      image: "/assets/what-will-disputes-2x.webp",
-      description: "Facing a dispute over a will or trust? LawConnect provides information about grounds for contesting wills, claims by omitted heirs or spouses, and disputes between beneficiaries. Understand your rights and options when inheritance matters become contentious."
-    }
-  ];
-
-  const whyUseSections = [
-    {
-      title: "Built on LawConnect's proprietary US legal knowledge base",
-      image: "/assets/legal-knowledge.webp",
-      description: "LawConnect's AI assistant draws from a comprehensive database of publicly available US estate planning and probate law, including recent legislative changes and established legal principles. You receive quality information specific to federal law and general state law principles, though specific state requirements may vary."
-    },
-    {
-      title: "Instant help in understanding your options & when to speak to an attorney",
-      image: "/assets/always-ready.webp",
-      description: "Access clear, personalized information covering wills, probate, estate taxes, and trust matters. Available 24/7 and completely free with no obligations, LawConnect supports your understanding from your very first inquiry and can help you recognize when professional legal advice is necessary."
-    },
-    {
-      title: "Plain language legal information that's simple to understand",
-      image: "/assets/personalised-legal-information.webp",
-      description: "Your conversations remain completely confidential and secure. Whether asking about will validity, probate procedures, or inheritance disputes, explore your options safely without any pressure to proceed with formal legal action until you're ready."
-    }
-  ];
-
-  const howItWorksSteps = [
-    {
-      title: "Describe your situation",
-      image: "/assets/how-it-works-step1-desktop.webp",
-      description: "Begin by describing your estate planning or probate concern in your own words, without worrying about legal terminology. Whether you're dealing with estate administration, inheritance disputes, or simply want to understand your rights, our AI legal chat assistant provides clarity without confusion."
-    },
-    {
-      title: "Get tailored AI assistance",
-      image: "/assets/how-it-works-step2-desktop.webp",
-      description: "LawConnect provides practical and clear information based on your specific circumstances. You'll receive straightforward explanations covering relevant federal and state law, your rights and obligations, potential options, and practical next steps to help you feel more confident about your position."
-    },
-    {
-      title: "Get your personalized estate and probate law report instantly",
-      image: "/assets/how-it-works-step3-v2-desktop.webp",
-      description: "Once you’ve finished chatting with our AI legal chat assistant we’ll send you a personalized report. It's free, fast, and available whenever you need information."
-    }
-  ];
-
-  const faqItems = [
-    {
-      question: "Can the AI legal assistant help with estate planning issues?",
-      answer: "Yes, it can. The assistant offers support with wills, probate, trusts, estate taxes, disputes, and general estate planning matters."
-    },
-    {
-      question: "Is this service really free?",
-      answer: "Yes. There's no charge to use LawConnect's AI assistant and no obligation to take further action."
-    },
-    {
-      question: "What types of issues can I ask about?",
-      answer: "You can ask about wills, probate, inheritance disputes, estate taxes, trusts, and many other common estate and probate issues."
-    },
-    {
-      question: "How much does an estate lawyer cost?",
-      answer: "It varies. Fees depend on your specific situation. The AI can outline typical cost structures and let you know when it might be worthwhile to consult a lawyer. Some lawyers offer fixed rates or free initial consultations."
-    },
-    {
-      question: "How long does probate take?",
-      answer: "It depends on the estate. Simple estates may be resolved in months, while more complex matters can take longer. The AI can give you a sense of the likely timeline based on your circumstances."
-    },
-    {
-      question: "Will my information stay private?",
-      answer: "Yes. Your chats are anonymous and secure."
-    },
-    {
-      question: "Do I need a lawyer for every estate issue?",
-      answer: "Not always. Many estate issues can be resolved with information. The AI can help you decide when legal advice is worth it."
-    },
-    {
-      question: "Can I get help on weekends or after hours?",
-      answer: "Yes. The AI assistant is available 24/7 so you can ask a question any time."
-    }
-  ];
+  const {
+    breadcrumbLabel,
+    breadcrumbHref,
+    heroTitle,
+    introText,
+    moreInfoText,
+    moreInfoHref,
+    introImage,
+    subCategories,
+    subcategoriesTitle,
+    subcategoriesDescription,
+    whyUseTitle,
+    whyUseDescription,
+    whyUseSections,
+    howItWorksTitle,
+    howItWorksDescription,
+    howItWorksSteps,
+    faqTitle,
+    faqItems,
+    helpTitle,
+    helpDescription,
+  } = area;
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -126,13 +49,13 @@ const EstateProbate = () => {
                   </span>
                   <span className="breadcrumb_breadcrumbItem__YvWT0">
                     {' / '}
-                    <a href="/en-us/estate-and-probate-law">Estate & probate law</a>
+                    <a href={breadcrumbHref}>{breadcrumbLabel}</a>
                   </span>
                 </div>
                 
                 {/* Title */}
                 <h1 className="library-header_title__Bu5PO styles_areaOfLawMaxWidth__xDtQf styles_libraryHeaderClass__qWzo_">
-                  Free AI help for wills, trusts & estate law
+                  {heroTitle}
                 </h1>
                 
                 {/* Hero Icon */}
@@ -252,9 +175,7 @@ const EstateProbate = () => {
               <div className="content_innerWidthWrapper__NAGw5">
                 <div className="content_descriptionHeader__ad9mQ">
                   <div className="content_bodyText__cGBqf content_maxWidth__2fxBh">
-                    <p>
-                      Dealing with wills, trusts, or estate matters? Whether you're planning your estate, administering a loved one's affairs, or navigating inheritance disputes, our AI legal assistant provides clear, helpful information in minutes, completely free. Built on established US estate planning and probate principles, it helps you understand your situation, explore your options, and move forward with confidence.
-                    </p>
+                    <p>{introText}</p>
                   </div>
                   {/* MORE INFO Section */}
                   <div className="intro_moreInfoContainer__aY8_y">
@@ -271,8 +192,8 @@ const EstateProbate = () => {
                       <div className="intro_moreInfoText__Z07V6">MORE INFO</div>
                     </div>
                     <div className="intro_moreInfoLinkContainer__Cx8VX">
-                      <a href="/en-us/estate-and-probate-law/summary" className="intro_categoryActionContainer__3wC42">
-                        <span className="intro_categoryActionText___Ckxx">A quick summary about estate and probate law in the United States</span>
+                      <a href={moreInfoHref} className="intro_categoryActionContainer__3wC42">
+                        <span className="intro_categoryActionText___Ckxx">{moreInfoText}</span>
                         <div className="intro_categoryArrowContainer__7h1sZ">
                           <img 
                             src="/assets/arrow-right-blue.svg" 
@@ -302,7 +223,7 @@ const EstateProbate = () => {
                   decoding="async" 
                   className="intro_image__LtIHk" 
                   style={{color: 'transparent'}} 
-                  src="/assets/intro-estate-probate.webp"
+                    src={introImage}
                 />
               </div>
             </div>
@@ -316,11 +237,11 @@ const EstateProbate = () => {
             <div className="subcategories_carouselContainer__0opfD">
               <div className="subcategories_titleContainer__q3uqT">
                 <h2 className="subcategories_title__PgiX3">
-                  What estate and probate law issues can our AI legal assistant help you with
+                  {subcategoriesTitle}
                 </h2>
               </div>
               <div className="subcategories_descriptionContainer__IVhG4">
-                <p className="subcategories_description__0nHbS">Our AI legal assistant is trained to help with a broad range of estate planning and probate law matters. Here are the main areas where it can provide instant support:</p>
+                <p className="subcategories_description__0nHbS">{subcategoriesDescription}</p>
               </div>
               <div className="styles-module__container___UTp91 subcategories_carouselWrapper__PVbzb">
                 <div className="styles-module__cardsContainer___5LjEc">
@@ -378,12 +299,12 @@ const EstateProbate = () => {
           <div className="why-use_widthWrapper__EkKMI">
             <div className="why-use_carouselContainer__IRMng">
             <div className="why-use_titleContainer__OEO_W">
-              <h2 className="why-use_title__ODdwy">Why use AI for estate and probate law help</h2>
+              <h2 className="why-use_title__ODdwy">{whyUseTitle}</h2>
             </div>
             <div className="why-use_descriptionContainer__BGSf_">
               <p className="why-use_description__EyjEk">
                 <span style={{color: '#191919'}}>
-                  When you're dealing with wills, trusts, probate, or inheritance disputes, legal processes can be confusing and stressful. LawConnect helps you understand your rights and responsibilities without the hassle. Our AI legal assistant provides fast, accurate information for free so you can handle issues with more confidence.
+                  {whyUseDescription}
                 </span>
               </p>
             </div>
@@ -426,10 +347,10 @@ const EstateProbate = () => {
             <div className="how-it-works_container__of4_F">
               <div className="how-it-works_stepsWrapper__EUaDV">
                 <div className="how-it-works_titleContainer__AfLNN">
-                  <h2 className="how-it-works_title___Fro9">How to use LawConnect for wills, trusts & probate help</h2>
+                  <h2 className="how-it-works_title___Fro9">{howItWorksTitle}</h2>
                   <p className="how-it-works_description__hDe10">
                     <span style={{color: '#191919'}}>
-                      Getting started is straightforward. You're always in control of the information you share and the help you receive.
+                      {howItWorksDescription}
                     </span>
                   </p>
                 </div>
@@ -484,7 +405,7 @@ const EstateProbate = () => {
           <div className="landing-page_innerWidthWrapper__VGDzH">
             <div className="faq-content_faqContainer__4GgG5">
               <div className="faq-content_faqTitleContainer___Gx5Q">
-                <h2 className="faq-content_faqTitle__uh_gX">Wills & probate FAQs</h2>
+                <h2 className="faq-content_faqTitle__uh_gX">{faqTitle}</h2>
               </div>
               <div className="dropdown_dropDownImageWrapper__v07FL">
                 <div className="dropdown_dropDownContainer__jo4Sg">
@@ -529,8 +450,8 @@ const EstateProbate = () => {
             <div className="styles_container__F5erF">
               <div className="styles_card__G5i6M">
                 <div className="styles_textWrapper__yJ7QI">
-                  <div className="styles_title__qe9MP">Need help with a wills, trusts and probate law issue?</div>
-                  <div className="styles_description__gONZv">Get started by asking any questions about your wills, trusts and probate law matter</div>
+                  <div className="styles_title__qe9MP">{helpTitle}</div>
+                  <div className="styles_description__gONZv">{helpDescription}</div>
                 </div>
                 <div className="styles_imageWrapper__xawbg">
                   <a 
@@ -585,6 +506,54 @@ const EstateProbate = () => {
           </div>
         </div>
         </div>
+
+        {/* Chat Section - Footer */}
+        <div className="content_contentContainer__mvGPe">
+          <div className="content_sectionContainer__3Q6bj">
+            <div className="chat_doubleChatInputWrapper__CMH7r">
+              <div className="chat_outerWrapper__tQJCI">
+                <div className="style-module__chatInputContainer___6z7-o styles-module__outerWrapper___fOgj7">
+                  <div className="style-module__shinyBorderContainer___S56O-">
+                    <div className="style-module__chatInput___eRGXK styles-module__inputWrapper___kh9as" id="chat-input-estate-last-section">
+                      <input className="style-module__fileInput___JIo-7" multiple type="file" />
+                      <img
+                        className="style-module__preTextIcon___jd5co"
+                        src="/assets/spark-gray.svg"
+                        alt="spark"
+                      />
+                      <div className="style-module__actions___HoJ1V">
+                        <button className="style-module__sendButton___uDqXf" id="send-button-estate-last-section" aria-label="send-button">
+                          <div className="style-module__sendArrowImageWrapper___uFHTa">
+                            <div className="style-module__sendArrowWrapperHover___emgh3">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="style-module__sendArrow___pxG7G">
+                                <path d="M10.5004 12H5.00043M4.91577 12.2915L2.58085 19.2662C2.39742 19.8142 2.3057 20.0881 2.37152 20.2569C2.42868 20.4034 2.55144 20.5145 2.70292 20.5567C2.87736 20.6054 3.14083 20.4869 3.66776 20.2497L20.3792 12.7296C20.8936 12.4981 21.1507 12.3824 21.2302 12.2216C21.2993 12.082 21.2993 11.9181 21.2302 11.7784C21.1507 11.6177 20.8936 11.5019 20.3792 11.2705L3.66193 3.74776C3.13659 3.51135 2.87392 3.39315 2.69966 3.44164C2.54832 3.48375 2.42556 3.59454 2.36821 3.74078C2.30216 3.90917 2.3929 4.18255 2.57437 4.72931L4.91642 11.7856C4.94759 11.8795 4.96317 11.9264 4.96933 11.9744C4.97479 12.0171 4.97473 12.0602 4.96916 12.1028C4.96289 12.1508 4.94718 12.1977 4.91577 12.2915Z" stroke="#0E5FE3" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"></path>
+                              </svg>
+                            </div>
+                            <div className="style-module__sendArrowWrapper___Sb07B">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="style-module__sendArrow___pxG7G">
+                                <path d="M10.5004 12H5.00043M4.91577 12.2915L2.58085 19.2662C2.39742 19.8142 2.3057 20.0881 2.37152 20.2569C2.42868 20.4034 2.55144 20.5145 2.70292 20.5567C2.87736 20.6054 3.14083 20.4869 3.66776 20.2497L20.3792 12.7296C20.8936 12.4981 21.1507 12.3824 21.2302 12.2216C21.2993 12.082 21.2993 11.9181 21.2302 11.7784C21.1507 11.6177 20.8936 11.5019 20.3792 11.2705L3.66193 3.74776C3.13659 3.51135 2.87392 3.39315 2.69966 3.44164C2.54832 3.48375 2.42556 3.59454 2.36821 3.74078C2.30216 3.90917 2.3929 4.18255 2.57437 4.72931L4.91642 11.7856C4.94759 11.8795 4.96317 11.9264 4.96933 11.9744C4.97479 12.0171 4.97473 12.0602 4.96916 12.1028C4.96289 12.1508 4.94718 12.1977 4.91577 12.2915Z" stroke="#0E5FE3" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </button>
+                      </div>
+                      <div className="style-module__inputs___yi0Q5 style-module__noFiles___90hgV">
+                        <textarea
+                          id="double-input-estate-last-section"
+                          className="style-module__textareaInput___mZP78 style-module__withPreTextIcon___L-Ypa"
+                          rows="1"
+                          placeholder="Ask your legal question"
+                          style={{height: '72px'}}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </main>
   );

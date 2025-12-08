@@ -4,8 +4,9 @@ import './App.css';
 import Header from './components/Header.jsx';
 import MainContent from './components/MainContent.jsx';
 import Footer from './components/Footer.jsx';
-import CommercialLaw from './components/CommercialLaw.jsx';
 import EstateProbate from './components/EstateProbate.jsx';
+import AboutAITechnology from './components/AboutAITechnology.jsx';
+import LegalNetwork from './components/LegalNetwork.jsx';
 
 function App() {
   return (
@@ -14,8 +15,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<MainContent />} />
-          <Route path="/en-us/commercial-law" element={<CommercialLaw />} />
           <Route path="/en-us/estate-and-probate-law" element={<EstateProbate />} />
+          <Route path="/en-us/:areaSlug" element={<EstateProbate />} />
+          <Route path="/en-us/about/ai-technology" element={<AboutAITechnology />} />
+          <Route path="/en-us/about/legal-network" element={<LegalNetwork />} />
         </Routes>
         <Footer />
       </div>

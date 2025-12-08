@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const areasOfLaw = [
-    { title: "Commercial law", description: "Business transactions and agreements.", href: "https://lawconnect.com/en-us/commercial-law" },
-    { title: "Criminal law", description: "Addressing crime and sentencing.", href: "https://lawconnect.com/en-us/criminal-law" },
-    { title: "Employment law", description: "Fairness for employers and employees.", href: "https://lawconnect.com/en-us/employment-law" },
-    { title: "Estate and probate law", description: "Managing and distributing assets.", href: "https://lawconnect.com/en-us/estate-and-probate-law" },
-    { title: "Family law", description: "Separation, divorce, and settlements.", href: "https://lawconnect.com/en-us/family-law" },
-    { title: "Immigration law", description: "Visas, residency, and sponsorships.", href: "https://lawconnect.com/en-us/immigration-law" },
-    { title: "Litigation", description: "Matters involving the courts.", href: "https://lawconnect.com/en-us/litigation" },
-    { title: "Personal injury law", description: "Been injured? Help is available.", href: "https://lawconnect.com/en-us/personal-injury-law" },
-    { title: "Property law", description: "Settlements and property disputes.", href: "https://lawconnect.com/en-us/property-law" },
+    { title: "Commercial law", description: "Business transactions and agreements.", slug: "commercial-law" },
+    { title: "Criminal law", description: "Addressing crime and sentencing.", slug: "criminal-law" },
+    { title: "Employment law", description: "Fairness for employers and employees.", slug: "employment-law" },
+    { title: "Estate and probate law", description: "Managing and distributing assets.", slug: "estate-and-probate-law" },
+    { title: "Family law", description: "Separation, divorce, and settlements.", slug: "family-law" },
+    { title: "Immigration law", description: "Visas, residency, and sponsorships.", slug: "immigration-law" },
+    { title: "Litigation", description: "Matters involving the courts.", slug: "litigation" },
+    { title: "Personal injury law", description: "Been injured? Help is available.", slug: "personal-injury-law" },
+    { title: "Property law", description: "Settlements and property disputes.", slug: "property-law" },
   ];
 
   const aboutItems = [
-    { title: "Our AI technology", description: "Harnesses the power of advanced AI.", href: "https://lawconnect.com/en-us/about/ai-technology" },
+    { title: "Our AI technology", description: "Harnesses the power of advanced AI.", to: "/en-us/about/ai-technology" },
     { title: "Our legal network", description: "Specialist lawyers across all areas of law.", href: "https://lawconnect.com/en-us/about/legal-network" },
     { title: "Company", description: "Our values and structure.", href: "https://lawconnect.com/en-us/about/company" },
     { title: "Careers", description: "Opportunities with LawConnect.", href: "https://lawconnect.com/en-us/about/careers" },
@@ -63,7 +64,7 @@ const Header = () => {
           id="FLOATING_CONTAINER_ID"
         >
           <div className="styles-module__menuContentContainer___5ogcm">
-            <a href="https://lawconnect.com/en-us" className="styles-module__logoContainer___oxG02">
+            <Link to="/" className="styles-module__logoContainer___oxG02">
               <img 
                 alt="logo" 
                 width="0" 
@@ -71,7 +72,7 @@ const Header = () => {
                 className="styles-module__logo___zZoOh" 
                 src="/assets/logo-icon.svg" 
               />
-            </a>
+            </Link>
             <div className="styles-module__menuLinksContainer___pFhdD">
               <a 
                 href="https://lawconnect.com/chat?newCase=true" 
@@ -104,10 +105,10 @@ const Header = () => {
                     <div className="styles-module__innerWrapper___mir35 styles-module__subMenuContainer___disY3">
                       <div className="styles-module__dropdownGrid___g7NT4">
                         {areasOfLaw.map((area, index) => (
-                          <a key={index} className="styles-module__menuDropdownItem___RuGGa styles-module__offsetDropdownItemRow___8wigK" href={area.href}>
+                          <Link key={index} className="styles-module__menuDropdownItem___RuGGa styles-module__offsetDropdownItemRow___8wigK" to={`/en-us/${area.slug}`}>
                             <div className="styles-module__menuDropdownItemTitle___Z7Iua">{area.title}</div>
                             <div className="styles-module__menuDropdownItemDescription___oDMyr">{area.description}</div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                       <div className="styles-module__dropdownImageWrapper___IkHdh">
@@ -144,12 +145,23 @@ const Header = () => {
                   <div className="styles-module__childContainer___I131v styles-module__menuItemDropdown___exhI6">
                     <div className="styles-module__innerWrapper___mir35 styles-module__subMenuContainer___disY3">
                       <div className="styles-module__dropdownGrid___g7NT4">
-                        {aboutItems.map((item, index) => (
-                          <a key={index} className="styles-module__menuDropdownItem___RuGGa styles-module__offsetDropdownItemRow___8wigK" href={item.href}>
-                            <div className="styles-module__menuDropdownItemTitle___Z7Iua">{item.title}</div>
-                            <div className="styles-module__menuDropdownItemDescription___oDMyr">{item.description}</div>
-                          </a>
-                        ))}
+                        {aboutItems.map((item, index) => {
+                          const isInternal = !!item.to;
+                          if (isInternal) {
+                            return (
+                              <Link key={index} className="styles-module__menuDropdownItem___RuGGa styles-module__offsetDropdownItemRow___8wigK" to={item.to}>
+                                <div className="styles-module__menuDropdownItemTitle___Z7Iua">{item.title}</div>
+                                <div className="styles-module__menuDropdownItemDescription___oDMyr">{item.description}</div>
+                              </Link>
+                            );
+                          }
+                          return (
+                            <a key={index} className="styles-module__menuDropdownItem___RuGGa styles-module__offsetDropdownItemRow___8wigK" href={item.href}>
+                              <div className="styles-module__menuDropdownItemTitle___Z7Iua">{item.title}</div>
+                              <div className="styles-module__menuDropdownItemDescription___oDMyr">{item.description}</div>
+                            </a>
+                          );
+                        })}
                       </div>
                       <div className="styles-module__dropdownImageWrapper___IkHdh">
                         <div className="styles-module__areaOfLawImageContainer___-8zLz">
