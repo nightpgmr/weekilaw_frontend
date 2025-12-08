@@ -7,6 +7,8 @@ import Footer from './components/Footer.jsx';
 import EstateProbate from './components/EstateProbate.jsx';
 import AboutAITechnology from './components/AboutAITechnology.jsx';
 import LegalNetwork from './components/LegalNetwork.jsx';
+import Careers from './components/Careers.jsx';
+import Sailing from './components/Sailing.jsx';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/en-us/:areaSlug" element={<EstateProbate />} />
           <Route path="/en-us/about/ai-technology" element={<AboutAITechnology />} />
           <Route path="/en-us/about/legal-network" element={<LegalNetwork />} />
+          <Route path="/en-us/about/careers" element={<Careers />} />
+          <Route path="/en-us/about/sailing" element={<Sailing />} />
         </Routes>
         <Footer />
       </div>

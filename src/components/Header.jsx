@@ -19,10 +19,10 @@ const Header = () => {
 
   const aboutItems = [
     { title: "Our AI technology", description: "Harnesses the power of advanced AI.", to: "/en-us/about/ai-technology" },
-    { title: "Our legal network", description: "Specialist lawyers across all areas of law.", href: "https://lawconnect.com/en-us/about/legal-network" },
+    { title: "Our legal network", description: "Specialist lawyers across all areas of law.", to: "/en-us/about/legal-network" },
     { title: "Company", description: "Our values and structure.", href: "https://lawconnect.com/en-us/about/company" },
-    { title: "Careers", description: "Opportunities with LawConnect.", href: "https://lawconnect.com/en-us/about/careers" },
-    { title: "Sailing", description: "About the Sydney to Hobart supermaxi.", href: "https://lawconnect.com/en-us/about/sailing" },
+    { title: "Careers", description: "Opportunities with LawConnect.", to: "/en-us/about/careers" },
+    { title: "Sailing", description: "About the Sydney to Hobart supermaxi.", to: "/en-us/about/sailing" },
   ];
 
   const toggleDropdown = (dropdown) => {
