@@ -11,6 +11,7 @@ import Careers from './components/Careers.jsx';
 import Sailing from './components/Sailing.jsx';
 import Company from './components/Company.jsx';
 import SignUp from './components/SignUp.jsx';
+import ChatPage from './components/ChatPage.jsx';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/en-us/about/careers" element={<Careers />} />
           <Route path="/en-us/about/sailing" element={<Sailing />} />
           <Route path="/en-us/for-lawyers/sign-up" element={<SignUp />} />
+          <Route path="/chat" element={<ChatPage />} />
         </Routes>
         <Footer />
       </div>

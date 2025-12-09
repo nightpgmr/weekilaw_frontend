@@ -1,0 +1,118 @@
+.account-modal_backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 3000;
+}
+
+.account-modal_card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+  max-width: 600px;
+  width: 100%;
+  padding: 100px;
+  text-align: center;
+  font-family: inherit;
+}
+
+.account-modal_close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: #5f6368;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.account-modal_logo img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  margin: 0 auto 16px;
+  display: block;
+}
+
+.account-modal_lead {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2933;
+  margin: 0 0 10px;
+}
+
+.account-modal_body {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 0 0 28px;
+  line-height: 1.6;
+}
+
+.account-modal_actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.account-modal_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.account-modal_button,
+.account-modal_button:hover,
+.account-modal_button:focus,
+.account-modal_button:visited {
+  text-decoration: none;
+}
+
+.account-modal_button:hover {
+  transform: translateY(-1px);
+}
+
+.account-modal_buttonPrimary {
+  background: #0d6efd;
+  color: #ffffff;
+  border: 1px solid #0d6efd;
+  box-shadow: 0 14px 28px rgba(13, 110, 253, 0.25);
+}
+
+.account-modal_buttonPrimary:hover {
+  background: #0b5ed7;
+}
+
+.account-modal_buttonSecondary {
+  background: #0d6efd;
+  color: #ffffff;
+  border: 1px solid #0d6efd;
+  box-shadow: 0 10px 22px rgba(13, 110, 253, 0.18);
+}
+
+.account-modal_buttonSecondary:hover {
+  background: #0b5ed7;
+}
+
+@media (max-width: 540px) {
+  .account-modal_card {
+    padding: 36px 22px 26px;
+    max-width: 440px;
+  }
+}
+
