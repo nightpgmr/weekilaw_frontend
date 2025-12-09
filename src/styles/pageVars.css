@@ -1,0 +1,168 @@
+:root {
+  --font-family: "Inter", sans-serif;
+  --secondary-font-family: "Nunito Sans", "Inter", sans-serif;
+  --max-content-width: 1760px;
+  --menu-max-width: 1600px;
+  --large-max-width: 1600px;
+  --home-content-max-width: 1400px;
+  --inner-content-max-width: 1200px;
+  --standard-max-width: 1200px;
+  --library-content-width: 1120px;
+  --primary-color: #0070f3;
+  --secondary-color: #1a202c;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --white: #ffffff;
+  --black: #000000;
+  --menu-background-color: rgba(255, 255, 255, 0.95);
+  --mobile-header-height: 52px;
+  --red: #c70c0c;
+  --brand-light-greyish-blue: #f6f7f8;
+  --brand-midnight: #191919;
+  --brand-steel: #b0b7bd;
+  --faded-midnight: rgba(25, 25, 25, 0.5);
+  --ui-blue: #0e5fe3;
+  --ui-green: #0b8124;
+  --error-red: #bb1600;
+  --warning-yellow: #ff9500;
+  --success-green: #0b8124;
+  --faded-light-greyish-blue: rgb(246, 247, 248, 0.5);
+  --light-purple: #b78fe2;
+  --lawyer-request-purple: #c8b2f9;
+  --lawyer-request-purple-faded: rgba(200, 178, 249, 0.89804);
+  --brand-dark-purple: #8b60ea;
+  --ui-blue-hover: #0056b3;
+  --brand-dark-blue: #0a49af;
+  --light-error: #ffeeec;
+  --light-warning: #fff7ec;
+  --light-success: #efffef;
+  --grey-1: #333333;
+  --grey-2: #666666;
+  --grey-3: #999999;
+  --grey-4: #cccccc;
+  --grey-5: #dddddd;
+  --grey-6: #eeeeee;
+  --input-background: #fafafa;
+  --cookie-consent-background: #ffffff;
+  --default-transition: all 0.3s ease;
+  --card-height: 170px;
+  --tablet-button-width: 295px;
+  --desktop-button-width: 373px;
+  --background-negative-margin: 64px;
+  --large-desktop-card-width: 385px;
+  --small-desktop-card-width: 328px;
+  --mobile-card-width: 250px;
+  --mobile-button-max-width: 400px;
+  --top-corner-radius: 40px;
+  --large-desktop-gap: 160px;
+  --small-desktop-gap: 120px;
+  --tablet-gap: 80px;
+  --mobile-gap: 80px;
+  --small-mobile-gap: 40px;
+  --desktop-side-margin: 80px;
+  --tablet-side-margin: 40px;
+  --mobile-side-margin: 20px;
+  --large-desktop-text-max-width: 800px;
+  --small-desktop-text-max-width: 540px;
+  --tablet-text-max-width: 420px;
+  --mobile-text-max-width: 335px;
+  --background-icon-large-desktop: 520px;
+  --background-icon-small-desktop: 480px;
+  --background-icon-tablet: 360px;
+  --desktop-chat-input-height: 72px;
+  --tablet-chat-input-height: 56px;
+  --mobile-chat-input-height: 44px;
+  --button-max-width: 288px;
+  --desktop-menu-height: 72px;
+  --mobile-menu-height: 52px;
+  --font-size: 16px;
+  --mobile-font-size: 14px;
+  --font-color: #000000;
+  --brand-light-hover-blue: #eaf1f9;
+  --chat-input-side-padding: 20px;
+  --carousel-scroll-bar-background-color: var(--grey-5);
+  --carousel-scroll-bar-active-color: var(--brand-steel);
+  --greyscale-9: var(--grey-3);
+  --greyscale-1: var(--grey-1);
+  --greyscale-2: var(--grey-2);
+  --greyscale-3: var(--grey-5);
+  --greyscale-4: var(--grey-4);
+  --greyscale-6: var(--grey-6);
+  --greyscale-14: #d9d9d9;
+  --greyscale-50: #fafafa;
+  --greyscale-300: #e5e5e5;
+  --earth-tones-manilla: #f8f7f3;
+  --earth-tones-tan: #f0efec;
+  --earth-tones-paper: #fafaf9;
+  --earth-tones-brown: #ecebe8;
+  --context-background-colour: var(--white);
+  --context-hover-colour: var(--earth-tones-tan);
+  --context-item-background-colour: var(--brand-light-greyish-blue);
+  --context-icon-colour: var(--greyscale-5);
+  --context-active-colour: var(--greyscale-1);
+  --context-menu-width: 300px;
+  --chat-system-background-color: #fefefe;
+  --chat-system-dark-background-color: #d8d8d8;
+  --chat-system-font-color: #000000;
+  --chat-input-background-color: rgba(255, 255, 255, 0.69804);
+  --chat-input-background-blur-color: rgba(248, 247, 243, 0.69804);
+  --chat-input-attach-color: #cccccc;
+  --chat-sender-background-color: #0e5fe3;
+  --chat-sender-font-color: #ffffff;
+  --chat-sender-dark-background-color: #162845;
+}
+
+* {
+  font-family: var(--font-family);
+  padding: 0;
+  margin: 0;
+}
+
+textarea {
+  resize: none;
+  font-family: var(--font-family);
+}
+
+body,
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+  -webkit-text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+#root,
+main {
+  min-width: 320px;
+}
+
+#root {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+a {
+  color: var(--ui-blue);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--brand-midnight);
+}
+

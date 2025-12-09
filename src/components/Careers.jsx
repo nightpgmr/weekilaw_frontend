@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/careersCombined.css';
+import '../styles/careers.css';
 
 const Careers = () => {
   return (

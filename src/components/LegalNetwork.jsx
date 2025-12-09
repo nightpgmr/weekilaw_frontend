@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/legalNetworkCombined.css';
+import '../styles/legalNetwork.css';
 
 const LegalNetwork = () => {
   const lawyerCards = [

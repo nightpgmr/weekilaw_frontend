@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/aiTechCombined.css';
+import '../styles/aiTech.css';
 
 const AboutAITechnology = () => {
   return (

@@ -345,10 +345,14 @@ to {
 }
 .style-module__chatInputContainer___6z7-o {
   padding:10px;
+  -webkit-backdrop-filter:blur(0px) !important;
+  backdrop-filter:blur(0px) important!;
 }
 .style-module__chatInputContainer___6z7-o, .style-module__chatInput___eRGXK {
   width:100%;
   position:relative;
+  -webkit-backdrop-filter:blur(0px);
+  backdrop-filter:blur(0px);
 }
 .style-module__chatInput___eRGXK {
   height:100%;

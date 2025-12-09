@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/sailingCombined.css';
+import '../styles/sailing.css';
 
 const Sailing = () => {
   return (

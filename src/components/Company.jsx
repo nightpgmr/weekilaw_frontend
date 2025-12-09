@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/companyCombined.css';
+import '../styles/company.css';
 
 const Company = () => {
   return (
