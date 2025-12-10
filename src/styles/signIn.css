@@ -2115,7 +2115,7 @@
 }
 
 /* Footer should span full width inside padded main on sign-in layout */
-.kinde-layout-page-main > footer.style-module__footer___0X-Tm {
+.kinde-layout-page-main > footer.style-module__footer {
   margin-inline: calc(-1 * var(--kinde-layout-page-main-padding, 3rem));
   width: calc(100% + calc(var(--kinde-layout-page-main-padding, 3rem) * 2));
 }

@@ -5,41 +5,41 @@ import '../styles/sailing.css';
 const Sailing = () => {
   return (
     <PageLayout>
-      <div className="layout_content__yRzeE">
+      <div className="layout_content">
         {/* Hero */}
-        <div className="styles_heroContainer__UZwt9 ">
-          <div className="styles_innerWidthWrapper__0gwbe ">
-            <div className="styles_heroTitleContainer__1Qy7e">
-              <div className="styles_breadcrumbsContainer__0nnvA">
-                <a href="/en-us/about" className="styles_breadcrumb__bUxCv ">
+        <div className="styles_heroContainer ">
+          <div className="styles_innerWidthWrapper ">
+            <div className="styles_heroTitleContainer">
+              <div className="styles_breadcrumbsContainer">
+                <a href="/en-us/about" className="styles_breadcrumb ">
                   About
                 </a>
-                <span className="styles_breadcrumb__bUxCv ">&nbsp;/&nbsp;</span>
-                <span className="styles_breadcrumb__bUxCv styles_bold__6vlb9">Sailing</span>
+                <span className="styles_breadcrumb ">&nbsp;/&nbsp;</span>
+                <span className="styles_breadcrumb styles_bold">Sailing</span>
               </div>
-              <h1 className="styles_heroTitle__UvSCa ">The LawConnect supermaxi</h1>
+              <h1 className="styles_heroTitle ">The LawConnect supermaxi</h1>
             </div>
-            <div className="styles_heroImageContainer__UAyJ2 ">
-              <div className="styles_heroImageWrapper__8aHNn">
+            <div className="styles_heroImageContainer ">
+              <div className="styles_heroImageWrapper">
                 <img
                   alt="Hero Image 1"
                   loading="lazy"
                   width="0"
                   height="0"
-                  className="styles_heroImage__d_LGL"
+                  className="styles_heroImage"
                   style={{ color: 'transparent' }}
                   src="/assets/sailing/sailing-hero-image.webp"
                 />
               </div>
             </div>
-            <div className="styles_heroIconWrapper__gVuzX">
-              <div className="styles_heroIconContainer__Abc26">
+            <div className="styles_heroIconWrapper">
+              <div className="styles_heroIconContainer">
                 <img
                   alt="Hero BG Icon"
                   loading="lazy"
                   width="0"
                   height="0"
-                  className="styles_heroIcon__boJGi "
+                  className="styles_heroIcon "
                   style={{ color: 'transparent' }}
                   src="/assets/sailing/hero-icon.svg"
                 />
@@ -49,10 +49,10 @@ const Sailing = () => {
         </div>
 
         {/* Intro copy */}
-        <div className="styles_widthWrapper__SvpTL">
-          <div className="styles_innerWidthWrapper__YyUVM">
-            <div className="styles_contentTextWrapper__eu0QH">
-              <div className="styles_descriptionText__QMzYK">
+        <div className="styles_widthWrapper">
+          <div className="styles_innerWidthWrapper">
+            <div className="styles_contentTextWrapper">
+              <div className="styles_descriptionText">
                 The LawConnect supermaxi has emerged as a top contender in the Rolex Sydney Hobart Yacht Race, one of the
                 world’s most prestigious sailing events. <br /> <br />
                 After claiming historic back-to-back line honors wins in both 2023 and 2024, the 100ft yacht—owned and
@@ -64,55 +64,55 @@ const Sailing = () => {
         </div>
 
         {/* Stacked card banner */}
-        <div className="styles_imageWidthWrapper__hw6hd">
-          <div className="styles_stackedCardWrapper__PvMKV" style={{ '--text-height': '440px', '--card-image-height': '440px' }}>
-            <div className="styles_container__Y2H4Y styles_stackedCardContainer__vSjCR">
+        <div className="styles_imageWidthWrapper">
+          <div className="styles_stackedCardWrapper" style={{ '--text-height': '440px', '--card-image-height': '440px' }}>
+            <div className="styles_container styles_stackedCardContainer">
               <img
                 alt="Lawyer"
                 loading="lazy"
                 width="0"
                 height="0"
-                className="styles_lawyerImage__kR7Mf styles_useAnimation__FKCxf styles_startAnimation__TcFZm"
+                className="styles_lawyerImage styles_useAnimation styles_startAnimation"
                 style={{ color: 'transparent' }}
                 src="/assets/sailing/sailing-bg-1.webp"
               />
-              <div className="styles_textPostiion__dbLcT styles_useAnimation__FKCxf styles_startAnimation__TcFZm">
-                <h1 className="styles_textContainer__9OtJb styles_textContainer__UtwoU">
-                  <div className="styles_sailingBG1Container__GfRRV">
-                    <div className="styles_back2backWreathContainer__96s3P">
-                      <div className="styles_wreathContainer__QZKnN">
+              <div className="styles_textPostiion styles_useAnimation styles_startAnimation">
+                <h1 className="styles_textContainer styles_textContainer">
+                  <div className="styles_sailingBG1Container">
+                    <div className="styles_back2backWreathContainer">
+                      <div className="styles_wreathContainer">
                         <img
                           alt="Wreath Icon"
                           loading="lazy"
                           width="0"
                           height="0"
-                          className="styles_sailingBG1Icon__G6KJU"
+                          className="styles_sailingBG1Icon"
                           style={{ color: 'transparent' }}
                           src="/assets/sailing/wreath.svg"
                         />
-                        <div className="styles_wreathText__cbgVv">2023</div>
+                        <div className="styles_wreathText">2023</div>
                       </div>
-                      <div className="styles_wreathContainer__QZKnN">
+                      <div className="styles_wreathContainer">
                         <img
                           alt="Wreath Icon"
                           loading="lazy"
                           width="0"
                           height="0"
-                          className="styles_sailingBG1Icon__G6KJU"
+                          className="styles_sailingBG1Icon"
                           style={{ color: 'transparent' }}
                           src="/assets/sailing/wreath.svg"
                         />
-                        <div className="styles_wreathText__cbgVv">2024</div>
+                        <div className="styles_wreathText">2024</div>
                       </div>
                     </div>
-                    <div className="styles_sailingBG1Description__QGBv_">Back-to-back Sydney to Hobart line honors winner.</div>
+                    <div className="styles_sailingBG1Description">Back-to-back Sydney to Hobart line honors winner.</div>
                   </div>
                   <img
                     alt="Stacked BG Icon"
                     loading="lazy"
                     width="0"
                     height="0"
-                    className="styles_stackedBGIcon__P4xcB"
+                    className="styles_stackedBGIcon"
                     style={{ color: 'transparent' }}
                     src="/assets/sailing/hero-icon.svg"
                   />
@@ -123,26 +123,26 @@ const Sailing = () => {
         </div>
 
         {/* Story + CTA */}
-        <div className="styles_widthWrapper__SvpTL">
-          <div className="styles_innerWidthWrapper__YyUVM">
-            <div className="styles_headerDescriptionContainer__OgZFk">
-              <div className="styles_headerTitle__jRL5G">Back to back: How LawConnect conquered The Hobart</div>
+        <div className="styles_widthWrapper">
+          <div className="styles_innerWidthWrapper">
+            <div className="styles_headerDescriptionContainer">
+              <div className="styles_headerTitle">Back to back: How LawConnect conquered The Hobart</div>
               <div
-                className="styles_headerDescription__cOM2F"
+                className="styles_headerDescription"
                 dangerouslySetInnerHTML={{
                   __html:
                     'Set sail on an unforgettable journey in our latest series, which takes you behind the scenes of the LawConnect supermaxi—from its early beginnings to its triumphant back-to-back Sydney to Hobart line honors victories in 2023 and 2024.<br> <br>Get exclusive insights from the crew as they recount the triumphs, challenges, and unwavering determination that propelled LawConnect to victory. This is a story of dedication, innovation, and a boat built to go the distance.',
                 }}
               />
-              <a className="styles_watchLink__6UByc" href="https://www.youtube.com/@asklawconnect" target="_blank" rel="noreferrer">
+              <a className="styles_watchLink" href="https://www.youtube.com/@asklawconnect" target="_blank" rel="noreferrer">
                 <span>Watch the series now</span>
-                <div className="styles_watchArrowIconContainer__qV3uY">
+                <div className="styles_watchArrowIconContainer">
                   <img
                     alt="Arrow Right Icon"
                     loading="lazy"
                     width="0"
                     height="0"
-                    className="styles_watchArrowIcon__dl5oK"
+                    className="styles_watchArrowIcon"
                     style={{ color: 'transparent' }}
                     src="/assets/sailing/arrow-right-blue.svg"
                   />
@@ -151,7 +151,7 @@ const Sailing = () => {
                     loading="lazy"
                     width="0"
                     height="0"
-                    className="styles_watchArrowIconHover__M348k"
+                    className="styles_watchArrowIconHover"
                     style={{ color: 'transparent' }}
                     src="/assets/sailing/arrow-right-midnight.svg"
                   />
@@ -162,9 +162,9 @@ const Sailing = () => {
         </div>
 
         {/* Livestream */}
-        <div className="styles_imageWidthWrapper__hw6hd">
-          <div className="styles_livestreamContainer__8jhE4">
-            <div className="styles_livestream___0zy2">
+        <div className="styles_imageWidthWrapper">
+          <div className="styles_livestreamContainer">
+            <div className="styles_livestream">
               <iframe
                 src="https://www.youtube.com/embed/W2hn4AFZM6A?si=HnB_BWrA1oW8xSJq&list=PL-Y0_sMgjCadwQTAjXF95E-1m3Svx3A3i"
                 title="YouTube video player"
@@ -178,10 +178,10 @@ const Sailing = () => {
         </div>
 
         {/* Outro copy */}
-        <div className="styles_widthWrapper__SvpTL">
-          <div className="styles_innerWidthWrapper__YyUVM">
-            <div className="styles_contentTextWrapper__eu0QH">
-              <div className="styles_descriptionText__QMzYK">
+        <div className="styles_widthWrapper">
+          <div className="styles_innerWidthWrapper">
+            <div className="styles_contentTextWrapper">
+              <div className="styles_descriptionText">
                 The supermaxi serves as a floating ambassador for innovation, highlighting LawConnect's dedication to pushing
                 boundaries both on and off the water.
                 <br /> <br />
@@ -196,47 +196,47 @@ const Sailing = () => {
         </div>
 
         {/* Need help card */}
-        <div className="styles_widthWrapper__SvpTL">
-          <div className="styles_container__F5erF">
-            <div className="styles_card__G5i6M">
-              <div className="styles_textWrapper__yJ7QI">
-                <div className="styles_title__qe9MP">Need help with an issue?</div>
-                <div className="styles_description__gONZv">Ask LawConnect your legal question for quick, free answers!</div>
+        <div className="styles_widthWrapper">
+          <div className="styles_container">
+            <div className="styles_card">
+              <div className="styles_textWrapper">
+                <div className="styles_title">Need help with an issue?</div>
+                <div className="styles_description">Ask LawConnect your legal question for quick, free answers!</div>
               </div>
-              <div className="styles_imageWrapper__xawbg">
+              <div className="styles_imageWrapper">
                 <a
                   href="https://lawconnect.com/chat?newCase=true"
-                  className="styles_buttonWrapper__XXBD1 styles_startCaseButton__9iUyN"
+                  className="styles_buttonWrapper styles_startCaseButton"
                   style={{ '--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)' }}
                 >
-                  <div className="styles_buttonText___POD5">Start now</div>
-                  <div className="styles_buttonArrow__iKFSw">
-                    <div className="styles_arrowIconWrapperHover__hrNLa">
+                  <div className="styles_buttonText">Start now</div>
+                  <div className="styles_buttonArrow">
+                    <div className="styles_arrowIconWrapperHover">
                       <img
                         alt="arrow-right"
                         loading="lazy"
                         width="16"
                         height="16"
-                        className="styles_arrowIcon__Sfck8"
+                        className="styles_arrowIcon"
                         style={{ color: 'transparent' }}
                         src="/assets/sailing/arrow-right-blue.svg"
                       />
                     </div>
-                    <div className="styles_arrowIconWrapper__QocWn">
+                    <div className="styles_arrowIconWrapper">
                       <img
                         alt="arrow-right-white"
                         loading="lazy"
                         width="16"
                         height="16"
-                        className="styles_arrowIcon__Sfck8"
+                        className="styles_arrowIcon"
                         style={{ color: 'transparent' }}
                         src="/assets/sailing/arrow-right-white.svg"
                       />
                     </div>
                   </div>
                 </a>
-                <div className="styles_backgroundColour__Fh9I5"></div>
-                <div className="styles_backgroundSquare__8l6wS" style={{ backgroundColor: '#F0EFEC' }}></div>
+                <div className="styles_backgroundColour"></div>
+                <div className="styles_backgroundSquare" style={{ backgroundColor: '#F0EFEC' }}></div>
               </div>
             </div>
           </div>

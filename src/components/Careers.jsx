@@ -5,41 +5,41 @@ import '../styles/careers.css';
 const Careers = () => {
   return (
     <PageLayout>
-      <div className="layout_content__yRzeE">
+      <div className="layout_content">
         {/* Hero */}
-        <div className="styles_heroContainer__UZwt9 ">
-          <div className="styles_innerWidthWrapper__0gwbe ">
-            <div className="styles_heroTitleContainer__1Qy7e">
-              <div className="styles_breadcrumbsContainer__0nnvA">
-                <a href="/en-us/about" className="styles_breadcrumb__bUxCv ">
+        <div className="styles_heroContainer ">
+          <div className="styles_innerWidthWrapper ">
+            <div className="styles_heroTitleContainer">
+              <div className="styles_breadcrumbsContainer">
+                <a href="/en-us/about" className="styles_breadcrumb ">
                   About
                 </a>
-                <span className="styles_breadcrumb__bUxCv ">&nbsp;/&nbsp;</span>
-                <span className="styles_breadcrumb__bUxCv styles_bold__6vlb9">Careers</span>
+                <span className="styles_breadcrumb ">&nbsp;/&nbsp;</span>
+                <span className="styles_breadcrumb styles_bold">Careers</span>
               </div>
-              <h1 className="styles_heroTitle__UvSCa ">A rewarding place to work and grow</h1>
+              <h1 className="styles_heroTitle ">A rewarding place to work and grow</h1>
             </div>
-            <div className="styles_heroImageContainer__UAyJ2 ">
-              <div className="styles_heroImageWrapper__Ebftn">
+            <div className="styles_heroImageContainer ">
+              <div className="styles_heroImageWrapper">
                 <img
                   alt="Hero"
                   loading="lazy"
                   width="0"
                   height="0"
-                  className="styles_heroImage__AcMlf"
+                  className="styles_heroImage"
                   style={{ color: 'transparent' }}
                   src="/assets/careers/careers-hero-image.webp"
                 />
               </div>
             </div>
-            <div className="styles_heroIconWrapper__gVuzX">
-              <div className="styles_heroIconContainer__Abc26">
+            <div className="styles_heroIconWrapper">
+              <div className="styles_heroIconContainer">
                 <img
                   alt="Hero BG Icon"
                   loading="lazy"
                   width="0"
                   height="0"
-                  className="styles_heroIcon__boJGi "
+                  className="styles_heroIcon "
                   style={{ color: 'transparent' }}
                   src="/assets/careers/hero-icon.svg"
                 />
@@ -49,10 +49,10 @@ const Careers = () => {
         </div>
 
         {/* Intro copy */}
-        <div className="styles_widthWrapper___ai2G">
-          <div className="styles_innerWidthWrapper__y0QMQ">
-            <div className="styles_contentTextWrapper__8OHSu">
-              <div className="styles_descriptionText__d3D8J">
+        <div className="styles_widthWrapper">
+          <div className="styles_innerWidthWrapper">
+            <div className="styles_contentTextWrapper">
+              <div className="styles_descriptionText">
                 At LawConnect, we’re shaping the future of legal tech. We offer a collaborative, innovative, and
                 flexible work environment where you can make a real impact. Grow with us as we set new standards in
                 legal AI and improve access to justice.
@@ -66,7 +66,7 @@ const Careers = () => {
         </div>
 
         {/* Hero image */}
-        <div className="styles_imageWidthWrapper__UM_DK">
+        <div className="styles_imageWidthWrapper">
           <div>
             <picture>
               <source media="(max-width: 768px)" srcSet="/assets/careers/careers-image-1.webp" />
@@ -76,7 +76,7 @@ const Careers = () => {
                 loading="lazy"
                 width="0"
                 height="0"
-                className="styles_careersImage__lsk3x"
+                className="styles_careersImage"
                 style={{ color: 'transparent', width: '100%', height: 'auto' }}
                 src="/assets/careers/careers-image-1.webp"
               />
@@ -85,37 +85,37 @@ const Careers = () => {
         </div>
 
         {/* Closing copy + CTA */}
-        <div className="styles_widthWrapper___ai2G">
-          <div className="styles_innerWidthWrapper__y0QMQ">
-            <div className="styles_contentTextWrapper__8OHSu">
-              <div className="styles_descriptionText__d3D8J">
+        <div className="styles_widthWrapper">
+          <div className="styles_innerWidthWrapper">
+            <div className="styles_contentTextWrapper">
+              <div className="styles_descriptionText">
                 We’re always looking for passionate people who believe in the power of AI and legal technology. If you
                 don’t see a perfect fit but think you can make an impact, send us your resume—we’re always open to great
                 talent.
               </div>
             </div>
-            <div className="styles_buttonContainer__peX6q">
-              <a className="button_buttonContainer__gCB6U " href="https://lawconnect.com/en-us/contact-us?topic=careers">
-                <div className="button_buttonText__1_evT styles_buttonText__W9nuv">Contact us</div>
-                <div className="button_buttonArrow__75UxD ">
-                  <div className="button_arrowIconWrapperHover__E_U1V ">
+            <div className="styles_buttonContainer">
+              <a className="button_buttonContainer " href="https://lawconnect.com/en-us/contact-us?topic=careers">
+                <div className="button_buttonText styles_buttonText">Contact us</div>
+                <div className="button_buttonArrow ">
+                  <div className="button_arrowIconWrapperHover ">
                     <img
                       alt="arrow-right-white"
                       loading="lazy"
                       width="16"
                       height="16"
-                      className="button_arrowIcon__EQvnO"
+                      className="button_arrowIcon"
                       style={{ color: 'transparent' }}
                       src="/assets/careers/arrow-right-blue.svg"
                     />
                   </div>
-                  <div className="button_arrowIconWrapper__ftquI ">
+                  <div className="button_arrowIconWrapper ">
                     <img
                       alt="arrow-right"
                       loading="lazy"
                       width="16"
                       height="16"
-                      className="button_arrowIcon__EQvnO"
+                      className="button_arrowIcon"
                       style={{ color: 'transparent' }}
                       src="/assets/careers/arrow-right-blue.svg"
                     />

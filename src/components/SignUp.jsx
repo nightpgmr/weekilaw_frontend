@@ -5,30 +5,30 @@ import '../styles/signUp.css';
 const SignUp = () => {
   return (
     <PageLayout>
-      <div className="layout_content__yRzeE">
+      <div className="layout_content">
         {/* Hero header */}
-        <div className="styles_pageGapWrapper__yI_nf">
-          <div className="page-header_helpTitleContainer__NpuGb styles_heroClass__vWuli">
-            <div className="page-header_widthWrapper__4MKzc">
-              <div className="page-header_innerWidthWrapper__GMUNJ styles_heroInnerClassName__5NRET">
-                <div className="breadcrumb_breadcrumbContainer__WxR4l">
-                  <span className="breadcrumb_breadcrumbItem__YvWT0 styles_breadcrumbClassName__YmUDs">
+        <div className="styles_pageGapWrapper">
+          <div className="page-header_helpTitleContainer styles_heroClass">
+            <div className="page-header_widthWrapper">
+              <div className="page-header_innerWidthWrapper styles_heroInnerClassName">
+                <div className="breadcrumb_breadcrumbContainer">
+                  <span className="breadcrumb_breadcrumbItem styles_breadcrumbClassName">
                     <a href="/en-us/for-lawyers/legal-network">For lawyers</a>
                   </span>
-                  <span className="breadcrumb_breadcrumbItem__YvWT0 styles_breadcrumbClassName__YmUDs">
+                  <span className="breadcrumb_breadcrumbItem styles_breadcrumbClassName">
                     &nbsp;/&nbsp;
                     <a href="/en-us/for-lawyers/sign-up">Sign up</a>
                   </span>
                 </div>
-                <h1 className="page-header_title__ApYOt styles_headerClassName__xMGim">
+                <h1 className="page-header_title styles_headerClassName">
                   Connect with clients who need your help
                 </h1>
-                <div className="page-header_heroIconContainer__zF2JD">
+                <div className="page-header_heroIconContainer">
                   <img
                     alt="hero-icon"
                     width="260"
                     height="260"
-                    className="page-header_heroIcon__eA6Mc"
+                    className="page-header_heroIcon"
                     style={{ color: 'transparent' }}
                     src="/assets/sign-up/hero-icon.svg"
                   />
@@ -38,77 +38,77 @@ const SignUp = () => {
           </div>
 
           {/* Intro cards + form */}
-          <div className="styles_widthWrapper__B3BNJ">
-            <div className="styles_innerWidthWrapper__bdp3F">
-              <div className="styles_container__qEkCe">
-                <div className="styles_introContainer__jQzjV">
-                  <div className="register-intro_container__0P_lH">
-                    <h2 className="register-intro_title__5HHSP">Looking to win more clients?</h2>
-                    <p className="register-intro_description__sF9zU">
+          <div className="styles_widthWrapper">
+            <div className="styles_innerWidthWrapper">
+              <div className="styles_container">
+                <div className="styles_introContainer">
+                  <div className="register-intro_container">
+                    <h2 className="register-intro_title">Looking to win more clients?</h2>
+                    <p className="register-intro_description">
                       Join a trusted network of legal professionals and start receiving inquiries from people who need
                       help in your area of expertise. Strengthen your online presence and make it easier for clients to
                       find and choose your firm.
                     </p>
-                    <div className="register-intro_cardsContainer__Vc7yL">
-                      <div className="register-intro_card__EU8V3">
-                        <div className="register-intro_iconWrapper__Yd_GV">
+                    <div className="register-intro_cardsContainer">
+                      <div className="register-intro_card">
+                        <div className="register-intro_iconWrapper">
                           <img
                             alt="users icon"
-                            className="register-intro_cardIcon__IYir9"
+                            className="register-intro_cardIcon"
                             style={{ color: 'transparent' }}
                             src="/assets/sign-up/users-blue.svg"
                           />
                         </div>
                         <div>
-                          <h3 className="register-intro_cardTitle__xNsmJ">Receive quality leads</h3>
-                          <p className="register-intro_cardDescription__z4n9B">
+                          <h3 className="register-intro_cardTitle">Receive quality leads</h3>
+                          <p className="register-intro_cardDescription">
                             Attract clients who are actively looking for legal help in your practice areas.
                           </p>
                         </div>
                       </div>
 
-                      <div className="register-intro_card__EU8V3">
-                        <div className="register-intro_iconWrapper__Yd_GV">
+                      <div className="register-intro_card">
+                        <div className="register-intro_iconWrapper">
                           <img
                             alt="map pin icon"
-                            className="register-intro_cardIcon__IYir9"
+                            className="register-intro_cardIcon"
                             style={{ color: 'transparent' }}
                             src="/assets/sign-up/map-pin-blue.svg"
                           />
                         </div>
                         <div>
-                          <h3 className="register-intro_cardTitle__xNsmJ">Boost your online presence</h3>
-                          <p className="register-intro_cardDescription__z4n9B">
+                          <h3 className="register-intro_cardTitle">Boost your online presence</h3>
+                          <p className="register-intro_cardDescription">
                             Get a LawConnect profile that showcases your firm and helps clients reach out with
                             confidence.
                           </p>
                         </div>
                       </div>
 
-                      <div className="register-intro_card__EU8V3">
-                        <div className="register-intro_iconWrapper__Yd_GV">
+                      <div className="register-intro_card">
+                        <div className="register-intro_iconWrapper">
                           <img
                             alt="plus icon"
-                            className="register-intro_cardIcon__IYir9"
+                            className="register-intro_cardIcon"
                             style={{ color: 'transparent' }}
                             src="/assets/sign-up/plus-blue.svg"
                           />
                         </div>
                         <div>
-                          <h3 className="register-intro_cardTitle__xNsmJ">Strengthen your reputation</h3>
-                          <p className="register-intro_cardDescription__z4n9B">
+                          <h3 className="register-intro_cardTitle">Strengthen your reputation</h3>
+                          <p className="register-intro_cardDescription">
                             Be part of a trusted legal network and grow your practice with the right opportunities.
                           </p>
                         </div>
                       </div>
 
-                      <div className="register-intro_freeTrialContainer__CRXS8">
-                        <button className="register-intro_freeTrialButton__F1Ctf">
-                          <span className="register-intro_freeTrialText__IIl0T">Learn about our free trial</span>
-                          <div className="register-intro_freeTrialArrow__gzNRl">
+                      <div className="register-intro_freeTrialContainer">
+                        <button className="register-intro_freeTrialButton">
+                          <span className="register-intro_freeTrialText">Learn about our free trial</span>
+                          <div className="register-intro_freeTrialArrow">
                             <img
                               alt="arrow down"
-                              className="register-intro_freeTrialArrowIcon__4v8kU"
+                              className="register-intro_freeTrialArrowIcon"
                               style={{ color: 'transparent' }}
                               src="/assets/sign-up/arrow-down-blue.svg"
                             />
@@ -119,100 +119,100 @@ const SignUp = () => {
                   </div>
                 </div>
 
-                <div id="register-interest-form" className="styles_formContainer__Yo9gM">
-                  <div className="register-interest-form_container__fVqYa">
-                    <div className="register-interest-form_cardWrapper__D2rPh">
-                      <div className="register-form-card_cardContainer__AI1qw">
-                        <div className="register-form-card_formSection__hr_96">
-                          <h2 className="register-form-card_title__MW2tW">Inquire today to join LawConnect</h2>
-                          <form className="register-form-card_form__RTsLc">
-                            <div className="register-form-card_formRow__LGvQ7">
-                              <div className="register-form-card_inputGroup__97_iP">
-                                <label htmlFor="name" className="register-form-card_label__84OKT">
+                <div id="register-interest-form" className="styles_formContainer">
+                  <div className="register-interest-form_container">
+                    <div className="register-interest-form_cardWrapper">
+                      <div className="register-form-card_cardContainer">
+                        <div className="register-form-card_formSection">
+                          <h2 className="register-form-card_title">Inquire today to join LawConnect</h2>
+                          <form className="register-form-card_form">
+                            <div className="register-form-card_formRow">
+                              <div className="register-form-card_inputGroup">
+                                <label htmlFor="name" className="register-form-card_label">
                                   Name
                                 </label>
                                 <input
                                   type="text"
                                   id="name"
                                   autoComplete="off"
-                                  className="register-form-card_input__gd1D9"
+                                  className="register-form-card_input"
                                   required
                                   name="name"
                                 />
                               </div>
-                              <div className="register-form-card_inputGroup__97_iP">
-                                <label htmlFor="firmName" className="register-form-card_label__84OKT">
+                              <div className="register-form-card_inputGroup">
+                                <label htmlFor="firmName" className="register-form-card_label">
                                   Firm name
                                 </label>
                                 <input
                                   type="text"
                                   id="firmName"
                                   autoComplete="off"
-                                  className="register-form-card_input__gd1D9"
+                                  className="register-form-card_input"
                                   required
                                   name="firmName"
                                 />
                               </div>
                             </div>
-                            <div className="register-form-card_formRow__LGvQ7">
-                              <div className="register-form-card_inputGroup__97_iP">
-                                <label htmlFor="email" className="register-form-card_label__84OKT">
+                            <div className="register-form-card_formRow">
+                              <div className="register-form-card_inputGroup">
+                                <label htmlFor="email" className="register-form-card_label">
                                   Email
                                 </label>
                                 <input
                                   type="email"
                                   id="email"
                                   autoComplete="off"
-                                  className="register-form-card_input__gd1D9"
+                                  className="register-form-card_input"
                                   required
                                   name="email"
                                 />
                               </div>
-                              <div className="register-form-card_inputGroup__97_iP">
-                                <label htmlFor="phone" className="register-form-card_label__84OKT">
+                              <div className="register-form-card_inputGroup">
+                                <label htmlFor="phone" className="register-form-card_label">
                                   Phone
                                 </label>
                                 <input
                                   type="tel"
                                   id="phone"
                                   autoComplete="off"
-                                  className="register-form-card_input__gd1D9"
+                                  className="register-form-card_input"
                                   required
                                   name="phone"
                                 />
                               </div>
                             </div>
-                            <div className="register-form-card_inputGroup__97_iP">
-                              <label htmlFor="comments" className="register-form-card_label__84OKT">
+                            <div className="register-form-card_inputGroup">
+                              <label htmlFor="comments" className="register-form-card_label">
                                 Comments
                               </label>
                               <textarea
                                 id="comments"
                                 name="comments"
-                                className="register-form-card_textarea__EkuXJ"
+                                className="register-form-card_textarea"
                                 rows="3"
                               ></textarea>
                             </div>
                           </form>
-                          <div className="button_buttonContainer__gCB6U" aria-disabled="false">
-                            <div className="button_buttonText__1_evT register-form-card_buttonText__kmmZN">Sign up now</div>
-                            <div className="button_buttonArrow__75UxD">
-                              <div className="button_arrowIconWrapperHover__E_U1V">
+                          <div className="button_buttonContainer" aria-disabled="false">
+                            <div className="button_buttonText register-form-card_buttonText">Sign up now</div>
+                            <div className="button_buttonArrow">
+                              <div className="button_arrowIconWrapperHover">
                                 <img
                                   alt="arrow-right-white"
                                   width="16"
                                   height="16"
-                                  className="button_arrowIcon__EQvnO"
+                                  className="button_arrowIcon"
                                   style={{ color: 'transparent' }}
                                   src="/assets/sign-up/arrow-right-blue.svg"
                                 />
                               </div>
-                              <div className="button_arrowIconWrapper__ftquI">
+                              <div className="button_arrowIconWrapper">
                                 <img
                                   alt="arrow-right"
                                   width="16"
                                   height="16"
-                                  className="button_arrowIcon__EQvnO"
+                                  className="button_arrowIcon"
                                   style={{ color: 'transparent' }}
                                   src="/assets/sign-up/arrow-right-blue.svg"
                                 />
@@ -229,79 +229,79 @@ const SignUp = () => {
           </div>
 
           {/* Get started section */}
-          <div id="get-started" className="styles_getStartedContainer__Ay_Fp">
-            <div className="get-started_container__AntU7">
-              <div className="get-started_backgroundContainer__zFryf">
-                <div className="get-started_backgroundImage__C2ukg">
+          <div id="get-started" className="styles_getStartedContainer">
+            <div className="get-started_container">
+              <div className="get-started_backgroundContainer">
+                <div className="get-started_backgroundImage">
                   <img
                     alt="Register Interest Background"
-                    className="get-started_bgImage__3BjvS"
+                    className="get-started_bgImage"
                     style={{ color: 'transparent' }}
                     src="/assets/sign-up/legal-network-bg-desktop.webp"
                   />
                 </div>
               </div>
-              <div className="get-started_getStartedWrapper__AH55w">
-                <div className="get-started_getStartedContainer__APYFt">
-                  <h2 className="get-started_getStartedTitle__Qv6u1">Get started with LawConnect for free</h2>
-                  <div className="get-started_getStartedDescription__O6haz">
+              <div className="get-started_getStartedWrapper">
+                <div className="get-started_getStartedContainer">
+                  <h2 className="get-started_getStartedTitle">Get started with LawConnect for free</h2>
+                  <div className="get-started_getStartedDescription">
                     See how LawConnect helps you grow your client base with our free trial
                   </div>
-                  <div className="get-started_getStartedStepsContainer__1GMR1">
-                    <div className="get-started_step__m_shK">
-                      <div className="get-started_iconWrapper__yU_Ve">
+                  <div className="get-started_getStartedStepsContainer">
+                    <div className="get-started_step">
+                      <div className="get-started_iconWrapper">
                         <img
                           alt="tools icon"
-                          className="get-started_stepIcon__A5FVM"
+                          className="get-started_stepIcon"
                           style={{ color: 'transparent' }}
                           src="/assets/sign-up/tools-blue.svg"
                         />
                       </div>
-                      <div className="get-started_stepDescription__pPl2_">Complimentary profile setup for your firm</div>
+                      <div className="get-started_stepDescription">Complimentary profile setup for your firm</div>
                     </div>
-                    <div className="get-started_step__m_shK">
-                      <div className="get-started_iconWrapper__yU_Ve">
+                    <div className="get-started_step">
+                      <div className="get-started_iconWrapper">
                         <img
                           alt="5x icon"
-                          className="get-started_stepIcon__A5FVM"
+                          className="get-started_stepIcon"
                           style={{ color: 'transparent' }}
                           src="/assets/sign-up/5x-blue.svg"
                         />
                       </div>
-                      <div className="get-started_stepDescription__pPl2_">Receive your first 5 inquiries at no cost</div>
+                      <div className="get-started_stepDescription">Receive your first 5 inquiries at no cost</div>
                     </div>
-                    <div className="get-started_step__m_shK">
-                      <div className="get-started_iconWrapper__yU_Ve">
+                    <div className="get-started_step">
+                      <div className="get-started_iconWrapper">
                         <img
                           alt="access cards icon"
-                          className="get-started_stepIcon__A5FVM"
+                          className="get-started_stepIcon"
                           style={{ color: 'transparent' }}
                           src="/assets/sign-up/access-cards-blue.svg"
                         />
                       </div>
-                      <div className="get-started_stepDescription__pPl2_">100 lead credits to get started</div>
+                      <div className="get-started_stepDescription">100 lead credits to get started</div>
                     </div>
                   </div>
-                  <div className="get-started_buttonContainer__v30lY">
-                    <div className="button_buttonContainer__gCB6U get-started_signUpButtonContainer__jJT2v">
-                      <div className="button_buttonText__1_evT get-started_buttonText__yiGB9">Sign up now</div>
-                      <div className="button_buttonArrow__75UxD get-started_buttonArrow__513sE">
-                        <div className="button_arrowIconWrapperHover__E_U1V get-started_buttonArrowIcon__XnP6I">
+                  <div className="get-started_buttonContainer">
+                    <div className="button_buttonContainer get-started_signUpButtonContainer">
+                      <div className="button_buttonText get-started_buttonText">Sign up now</div>
+                      <div className="button_buttonArrow get-started_buttonArrow">
+                        <div className="button_arrowIconWrapperHover get-started_buttonArrowIcon">
                           <img
                             alt="arrow-right-white"
                             width="16"
                             height="16"
-                            className="button_arrowIcon__EQvnO"
+                            className="button_arrowIcon"
                             style={{ color: 'transparent' }}
                             src="/assets/sign-up/arrow-right-white.svg"
                           />
                         </div>
-                        <div className="button_arrowIconWrapper__ftquI get-started_buttonArrowIcon__XnP6I">
+                        <div className="button_arrowIconWrapper get-started_buttonArrowIcon">
                           <img
                             alt="arrow-right"
                             width="16"
                             height="16"
-                            className="button_arrowIcon__EQvnO"
+                            className="button_arrowIcon"
                             style={{ color: 'transparent' }}
                             src="/assets/sign-up/arrow-right-white.svg"
                           />
@@ -315,15 +315,15 @@ const SignUp = () => {
           </div>
 
           {/* Lawyer carousel */}
-          <div className="legal-practitioners_legalPractitionersContainer__VTE3o">
-            <div className="legal-practitioners_headerContainer__WyLLv">
-              <h2 className="legal-practitioners_headerTitle__UvOB2">Join thousands of professionals in our network</h2>
+          <div className="legal-practitioners_legalPractitionersContainer">
+            <div className="legal-practitioners_headerContainer">
+              <h2 className="legal-practitioners_headerTitle">Join thousands of professionals in our network</h2>
             </div>
-            <div className="legal-practitioners_lawyerCarouselContainer__Pkmi7">
-              <div className="lawyer-carousel_lawyerCarouselContainer__kCHox">
-                <div className="lawyer-carousel_carouselContainerWrapper__PGpWP">
+            <div className="legal-practitioners_lawyerCarouselContainer">
+              <div className="lawyer-carousel_lawyerCarouselContainer">
+                <div className="lawyer-carousel_carouselContainerWrapper">
                   <div
-                    className="rfm-marquee-container lawyer-carousel_carouselContainer__W_uge"
+                    className="rfm-marquee-container lawyer-carousel_carouselContainer"
                     style={{
                       '--pause-on-hover': 'paused',
                       '--pause-on-click': 'paused',
@@ -352,20 +352,20 @@ const SignUp = () => {
                           { name: 'Thomas Bassil', firm: 'Finn Roache', img: 'finn-roache-thomas-bassil.jpg', area: 'Litigation' },
                         ].map((lawyer, idx) => (
                           <div className="rfm-child" style={{ '--transform': 'none' }} key={`lawyer-1-${idx}`}>
-                            <div className="lawyer-carousel_lawyerCard__5P1QR">
-                              <div className="lawyer-carousel_profileImageContainer__ZdwmE">
+                            <div className="lawyer-carousel_lawyerCard">
+                              <div className="lawyer-carousel_profileImageContainer">
                                 <img
                                   alt={lawyer.name}
-                                  className="lawyer-carousel_profileImage__r5O34"
+                                  className="lawyer-carousel_profileImage"
                                   style={{ color: 'transparent' }}
                                   src={`/assets/sign-up/${lawyer.img}`}
                                 />
                               </div>
-                              <div className="lawyer-carousel_lawyerInfoContainer__gBpwn">
-                                <h3 className="lawyer-carousel_lawyerName__PQL4e">{lawyer.name}</h3>
-                                <p className="lawyer-carousel_firmName__N2Yty">{lawyer.firm}</p>
+                              <div className="lawyer-carousel_lawyerInfoContainer">
+                                <h3 className="lawyer-carousel_lawyerName">{lawyer.name}</h3>
+                                <p className="lawyer-carousel_firmName">{lawyer.firm}</p>
                               </div>
-                              <p className="lawyer-carousel_specialisation__fuTUk">{lawyer.area}</p>
+                              <p className="lawyer-carousel_specialisation">{lawyer.area}</p>
                             </div>
                           </div>
                         ))}
@@ -378,46 +378,46 @@ const SignUp = () => {
           </div>
 
           {/* Need help card */}
-          <div className="styles_widthWrapper__B3BNJ">
-            <div className="styles_innerWidthWrapper__bdp3F">
-              <div className="styles_container__F5erF">
-                <div className="styles_card__G5i6M">
-                  <div className="styles_textWrapper__yJ7QI">
-                    <div className="styles_title__qe9MP">Need help with an issue?</div>
-                    <div className="styles_description__gONZv">Ask LawConnect your legal question for quick, free answers!</div>
+          <div className="styles_widthWrapper">
+            <div className="styles_innerWidthWrapper">
+              <div className="styles_container">
+                <div className="styles_card">
+                  <div className="styles_textWrapper">
+                    <div className="styles_title">Need help with an issue?</div>
+                    <div className="styles_description">Ask LawConnect your legal question for quick, free answers!</div>
                   </div>
-                  <div className="styles_imageWrapper__xawbg">
+                  <div className="styles_imageWrapper">
                     <a
                       href="https://lawconnect.com/chat?newCase=true"
-                      className="styles_buttonWrapper__XXBD1 styles_startCaseButton__9iUyN"
+                      className="styles_buttonWrapper styles_startCaseButton"
                       style={{ '--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)' }}
                     >
-                      <div className="styles_buttonText___POD5">Start now</div>
-                      <div className="styles_buttonArrow__iKFSw">
-                        <div className="styles_arrowIconWrapperHover__hrNLa">
+                      <div className="styles_buttonText">Start now</div>
+                      <div className="styles_buttonArrow">
+                        <div className="styles_arrowIconWrapperHover">
                           <img
                             alt="arrow-right"
                             width="16"
                             height="16"
-                            className="styles_arrowIcon__Sfck8"
+                            className="styles_arrowIcon"
                             style={{ color: 'transparent' }}
                             src="/assets/sign-up/arrow-right-blue.svg"
                           />
                         </div>
-                        <div className="styles_arrowIconWrapper__QocWn">
+                        <div className="styles_arrowIconWrapper">
                           <img
                             alt="arrow-right-white"
                             width="16"
                             height="16"
-                            className="styles_arrowIcon__Sfck8"
+                            className="styles_arrowIcon"
                             style={{ color: 'transparent' }}
                             src="/assets/sign-up/arrow-right-white.svg"
                           />
                         </div>
                       </div>
                     </a>
-                    <div className="styles_backgroundColour__Fh9I5"></div>
-                    <div className="styles_backgroundSquare__8l6wS" style={{ backgroundColor: '#F0EFEC' }}></div>
+                    <div className="styles_backgroundColour"></div>
+                    <div className="styles_backgroundSquare" style={{ backgroundColor: '#F0EFEC' }}></div>
                   </div>
                 </div>
               </div>

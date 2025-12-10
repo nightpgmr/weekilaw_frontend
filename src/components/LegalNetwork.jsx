@@ -22,29 +22,29 @@ const LegalNetwork = () => {
 
   return (
     <PageLayout>
-      <div className="layout_content__yRzeE">
-        <div className="legal-network-content_pageGapWrapper__xxEgN">
+      <div className="layout_content">
+        <div className="legal-network-content_pageGapWrapper">
           {/* Hero */}
-          <div className="page-header_helpTitleContainer__NpuGb legal-network-content_heroClass__j_3lW">
-            <div className="page-header_widthWrapper__4MKzc">
-              <div className="page-header_innerWidthWrapper__GMUNJ legal-network-content_heroInnerClassName__v2lTC">
-                <div className="breadcrumb_breadcrumbContainer__WxR4l">
-                  <span className="breadcrumb_breadcrumbItem__YvWT0">
+          <div className="page-header_helpTitleContainer legal-network-content_heroClass">
+            <div className="page-header_widthWrapper">
+              <div className="page-header_innerWidthWrapper legal-network-content_heroInnerClassName">
+                <div className="breadcrumb_breadcrumbContainer">
+                  <span className="breadcrumb_breadcrumbItem">
                     <a href="/en-us/about">About</a>
                   </span>
-                  <span className="breadcrumb_breadcrumbItem__YvWT0">
+                  <span className="breadcrumb_breadcrumbItem">
                     {' / '}
                     <a href="/en-us/about/legal-network">Our legal network</a>
                   </span>
                 </div>
-                <h1 className="page-header_title__ApYOt">Our network of trusted lawyers</h1>
-                <div className="page-header_heroIconContainer__zF2JD">
+                <h1 className="page-header_title">Our network of trusted lawyers</h1>
+                <div className="page-header_heroIconContainer">
                   <img
                     alt="hero-icon"
                     width="260"
                     height="260"
                     loading="lazy"
-                    className="page-header_heroIcon__eA6Mc"
+                    className="page-header_heroIcon"
                     style={{ color: 'transparent' }}
                     src="/assets/legal-network/hero-icon.svg"
                   />
@@ -54,38 +54,38 @@ const LegalNetwork = () => {
           </div>
 
           {/* Intro */}
-          <div className="legal-network-content_introContainer__BiVIn">
-            <div className="legal-network-content_widthWrapper__kECOM">
-              <div className="legal-network-content_innerWidthWrapper__pWqRG legal-network-content_introInnerWidthWrapper__geSWZ">
-                <div className="intro_introHeaderContainer__0_NlD">
-                  <h2 className="intro_introHeader__4N4Zl">Connecting you with trusted lawyers for expert advice</h2>
+          <div className="legal-network-content_introContainer">
+            <div className="legal-network-content_widthWrapper">
+              <div className="legal-network-content_innerWidthWrapper legal-network-content_introInnerWidthWrapper">
+                <div className="intro_introHeaderContainer">
+                  <h2 className="intro_introHeader">Connecting you with trusted lawyers for expert advice</h2>
                 </div>
-                <div className="intro_introLawyersImageContainer__Nzmbm">
-                  <div className="intro_introImageContainer__tmNTs">
+                <div className="intro_introLawyersImageContainer">
+                  <div className="intro_introImageContainer">
                     <img
                       alt="intro-image"
                       loading="lazy"
-                      className="intro_introImage__fNh18 intro_desktop__KdLVP"
+                      className="intro_introImage intro_desktop"
                       style={{ color: 'transparent' }}
                       src="/assets/legal-network/legal-professionals-desktop.webp"
                     />
                     <img
                       alt="intro-image"
                       loading="lazy"
-                      className="intro_introImage__fNh18 intro_tablet__pzIvw"
+                      className="intro_introImage intro_tablet"
                       style={{ color: 'transparent' }}
                       src="/assets/legal-network/legal-professionals-tablet.webp"
                     />
                     <img
                       alt="intro-image"
                       loading="lazy"
-                      className="intro_introImage__fNh18 intro_mobile__2VY_4"
+                      className="intro_introImage intro_mobile"
                       style={{ color: 'transparent' }}
                       src="/assets/legal-network/legal-professionals-mobile.webp"
                     />
                   </div>
                 </div>
-                <div className="intro_introDescription__F_Yhm">
+                <div className="intro_introDescription">
                   LawConnect is proud to offer our users access to a network of qualified legal professionals. When legal
                   challenges arise, you deserve professional guidance from experienced lawyers who understand your specific needs.
                 </div>
@@ -94,53 +94,53 @@ const LegalNetwork = () => {
           </div>
 
           {/* Legal practitioners */}
-          <div className="legal-practitioners_legalPractitionersContainer__2oSbQ">
-            <div className="legal-practitioners_headerContainer__5LAE3">
-              <h2 className="legal-practitioners_headerTitle__nehI7">Join thousands of professionals in our network</h2>
+          <div className="legal-practitioners_legalPractitionersContainer">
+            <div className="legal-practitioners_headerContainer">
+              <h2 className="legal-practitioners_headerTitle">Join thousands of professionals in our network</h2>
             </div>
-            <div className="stacked-card_stackedCardWrapper__J_qwH">
-              <div className="stacked-card_container__5UUnf legal-practitioners_noMargin__DI7Ih">
-                <div className="stacked-card_lawyerImageWrapper__tyiPv">
+            <div className="stacked-card_stackedCardWrapper">
+              <div className="stacked-card_container legal-practitioners_noMargin">
+                <div className="stacked-card_lawyerImageWrapper">
                   <img
                     alt="Lawyer"
                     loading="lazy"
-                    className="stacked-card_lawyerImage__yeM4Y legal-practitioners_lawyerImage__Y85k_"
+                    className="stacked-card_lawyerImage legal-practitioners_lawyerImage"
                     style={{ color: 'transparent' }}
                     src="/assets/legal-network/logo.webp"
                   />
                 </div>
-                <div className="stacked-card_textPosition__Ky8WH legal-practitioners_textPosition__Bw6lN">
-                  <h1 className="stacked-card_textContainer__42GGn legal-practitioners_textContainer__sJ7PF">
-                    <div className="legal-practitioners_commitmentCard__NLeq5">30,000+ legal practitioners</div>
+                <div className="stacked-card_textPosition legal-practitioners_textPosition">
+                  <h1 className="stacked-card_textContainer legal-practitioners_textContainer">
+                    <div className="legal-practitioners_commitmentCard">30,000+ legal practitioners</div>
                   </h1>
                 </div>
               </div>
             </div>
 
-            <div className="legal-practitioners_lawyerCarouselContainer__P5nij">
-              <div className="lawyer-carousel_lawyerCarouselContainer__kCHox">
-                <div className="lawyer-carousel_carouselContainerWrapper__PGpWP">
-                  <div className="lawyer-carousel_carouselContainer__W_uge">
+            <div className="legal-practitioners_lawyerCarouselContainer">
+              <div className="lawyer-carousel_lawyerCarouselContainer">
+                <div className="lawyer-carousel_carouselContainerWrapper">
+                  <div className="lawyer-carousel_carouselContainer">
                     <div className="rfm-marquee-container" style={{ '--width': '100%', '--transform': 'none', '--pause-on-hover': 'running' }}>
                       <div className="rfm-marquee" style={{ '--play': 'running', '--direction': 'normal', '--duration': '40s', '--delay': '0s', '--iteration-count': 'infinite', '--min-width': '100%' }}>
                         <div className="rfm-initial-child-container">
                           {lawyerCards.concat(lawyerCards).map((card, idx) => (
                             <div className="rfm-child" key={`${card.name}-${idx}`} style={{ '--transform': 'none' }}>
-                              <div className="lawyer-carousel_lawyerCard__5P1QR">
-                                <div className="lawyer-carousel_profileImageContainer__ZdwmE">
+                              <div className="lawyer-carousel_lawyerCard">
+                                <div className="lawyer-carousel_profileImageContainer">
                                   <img
                                     alt={card.name}
                                     loading="lazy"
-                                    className="lawyer-carousel_profileImage__r5O34"
+                                    className="lawyer-carousel_profileImage"
                                     src={card.image}
                                     style={{ color: 'transparent' }}
                                   />
                                 </div>
-                                <div className="lawyer-carousel_lawyerInfoContainer__gBpwn">
-                                  <h3 className="lawyer-carousel_lawyerName__PQL4e">{card.name}</h3>
-                                  <p className="lawyer-carousel_firmName__N2Yty">{card.firm}</p>
+                                <div className="lawyer-carousel_lawyerInfoContainer">
+                                  <h3 className="lawyer-carousel_lawyerName">{card.name}</h3>
+                                  <p className="lawyer-carousel_firmName">{card.firm}</p>
                                 </div>
-                                <p className="lawyer-carousel_specialisation__fuTUk">{card.specialization}</p>
+                                <p className="lawyer-carousel_specialisation">{card.specialization}</p>
                               </div>
                             </div>
                           ))}
@@ -149,28 +149,28 @@ const LegalNetwork = () => {
                     </div>
                   </div>
                 </div>
-                <div className="lawyer-carousel_buttonContainer__4TVHJ">
-                  <a className="button_buttonContainer__gCB6U lawyer-carousel_button__3B63S" href="/en-us/for-lawyers/sign-up">
-                    <div className="button_buttonText__1_evT lawyer-carousel_buttonText__Ua_lv">Join our network</div>
-                    <div className="button_buttonArrow__75UxD lawyer-carousel_buttonArrow__8ZIKf">
-                      <div className="button_arrowIconWrapperHover__E_U1V">
+                <div className="lawyer-carousel_buttonContainer">
+                  <a className="button_buttonContainer lawyer-carousel_button" href="/en-us/for-lawyers/sign-up">
+                    <div className="button_buttonText lawyer-carousel_buttonText">Join our network</div>
+                    <div className="button_buttonArrow lawyer-carousel_buttonArrow">
+                      <div className="button_arrowIconWrapperHover">
                         <img
                           alt="arrow-right-white"
                           loading="lazy"
                           width="16"
                           height="16"
-                          className="button_arrowIcon__EQvnO"
+                          className="button_arrowIcon"
                           style={{ color: 'transparent' }}
                           src="/assets/legal-network/arrow-right-blue.svg"
                         />
                       </div>
-                      <div className="button_arrowIconWrapper__ftquI">
+                      <div className="button_arrowIconWrapper">
                         <img
                           alt="arrow-right"
                           loading="lazy"
                           width="16"
                           height="16"
-                          className="button_arrowIcon__EQvnO"
+                          className="button_arrowIcon"
                           style={{ color: 'transparent' }}
                           src="/assets/legal-network/arrow-right-blue.svg"
                         />
@@ -183,17 +183,17 @@ const LegalNetwork = () => {
           </div>
 
           {/* World map */}
-          <div className="world-map_worldMapSection__RSd7A">
-            <div className="world-map_mapContainer__9spUy">
+          <div className="world-map_worldMapSection">
+            <div className="world-map_mapContainer">
               <div>
                 <picture>
-                  <source srcSet="/assets/legal-network/world-map-desktop.webp" media="(min-width: 1185px)" className="world-map_worldMapImage__Jzr_P" />
-                  <source srcSet="/assets/legal-network/world-map-desktop.webp" className="world-map_worldMapImage__Jzr_P" />
-                  <img src="/assets/legal-network/world-map-desktop.webp" alt="Lawyers" className="world-map_worldMapImage__Jzr_P" />
+                  <source srcSet="/assets/legal-network/world-map-desktop.webp" media="(min-width: 1185px)" className="world-map_worldMapImage" />
+                  <source srcSet="/assets/legal-network/world-map-desktop.webp" className="world-map_worldMapImage" />
+                  <img src="/assets/legal-network/world-map-desktop.webp" alt="Lawyers" className="world-map_worldMapImage" />
                 </picture>
               </div>
-              <div className="world-map_descriptionContainer__BTqgV">
-                <div className="world-map_description__vpYgP">
+              <div className="world-map_descriptionContainer">
+                <div className="world-map_description">
                   We help people access relevant legal information worldwide,<br />
                   and facilitate lawyer connections in Australia and the UK, with more regions coming soon.
                 </div>
@@ -202,17 +202,17 @@ const LegalNetwork = () => {
           </div>
 
           {/* How it works */}
-          <div className="legal-network-content_howItWorksContainer__DIwTu">
-            <div className="how-it-works_container__QKBoH">
-              <div className="how-it-works_container__of4_F">
-                <div className="how-it-works_stepsWrapper__EUaDV">
-                  <div className="how-it-works_titleContainer__AfLNN how-it-works_titleContainer__Ufc4u">
-                    <h2 className="how-it-works_title___Fro9 how-it-works_title__YvDLO">How we make finding legal help easier</h2>
-                    <p className="how-it-works_description__hDe10 how-it-works_description__qLbKs">
+          <div className="legal-network-content_howItWorksContainer">
+            <div className="how-it-works_container">
+              <div className="how-it-works_container">
+                <div className="how-it-works_stepsWrapper">
+                  <div className="how-it-works_titleContainer how-it-works_titleContainer">
+                    <h2 className="how-it-works_title how-it-works_title">How we make finding legal help easier</h2>
+                    <p className="how-it-works_description how-it-works_description">
                       LawConnect gives you access to trusted lawyers with the experience and local knowledge to help with your legal matter. The process is simple:
                     </p>
                   </div>
-                  <div className="how-it-works_stepsContainer__DSnE_">
+                  <div className="how-it-works_stepsContainer">
                     {[
                       {
                         title: 'Describe your situation',
@@ -236,22 +236,22 @@ const LegalNetwork = () => {
                         mobile: '/assets/legal-network/how-it-works-step3-mobile.webp',
                       },
                     ].map((item, idx) => (
-                      <div className={`how-it-works_step__jFwrJ ${idx === 1 ? 'how-it-works_step2__nv2n9' : ''}`} key={item.title}>
-                        <div className="how-it-works_imageWrapper__izb3y">
-                          <img alt={item.title} loading="lazy" className="how-it-works_stepImage__Lff2G how-it-works_desktop__kRSLk" style={{ color: 'transparent' }} src={item.desktop} />
-                          <img alt={item.title} loading="lazy" className="how-it-works_stepImage__Lff2G how-it-works_tablet__MM4MR" style={{ color: 'transparent' }} src={item.tablet} />
-                          <img alt={item.title} loading="lazy" className="how-it-works_stepImage__Lff2G how-it-works_mobile__VUq45" style={{ color: 'transparent' }} src={item.mobile} />
+                      <div className={`how-it-works_step ${idx === 1 ? 'how-it-works_step2' : ''}`} key={item.title}>
+                        <div className="how-it-works_imageWrapper">
+                          <img alt={item.title} loading="lazy" className="how-it-works_stepImage how-it-works_desktop" style={{ color: 'transparent' }} src={item.desktop} />
+                          <img alt={item.title} loading="lazy" className="how-it-works_stepImage how-it-works_tablet" style={{ color: 'transparent' }} src={item.tablet} />
+                          <img alt={item.title} loading="lazy" className="how-it-works_stepImage how-it-works_mobile" style={{ color: 'transparent' }} src={item.mobile} />
                         </div>
-                        <div className="how-it-works_stepContent__VUEk_">
-                          <h3 className="how-it-works_stepTitle__oniny">{item.title}</h3>
-                          <p className="how-it-works_stepDescription__WZf71">{item.desc}</p>
+                        <div className="how-it-works_stepContent">
+                          <h3 className="how-it-works_stepTitle">{item.title}</h3>
+                          <p className="how-it-works_stepDescription">{item.desc}</p>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
-              <div className="how-it-works_disclaimer__197Nu">
+              <div className="how-it-works_disclaimer">
                 If you decide to consult a connected lawyer, they’ll explain their fees upfront.<br />
                 Any agreement is between you and the lawyer, not LawConnect
               </div>
@@ -259,40 +259,40 @@ const LegalNetwork = () => {
           </div>
 
           {/* Advantages */}
-          <div className="legal-network-content_advantagesContainer__N_Q4D">
-            <div className="advantages_widthWrapper__mgCvu">
-              <div className="advantages_carouselContainer__Mx3vm">
-                <div className="advantages_titleContainer__LrvgO">
-                  <h2 className="advantages_title__YVE4v">Our network advantage</h2>
+          <div className="legal-network-content_advantagesContainer">
+            <div className="advantages_widthWrapper">
+              <div className="advantages_carouselContainer">
+                <div className="advantages_titleContainer">
+                  <h2 className="advantages_title">Our network advantage</h2>
                 </div>
-                <div className="advantages_descriptionContainer__6FdgJ">
-                  <p className="advantages_description__q_EUb">LawConnect users benefit from:</p>
+                <div className="advantages_descriptionContainer">
+                  <p className="advantages_description">LawConnect users benefit from:</p>
                 </div>
-                <div className="styles-module__container___UTp91 advantages_carouselWrapper__eomiX">
-                  <div className="styles-module__cardsContainer___5LjEc">
-                    <div className="styles-module__cards___cdHPc advantages_cardsContainer___7_s5" style={{ gap: '0px 40px', gridAutoColumns: 'minmax(270px, 1fr)', gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))' }}>
+                <div className="styles-module__container advantages_carouselWrapper">
+                  <div className="styles-module__cardsContainer">
+                    <div className="styles-module__cards advantages_cardsContainer" style={{ gap: '0px 40px', gridAutoColumns: 'minmax(270px, 1fr)', gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))' }}>
                       {advantages.map((adv) => (
-                        <div className="advantages_gridItem__5EkHd" key={adv.description}>
-                          <div className="advantages_categoryImageContainer__kd1z5">
-                            <img alt="advantage" loading="lazy" className="advantages_categoryImage__VWyuz" src={adv.image} style={{ color: 'transparent' }} />
+                        <div className="advantages_gridItem" key={adv.description}>
+                          <div className="advantages_categoryImageContainer">
+                            <img alt="advantage" loading="lazy" className="advantages_categoryImage" src={adv.image} style={{ color: 'transparent' }} />
                           </div>
-                          <div className="advantages_categoryDescription__HE8Z4" dangerouslySetInnerHTML={{ __html: `<b>${adv.description.split('.')[0]}</b>${adv.description.includes(' with ') ? adv.description.slice(adv.description.indexOf(' with ')) : ''}` }} />
+                          <div className="advantages_categoryDescription" dangerouslySetInnerHTML={{ __html: `<b>${adv.description.split('.')[0]}</b>${adv.description.includes(' with ') ? adv.description.slice(adv.description.indexOf(' with ')) : ''}` }} />
                         </div>
                       ))}
                     </div>
                   </div>
-                  <div className="styles-module__actionBar___ZrZ2f advantages_actionBarWrapper__jor7g">
-                    <div className="styles-module__scrollBar___U38pA">
-                      <div className="styles-module__scrolledPosition___xWpkI" style={{ width: '50%', left: '0%' }}></div>
+                  <div className="styles-module__actionBar advantages_actionBarWrapper">
+                    <div className="styles-module__scrollBar">
+                      <div className="styles-module__scrolledPosition" style={{ width: '50%', left: '0%' }}></div>
                     </div>
-                    <div className="styles-module__actionButtonContainer___OG46l advantages_arrowButtonContainer__7jSEX">
-                      <button className="styles-module__actionButton___3t8y2" disabled>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#777777" xmlns="http://www.w3.org/2000/svg" className="styles-module__actionIcon___sIeGi">
+                    <div className="styles-module__actionButtonContainer advantages_arrowButtonContainer">
+                      <button className="styles-module__actionButton" disabled>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#777777" xmlns="http://www.w3.org/2000/svg" className="styles-module__actionIcon">
                           <path d="M12.5303 5.03032C12.6661 4.8946 12.75 4.7071 12.75 4.5C12.75 4.08579 12.4142 3.75 12 3.75C11.7893 3.75 11.5989 3.83686 11.4627 3.97672L3.97672 11.4627C3.83686 11.5989 3.75 11.7893 3.75 12C3.75 12.2107 3.83686 12.4011 3.97672 12.5373L11.4627 20.0233C11.599 20.1631 11.7893 20.25 12 20.25C12.4142 20.25 12.75 19.9142 12.75 19.5C12.75 19.2929 12.6661 19.1054 12.5303 18.9697L6.31075 12.75H19.5C19.9142 12.75 20.25 12.4142 20.25 12C20.25 11.5858 19.9142 11.25 19.5 11.25H6.31075L12.5303 5.03032Z"></path>
                         </svg>
                       </button>
-                      <button className="styles-module__actionButton___3t8y2">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#0E5FE3" xmlns="http://www.w3.org/2000/svg" className="styles-module__actionIcon___sIeGi">
+                      <button className="styles-module__actionButton">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#0E5FE3" xmlns="http://www.w3.org/2000/svg" className="styles-module__actionIcon">
                           <path d="M7.64644 3.35355C7.55596 3.26306 7.5 3.13807 7.5 3C7.5 2.72386 7.72386 2.5 8 2.5C8.14045 2.5 8.26737 2.55791 8.35819 2.65115L13.3489 7.64181C13.4421 7.73263 13.5 7.85955 13.5 8C13.5 8.14045 13.4421 8.26737 13.3489 8.35819L8.35819 13.3489C8.26737 13.4421 8.14045 13.5 8 13.5C7.72386 13.5 7.5 13.2761 7.5 13C7.5 12.8619 7.55596 12.7369 7.64644 12.6465L11.7928 8.5H3C2.72386 8.5 2.5 8.27614 2.5 8C2.5 7.72386 2.72386 7.5 3 7.5H11.7928L7.64644 3.35355Z"></path>
                         </svg>
                       </button>
@@ -304,70 +304,70 @@ const LegalNetwork = () => {
           </div>
 
           {/* Join section */}
-          <div className="legal-network-content_joinContainer__Jm9j6">
-            <div className="join_container__asFWw">
-              <div className="join_backgroundContainer__g1Nd9">
-                <div className="join_backgroundImage__ECsRd">
+          <div className="legal-network-content_joinContainer">
+            <div className="join_container">
+              <div className="join_backgroundContainer">
+                <div className="join_backgroundImage">
                   <img
                     alt="Legal Network Background"
                     loading="lazy"
-                    className="join_bgImage__9yFDs"
+                    className="join_bgImage"
                     style={{ color: 'transparent' }}
                     src="/assets/legal-network/legal-network-bg-desktop.webp"
                   />
-                  <div className="join_logoIconWrapper__03yNg">
+                  <div className="join_logoIconWrapper">
                     <img
                       alt="Logo Icon"
                       loading="lazy"
-                      className="join_logoIcon__KtUn7"
+                      className="join_logoIcon"
                       style={{ color: 'transparent' }}
                       src="/assets/legal-network/logo-icon.webp"
                     />
                   </div>
                 </div>
               </div>
-              <div className="join_cardWrapper__rN9Mx">
-                <div className="join-network-card_cardContainer__1dRiI">
-                  <div className="join-network-card_topSection__BlMkX">
-                    <div className="join-network-card_topContent__2FdV7">
-                      <div className="join-network-card_leftContent___nlna">
-                        <div className="join-network-card_titleWrapper__0sxFN">
-                          <h2 className="join-network-card_title__op8UE">Join our lawyer network</h2>
+              <div className="join_cardWrapper">
+                <div className="join-network-card_cardContainer">
+                  <div className="join-network-card_topSection">
+                    <div className="join-network-card_topContent">
+                      <div className="join-network-card_leftContent">
+                        <div className="join-network-card_titleWrapper">
+                          <h2 className="join-network-card_title">Join our lawyer network</h2>
                         </div>
                         <div>
                           <img
                             alt="LawConnect"
                             loading="lazy"
-                            className="join-network-card_logo__KMfrz"
+                            className="join-network-card_logo"
                             style={{ color: 'transparent' }}
                             src="/assets/legal-network/logo-full-white.png"
                           />
                         </div>
                       </div>
-                      <div className="join-network-card_phoneImageWrapper__0sFUc">
+                      <div className="join-network-card_phoneImageWrapper">
                         <picture>
-                          <source srcSet="/assets/legal-network/join-network-lawyer.webp" className="join-network-card_phoneImage__etA6n" />
-                          <img src="/assets/legal-network/join-network-lawyer.webp" alt="Legal Network Background" className="join-network-card_phoneImage__etA6n" />
+                          <source srcSet="/assets/legal-network/join-network-lawyer.webp" className="join-network-card_phoneImage" />
+                          <img src="/assets/legal-network/join-network-lawyer.webp" alt="Legal Network Background" className="join-network-card_phoneImage" />
                         </picture>
                       </div>
                     </div>
                   </div>
-                  <div className="join-network-card_bottomSection__efQ7u">
+                  <div className="join-network-card_bottomSection">
                     <div
-                      className="join-network-card_description__g_jBy"
+                      className="join-network-card_description"
                       dangerouslySetInnerHTML={{
                         __html:
                           'Are you a legal professional looking to generate new business?<br><br>Join our network and connect directly with clients seeking your specific expertise. Expand your practice and build valuable client relationships through our streamlined lead generation system.',
                       }}
                     />
-                    <a className="button_buttonContainer__gCB6U join-network-card_buttonContainer___Qhab" href="/en-us/for-lawyers/sign-up">
-                      <div className="button_buttonText__1_evT join-network-card_buttonText__OI3Ok">Sign up now</div>
-                      <div className="button_buttonArrow__75UxD">
-                        <div className="button_arrowIconWrapperHover__E_U1V">
-                          <img alt="arrow-right-white" loading="lazy" width="16" height="16" className="button_arrowIcon__EQvnO" style={{ color: 'transparent' }} src="/assets/legal-network/arrow-right-blue.svg" />
+                    <a className="button_buttonContainer join-network-card_buttonContainer" href="/en-us/for-lawyers/sign-up">
+                      <div className="button_buttonText join-network-card_buttonText">Sign up now</div>
+                      <div className="button_buttonArrow">
+                        <div className="button_arrowIconWrapperHover">
+                          <img alt="arrow-right-white" loading="lazy" width="16" height="16" className="button_arrowIcon" style={{ color: 'transparent' }} src="/assets/legal-network/arrow-right-blue.svg" />
                         </div>
-                        <div className="button_arrowIconWrapper__ftquI">
-                          <img alt="arrow-right" loading="lazy" width="16" height="16" className="button_arrowIcon__EQvnO" style={{ color: 'transparent' }} src="/assets/legal-network/arrow-right-blue.svg" />
+                        <div className="button_arrowIconWrapper">
+                          <img alt="arrow-right" loading="lazy" width="16" height="16" className="button_arrowIcon" style={{ color: 'transparent' }} src="/assets/legal-network/arrow-right-blue.svg" />
                         </div>
                       </div>
                     </a>
@@ -378,33 +378,33 @@ const LegalNetwork = () => {
           </div>
 
           {/* Need help CTA */}
-          <div className="legal-network-content_widthWrapper__kECOM">
-            <div className="legal-network-content_innerWidthWrapper__pWqRG">
-              <div className="legal-network-content_needHelpCardContainer__PT038">
-                <div className="styles_container__F5erF">
-                  <div className="styles_card__G5i6M">
-                    <div className="styles_textWrapper__yJ7QI">
-                      <div className="styles_title__qe9MP">Need help with an issue?</div>
-                      <div className="styles_description__gONZv">Ask LawConnect your legal question for quick, free answers!</div>
+          <div className="legal-network-content_widthWrapper">
+            <div className="legal-network-content_innerWidthWrapper">
+              <div className="legal-network-content_needHelpCardContainer">
+                <div className="styles_container">
+                  <div className="styles_card">
+                    <div className="styles_textWrapper">
+                      <div className="styles_title">Need help with an issue?</div>
+                      <div className="styles_description">Ask LawConnect your legal question for quick, free answers!</div>
                     </div>
-                    <div className="styles_imageWrapper__xawbg">
+                    <div className="styles_imageWrapper">
                       <a
                         href="/chat?newCase=true"
-                        className="styles_buttonWrapper__XXBD1 styles_startCaseButton__9iUyN"
+                        className="styles_buttonWrapper styles_startCaseButton"
                         style={{ '--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)' }}
                       >
-                        <div className="styles_buttonText___POD5">Start now</div>
-                        <div className="styles_buttonArrow__iKFSw">
-                          <div className="styles_arrowIconWrapperHover__hrNLa">
-                            <img alt="arrow-right" loading="lazy" width="16" height="16" className="styles_arrowIcon__Sfck8" style={{ color: 'transparent' }} src="/assets/legal-network/arrow-right-blue.svg" />
+                        <div className="styles_buttonText">Start now</div>
+                        <div className="styles_buttonArrow">
+                          <div className="styles_arrowIconWrapperHover">
+                            <img alt="arrow-right" loading="lazy" width="16" height="16" className="styles_arrowIcon" style={{ color: 'transparent' }} src="/assets/legal-network/arrow-right-blue.svg" />
                           </div>
-                          <div className="styles_arrowIconWrapper__QocWn">
-                            <img alt="arrow-right-white" loading="lazy" width="16" height="16" className="styles_arrowIcon__Sfck8" style={{ color: 'transparent' }} src="/assets/legal-network/arrow-right-white.svg" />
+                          <div className="styles_arrowIconWrapper">
+                            <img alt="arrow-right-white" loading="lazy" width="16" height="16" className="styles_arrowIcon" style={{ color: 'transparent' }} src="/assets/legal-network/arrow-right-white.svg" />
                           </div>
                         </div>
                       </a>
-                      <div className="styles_backgroundColour__Fh9I5"></div>
-                      <div className="styles_backgroundSquare__8l6wS" style={{ backgroundColor: '#F0EFEC' }}></div>
+                      <div className="styles_backgroundColour"></div>
+                      <div className="styles_backgroundSquare" style={{ backgroundColor: '#F0EFEC' }}></div>
                     </div>
                   </div>
                 </div>

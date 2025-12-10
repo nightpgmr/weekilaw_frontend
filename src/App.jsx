@@ -16,7 +16,7 @@ import ChatPage from './components/ChatPage.jsx';
 function App() {
   return (
     <Router>
-      <div className="App layout_body__hKYsf __variable_f367f3 __variable_ad9d8d">
+      <div className="App layout_body __variable_f367f3 __variable_ad9d8d">
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/en-us/estate-and-probate-law" element={<EstateProbate />} />
