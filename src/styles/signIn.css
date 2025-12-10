@@ -508,7 +508,8 @@
      border-color:currentColor
   }
    :where(button,[type=button],[type=reset],[type=submit]) {
-     -webkit-appearance:button
+     -webkit-appearance:button;
+     appearance:button;
   }
    ::-webkit-file-upload-button {
      -webkit-appearance:button;
@@ -522,6 +523,7 @@
   }
    :where([type=search]) {
      -webkit-appearance:textfield;
+     appearance:textfield;
      outline-offset:-2px
   }
    :where(code,kbd,samp,pre) {
@@ -531,7 +533,8 @@
      font-size:80%
   }
    :where(input[type=date],input[type=time],input[type=datetime-local],input[type=month]) {
-     -webkit-appearance:listbox
+     -webkit-appearance:listbox;
+     appearance:listbox;
   }
    ::-webkit-search-decoration {
      -webkit-appearance:none
@@ -2009,9 +2012,112 @@
      max-block-size:var(--kinde-layout-page-logo-size);
      max-inline-size:var(--kinde-layout-page-logo-size)
   }
-   .kinde-layout-page-description {
-     max-inline-size:var(--kinde-layout-page-description-max-inline-size,72ch)
-  }
-  
+.kinde-layout-page-description {
+    max-inline-size:var(--kinde-layout-page-description-max-inline-size,72ch)
+ }
+ 
 }
- /*# sourceMappingURL=style.css.map */
+
+/* Custom overrides (from former signInOverrides.css) */
+.kinde-layout-page-card {
+  gap: 16px;
+  padding: 28px 24px;
+  min-height: 100vh;
+  margin-top: 100px;
+}
+
+.kinde-layout-page-card-header {
+  gap: 6px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.kinde-layout-page-branding {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.kinde-heading-variant-large {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+.kinde-layout-page-logo img {
+  display: block;
+  margin: 0 auto;
+}
+
+.kinde-layout-page-description {
+  margin-top: 4px;
+  margin-bottom: 30px;
+}
+
+.kinde-layout-widget-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.kinde-control-select-text {
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.kinde-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kinde-choice-separator {
+  margin: 6px 0;
+}
+
+.kinde-layout-auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+}
+
+.kinde-button-variant-primary {
+  background: #0056f1;
+  border-color: #0056f1;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.kinde-button-variant-primary:hover {
+  background: #0b4ddf;
+  border-color: #0b4ddf;
+}
+
+/* Ensure main spans full width so footer can align edge-to-edge */
+.kinde-layout-page-main {
+  --inline-size: 100%;
+  inline-size: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 64em) {
+  .kinde-layout-page-main {
+    --inline-size: 100%;
+    inline-size: 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Footer should span full width inside padded main on sign-in layout */
+.kinde-layout-page-main > footer.style-module__footer___0X-Tm {
+  margin-inline: calc(-1 * var(--kinde-layout-page-main-padding, 3rem));
+  width: calc(100% + calc(var(--kinde-layout-page-main-padding, 3rem) * 2));
+}
+
+/*# sourceMappingURL=style.css.map */

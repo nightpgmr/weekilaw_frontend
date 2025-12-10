@@ -183,6 +183,7 @@
  * {
    box-sizing:border-box;
    -webkit-appearance:none;
+   appearance:none;
    -webkit-font-smoothing:antialiased;
    -moz-osx-font-smoothing:grayscale
 }
@@ -744,6 +745,7 @@
    overflow:hidden;
    display:-webkit-box;
    -webkit-line-clamp:1;
+   line-clamp:1;
    -webkit-box-orient:vertical;
    text-overflow:ellipsis
 }

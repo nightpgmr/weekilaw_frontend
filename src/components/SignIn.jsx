@@ -1,6 +1,5 @@
 import React from 'react';
-import '../styles/signInCombined.css';
-import '../styles/signInOverrides.css';
+import '../styles/signIn.css';
 import PageLayout from './PageLayout.jsx';
 
 function SignIn() {
