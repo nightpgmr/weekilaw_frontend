@@ -3016,7 +3016,8 @@
    background-repeat:no-repeat;
    background-position-x:98%;
    background-position-y:55%;
-   -webkit-border-radius:0
+   -webkit-border-radius:0;
+   border-radius: 0;
 }
  .styles-module__splitDateInputWrapper___r20q6 .styles-module__splitDateInput___pVpYo {
    border-radius:10px;
