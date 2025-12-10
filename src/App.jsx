@@ -12,6 +12,7 @@ import Careers from './components/Careers.jsx';
 import Sailing from './components/Sailing.jsx';
 import Company from './components/Company.jsx';
 import SignUp from './components/SignUp.jsx';
+import SignIn from './components/SignIn.jsx';
 import ChatPage from './components/ChatPage.jsx';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/en-us/about/careers" element={<Careers />} />
           <Route path="/en-us/about/sailing" element={<Sailing />} />
           <Route path="/en-us/for-lawyers/sign-up" element={<SignUp />} />
+          <Route path="/auth/sign-in" element={<SignIn />} />
           <Route path="/chat" element={<ChatPage />} />
         </Routes>
         <Footer />
