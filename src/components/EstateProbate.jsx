@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { areasOfLawContent, defaultAreaSlug } from '../data/areas';
+import PageLayout from './PageLayout.jsx';
 
 const EstateProbate = () => {
   const { areaSlug } = useParams();
@@ -35,7 +36,7 @@ const EstateProbate = () => {
   };
 
   return (
-    <main className="layout_main__DUFC2">
+    <PageLayout>
       <div className="layout_content__yRzeE">
         {/* Library Header Section */}
         <div className="styles_libraryHeaderWrapper__de8tg">
@@ -555,7 +556,7 @@ const EstateProbate = () => {
         </div>
 
       </div>
-    </main>
+    </PageLayout>
   );
 };
 

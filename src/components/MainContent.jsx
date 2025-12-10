@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PageLayout from './PageLayout.jsx';
 
 const MainContent = () => {
   const [heroStep, setHeroStep] = useState(0);
@@ -146,7 +147,7 @@ const MainContent = () => {
   }, []);
 
   return (
-    <main className="layout_main__DUFC2">
+    <PageLayout>
       <div className="layout_content__yRzeE">
         {/* Hero Section */}
         <div className="hero_heroContainer__CJl7a">
@@ -751,7 +752,7 @@ const MainContent = () => {
         </div>
 
       </div>
-    </main>
+    </PageLayout>
   );
 };
 

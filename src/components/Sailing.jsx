@@ -1,9 +1,10 @@
 import React from 'react';
+import PageLayout from './PageLayout.jsx';
 import '../styles/sailing.css';
 
 const Sailing = () => {
   return (
-    <main className="layout_main__DUFC2">
+    <PageLayout>
       <div className="layout_content__yRzeE">
         {/* Hero */}
         <div className="styles_heroContainer__UZwt9 ">
@@ -241,7 +242,7 @@ const Sailing = () => {
           </div>
         </div>
       </div>
-    </main>
+    </PageLayout>
   );
 };
 

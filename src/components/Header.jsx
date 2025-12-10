@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AccountModal from './AccountModal.jsx';
 
-const Header = () => {
+const Header = ({ scrollElement }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showAccountModal, setShowAccountModal] = useState(false);
@@ -44,10 +44,16 @@ const Header = () => {
   };
 
   useEffect(() => {
+    const target = scrollElement?.current || window;
+
+    const getScrollTop = () => {
+      if (scrollElement?.current) return scrollElement.current.scrollTop || 0;
+      return window.scrollY || document.documentElement.scrollTop || 0;
+    };
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY || document.documentElement.scrollTop;
       // Header shrinks when scrolled down, returns to normal at top
-      setIsScrolled(scrollPosition > 10);
+      setIsScrolled(getScrollTop() > 10);
     };
 
     // Throttle scroll events for better performance
@@ -62,13 +68,13 @@ const Header = () => {
       }
     };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
+    target.addEventListener('scroll', onScroll, { passive: true });
     handleScroll(); // Check initial scroll position
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
+      target.removeEventListener('scroll', onScroll);
     };
-  }, []);
+  }, [scrollElement]);
 
   return (
     <>

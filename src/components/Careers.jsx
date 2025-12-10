@@ -1,9 +1,10 @@
 import React from 'react';
+import PageLayout from './PageLayout.jsx';
 import '../styles/careers.css';
 
 const Careers = () => {
   return (
-    <main className="layout_main__DUFC2">
+    <PageLayout>
       <div className="layout_content__yRzeE">
         {/* Hero */}
         <div className="styles_heroContainer__UZwt9 ">
@@ -125,7 +126,7 @@ const Careers = () => {
           </div>
         </div>
       </div>
-    </main>
+    </PageLayout>
   );
 };
 

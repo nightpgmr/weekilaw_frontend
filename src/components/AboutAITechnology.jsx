@@ -1,9 +1,10 @@
 import React from 'react';
+import PageLayout from './PageLayout.jsx';
 import '../styles/aiTech.css';
 
 const AboutAITechnology = () => {
   return (
-    <main className="layout_main__DUFC2">
+    <PageLayout>
       <div className="layout_content__yRzeE">
         <div className="styles_pageGapWrapper__s2x6v">
           <div className="page-header_helpTitleContainer__NpuGb styles_heroClass__SWdbo">
@@ -361,7 +362,7 @@ const AboutAITechnology = () => {
 
         </div>
       </div>
-    </main>
+    </PageLayout>
   );
 };
 

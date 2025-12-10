@@ -1,4 +1,5 @@
 import React from 'react';
+import PageLayout from './PageLayout.jsx';
 import '../styles/legalNetwork.css';
 
 const LegalNetwork = () => {
@@ -20,7 +21,7 @@ const LegalNetwork = () => {
   ];
 
   return (
-    <main className="layout_main__DUFC2">
+    <PageLayout>
       <div className="layout_content__yRzeE">
         <div className="legal-network-content_pageGapWrapper__xxEgN">
           {/* Hero */}
@@ -413,7 +414,7 @@ const LegalNetwork = () => {
 
         </div>
       </div>
-    </main>
+    </PageLayout>
   );
 };
 

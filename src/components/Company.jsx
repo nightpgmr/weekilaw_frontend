@@ -1,9 +1,10 @@
 import React from 'react';
+import PageLayout from './PageLayout.jsx';
 import '../styles/company.css';
 
 const Company = () => {
   return (
-    <main className="layout_main__DUFC2">
+    <PageLayout>
       <div className="layout_content__yRzeE">
         {/* Hero */}
         <div className="styles_heroContainer__UZwt9 ">
@@ -370,7 +371,7 @@ const Company = () => {
           </div>
         </div>
       </div>
-    </main>
+    </PageLayout>
   );
 };
 

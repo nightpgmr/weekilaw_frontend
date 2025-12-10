@@ -1,9 +1,10 @@
 import React from 'react';
+import PageLayout from './PageLayout.jsx';
 import '../styles/signUp.css';
 
 const SignUp = () => {
   return (
-    <main className="layout_main__DUFC2">
+    <PageLayout>
       <div className="layout_content__yRzeE">
         {/* Hero header */}
         <div className="styles_pageGapWrapper__yI_nf">
@@ -424,7 +425,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-    </main>
+    </PageLayout>
   );
 };
 

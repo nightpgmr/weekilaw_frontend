@@ -2,9 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './styles/pageVars.css';
-import Header from './components/Header.jsx';
 import MainContent from './components/MainContent.jsx';
-import Footer from './components/Footer.jsx';
 import EstateProbate from './components/EstateProbate.jsx';
 import AboutAITechnology from './components/AboutAITechnology.jsx';
 import LegalNetwork from './components/LegalNetwork.jsx';
@@ -19,7 +17,6 @@ function App() {
   return (
     <Router>
       <div className="App layout_body__hKYsf __variable_f367f3 __variable_ad9d8d">
-        <Header />
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/en-us/estate-and-probate-law" element={<EstateProbate />} />
@@ -33,7 +30,6 @@ function App() {
           <Route path="/auth/sign-in" element={<SignIn />} />
           <Route path="/chat" element={<ChatPage />} />
         </Routes>
-        <Footer />
       </div>
     </Router>
   );

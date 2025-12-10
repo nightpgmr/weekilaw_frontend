@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/chatModal.css';
+import PageLayout from './PageLayout.jsx';
 
 /**
  * Full-page chat experience (no iframe). Plug your API into `callChatApi`.
@@ -84,7 +85,7 @@ const ChatPage = () => {
   };
 
   return (
-    <main className="chat-page">
+    <PageLayout className="chat-page">
       <div className="chat-page_inner">
         <div className="chat-header-row">
           <button className="chat-back_button" type="button" onClick={() => navigate(-1)} aria-label="Back">
@@ -176,7 +177,7 @@ const ChatPage = () => {
           </div>
         </div>
       </div>
-    </main>
+    </PageLayout>
   );
 };
 

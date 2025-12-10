@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/signInCombined.css';
 import '../styles/signInOverrides.css';
+import PageLayout from './PageLayout.jsx';
 
 function SignIn() {
   const handleSubmit = (event) => {
@@ -13,7 +14,7 @@ function SignIn() {
       data-kinde-layout-page="true"
       data-kinde-layout-page-alignment="center"
     >
-      <main className="kinde-layout-page-main" data-kinde-layout-page-main="true">
+      <PageLayout className="kinde-layout-page-main" data-kinde-layout-page-main="true">
         <article className="kinde-layout-page-card" data-kinde-layout-page-card="true">
           <header className="kinde-layout-page-card-header" data-kinde-layout-page-card-header="true">
             <div className="kinde-layout-page-branding" data-kinde-layout-page-branding="true">
@@ -179,7 +180,7 @@ function SignIn() {
             />
           </div>
         </article>
-      </main>
+      </PageLayout>
     </div>
   );
 }
