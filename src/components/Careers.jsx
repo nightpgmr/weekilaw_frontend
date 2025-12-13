@@ -95,7 +95,7 @@ const Careers = () => {
               </div>
             </div>
             <div className="styles_buttonContainer">
-              <a className="button_buttonContainer " href="https://lawconnect.com/en-us/contact-us?topic=careers">
+              <a className="button_buttonContainer " href="/en-us/about/company">
                 <div className="button_buttonText styles_buttonText">Contact us</div>
                 <div className="button_buttonArrow ">
                   <div className="button_arrowIconWrapperHover ">

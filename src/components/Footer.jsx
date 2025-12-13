@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="style-module__footer">
       <div className="style-module__widthWrapper">
         <div className="style-module__logoContainer style-module__large">
-          <a href="https://lawconnect.com/en-us" className="style-module__logo">
+          <a href="/" className="style-module__logo">
             <img 
               width="202" 
               height="28" 
@@ -77,7 +77,7 @@ const Footer = () => {
         <div className="style-module__gridContainer style-module__large">
           <div className="style-module__column">
             <div className="style-module__headerLabel">Browse</div>
-            <a href="https://lawconnect.com/chat" className="style-module__menuItem style-module__askQuestion">
+            <a href="/chat" className="style-module__menuItem style-module__askQuestion">
               <span>Ask a question</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="#191919" className="style-module__menuIcon">
                 <style>{`.spin { animation: rotate 3s linear infinite; transform-box: fill-box; transform-origin: 50% 50%; } @keyframes rotate { to { transform: rotate(360deg); } }`}</style>
@@ -87,32 +87,32 @@ const Footer = () => {
                 </g>
               </svg>
             </a>
-            <a href="https://lawconnect.com/en-us/library" className="style-module__menuItem">Areas of law</a>
-            <a href="https://lawconnect.com/en-us/about" className="style-module__menuItem">About</a>
-            <a href="https://lawconnect.com/en-us/for-lawyers/legal-network" className="style-module__menuItem">For lawyers</a>
-            <a href="https://lawconnect.com/account" className="style-module__menuItem">Account</a>
+            <a href="/en-us/library" className="style-module__menuItem">Areas of law</a>
+            <a href="/en-us/about" className="style-module__menuItem">About</a>
+            <a href="/en-us/for-lawyers/legal-network" className="style-module__menuItem">For lawyers</a>
+            <a href="/account" className="style-module__menuItem">Account</a>
           </div>
           <div className="style-module__column">
             <div className="style-module__headerLabel"></div>
-            <a href="https://lawconnect.com/en-us/insights" className="style-module__menuItem">Insights</a>
-            <a href="https://lawconnect.com/en-us/faqs" className="style-module__menuItem">FAQs</a>
-            <a href="https://lawconnect.com/en-us/about/ai-technology" className="style-module__menuItem">Our AI technology</a>
-            <a href="https://lawconnect.com/en-us/about/company" className="style-module__menuItem">Company</a>
-            <a href="https://lawconnect.com/en-us/contact-us" className="style-module__menuItem">Contact us</a>
+            <a href="/en-us/insights" className="style-module__menuItem">Insights</a>
+            <a href="/en-us/faqs" className="style-module__menuItem">FAQs</a>
+            <a href="/en-us/about/ai-technology" className="style-module__menuItem">Our AI technology</a>
+            <a href="/en-us/about/company" className="style-module__menuItem">Company</a>
+            <a href="/en-us/contact-us" className="style-module__menuItem">Contact us</a>
           </div>
           <div className="style-module__column">
             <div className="style-module__headerLabel">Areas of law</div>
-            <a href="https://lawconnect.com/en-us/commercial-law" className="style-module__menuItem">Commercial law</a>
-            <a href="https://lawconnect.com/en-us/criminal-law" className="style-module__menuItem">Criminal law</a>
-            <a href="https://lawconnect.com/en-us/employment-law" className="style-module__menuItem">Employment law</a>
-            <a href="https://lawconnect.com/en-us/estate-and-probate-law" className="style-module__menuItem">Estate and probate law</a>
+            <a href="/en-us/commercial-law" className="style-module__menuItem">Commercial law</a>
+            <a href="/en-us/criminal-law" className="style-module__menuItem">Criminal law</a>
+            <a href="/en-us/employment-law" className="style-module__menuItem">Employment law</a>
+            <a href="/en-us/estate-and-probate-law" className="style-module__menuItem">Estate and probate law</a>
           </div>
           <div className="style-module__column">
             <div className="style-module__headerLabel"></div>
-            <a href="https://lawconnect.com/en-us/family-law" className="style-module__menuItem">Family law</a>
-            <a href="https://lawconnect.com/en-us/immigration-law" className="style-module__menuItem">Immigration law</a>
-            <a href="https://lawconnect.com/en-us/litigation" className="style-module__menuItem">Litigation</a>
-            <a href="https://lawconnect.com/en-us/personal-injury-law" className="style-module__menuItem">Personal injury law</a>
+            <a href="/en-us/family-law" className="style-module__menuItem">Family law</a>
+            <a href="/en-us/immigration-law" className="style-module__menuItem">Immigration law</a>
+            <a href="/en-us/litigation" className="style-module__menuItem">Litigation</a>
+            <a href="/en-us/personal-injury-law" className="style-module__menuItem">Personal injury law</a>
           </div>
         </div>
         <div className="style-module__bottomBarContainer">
@@ -208,7 +208,7 @@ const Footer = () => {
             <div className="style-module__copyrightBottom">
               <div>All rights reserved.&nbsp;</div>
               <div>
-                <a href="https://lawconnect.com/en-us/terms">Terms</a> &amp; <a href="https://lawconnect.com/en-us/privacy">Privacy policy</a>.
+                <a href="/en-us/terms">Terms</a> &amp; <a href="/en-us/privacy">Privacy policy</a>.
               </div>
             </div>
           </div>

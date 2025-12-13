@@ -205,7 +205,7 @@ const Sailing = () => {
               </div>
               <div className="styles_imageWrapper">
                 <a
-                  href="https://lawconnect.com/chat?newCase=true"
+                  href="/chat"
                   className="styles_buttonWrapper styles_startCaseButton"
                   style={{ '--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)' }}
                 >

@@ -20,7 +20,7 @@ function SignIn() {
               <a
                 className="kinde-layout-page-logo"
                 data-kinde-layout-page-logo="true"
-                href="https://lawconnect.com/"
+                href="/"
                 rel="noopener noreferrer"
                 target="_blank"
               >

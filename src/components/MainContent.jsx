@@ -16,15 +16,15 @@ const MainContent = () => {
   ];
 
   const areasOfLaw = [
-    { name: "Commercial law", href: "https://lawconnect.com/en-us/commercial-law", image: "/assets/commercial-law-us.webp" },
-    { name: "Criminal law", href: "https://lawconnect.com/en-us/criminal-law", image: "/assets/criminal-law.webp" },
-    { name: "Employment law", href: "https://lawconnect.com/en-us/employment-law", image: "/assets/employment-law.webp" },
-    { name: "Estate and probate law", href: "https://lawconnect.com/en-us/estate-and-probate-law", image: "/assets/estate-and-probate-law.webp" },
-    { name: "Family law", href: "https://lawconnect.com/en-us/family-law", image: "/assets/family-law.webp" },
-    { name: "Immigration law", href: "https://lawconnect.com/en-us/immigration-law", image: "/assets/immigration-law.webp" },
-    { name: "Litigation", href: "https://lawconnect.com/en-us/litigation", image: "/assets/litigation-law.webp" },
-    { name: "Personal injury law", href: "https://lawconnect.com/en-us/personal-injury-law", image: "/assets/personal-injury-law.webp" },
-    { name: "Property law", href: "https://lawconnect.com/en-us/property-law", image: "/assets/property-law.webp" },
+    { name: "Commercial law", href: "/en-us/commercial-law", image: "/assets/commercial-law-us.webp" },
+    { name: "Criminal law", href: "/en-us/criminal-law", image: "/assets/criminal-law.webp" },
+    { name: "Employment law", href: "/en-us/employment-law", image: "/assets/employment-law.webp" },
+    { name: "Estate and probate law", href: "/en-us/estate-and-probate-law", image: "/assets/estate-and-probate-law.webp" },
+    { name: "Family law", href: "/en-us/family-law", image: "/assets/family-law.webp" },
+    { name: "Immigration law", href: "/en-us/immigration-law", image: "/assets/immigration-law.webp" },
+    { name: "Litigation", href: "/en-us/litigation", image: "/assets/litigation-law.webp" },
+    { name: "Personal injury law", href: "/en-us/personal-injury-law", image: "/assets/personal-injury-law.webp" },
+    { name: "Property law", href: "/en-us/property-law", image: "/assets/property-law.webp" },
   ];
 
   const faqItems = [
@@ -56,35 +56,35 @@ const MainContent = () => {
 
   const siteCards = [
     {
-      href: "https://lawconnect.com/en-us/about/sailing",
+      href: "/en-us/about/sailing",
       image: "/assets/about-sailing.webp",
       title: "Back to Back: How LawConnect Conquered The Hobart",
       description: "Set sail on an unforgettable journey in our latest behind the scenes series of our supermaxi.",
       linkText: "LawConnect sailing"
     },
     {
-      href: "https://lawconnect.com/en-us/about/ai-technology",
+      href: "/en-us/about/ai-technology",
       image: "/assets/about-technology.webp",
       title: "Our AI technology",
       description: "LawConnect harnesses the power of advanced AI to provide free tailored legal information.",
       linkText: "Our AI technology"
     },
     {
-      href: "https://lawconnect.com/en-us/about/legal-network",
+      href: "/en-us/about/legal-network",
       image: "/assets/about-network.webp",
       title: "Our network of trusted lawyers",
       description: "We are proud to offer our users access to a network of qualified legal professionals.",
       linkText: "Our legal network"
     },
     {
-      href: "https://lawconnect.com/en-us/about/company",
+      href: "/en-us/about/company",
       image: "/assets/about-company.webp",
       title: "Making legal help accessible to everyone",
       description: "We're dedicated to helping everyone find the legal resources they need.",
       linkText: "Our company"
     },
     {
-      href: "https://lawconnect.com/en-us/about/careers",
+      href: "/en-us/about/careers",
       image: "/assets/about-careers.webp",
       title: "LawConnect careers can take you anywhere",
       description: "We have a diverse range of positions available across multiple locations.",
@@ -279,7 +279,7 @@ const MainContent = () => {
                     src="/assets/spark-animated-midnight.svg" 
                   />
                 </div>
-                <a className="button_buttonContainer content-card_stackButtonContainer" href="https://lawconnect.com/chat">
+                <a className="button_buttonContainer content-card_stackButtonContainer" href="/chat">
                   <div className="button_buttonText content-card_stackButtonText">Ask a question</div>
                   <div className="button_buttonArrow content-card_stackButtonArrow">
                     <div className="button_arrowIconWrapperHover">
@@ -549,7 +549,7 @@ const MainContent = () => {
               </div>
             </div>
             <div className="knowledge_knowledgeButtonContainer">
-              <a className="button_buttonContainer knowledge_knowledgeButton" href="https://lawconnect.com/en-us/library">
+              <a className="button_buttonContainer knowledge_knowledgeButton" href="/en-us/library">
                 <div className="button_buttonText knowledge_knowledgeButtonText">Areas of law</div>
                 <div className="button_buttonArrow knowledge_knowledgeButtonArrow">
                   <div className="button_arrowIconWrapperHover">
@@ -668,7 +668,7 @@ const MainContent = () => {
                 </div>
               </div>
               <div className="help_helpButtonContainer">
-                <a className="button_buttonContainer help_helpButton" href="https://lawconnect.com/en-us/faqs">
+                <a className="button_buttonContainer help_helpButton" href="/en-us/faqs">
                   <div className="button_buttonText help_helpButtonText">FAQs</div>
                   <div className="button_buttonArrow help_helpButtonArrow">
                     <div className="button_arrowIconWrapperHover">
