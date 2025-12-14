@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import AccountModal from './AccountModal.jsx';
 
@@ -6,6 +6,11 @@ const Header = ({ scrollElement }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showAccountModal, setShowAccountModal] = useState(false);
+
+  const handleScroll = useCallback(() => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    setIsScrolled(scrollTop > 10);
+  }, []);
 
   const areasOfLaw = [
     { title: "Commercial law", description: "Business transactions and agreements.", slug: "commercial-law" },
@@ -44,44 +49,20 @@ const Header = ({ scrollElement }) => {
   };
 
   useEffect(() => {
-    // Listen to both the provided scroll container (if any) and window
-    // so shrink still works when the main element is not scrollable.
-    const elementTarget = scrollElement?.current;
-    const scrollTargets = [window];
-    if (elementTarget && elementTarget !== window) {
-      scrollTargets.push(elementTarget);
-    }
-
-    const getScrollTop = () => {
-      const scrollableElement = elementTarget && elementTarget.scrollHeight > elementTarget.clientHeight + 1;
-      if (scrollableElement && typeof elementTarget.scrollTop === 'number') {
-        return elementTarget.scrollTop;
-      }
-      return window.scrollY || document.documentElement.scrollTop || 0;
+    // Listen for scroll events on the body element (where scrolling actually happens)
+    const scrollHandler = () => {
+      handleScroll();
     };
 
-    const handleScroll = () => {
-      setIsScrolled(getScrollTop() > 10);
-    };
+    document.body.addEventListener('scroll', scrollHandler, { passive: true });
 
-    let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    scrollTargets.forEach((t) => t.addEventListener('scroll', onScroll, { passive: true }));
+    // Check initial scroll position
     handleScroll();
 
     return () => {
-      scrollTargets.forEach((t) => t.removeEventListener('scroll', onScroll));
+      document.body.removeEventListener('scroll', scrollHandler);
     };
-  }, [scrollElement]);
+  }, [handleScroll]);
 
   return (
     <>

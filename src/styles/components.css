@@ -4608,7 +4608,6 @@ to {
   top:0;
   left:0;
   width:100%;
-  height:inherit;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -4632,17 +4631,16 @@ to {
     padding:0 40px
   }
 }
-@media only screen and (min-width:1601px) {
+@media (min-width:1185px) {
   .styles-module__desktopMenuContainer {
-    height:138px;
-    height:var(--large-desktop-menu-height, 138px)
+    height:auto !important
   }
 .styles-module__desktopMenuContainer .styles-module__floatingContainer {
-    transition:all .3s ease;
-    height:72px
+    transition:height 0.3s ease !important;
+    height:138px !important
   }
-.styles-module__desktopMenuContainer .styles-module__floatingContainer:not(.styles-module__shrink) {
-    height:138px
+.styles-module__desktopMenuContainer .styles-module__floatingContainer.styles-module__shrink {
+    height:72px !important
   }
 .styles-module__desktopMenuContainer .styles-module__floatingContainer:not(.styles-module__shrink) .styles-module__logoContainer .styles-module__logo {
     height:34px
