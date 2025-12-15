@@ -99,7 +99,7 @@
 .chat-menu_dropdown {
   position: absolute;
   top: 46px;
-  right: 0;
+  left: 0;
   width: 200px;
   border-radius: 12px;
   background: #ffffff;
@@ -151,7 +151,7 @@
 .chat-modal_close {
   position: absolute;
   top: 12px;
-  right: 12px;
+  right:12px;
   width: 32px;
   height: 32px;
   border: none;
@@ -227,7 +227,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding-right: 4px;
+  padding-left:4px;
 }
 
 .chat-modal_message {

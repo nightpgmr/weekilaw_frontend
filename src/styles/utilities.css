@@ -5,20 +5,20 @@
 }
 @media (min-width:1185px) {
   .site_widthContainer {
-    padding-left:var(--desktop-side-margin);
+    padding-right:var(--desktop-side-margin);
     padding-right:var(--desktop-side-margin)
   }
 }
 @media (min-width:770px) and (max-width:1184px) {
   .site_widthContainer {
-    padding-left:var(--tablet-side-margin);
-    padding-right:var(--tablet-side-margin)
+    padding-right:var(--tablet-side-margin);
+    padding-left:var(--tablet-side-margin)
   }
 }
 @media (max-width:769px) {
   .site_widthContainer {
     padding-left:var(--mobile-side-margin);
-    padding-right:var(--mobile-side-margin)
+    padding-left:var(--mobile-side-margin)
   }
 }
 .site_widthContainer .site_innerWidthWrapper, .site_widthContainer .site_largerInnerWidthWrapper {
@@ -51,10 +51,10 @@
   }
 }
 .site_widthContainer .site_carouselWidthContainer {
-  margin-left:calc(var(--carousel-offset-width) * -1);
   margin-right:calc(var(--carousel-offset-width) * -1);
-  padding-left:var(--carousel-offset-width);
+  margin-left:calc(var(--carousel-offset-width) * -1);
   padding-right:var(--carousel-offset-width);
+  padding-left:var(--carousel-offset-width);
   margin-top:-80px;
   margin-bottom:-80px;
   padding-top:80px;
@@ -71,9 +71,9 @@
   pointer-events:none
 }
 .site_widthContainer .site_carouselWidthContainer:after {
-  left:0;
-  transform:translateX(-100%);
-  background:linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, .8), rgba(255, 255, 255, .6), transparent)
+  right:0;
+  transform:translateX(100%);
+  background:linear-gradient(270deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, .8), rgba(255, 255, 255, .6), transparent)
 }
 @media (max-width:769px), (min-width:770px) and (max-width:1184px) {
   .site_widthContainer .site_carouselWidthContainer:after {
@@ -81,9 +81,9 @@
   }
 }
 .site_widthContainer .site_carouselWidthContainer:before {
-  right:0;
-  transform:translateX(100%);
-  background:linear-gradient(270deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, .8), rgba(255, 255, 255, .6), transparent)
+  left:0;
+  transform:translateX(-100%);
+  background:linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, .8), rgba(255, 255, 255, .6), transparent)
 }
 @media (max-width:769px), (min-width:770px) and (max-width:1184px) {
   .site_widthContainer .site_carouselWidthContainer:before {
@@ -251,22 +251,22 @@
 .social-media_container .social-media_carouselContainerWrapper:before {
     content:"";
     position:absolute;
-    left:0;
+    right:0;
     top:0;
     bottom:0;
     width:120px;
-    background:linear-gradient(90deg, #fff, rgba(255, 255, 255, .8) 30%, rgba(255, 255, 255, .4) 60%, rgba(255, 255, 255, 0));
+    background:linear-gradient(270deg, #fff, rgba(255, 255, 255, .8) 30%, rgba(255, 255, 255, .4) 60%, rgba(255, 255, 255, 0));
     pointer-events:none;
     z-index:2
   }
 .social-media_container .social-media_carouselContainerWrapper:after {
     content:"";
     position:absolute;
-    right:0;
+    left:0;
     top:0;
     bottom:0;
     width:120px;
-    background:linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .4) 40%, rgba(255, 255, 255, .8) 70%, #fff);
+    background:linear-gradient(270deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .4) 40%, rgba(255, 255, 255, .8) 70%, #fff);
     pointer-events:none;
     z-index:2
   }
@@ -384,20 +384,20 @@
 }
 @media (min-width:1185px) {
   .will-content_widthWrapper {
-    padding-left:var(--desktop-side-margin);
+    padding-right:var(--desktop-side-margin);
     padding-right:var(--desktop-side-margin)
   }
 }
 @media (min-width:770px) and (max-width:1184px) {
   .will-content_widthWrapper {
-    padding-left:var(--tablet-side-margin);
-    padding-right:var(--tablet-side-margin)
+    padding-right:var(--tablet-side-margin);
+    padding-left:var(--tablet-side-margin)
   }
 }
 @media (max-width:769px) {
   .will-content_widthWrapper {
     padding-left:var(--mobile-side-margin);
-    padding-right:var(--mobile-side-margin)
+    padding-left:var(--mobile-side-margin)
   }
 }
 .will-content_widthWrapper .will-content_innerWidthWrapper, .will-content_widthWrapper .will-content_largerInnerWidthWrapper {
@@ -460,5 +460,112 @@
     object-position:center;
     display:block;
     filter:blur(5px)
+  }
+}
+
+/* RTL (Right-to-Left) Support for Persian/Farsi */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .styles-module__actionButtonContainer {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .styles-module__scrollBar .styles-module__scrolledPosition {
+  right:auto;
+  right: 0;
+}
+
+[dir="rtl"] .knowledge_knowledgeContainer {
+  direction: rtl;
+}
+
+[dir="rtl"] .hero_heroContainer {
+  direction: rtl;
+}
+
+[dir="rtl"] .content_contentContainer {
+  text-align: right;
+}
+
+[dir="rtl"] .help_helpContainer {
+  text-align: right;
+}
+
+[dir="rtl"] .site_widthContainer {
+  direction: rtl;
+}
+
+/* RTL Carousel adjustments */
+[dir="rtl"] .styles-module__cards {
+  direction: rtl;
+}
+
+[dir="rtl"] .styles-module__actionBar {
+  direction: ltr; /* Keep progress bar LTR */
+}
+
+/* RTL Hero Image Flipping */
+[dir="rtl"] .hero_heroImage1,
+[dir="rtl"] .hero_heroImage2,
+[dir="rtl"] .hero_heroImage3 {
+  transform: scaleX(-1) !important;
+}
+
+/* RTL Arrow Icon Flipping */
+[dir="rtl"] .button_arrowIcon,
+[dir="rtl"] .styles-module__actionIcon,
+[dir="rtl"] .styles-module__chevronIcon,
+[dir="rtl"] .styles-module__buttonChevronIcon,
+[dir="rtl"] .styles-module__chatChevronIcon,
+[dir="rtl"] .style-module__sendArrow {
+  transform: scaleX(-1);
+}
+
+/* RTL Animation Direction Adjustments */
+[dir="rtl"] .styles_buttonWrapper:hover .styles_arrowIconWrapper {
+  transform: translateX(-100%);
+}
+
+[dir="rtl"] .styles_arrowIconWrapperHover,
+[dir="rtl"] .styles_buttonArrow .styles_arrowIconWrapperHover,
+[dir="rtl"] .button_arrowIconWrapperHover,
+[dir="rtl"] .button_arrowIconWrapper,
+[dir="rtl"] .styles_buttonWrapper .styles_buttonArrow .styles_arrowIconWrapperHover,
+[dir="rtl"] .styles_buttonWrapper .styles_buttonArrow .styles_arrowIconWrapper {
+  transform: translateX(100%);
+}
+
+[dir="rtl"] .styles_buttonArrow .styles_arrowIconWrapperHover {
+  transform: translateX(100%);
+}
+
+/* RTL Hover Animation Adjustments */
+[dir="rtl"] .site_widthContainer .site_websiteCard:hover .site_cardLinkContainer .site_cardLinkIconHover,
+[dir="rtl"] .site_widthContainer .site_websiteCard:hover .site_cardLinkContainer .site_cardLinkIcon {
+  transform: translateX(-4px);
+}
+
+/* RTL Hero Image Positioning Adjustments */
+[dir="rtl"] .styles_heroImageContainer {
+  transform: translateX(-50%) !important;
+}
+
+@media (max-width:1600px) and (min-width:1185px) {
+  [dir="rtl"] .styles_heroImageContainer {
+    transform: translateX(-60px) !important;
+  }
+}
+
+@media (min-width:770px) and (max-width:1184px) {
+  [dir="rtl"] .styles_heroImageContainer {
+    transform: translateX(-18px) !important;
+  }
+}
+
+@media (max-width:769px) {
+  [dir="rtl"] .styles_heroImageContainer {
+    transform: translateX(-44px) !important;
   }
 }

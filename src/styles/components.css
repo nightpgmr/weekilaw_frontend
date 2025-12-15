@@ -40,7 +40,7 @@
 @media only screen and (max-width:769px) {
   .style-module__userChatMessage {
     max-width:var(--mobile-message-max-width);
-    margin-right:var(--mobile-chat-indent)
+    margin-left:var(--mobile-chat-indent)
   }
 }
 .style-module__lawyerChatMessage {
@@ -62,7 +62,7 @@
 @media only screen and (max-width:769px) {
   .style-module__lawyerChatMessage {
     max-width:var(--mobile-message-max-width);
-    margin-right:var(--mobile-chat-indent)
+    margin-left:var(--mobile-chat-indent)
   }
 }
 @keyframes style-module__rotateSpinner {
@@ -279,7 +279,7 @@ to {
   background:rgba(36, 37, 43, .94902);
   box-shadow:0 0 20px rgba(0, 0, 0, .25098);
   margin-top:-6px;
-  margin-left:10px
+  margin-right:10px
 }
 .style-module__questionsWrapper .style-module__errorContainer svg {
   width:24px;
@@ -413,18 +413,18 @@ to {
 }
 @media only screen and (max-width:1184px) and (min-width:770px), only screen and (min-width:1185px) {
   .style-module__inputs.style-module__noFiles .style-module__textareaInput, .style-module__inputs.style-module__noFiles .style-module__truncateOnBlurContainer {
-    padding-left:20px
+    padding-right:20px
   }
 }
 @media only screen and (max-width:769px) {
   .style-module__inputs.style-module__noFiles .style-module__textareaInput, .style-module__inputs.style-module__noFiles .style-module__truncateOnBlurContainer {
-    padding-left:14px
+    padding-right:14px
   }
 .style-module__inputs.style-module__noFiles .style-module__textareaInput.style-module__withPreTextIcon, .style-module__inputs.style-module__noFiles .style-module__truncateOnBlurContainer.style-module__withPreTextIcon {
-    padding-left:10px
+    padding-right:10px
   }
 .style-module__inputs.style-module__noFiles .style-module__textareaInput, .style-module__inputs.style-module__noFiles .style-module__truncateOnBlurContainer {
-    padding-right:54px
+    padding-left:54px
   }
 }
 .style-module__inputs .style-module__textareaInput, .style-module__inputs .style-module__truncateOnBlurContainer {
@@ -440,7 +440,7 @@ to {
 }
 @media only screen and (max-width:1184px) and (min-width:770px), only screen and (max-width:769px) {
   .style-module__inputs .style-module__textareaInput, .style-module__inputs .style-module__truncateOnBlurContainer {
-    padding-right:80px
+    padding-left:80px
   }
 }
 .style-module__inputs .style-module__truncateOnBlurContainer {
@@ -532,7 +532,7 @@ to {
 }
 @media only screen and (max-width:1184px) and (min-width:770px), only screen and (max-width:769px) {
   .style-module__inputs .style-module__textareaInput {
-    padding-right:80px
+    padding-left:80px
   }
 }
 .style-module__inputs .style-module__files {
@@ -635,7 +635,7 @@ to {
   background-color:#0e5fe3
 }
 .style-module__actions .style-module__sendButton.style-module__hasText svg {
-  margin-left:1px
+  margin-right:1px
 }
 .style-module__actions .style-module__sendButton.style-module__hasText svg path {
   stroke:#fff
@@ -710,11 +710,11 @@ to {
 .style-module__preTextIcon {
   width:16px;
   height:16px;
-  margin-left:20px
+  margin-right:20px
 }
 @media only screen and (max-width:769px) {
   .style-module__preTextIcon {
-    margin-left:14px
+    margin-right:14px
   }
 }
 @keyframes style-module__rotateSpinner {
@@ -752,7 +752,7 @@ to {
   font-size:14px;
   font-weight:300;
   line-height:20px;
-  text-align:left;
+  text-align:right;
   padding:4px 6px 4px 2px;
   color:var(--greyscale-2);
   cursor:pointer;
@@ -884,8 +884,8 @@ to {
   gap:14px
 }
 .styles-module__chatWidgetInput .styles-module__inputs.styles-module__noFiles .styles-module__message {
-  padding-left:calc(40 / 2);
-  padding-left:calc(var(--chat-input-side-padding,  40) / 2)
+  padding-right:calc(40 / 2);
+  padding-right:calc(var(--chat-input-side-padding,  40) / 2)
 }
 .styles-module__chatWidgetInput .styles-module__inputs .styles-module__message {
   width:100%;
@@ -926,7 +926,7 @@ to {
   position:absolute;
   top:0;
   left:0;
-  margin-left:10px;
+  margin-right:10px;
   transform:translateY(14px);
   border:none;
   background-color:transparent;
@@ -958,7 +958,7 @@ to {
   position:absolute;
   top:0;
   right:0;
-  margin-right:10px;
+  margin-left:10px;
   transform:translateY(14px);
   border:none;
   background-color:transparent;
@@ -1022,7 +1022,7 @@ to {
   font-size:14px;
   font-weight:300;
   line-height:20px;
-  text-align:left;
+  text-align:right;
   padding:4px 6px 4px 2px;
   color:var(--greyscale-2);
   cursor:pointer;
@@ -1710,7 +1710,7 @@ to {
   justify-content:center;
   align-items:center;
   font-size:16px;
-  padding-right:64px
+  padding-left:64px
 }
 .style-module__bgOverlay {
   position:absolute;
@@ -1992,14 +1992,14 @@ to {
 }
 @media only screen and (max-width:1184px) and (min-width:770px), only screen and (min-width:1185px) {
   .styles-module__inlineForm .styles-module__inlineFormError, .styles-module__inlineForm .styles-module__inlineFormProgressBar, .styles-module__inlineForm .styles-module__inlineFormQuestionWrapper, .styles-module__inlineForm .styles-module__inlineFormTitle {
-    padding-left:20px;
-    padding-right:20px
+    padding-right:20px;
+    padding-left:20px
   }
 }
 @media only screen and (max-width:769px) {
   .styles-module__inlineForm .styles-module__inlineFormError, .styles-module__inlineForm .styles-module__inlineFormProgressBar, .styles-module__inlineForm .styles-module__inlineFormQuestionWrapper, .styles-module__inlineForm .styles-module__inlineFormTitle {
-    padding-left:15px;
-    padding-right:15px
+    padding-right:15px;
+    padding-left:15px
   }
 }
 .styles-module__questionWrapper {
@@ -2038,7 +2038,7 @@ to {
   justify-content:flex-start;
   align-items:center;
   gap:10px;
-  padding-right:72px;
+  padding-left:72px;
   position:relative
 }
 .styles-module__tabList .styles-module__tabItems .styles-module__tabItem {
@@ -2046,7 +2046,7 @@ to {
   font-size:14px;
   font-weight:300;
   line-height:20px;
-  text-align:left;
+  text-align:right;
   flex-grow:0;
   border-top-left-radius:10px;
   border-top-right-radius:10px;
@@ -3152,7 +3152,7 @@ to {
 }
 @media only screen and (max-width:769px) {
   .styles-module__overviewForm .styles-module__overviewQuestions .styles-module__uploadButton {
-    margin-right:16px
+    margin-left:16px
   }
 }
 .styles-module__overviewForm .styles-module__overviewQuestions>button {
@@ -3701,7 +3701,7 @@ to {
 }
 @media only screen and (max-width:1184px) and (min-width:770px), only screen and (max-width:769px) {
   .style-module__buttonContainer {
-    padding-left:15px
+    padding-right:15px
   }
 }
 @media only screen and (max-width:769px) {
@@ -3936,7 +3936,7 @@ to {
   align-items:center
 }
 .styles-module__sectionedForm .styles-module__section>.styles-module__section {
-  padding-left:40px
+  padding-right:40px
 }
 .styles-module__sectionedForm .styles-module__submitButton {
   padding:8px 20px;
@@ -4275,7 +4275,7 @@ to {
   line-height:24px;
   flex-grow:1;
   color:var(--greyscale-1);
-  margin-left:20px;
+  margin-right:20px;
   font-weight:200
 }
 @media only screen and (max-width:769px) {
@@ -4294,7 +4294,7 @@ to {
   width:38px;
   height:20px;
   border-radius:999px;
-  margin-right:21px;
+  margin-left:21px;
   cursor:pointer;
   display:flex;
   align-items:center
@@ -4312,12 +4312,12 @@ to {
 .styles-module__onOffInputContainer .styles-module__switchButton .styles-module__switchButtonCircle.styles-module__on {
   transform:translate(20px);
   background-color:#fff;
-  margin-right:3px
+  margin-left:3px
 }
 .styles-module__onOffInputContainer .styles-module__switchButton .styles-module__switchButtonCircle.styles-module__off {
   transform:translate(0);
   background-color:var(--greyscale-2);
-  margin-left:3px
+  margin-right:3px
 }
 .styles-module__onOffInputContainer .styles-module__switchButton.styles-module__disabled {
   cursor:not-allowed
@@ -4503,7 +4503,7 @@ to {
   color:var(--brand-dark-purple)
 }
 .styles-module__menuModalOverlay .styles-module__menuLinksContainer .styles-module__mainMenuLink .styles-module__arrowIcon {
-  margin-left:20px;
+  margin-right:20px;
   fill:var(--grey-2);
   transition:fill .3s ease-in-out
 }
@@ -4583,7 +4583,7 @@ to {
 .styles-module__messageIcon, .styles-module__sparkIcon {
   width:16px;
   height:16px;
-  margin-left:10px
+  margin-right:10px
 }
 .styles-module__messageIcon {
   fill:var(--brand-dark-blue)
@@ -4845,7 +4845,7 @@ to {
 }
 @media only screen and (min-width:1185px) {
   .styles-module__accountContainer {
-    margin-right:56px
+    margin-left:56px
   }
 .styles-module__accountContainer .styles-module__accountImage {
     position:absolute;
@@ -6849,7 +6849,7 @@ to {
 }
 .style-module__bottomBarContainer .style-module__copyright {
   color:var(--grey-2);
-  text-align:left;
+  text-align:right;
   font-size:14px;
   font-weight:400;
   line-height:24px;
@@ -6974,7 +6974,7 @@ to {
   max-height:400px;
   height:100%;
   overflow-y:auto;
-  padding-right:10px
+  padding-left:10px
 }
 .style-module__selectorWrapper .style-module__selector .style-module__languages::-webkit-scrollbar {
   width:4px;
@@ -7046,20 +7046,20 @@ to {
 }
 @media only screen and (min-width:1185px) {
   .styles-module__outerWrapper {
-    padding-left:80px;
-    padding-right:80px
+    padding-right:80px;
+    padding-left:80px
   }
 }
 @media only screen and (max-width:1184px) and (min-width:770px) {
   .styles-module__outerWrapper {
-    padding-left:40px;
-    padding-right:40px
+    padding-right:40px;
+    padding-left:40px
   }
 }
 @media only screen and (max-width:769px) {
   .styles-module__outerWrapper {
-    padding-left:20px;
-    padding-right:20px
+    padding-right:20px;
+    padding-left:20px
   }
 }
 .styles-module__inputWrapper {
@@ -7700,7 +7700,7 @@ to {
 }
 @media only screen and (max-width:769px) {
   .styles-module__sectionedFormOverview .styles-module__overviewQuestions .styles-module__section .styles-module__uploadButton {
-    margin-right:16px
+    margin-left:16px
   }
 }
 .styles-module__sectionedFormOverview .styles-module__overviewQuestions .styles-module__section>button {
@@ -8217,20 +8217,20 @@ to {
 }
 @media (min-width:1185px) {
   .library-header_libraryTitleContainer .library-header_widthWrapper {
-    padding-left:var(--desktop-side-margin);
-    padding-right:var(--desktop-side-margin)
+    padding-right:var(--desktop-side-margin);
+    padding-left:var(--desktop-side-margin)
   }
 }
 @media (min-width:770px) and (max-width:1184px) {
   .library-header_libraryTitleContainer .library-header_widthWrapper {
-    padding-left:var(--tablet-side-margin);
-    padding-right:var(--tablet-side-margin)
+    padding-right:var(--tablet-side-margin);
+    padding-left:var(--tablet-side-margin)
   }
 }
 @media (max-width:769px) {
   .library-header_libraryTitleContainer .library-header_widthWrapper {
-    padding-left:var(--mobile-side-margin);
-    padding-right:var(--mobile-side-margin)
+    padding-right:var(--mobile-side-margin);
+    padding-left:var(--mobile-side-margin)
   }
 }
 .library-header_widthWrapper .library-header_innerWidthWrapper,
@@ -8661,20 +8661,20 @@ to {
 }
 @media (min-width:1185px) {
   .why-use_widthWrapper {
-    padding-left:var(--desktop-side-margin);
-    padding-right:var(--desktop-side-margin)
+    padding-right:var(--desktop-side-margin);
+    padding-left:var(--desktop-side-margin)
   }
 }
 @media (min-width:770px) and (max-width:1184px) {
   .why-use_widthWrapper {
-    padding-left:var(--tablet-side-margin);
-    padding-right:var(--tablet-side-margin)
+    padding-right:var(--tablet-side-margin);
+    padding-left:var(--tablet-side-margin)
   }
 }
 @media (max-width:769px) {
   .why-use_widthWrapper {
-    padding-left:var(--mobile-side-margin);
-    padding-right:var(--mobile-side-margin)
+    padding-right:var(--mobile-side-margin);
+    padding-left:var(--mobile-side-margin)
   }
 }
 .why-use_carouselContainer {
@@ -8745,8 +8745,8 @@ to {
 }
 @media (min-width:1185px) {
   .how-it-works_container {
-    padding-left:var(--desktop-side-margin);
     padding-right:var(--desktop-side-margin);
+    padding-left:var(--desktop-side-margin);
     padding-top:160px;
     padding-bottom:80px
   }
@@ -8759,8 +8759,8 @@ to {
 }
 @media (min-width:770px) and (max-width:1184px) {
   .how-it-works_container {
-    padding-left:var(--tablet-side-margin);
     padding-right:var(--tablet-side-margin);
+    padding-left:var(--tablet-side-margin);
     padding-top:80px;
     padding-bottom:40px
   }
@@ -8796,20 +8796,20 @@ to {
 }
 @media (min-width:1185px) {
   .how-it-works_container {
-    padding-left:var(--desktop-side-margin);
-    padding-right:var(--desktop-side-margin)
+    padding-right:var(--desktop-side-margin);
+    padding-left:var(--desktop-side-margin)
   }
 }
 @media (min-width:770px) and (max-width:1184px) {
   .how-it-works_container {
-    padding-left:var(--tablet-side-margin);
-    padding-right:var(--tablet-side-margin)
+    padding-right:var(--tablet-side-margin);
+    padding-left:var(--tablet-side-margin)
   }
 }
 @media (max-width:769px) {
   .how-it-works_container {
-    padding-left:var(--mobile-side-margin);
-    padding-right:var(--mobile-side-margin)
+    padding-right:var(--mobile-side-margin);
+    padding-left:var(--mobile-side-margin)
   }
 }
 .how-it-works_stepsWrapper {
@@ -9096,12 +9096,12 @@ to {
 }
 .subcategories_cardsContainer {
   --carousel-offset-width:calc((100vw - (var(--inner-content-max-width) - var(--large-desktop-gap) * 2)) / 2);
-  margin-left:calc(var(--carousel-offset-width) * -1);
   margin-right:calc(var(--carousel-offset-width) * -1);
+  margin-left:calc(var(--carousel-offset-width) * -1);
   width:calc(100% + var(--carousel-offset-width) * 2);
   overflow:visible;
-  padding-left:clamp(80px, calc((100vw - var(--inner-content-max-width)) / 2 + 120px), 540px);
-  padding-right:clamp(80px, calc((100vw - var(--inner-content-max-width)) / 2 + 40px), 200px)
+  padding-right:clamp(80px, calc((100vw - var(--inner-content-max-width)) / 2 + 120px), 540px);
+  padding-left:clamp(80px, calc((100vw - var(--inner-content-max-width)) / 2 + 40px), 200px)
 }
 
 /* -------------------------
@@ -9146,8 +9146,8 @@ to {
   width: 220px;
   height: 220px;
   object-fit: contain;
-  margin-left: auto;
-  margin-right: auto;
+  margin-right:auto;
+  margin-left:auto;
   display: block;
 }
 .ai-tech_grid {
