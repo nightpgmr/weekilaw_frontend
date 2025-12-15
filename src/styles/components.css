@@ -3412,6 +3412,7 @@ to {
 }
 .styles-module__container {
   display:flex;
+  flex-direction: column;
   align-items:center;
   align-self:stretch;
   padding:20px 40px;
@@ -3598,7 +3599,8 @@ to {
   gap:20px;
   margin-top:20px;
   position:relative;
-  z-index:1
+  z-index:1;
+  width: 100%;
 }
 .styles-module__container .styles-module__actionBar .styles-module__scrollBar {
   position:relative;
