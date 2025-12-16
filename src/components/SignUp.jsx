@@ -13,15 +13,15 @@ const SignUp = () => {
               <div className="page-header_innerWidthWrapper styles_heroInnerClassName">
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem styles_breadcrumbClassName">
-                    <a href="/en-us/for-lawyers/legal-network">For lawyers</a>
+                    <a href="/en-us/for-lawyers/legal-network">برای وکلا</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem styles_breadcrumbClassName">
                     &nbsp;/&nbsp;
-                    <a href="/en-us/for-lawyers/sign-up">Sign up</a>
+                    <a href="/en-us/for-lawyers/sign-up">ثبت نام</a>
                   </span>
                 </div>
                 <h1 className="page-header_title styles_headerClassName">
-                  Connect with clients who need your help
+                  با موکلینی که به کمک شما نیاز دارند ارتباط برقرار کنید
                 </h1>
                 <div className="page-header_heroIconContainer">
                   <img
@@ -43,11 +43,9 @@ const SignUp = () => {
               <div className="styles_container">
                 <div className="styles_introContainer">
                   <div className="register-intro_container">
-                    <h2 className="register-intro_title">Looking to win more clients?</h2>
+                    <h2 className="register-intro_title">به دنبال جذب مشتریان بیشتر هستید؟</h2>
                     <p className="register-intro_description">
-                      Join a trusted network of legal professionals and start receiving inquiries from people who need
-                      help in your area of expertise. Strengthen your online presence and make it easier for clients to
-                      find and choose your firm.
+                      به شبکه‌ای مورد اعتماد از متخصصان حقوقی بپیوندید و شروع به دریافت درخواست‌ها از افرادی کنید که به کمک در زمینه تخصص شما نیاز دارند. حضور آنلاین خود را تقویت کنید و انتخاب دفتر شما را برای موکلین آسان‌تر کنید.
                     </p>
                     <div className="register-intro_cardsContainer">
                       <div className="register-intro_card">
@@ -60,9 +58,9 @@ const SignUp = () => {
                           />
                         </div>
                         <div>
-                          <h3 className="register-intro_cardTitle">Receive quality leads</h3>
+                          <h3 className="register-intro_cardTitle">سرنخ‌های باکیفیت دریافت کنید</h3>
                           <p className="register-intro_cardDescription">
-                            Attract clients who are actively looking for legal help in your practice areas.
+                            موکلینی را جذب کنید که به طور فعال به دنبال کمک حقوقی در زمینه‌های تخصص شما هستند.
                           </p>
                         </div>
                       </div>
@@ -77,10 +75,9 @@ const SignUp = () => {
                           />
                         </div>
                         <div>
-                          <h3 className="register-intro_cardTitle">Boost your online presence</h3>
+                          <h3 className="register-intro_cardTitle">حضور آنلاین خود را تقویت کنید</h3>
                           <p className="register-intro_cardDescription">
-                            Get a LawConnect profile that showcases your firm and helps clients reach out with
-                            confidence.
+                            نمایه LawConnect دریافت کنید که دفتر شما را نمایش می‌دهد و به موکلین کمک می‌کند تا با اطمینان با شما تماس بگیرند.
                           </p>
                         </div>
                       </div>
@@ -95,16 +92,16 @@ const SignUp = () => {
                           />
                         </div>
                         <div>
-                          <h3 className="register-intro_cardTitle">Strengthen your reputation</h3>
+                          <h3 className="register-intro_cardTitle">شهرت خود را تقویت کنید</h3>
                           <p className="register-intro_cardDescription">
-                            Be part of a trusted legal network and grow your practice with the right opportunities.
+                            بخشی از شبکه حقوقی مورد اعتماد باشید و با فرصت‌های مناسب، فعالیت خود را گسترش دهید.
                           </p>
                         </div>
                       </div>
 
                       <div className="register-intro_freeTrialContainer">
                         <button className="register-intro_freeTrialButton">
-                          <span className="register-intro_freeTrialText">Learn about our free trial</span>
+                          <span className="register-intro_freeTrialText">درباره دوره آزمایشی رایگان ما بیاموزید</span>
                           <div className="register-intro_freeTrialArrow">
                             <img
                               alt="arrow down"
@@ -124,12 +121,12 @@ const SignUp = () => {
                     <div className="register-interest-form_cardWrapper">
                       <div className="register-form-card_cardContainer">
                         <div className="register-form-card_formSection">
-                          <h2 className="register-form-card_title">Inquire today to join LawConnect</h2>
+                          <h2 className="register-form-card_title">امروز برای پیوستن به LawConnect درخواست دهید</h2>
                           <form className="register-form-card_form">
                             <div className="register-form-card_formRow">
                               <div className="register-form-card_inputGroup">
                                 <label htmlFor="name" className="register-form-card_label">
-                                  Name
+                                  نام
                                 </label>
                                 <input
                                   type="text"
@@ -142,7 +139,7 @@ const SignUp = () => {
                               </div>
                               <div className="register-form-card_inputGroup">
                                 <label htmlFor="firmName" className="register-form-card_label">
-                                  Firm name
+                                  نام شرکت
                                 </label>
                                 <input
                                   type="text"
@@ -157,7 +154,7 @@ const SignUp = () => {
                             <div className="register-form-card_formRow">
                               <div className="register-form-card_inputGroup">
                                 <label htmlFor="email" className="register-form-card_label">
-                                  Email
+                                  ایمیل
                                 </label>
                                 <input
                                   type="email"
@@ -170,7 +167,7 @@ const SignUp = () => {
                               </div>
                               <div className="register-form-card_inputGroup">
                                 <label htmlFor="phone" className="register-form-card_label">
-                                  Phone
+                                  تلفن
                                 </label>
                                 <input
                                   type="tel"
@@ -184,7 +181,7 @@ const SignUp = () => {
                             </div>
                             <div className="register-form-card_inputGroup">
                               <label htmlFor="comments" className="register-form-card_label">
-                                Comments
+                                نظرات
                               </label>
                               <textarea
                                 id="comments"
@@ -195,7 +192,7 @@ const SignUp = () => {
                             </div>
                           </form>
                           <div className="button_buttonContainer" aria-disabled="false">
-                            <div className="button_buttonText register-form-card_buttonText">Sign up now</div>
+                            <div className="button_buttonText register-form-card_buttonText">همین حالا ثبت نام کنید</div>
                             <div className="button_buttonArrow">
                               <div className="button_arrowIconWrapperHover">
                                 <img
@@ -243,9 +240,9 @@ const SignUp = () => {
               </div>
               <div className="get-started_getStartedWrapper">
                 <div className="get-started_getStartedContainer">
-                  <h2 className="get-started_getStartedTitle">Get started with LawConnect for free</h2>
+                  <h2 className="get-started_getStartedTitle">با LawConnect به صورت رایگان شروع کنید</h2>
                   <div className="get-started_getStartedDescription">
-                    See how LawConnect helps you grow your client base with our free trial
+                    ببینید چگونه LawConnect با دوره آزمایشی رایگان ما به شما کمک می‌کند تا پایگاه مشتریان خود را گسترش دهید
                   </div>
                   <div className="get-started_getStartedStepsContainer">
                     <div className="get-started_step">
@@ -257,7 +254,7 @@ const SignUp = () => {
                           src="/assets/sign-up/tools-blue.svg"
                         />
                       </div>
-                      <div className="get-started_stepDescription">Complimentary profile setup for your firm</div>
+                      <div className="get-started_stepDescription">راه‌اندازی نمایه رایگان برای شرکت شما</div>
                     </div>
                     <div className="get-started_step">
                       <div className="get-started_iconWrapper">
@@ -268,7 +265,7 @@ const SignUp = () => {
                           src="/assets/sign-up/5x-blue.svg"
                         />
                       </div>
-                      <div className="get-started_stepDescription">Receive your first 5 inquiries at no cost</div>
+                      <div className="get-started_stepDescription">اولین 5 درخواست خود را رایگان دریافت کنید</div>
                     </div>
                     <div className="get-started_step">
                       <div className="get-started_iconWrapper">
@@ -279,12 +276,12 @@ const SignUp = () => {
                           src="/assets/sign-up/access-cards-blue.svg"
                         />
                       </div>
-                      <div className="get-started_stepDescription">100 lead credits to get started</div>
+                      <div className="get-started_stepDescription">100 اعتبار سرنخ برای شروع</div>
                     </div>
                   </div>
                   <div className="get-started_buttonContainer">
                     <div className="button_buttonContainer get-started_signUpButtonContainer">
-                      <div className="button_buttonText get-started_buttonText">Sign up now</div>
+                      <div className="button_buttonText get-started_buttonText">همین حالا ثبت نام کنید</div>
                       <div className="button_buttonArrow get-started_buttonArrow">
                         <div className="button_arrowIconWrapperHover get-started_buttonArrowIcon">
                           <img

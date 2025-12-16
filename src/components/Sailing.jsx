@@ -12,12 +12,12 @@ const Sailing = () => {
             <div className="styles_heroTitleContainer">
               <div className="styles_breadcrumbsContainer">
                 <a href="/en-us/about" className="styles_breadcrumb ">
-                  About
+                  درباره
                 </a>
                 <span className="styles_breadcrumb ">&nbsp;/&nbsp;</span>
-                <span className="styles_breadcrumb styles_bold">Sailing</span>
+                <span className="styles_breadcrumb styles_bold">قایق‌رانی</span>
               </div>
-              <h1 className="styles_heroTitle ">The LawConnect supermaxi</h1>
+              <h1 className="styles_heroTitle ">قایق سوپر ماکسی LawConnect</h1>
             </div>
             <div className="styles_heroImageContainer ">
               <div className="styles_heroImageWrapper">
@@ -53,11 +53,8 @@ const Sailing = () => {
           <div className="styles_innerWidthWrapper">
             <div className="styles_contentTextWrapper">
               <div className="styles_descriptionText">
-                The LawConnect supermaxi has emerged as a top contender in the Rolex Sydney Hobart Yacht Race, one of the
-                world’s most prestigious sailing events. <br /> <br />
-                After claiming historic back-to-back line honors wins in both 2023 and 2024, the 100ft yacht—owned and
-                skippered by Christian Beck—continues to build on its consecutive successes, reflecting Beck's unwavering
-                commitment to improving access to justice.
+                قایق سوپر ماکسی LawConnect به عنوان یکی از رقبای برتر در مسابقه قایق‌رانی Rolex Sydney Hobart، یکی از معتبرترین رویدادهای قایق‌رانی جهان، ظاهر شده است. <br /> <br />
+                پس از کسب پیروزی‌های تاریخی متوالی در سال‌های 2023 و 2024، این قایق 100 فوتی که متعلق به کریستیان بک است و توسط او هدایت می‌شود، بر موفقیت‌های پیاپی خود می‌افزاید و تعهد بک به بهبود دسترسی به عدالت را منعکس می‌کند.
               </div>
             </div>
           </div>
@@ -105,7 +102,7 @@ const Sailing = () => {
                         <div className="styles_wreathText">2024</div>
                       </div>
                     </div>
-                    <div className="styles_sailingBG1Description">Back-to-back Sydney to Hobart line honors winner.</div>
+                    <div className="styles_sailingBG1Description">برنده متوالی افتخارات خط سیدنی به هوبارت.</div>
                   </div>
                   <img
                     alt="Stacked BG Icon"
@@ -126,16 +123,16 @@ const Sailing = () => {
         <div className="styles_widthWrapper">
           <div className="styles_innerWidthWrapper">
             <div className="styles_headerDescriptionContainer">
-              <div className="styles_headerTitle">Back to back: How LawConnect conquered The Hobart</div>
+              <div className="styles_headerTitle">متوالی: چگونه LawConnect هوبارت را فتح کرد</div>
               <div
                 className="styles_headerDescription"
                 dangerouslySetInnerHTML={{
                   __html:
-                    'Set sail on an unforgettable journey in our latest series, which takes you behind the scenes of the LawConnect supermaxi—from its early beginnings to its triumphant back-to-back Sydney to Hobart line honors victories in 2023 and 2024.<br> <br>Get exclusive insights from the crew as they recount the triumphs, challenges, and unwavering determination that propelled LawConnect to victory. This is a story of dedication, innovation, and a boat built to go the distance.',
+                    'در جدیدترین مجموعه ما، سفری فراموش‌نشدنی را آغاز کنید که شما را پشت صحنه قایق سوپر ماکسی LawConnect می‌برد - از آغاز اولیه آن تا پیروزی‌های متوالی افتخارات خط سیدنی به هوبارت در سال‌های 2023 و 2024.<br> <br>بینش‌های انحصاری از خدمه دریافت کنید زیرا آنها پیروزی‌ها، چالش‌ها و اراده محکم را که LawConnect را به پیروزی رساند، بازگو می‌کنند. این داستانی از تعهد، نوآوری و قایقی است که برای رفتن تا انتها ساخته شده.',
                 }}
               />
               <a className="styles_watchLink" href="https://www.youtube.com/@asklawconnect" target="_blank" rel="noreferrer">
-                <span>Watch the series now</span>
+                <span>مجموعه را همین حالا ببینید</span>
                 <div className="styles_watchArrowIconContainer">
                   <img
                     alt="Arrow Right Icon"
@@ -182,14 +179,11 @@ const Sailing = () => {
           <div className="styles_innerWidthWrapper">
             <div className="styles_contentTextWrapper">
               <div className="styles_descriptionText">
-                The supermaxi serves as a floating ambassador for innovation, highlighting LawConnect's dedication to pushing
-                boundaries both on and off the water.
+                سوپر ماکسی به عنوان سفیر شناور نوآوری عمل می‌کند و تعهد LawConnect به پیش بردن مرزها هم روی آب و هم بیرون از آن را برجسته می‌کند.
                 <br /> <br />
-                Continuing a proud tradition, each year Christian Beck invites a few employees aboard to experience the race
-                firsthand alongside world-renowned sailors like Tony Mutter and Chris Nicholson.
+                ادامه سنت افتخارآمیز، هر سال کریستیان بک چند کارمند را به کشتی دعوت می‌کند تا مسابقه را از نزدیک همراه با قایقرانان مشهور جهانی مانند تونی موتر و کریس نیکلسون تجربه کنند.
                 <br /> <br />
-                This opportunity fosters a culture of collaboration and personal growth—reflecting LawConnect's unwavering
-                commitment to overcoming challenges and achieving excellence.
+                این فرصت فرهنگی از همکاری و رشد شخصی را پرورش می‌دهد - که تعهد LawConnect به غلبه بر چالش‌ها و دستیابی به برتری را منعکس می‌کند.
               </div>
             </div>
           </div>
@@ -200,8 +194,8 @@ const Sailing = () => {
           <div className="styles_container">
             <div className="styles_card">
               <div className="styles_textWrapper">
-                <div className="styles_title">Need help with an issue?</div>
-                <div className="styles_description">Ask LawConnect your legal question for quick, free answers!</div>
+                <div className="styles_title">کمک به یک مسئله نیاز دارید؟</div>
+                <div className="styles_description">سؤال حقوقی خود را از LawConnect بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
               </div>
               <div className="styles_imageWrapper">
                 <a
@@ -209,7 +203,7 @@ const Sailing = () => {
                   className="styles_buttonWrapper styles_startCaseButton"
                   style={{ '--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)' }}
                 >
-                  <div className="styles_buttonText">Start now</div>
+                  <div className="styles_buttonText">همین حالا شروع کنید</div>
                   <div className="styles_buttonArrow">
                     <div className="styles_arrowIconWrapperHover">
                       <img

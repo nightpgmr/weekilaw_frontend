@@ -12,14 +12,14 @@ const AboutAITechnology = () => {
               <div className="page-header_innerWidthWrapper styles_heroInnerClassName">
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem styles_breadcrumbClass">
-                    <a href="/en-us/about">About</a>
+                    <a href="/en-us/about">درباره</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem styles_breadcrumbClass">
                     &nbsp;/&nbsp;
-                    <a href="/en-us/about/ai-technology">Our AI technology</a>
+                    <a href="/en-us/about/ai-technology">فناوری هوش مصنوعی ما</a>
                   </span>
                 </div>
-                <h1 className="page-header_title styles_headerClass">Harnesses the power of advanced AI</h1>
+                <h1 className="page-header_title styles_headerClass">قدرت هوش مصنوعی پیشرفته را به کار می‌گیرد</h1>
                 <div className="page-header_heroIconContainer">
                   <img
                     alt="hero-icon"
@@ -48,8 +48,8 @@ const AboutAITechnology = () => {
                   />
                 </div>
                 <div className="intro_introDescription">
-                  Our AI legal assistant provides easy-to-understand, tailored answers to your legal questions.
-                  If you need professional advice, LawConnect makes it simple to find the right lawyer.
+                  دستیار حقوقی هوش مصنوعی ما پاسخ‌های آسان‌فهم و شخصی‌سازی شده‌ای به سؤالات حقوقی شما ارائه می‌دهد.
+                  اگر نیاز به مشاوره حرفه‌ای دارید، LawConnect پیدا کردن وکیل مناسب را ساده می‌کند.
                 </div>
 
                 <div className="intro_triCardStackContainer">
@@ -68,11 +68,10 @@ const AboutAITechnology = () => {
                           style={{ color: 'transparent' }}
                           src="/assets/ai-tech/stair-blue.svg"
                         />
-                        <div className="triple-highlight_itemCardTitle">Quality Data</div>
+                        <div className="triple-highlight_itemCardTitle">داده‌های باکیفیت</div>
                         <div className="triple-highlight_itemCardDescription intro_itemCardDescriptionClassName">
-                          Our AI is trained on thousands of publicly available legal issues and relevant local laws.
-                          It’s designed to offer helpful, relevant information so you can better understand your
-                          situation.
+                          هوش مصنوعی ما بر روی هزاران مسئله حقوقی عمومی و قوانین محلی مربوطه آموزش دیده است.
+                          این سیستم برای ارائه اطلاعات مفید و مرتبط طراحی شده تا بتوانید وضعیت خود را بهتر درک کنید.
                         </div>
                       </div>
                       <div className="triple-highlight_itemCardContainer intro_mainItemCardClassName">
@@ -85,10 +84,9 @@ const AboutAITechnology = () => {
                           style={{ color: 'transparent' }}
                           src="/assets/ai-tech/light-bulb-blue.svg"
                         />
-                        <div className="triple-highlight_itemCardTitle">Intelligent Processing</div>
+                        <div className="triple-highlight_itemCardTitle">پردازش هوشمند</div>
                         <div className="triple-highlight_itemCardDescription intro_mainItemCardDescriptionClassName">
-                          Our AI uses your chat and questionnaire responses to deliver clear, relevant insights. If you
-                          choose to seek professional advice, LawConnect makes it easy to find the right lawyer.
+                          هوش مصنوعی ما از پاسخ‌های چت و پرسشنامه شما استفاده می‌کند تا بینش‌های واضح و مرتبط ارائه دهد. اگر تصمیم به دریافت مشاوره حرفه‌ای بگیرید، LawConnect پیدا کردن وکیل مناسب را آسان می‌کند.
                         </div>
                       </div>
                       <div className="triple-highlight_itemCardContainer intro_itemCardClassName">
@@ -101,10 +99,9 @@ const AboutAITechnology = () => {
                           style={{ color: 'transparent' }}
                           src="/assets/ai-tech/message-circle.svg"
                         />
-                        <div className="triple-highlight_itemCardTitle">Simple to Use</div>
+                        <div className="triple-highlight_itemCardTitle">ساده در استفاده</div>
                         <div className="triple-highlight_itemCardDescription intro_itemCardDescriptionClassName">
-                          At home or on the go, our AI asks simple follow-up questions to understand your issue and
-                          provides a tailored report to help you navigate your next steps.
+                          در خانه یا در حین حرکت، هوش مصنوعی ما سؤالات پیگیری ساده‌ای می‌پرسد تا مسئله شما را درک کند و گزارشی شخصی‌سازی شده ارائه می‌دهد تا به شما کمک کند مراحل بعدی خود را هدایت کنید.
                         </div>
                       </div>
                     </div>
@@ -130,14 +127,13 @@ const AboutAITechnology = () => {
                   </div>
                   <div className="need-lawyer-card_imagePositionWrapper">
                     <div className="need-lawyer-card_imageTextContainer">
-                      <div className="need-lawyer-card_imageTextHeader">Helping you find the right lawyer</div>
+                      <div className="need-lawyer-card_imageTextHeader">کمک به شما برای یافتن وکیل مناسب</div>
                       <div className="need-lawyer-card_imageTextDescription">
-                        We help you find the right legal expert from our extensive network of lawyers, making it easy to
-                        connect with the lawyer best suited to your situation.
+                        ما به شما کمک می‌کنیم تا متخصص حقوقی مناسب را از شبکه گسترده وکلای ما پیدا کنید و اتصال با وکیلی که برای موقعیت شما مناسب است را آسان می‌کنیم.
                       </div>
                       <div className="need-lawyer-card_imageTextButton">
                         <a className="button_buttonContainer need-lawyer-card_buttonContainer" href="/en-us/about/legal-network">
-                          <div className="button_buttonText need-lawyer-card_buttonText">Our legal network</div>
+                          <div className="button_buttonText need-lawyer-card_buttonText">شبکه حقوقی ما</div>
                           <div className="button_buttonArrow">
                             <div className="button_arrowIconWrapperHover">
                               <img
@@ -264,10 +260,9 @@ const AboutAITechnology = () => {
                           style={{ color: 'transparent' }}
                           src="/assets/ai-tech/attachment-blue.svg"
                         />
-                        <div className="triple-highlight_itemCardTitle">File analysis</div>
+                        <div className="triple-highlight_itemCardTitle">تحلیل فایل</div>
                         <div className="triple-highlight_itemCardDescription file-analysis_itemCardDescriptionClassName">
-                          Our AI can interpret files uploaded into the chat engine. This can help shorten the chat
-                          process, or simply add context to support your case.
+                          هوش مصنوعی ما می‌تواند فایل‌های آپلود شده در موتور چت را تفسیر کند. این می‌تواند به کوتاه کردن فرآیند چت کمک کند یا به سادگی زمینه‌ای برای حمایت از پرونده شما اضافه کند.
                         </div>
                       </div>
                       <div className="triple-highlight_itemCardContainer file-analysis_mainItemCardClassName">
@@ -280,10 +275,9 @@ const AboutAITechnology = () => {
                           style={{ color: 'transparent' }}
                           src="/assets/ai-tech/search-blue.svg"
                         />
-                        <div className="triple-highlight_itemCardTitle">Deeper insights</div>
+                        <div className="triple-highlight_itemCardTitle">بینش‌های عمیق‌تر</div>
                         <div className="triple-highlight_itemCardDescription file-analysis_mainItemCardDescriptionClassName">
-                          Building on the standard report, we generate a detailed report with deeper insights. This
-                          includes more detailed answers, key actions, different strategies, and a risk analysis.
+                          با ساختن بر روی گزارش استاندارد، ما یک گزارش تفصیلی با بینش‌های عمیق‌تر تولید می‌کنیم. این شامل پاسخ‌های مفصل‌تر، اقدامات کلیدی، استراتژی‌های مختلف و تحلیل ریسک است.
                         </div>
                       </div>
                       <div className="triple-highlight_itemCardContainer file-analysis_itemCardClassName">
@@ -296,10 +290,9 @@ const AboutAITechnology = () => {
                           style={{ color: 'transparent' }}
                           src="/assets/ai-tech/file-blue.svg"
                         />
-                        <div className="triple-highlight_itemCardTitle">Standard report</div>
+                        <div className="triple-highlight_itemCardTitle">گزارش استاندارد</div>
                         <div className="triple-highlight_itemCardDescription file-analysis_itemCardDescriptionClassName">
-                          Users receive a report when they create a case. This includes a summary, tailored answers to
-                          their questions and a set of potential next steps.
+                          کاربران هنگامی که پرونده‌ای ایجاد می‌کنند، گزارشی دریافت می‌کنند. این شامل خلاصه‌ای، پاسخ‌های سفارشی به سؤالات آنها و مجموعه‌ای از مراحل بعدی احتمالی است.
                         </div>
                       </div>
                     </div>

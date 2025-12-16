@@ -136,7 +136,7 @@ const EstateProbate = () => {
                     />
                   </div>
                   <p className="styles_featureText">
-                    Get free AI answers
+                    پاسخ‌های رایگان هوش مصنوعی دریافت کنید
                   </p>
                 </div>
                 <div className="styles_featureCard styles_featureCardTwo">
@@ -150,7 +150,7 @@ const EstateProbate = () => {
                     />
                   </div>
                   <p className="styles_featureText">
-                    Make informed decisions
+                    تصمیمات آگاهانه بگیرید
                   </p>
                 </div>
               </div>
@@ -497,11 +497,7 @@ const EstateProbate = () => {
           <div className="landing-page_innerWidthWrapper">
             <div className="disclaimer_disclaimerTextWrapper">
               <div className="disclaimer_disclaimer">
-                <b>Disclaimer</b>: The content provided on this website is for informational purposes only
-                and should not be relied upon as a substitute for legal advice. 
-                Recipients are advised to consult with qualified legal counsel before 
-                implementing any recommendations herein. LawConnect shall not be liable 
-                for actions taken based on this information.
+                <b>سلب مسئولیت</b>: محتوای ارائه شده در این وب‌سایت فقط برای اهداف اطلاعاتی است و نباید به عنوان جایگزین مشاوره حقوقی مورد اعتماد قرار گیرد. به گیرندگان توصیه می‌شود قبل از اجرای هر گونه توصیه‌ای در اینجا، با مشاور حقوقی واجد شرایط مشورت کنند. LawConnect مسئولیت اقدامات انجام شده بر اساس این اطلاعات را نخواهد داشت.
               </div>
             </div>
           </div>

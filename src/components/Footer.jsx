@@ -31,7 +31,7 @@ const Footer = () => {
                   </svg>
                 </div>
                 <div className="style-module__language">
-                  USA
+                  ایران
                   <div className="style-module__selectorWrapper">
                     <div className="style-module__selector">
                       <div className="style-module__languages">
@@ -76,9 +76,9 @@ const Footer = () => {
         </div>
         <div className="style-module__gridContainer style-module__large">
           <div className="style-module__column">
-            <div className="style-module__headerLabel">Browse</div>
+            <div className="style-module__headerLabel">مرور</div>
             <a href="/chat" className="style-module__menuItem style-module__askQuestion">
-              <span>Ask a question</span>
+              <span>یک سؤال بپرسید</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="#191919" className="style-module__menuIcon">
                 <style>{`.spin { animation: rotate 3s linear infinite; transform-box: fill-box; transform-origin: 50% 50%; } @keyframes rotate { to { transform: rotate(360deg); } }`}</style>
                 <g>
@@ -87,32 +87,32 @@ const Footer = () => {
                 </g>
               </svg>
             </a>
-            <a href="/en-us/library" className="style-module__menuItem">Areas of law</a>
-            <a href="/en-us/about" className="style-module__menuItem">About</a>
-            <a href="/en-us/for-lawyers/legal-network" className="style-module__menuItem">For lawyers</a>
-            <a href="/account" className="style-module__menuItem">Account</a>
+            <a href="/en-us/library" className="style-module__menuItem">زمینه‌های حقوقی</a>
+            <a href="/en-us/about" className="style-module__menuItem">درباره</a>
+            <a href="/en-us/for-lawyers/legal-network" className="style-module__menuItem">برای وکلا</a>
+            <a href="/account" className="style-module__menuItem">حساب کاربری</a>
           </div>
           <div className="style-module__column">
             <div className="style-module__headerLabel"></div>
-            <a href="/en-us/insights" className="style-module__menuItem">Insights</a>
-            <a href="/en-us/faqs" className="style-module__menuItem">FAQs</a>
-            <a href="/en-us/about/ai-technology" className="style-module__menuItem">Our AI technology</a>
-            <a href="/en-us/about/company" className="style-module__menuItem">Company</a>
-            <a href="/en-us/contact-us" className="style-module__menuItem">Contact us</a>
+            <a href="/en-us/insights" className="style-module__menuItem">بینش‌ها</a>
+            <a href="/en-us/faqs" className="style-module__menuItem">سؤالات متداول</a>
+            <a href="/en-us/about/ai-technology" className="style-module__menuItem">فناوری هوش مصنوعی ما</a>
+            <a href="/en-us/about/company" className="style-module__menuItem">شرکت</a>
+            <a href="/en-us/contact-us" className="style-module__menuItem">تماس با ما</a>
           </div>
           <div className="style-module__column">
-            <div className="style-module__headerLabel">Areas of law</div>
-            <a href="/en-us/commercial-law" className="style-module__menuItem">Commercial law</a>
-            <a href="/en-us/criminal-law" className="style-module__menuItem">Criminal law</a>
-            <a href="/en-us/employment-law" className="style-module__menuItem">Employment law</a>
-            <a href="/en-us/estate-and-probate-law" className="style-module__menuItem">Estate and probate law</a>
+            <div className="style-module__headerLabel">زمینه‌های حقوقی</div>
+            <a href="/en-us/commercial-law" className="style-module__menuItem">حقوق تجاری</a>
+            <a href="/en-us/criminal-law" className="style-module__menuItem">حقوق کیفری</a>
+            <a href="/en-us/employment-law" className="style-module__menuItem">حقوق کار</a>
+            <a href="/en-us/estate-and-probate-law" className="style-module__menuItem">حقوق املاک و وصیت‌نامه</a>
           </div>
           <div className="style-module__column">
             <div className="style-module__headerLabel"></div>
-            <a href="/en-us/family-law" className="style-module__menuItem">Family law</a>
-            <a href="/en-us/immigration-law" className="style-module__menuItem">Immigration law</a>
-            <a href="/en-us/litigation" className="style-module__menuItem">Litigation</a>
-            <a href="/en-us/personal-injury-law" className="style-module__menuItem">Personal injury law</a>
+            <a href="/en-us/family-law" className="style-module__menuItem">حقوق خانواده</a>
+            <a href="/en-us/immigration-law" className="style-module__menuItem">حقوق مهاجرت</a>
+            <a href="/en-us/litigation" className="style-module__menuItem">دادخواهی</a>
+            <a href="/en-us/personal-injury-law" className="style-module__menuItem">حقوق جراحات شخصی</a>
           </div>
         </div>
         <div className="style-module__bottomBarContainer">
@@ -165,7 +165,7 @@ const Footer = () => {
                       <div className="style-module__selector">
                         <div className="style-module__languages">
                           <div className="style-module__languageName style-module__active">
-                            USA
+                            ایران
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                               <path d="M14.5 3.5C14.5 3.22386 14.2761 3 14 3C13.8608 3 13.7348 3.0569 13.6442 3.14872L5.00004 11.7929L2.35359 9.14642C2.26311 9.05594 2.13807 9 2 9C1.72386 9 1.5 9.22386 1.5 9.5C1.5 9.64045 1.55791 9.76737 1.65115 9.85819L4.64181 12.8489C4.73264 12.9421 4.85956 13 5 13C5.13809 13 5.2631 12.944 5.35358 12.8535L14.3536 3.85353C14.4441 3.76305 14.5 3.63806 14.5 3.5Z" fill="#666666"></path>
                             </svg>
@@ -206,9 +206,9 @@ const Footer = () => {
           <div className="style-module__copyright">
             <div>Copyright © {new Date().getFullYear()} LEAP Legal Software.</div>
             <div className="style-module__copyrightBottom">
-              <div>All rights reserved.&nbsp;</div>
+              <div>تمام حقوق محفوظ است.&nbsp;</div>
               <div>
-                <a href="/en-us/terms">Terms</a> &amp; <a href="/en-us/privacy">Privacy policy</a>.
+                <a href="/en-us/terms">شرایط</a> &amp; <a href="/en-us/privacy">سیاست حفظ حریم خصوصی</a>.
               </div>
             </div>
           </div>

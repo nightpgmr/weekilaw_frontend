@@ -12,12 +12,12 @@ const Company = () => {
             <div className="styles_heroTitleContainer">
               <div className="styles_breadcrumbsContainer">
                 <a href="/en-us/about" className="styles_breadcrumb ">
-                  About
+                  درباره
                 </a>
                 <span className="styles_breadcrumb ">&nbsp;/&nbsp;</span>
-                <span className="styles_breadcrumb styles_bold">Company</span>
+                <span className="styles_breadcrumb styles_bold">شرکت</span>
               </div>
-              <h1 className="styles_heroTitle ">Transforming access to justice</h1>
+              <h1 className="styles_heroTitle ">تبدیل دسترسی به عدالت</h1>
             </div>
             <div className="styles_heroImageContainer ">
               <div className="styles_heroImageWrapper">
@@ -73,8 +73,7 @@ const Company = () => {
                   style={{ color: 'transparent' }}
                   src="/assets/company/double-quotes.svg"
                 />
-                Our mission is to equip everyone with the right tools and information they need to confidently begin
-                their legal journey, so no one is left without support.
+                مأموریت ما این است که همه را با ابزارها و اطلاعات مناسبی که برای شروع سفر حقوقی خود با اطمینان نیاز دارند، مجهز کنیم، بنابراین هیچ‌کس بدون حمایت رها نشود.
                 <img
                   alt="Double Quotes Right"
                   loading="lazy"
@@ -103,7 +102,7 @@ const Company = () => {
             />
             <div className="styles_textPostiion styles_useAnimation styles_startAnimation">
               <h1 className="styles_textContainer ">
-                <div>We’re dedicated to helping everyone find the legal resources they need.</div>
+                <div>ما متعهد هستیم که به همه کمک کنیم منابع حقوقی مورد نیاز خود را پیدا کنند.</div>
                 <img
                   alt="Stacked BG Icon"
                   loading="lazy"
@@ -121,13 +120,10 @@ const Company = () => {
         {/* Purpose text */}
         <div className="styles_innerWidthWrapper">
           <div className="styles_purposeText">
-            Founded by legal tech entrepreneur Christian Beck, LawConnect bridges the gap between everyday people facing
-            legal challenges and the lawyers who can help.
+            LawConnect توسط کارآفرین فناوری حقوقی کریستیان بک تأسیس شده و شکاف بین افراد عادی که با چالش‌های حقوقی مواجه هستند و وکلایی که می‌توانند کمک کنند را پر می‌کند.
             <br />
             <br />
-            By providing AI-driven answers to your legal questions and offering the option to speak directly with a
-            lawyer when you need further assistance, we ensure that no one is left without support. Our mission is to
-            empower you with accessible legal resources and ensure that justice remains a fundamental right for everyone.
+            با ارائه پاسخ‌های مبتنی بر هوش مصنوعی به سؤالات حقوقی شما و ارائه گزینه صحبت مستقیم با وکیل هنگامی که نیاز به کمک بیشتر دارید، اطمینان می‌دهیم که هیچ‌کس بدون حمایت رها نشود. مأموریت ما توانمندسازی شما با منابع حقوقی قابل دسترس و اطمینان از اینکه عدالت یک حق اساسی برای همه باقی می‌ماند.
           </div>
         </div>
 
@@ -211,10 +207,9 @@ const Company = () => {
                   style={{ color: 'transparent' }}
                   src="/assets/company/phone-blue.svg"
                 />
-                <div className="triple-highlight_itemCardTitle ">Accessible</div>
+                <div className="triple-highlight_itemCardTitle ">قابل دسترسی</div>
                 <div className="triple-highlight_itemCardDescription ">
-                  We ensure that comprehensive legal information is readily available to everyone at no cost, enabling
-                  individuals to address their legal queries effectively.
+                  ما اطمینان می‌دهیم که اطلاعات حقوقی جامع به صورت رایگان برای همه در دسترس است و به افراد امکان می‌دهد تا به طور مؤثر به سؤالات حقوقی خود پاسخ دهند.
                 </div>
               </div>
               <div className="triple-highlight_itemCardContainer ">
@@ -227,10 +222,9 @@ const Company = () => {
                   style={{ color: 'transparent' }}
                   src="/assets/company/stair-blue.svg"
                 />
-                <div className="triple-highlight_itemCardTitle ">Transformative</div>
+                <div className="triple-highlight_itemCardTitle ">تحول‌آفرین</div>
                 <div className="triple-highlight_itemCardDescription ">
-                  By connecting individuals with experienced lawyers, we bridge the gap between those seeking help and
-                  professionals, committed to making justice a fundamental right.
+                  با اتصال افراد به وکلای با تجربه، شکاف بین کسانی که به دنبال کمک هستند و متخصصان را پر می‌کنیم و متعهد هستیم که عدالت را به یک حق اساسی تبدیل کنیم.
                 </div>
               </div>
               <div className="triple-highlight_itemCardContainer ">
@@ -271,7 +265,7 @@ const Company = () => {
         <div className="styles_foundationContainer">
           <div className="styles_foundationContainerInner">
             <div className="styles_subTitle">
-              What guides our mission to help everyday people take their first step towards legal support
+              چه چیزی مأموریت ما را برای کمک به مردم عادی در برداشتن اولین قدم به سوی حمایت حقوقی هدایت می‌کند
             </div>
             <div className="triple-highlight_cardStackContainer   " style={{ '--card-shared-height': '248px' }}>
               <div className="triple-highlight_itemCardContainer ">
@@ -284,9 +278,9 @@ const Company = () => {
                   style={{ color: 'transparent' }}
                   src="/assets/company/spark-blue.svg"
                 />
-                <div className="triple-highlight_itemCardTitle ">Innovation</div>
+                <div className="triple-highlight_itemCardTitle ">نوآوری</div>
                 <div className="triple-highlight_itemCardDescription ">
-                  We harness advanced AI technology to transform the way people find and access legal information.
+                  ما از فناوری پیشرفته هوش مصنوعی استفاده می‌کنیم تا نحوه یافتن و دسترسی مردم به اطلاعات حقوقی را متحول کنیم.
                 </div>
               </div>
               <div className="triple-highlight_itemCardContainer ">
@@ -299,11 +293,9 @@ const Company = () => {
                   style={{ color: 'transparent' }}
                   src="/assets/company/users-blue.svg"
                 />
-                <div className="triple-highlight_itemCardTitle ">Inclusivity</div>
+                <div className="triple-highlight_itemCardTitle ">شمول</div>
                 <div className="triple-highlight_itemCardDescription ">
-                  We remove barriers to legal support by offering timely, personalised information and easy access to
-                  lawyers, ensuring that everyone, regardless of their background or circumstances, can get the help they
-                  need.
+                  ما با ارائه اطلاعات به موقع، شخصی‌سازی شده و دسترسی آسان به وکلا، موانع حمایت حقوقی را برمی‌داریم و اطمینان می‌دهیم که همه، صرف نظر از پیشینه یا شرایط خود، می‌توانند کمک مورد نیاز خود را دریافت کنند.
                 </div>
               </div>
               <div className="triple-highlight_itemCardContainer ">
@@ -316,10 +308,9 @@ const Company = () => {
                   style={{ color: 'transparent' }}
                   src="/assets/company/shield-tick.svg"
                 />
-                <div className="triple-highlight_itemCardTitle ">Quality</div>
+                <div className="triple-highlight_itemCardTitle ">کیفیت</div>
                 <div className="triple-highlight_itemCardDescription ">
-                  We ensure our AI assistant provides relevant, up-to-date, and comprehensive information, with a clear
-                  path to connect with a lawyer for more personalised guidance.
+                  ما اطمینان می‌دهیم که دستیار هوش مصنوعی ما اطلاعات مرتبط، به روز و جامع ارائه می‌دهد، با مسیر واضحی برای اتصال به وکیل برای راهنمایی شخصی‌سازی شده‌تر.
                 </div>
               </div>
             </div>

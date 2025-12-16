@@ -8,7 +8,7 @@ import '../styles/chatModal.css';
  */
 const ChatModal = ({ open, onClose }) => {
   const [messages, setMessages] = useState(() => [
-    { id: 'm-hello', role: 'assistant', text: 'Hi 👋 I’m your AI legal assistant. How can I help?' },
+    { id: 'm-hello', role: 'assistant', text: 'سلام 👋 من دستیار حقوقی هوش مصنوعی شما هستم. چگونه می‌توانم کمک کنم؟' },
   ]);
   const [input, setInput] = useState('');
   const [isSending, setIsSending] = useState(false);
@@ -58,7 +58,7 @@ const ChatModal = ({ open, onClose }) => {
       const errorMessage = {
         id: `e-${Date.now()}`,
         role: 'assistant',
-        text: 'Sorry, something went wrong. Please try again.',
+        text: 'متأسفانه، مشکلی پیش آمد. لطفاً دوباره امتحان کنید.',
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
@@ -69,9 +69,9 @@ const ChatModal = ({ open, onClose }) => {
   if (!open) return null;
 
   return ReactDOM.createPortal(
-    <div className="chat-modal_backdrop" role="dialog" aria-modal="true" aria-label="Chat now">
+    <div className="chat-modal_backdrop" role="dialog" aria-modal="true" aria-label="همین حالا چت کنید">
       <div className="chat-modal_card">
-        <button className="chat-modal_close" type="button" onClick={onClose} aria-label="Close chat">
+        <button className="chat-modal_close" type="button" onClick={onClose} aria-label="بستن چت">
           ×
         </button>
 
@@ -109,7 +109,7 @@ const ChatModal = ({ open, onClose }) => {
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Type message here"
+              placeholder="پیام خود را اینجا تایپ کنید"
               rows={1}
               className="chat-modal_textarea"
             />

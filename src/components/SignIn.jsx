@@ -32,10 +32,10 @@ function SignIn() {
               data-kinde-heading="true"
               data-kinde-heading-variant="large"
             >
-              Welcome back
+خوش آمدید
             </h1>
             <div className="kinde-layout-page-description" data-kinde-layout-page-description="true">
-              <p>Enter your email and we&apos;ll send a sign in code.</p>
+              <p>ایمیل خود را وارد کنید و کد ورود را برای شما ارسال خواهیم کرد.</p>
             </div>
           </header>
           <div className="kinde-layout-widget" data-kinde-layout-widget="true" data-page-title="Sign in | LawConnect">
@@ -53,7 +53,7 @@ function SignIn() {
                   data-kinde-form-field-variant="select-text"
                 >
                   <label className="kinde-control-label" data-kinde-control-label="true" htmlFor="sign_in_email">
-                    Email
+                    ایمیل
                   </label>
                   <input
                     className="kinde-control-select-text"
@@ -77,12 +77,12 @@ function SignIn() {
                   type="submit"
                 >
                   <span className="kinde-button-text" data-kinde-button-text="true">
-                    Continue
+                    ادامه
                   </span>
                 </button>
               </form>
               <p className="kinde-choice-separator" data-kinde-choice-separator="true">
-                Or
+                یا
               </p>
               <form className="kinde-form" data-kinde-form="true" name="sso_sign_ins" onSubmit={handleSubmit}>
                 <ul className="kinde-layout-auth-buttons" data-kinde-layout-auth-buttons="true">
@@ -122,7 +122,7 @@ function SignIn() {
                         </svg>
                       </span>
                       <span className="kinde-button-text" data-kinde-button-text="true">
-                        Continue with Google
+                        ادامه با گوگل
                       </span>
                     </button>
                   </li>
@@ -150,21 +150,21 @@ function SignIn() {
                         </svg>
                       </span>
                       <span className="kinde-button-text" data-kinde-button-text="true">
-                        Continue with Microsoft
+                        ادامه با مایکروسافت
                       </span>
                     </button>
                   </li>
                 </ul>
               </form>
               <p className="kinde-fallback-action" data-kinde-fallback-action="true">
-                <span data-kinde-fallback-action-helper-text="true">No account? </span>
+                <span data-kinde-fallback-action-helper-text="true">حساب کاربری ندارید؟ </span>
                 <a
                   className="kinde-text-link kinde-text-link-is-inline"
                   data-kinde-text-link="true"
                   data-kinde-text-link-is-inline="true"
                   href="/en-us/for-lawyers/sign-up"
                 >
-                  Create one
+                  ایجاد کنید
                 </a>
               </p>
             </div>

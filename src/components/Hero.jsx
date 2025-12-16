@@ -5,10 +5,10 @@ const Hero = () => {
     <section className="hero-section">
       <div className="hero-container">
         <div className="hero-content">
-          <h1 className="hero-title">Free AI Legal Chat, Answers & Help 24/7 in the U.S.</h1>
+          <h1 className="hero-title">چت حقوقی هوش مصنوعی رایگان، پاسخ‌ها و کمک ۲۴ ساعته در ایران</h1>
           <p className="hero-description">
-            Ask legal questions and get free, instant answers from our AI assistant. 
-            Available 24/7 to help with legal issues across the U.S.
+            سؤالات حقوقی بپرسید و پاسخ‌های رایگان و فوری از دستیار هوش مصنوعی ما دریافت کنید.
+            ۲۴ ساعته در دسترس برای کمک به مسائل حقوقی در سراسر ایران.
           </p>
           <div className="hero-image">
             <img 

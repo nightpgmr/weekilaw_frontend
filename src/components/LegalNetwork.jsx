@@ -13,11 +13,11 @@ const LegalNetwork = () => {
   ];
 
   const advantages = [
-    { image: '/assets/legal-network/legal-professionals.webp', description: 'Connections to qualified legal professionals with proven expertise' },
-    { image: '/assets/legal-network/specialised-knowledge.webp', description: 'Specialized knowledge across diverse practice areas' },
-    { image: '/assets/legal-network/geographic-coverage.webp', description: 'Broad geographic coverage, ensuring there is a lawyer in the location you need' },
-    { image: '/assets/legal-network/document-sharing.webp', description: 'Seamless document sharing with your legal team' },
-    { image: '/assets/legal-network/consistent-communication.webp', description: 'Consistent communication through our secure platform' },
+    { image: '/assets/legal-network/legal-professionals.webp', description: 'ارتباط با متخصصان حقوقی واجد شرایط با تخصص اثبات شده' },
+    { image: '/assets/legal-network/specialised-knowledge.webp', description: 'دانش تخصصی در زمینه‌های مختلف حقوقی' },
+    { image: '/assets/legal-network/geographic-coverage.webp', description: 'پوشش جغرافیایی گسترده، تضمین می‌کند که وکیلی در محل مورد نیاز شما وجود داشته باشد' },
+    { image: '/assets/legal-network/document-sharing.webp', description: 'اشتراک‌گذاری یکپارچه اسناد با تیم حقوقی شما' },
+    { image: '/assets/legal-network/consistent-communication.webp', description: 'ارتباط مداوم از طریق پلتفرم امن ما' },
   ];
 
   return (
@@ -30,14 +30,14 @@ const LegalNetwork = () => {
               <div className="page-header_innerWidthWrapper legal-network-content_heroInnerClassName">
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/about">About</a>
+                    <a href="/en-us/about">درباره</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}
-                    <a href="/en-us/about/legal-network">Our legal network</a>
+                    <a href="/en-us/about/legal-network">شبکه حقوقی ما</a>
                   </span>
                 </div>
-                <h1 className="page-header_title">Our network of trusted lawyers</h1>
+                <h1 className="page-header_title">شبکه وکلای مورد اعتماد ما</h1>
                 <div className="page-header_heroIconContainer">
                   <img
                     alt="hero-icon"
@@ -58,7 +58,7 @@ const LegalNetwork = () => {
             <div className="legal-network-content_widthWrapper">
               <div className="legal-network-content_innerWidthWrapper legal-network-content_introInnerWidthWrapper">
                 <div className="intro_introHeaderContainer">
-                  <h2 className="intro_introHeader">Connecting you with trusted lawyers for expert advice</h2>
+                  <h2 className="intro_introHeader">اتصال شما با وکلای مورد اعتماد برای مشاوره تخصصی</h2>
                 </div>
                 <div className="intro_introLawyersImageContainer">
                   <div className="intro_introImageContainer">
@@ -86,8 +86,7 @@ const LegalNetwork = () => {
                   </div>
                 </div>
                 <div className="intro_introDescription">
-                  LawConnect is proud to offer our users access to a network of qualified legal professionals. When legal
-                  challenges arise, you deserve professional guidance from experienced lawyers who understand your specific needs.
+                  LawConnect افتخار می‌کند که به کاربران خود دسترسی به شبکه‌ای از متخصصان حقوقی واجد شرایط ارائه می‌دهد. هنگامی که چالش‌های حقوقی پیش می‌آید، شما شایسته راهنمایی حرفه‌ای از وکلای با تجربه‌ای هستید که نیازهای خاص شما را درک می‌کنند.
                 </div>
               </div>
             </div>
@@ -96,7 +95,7 @@ const LegalNetwork = () => {
           {/* Legal practitioners */}
           <div className="legal-practitioners_legalPractitionersContainer">
             <div className="legal-practitioners_headerContainer">
-              <h2 className="legal-practitioners_headerTitle">Join thousands of professionals in our network</h2>
+              <h2 className="legal-practitioners_headerTitle">به هزاران متخصص در شبکه ما بپیوندید</h2>
             </div>
             <div className="stacked-card_stackedCardWrapper">
               <div className="stacked-card_container legal-practitioners_noMargin">
@@ -111,7 +110,7 @@ const LegalNetwork = () => {
                 </div>
                 <div className="stacked-card_textPosition legal-practitioners_textPosition">
                   <h1 className="stacked-card_textContainer legal-practitioners_textContainer">
-                    <div className="legal-practitioners_commitmentCard">30,000+ legal practitioners</div>
+                    <div className="legal-practitioners_commitmentCard">۳۰,۰۰۰+ متخصص حقوقی</div>
                   </h1>
                 </div>
               </div>
@@ -151,7 +150,7 @@ const LegalNetwork = () => {
                 </div>
                 <div className="lawyer-carousel_buttonContainer">
                   <a className="button_buttonContainer lawyer-carousel_button" href="/en-us/for-lawyers/sign-up">
-                    <div className="button_buttonText lawyer-carousel_buttonText">Join our network</div>
+                    <div className="button_buttonText lawyer-carousel_buttonText">به شبکه ما بپیوندید</div>
                     <div className="button_buttonArrow lawyer-carousel_buttonArrow">
                       <div className="button_arrowIconWrapperHover">
                         <img
@@ -194,8 +193,8 @@ const LegalNetwork = () => {
               </div>
               <div className="world-map_descriptionContainer">
                 <div className="world-map_description">
-                  We help people access relevant legal information worldwide,<br />
-                  and facilitate lawyer connections in Australia and the UK, with more regions coming soon.
+                  ما به مردم کمک می‌کنیم تا به اطلاعات حقوقی مربوطه در سراسر جهان دسترسی پیدا کنند،<br />
+                  و اتصالات وکلا را در استرالیا و انگلستان تسهیل می‌کنیم، با مناطق بیشتری که به زودی می‌آید.
                 </div>
               </div>
             </div>
@@ -207,30 +206,30 @@ const LegalNetwork = () => {
               <div className="how-it-works_container">
                 <div className="how-it-works_stepsWrapper">
                   <div className="how-it-works_titleContainer how-it-works_titleContainer">
-                    <h2 className="how-it-works_title how-it-works_title">How we make finding legal help easier</h2>
+                    <h2 className="how-it-works_title how-it-works_title">چگونه یافتن کمک حقوقی را آسان‌تر می‌کنیم</h2>
                     <p className="how-it-works_description how-it-works_description">
-                      LawConnect gives you access to trusted lawyers with the experience and local knowledge to help with your legal matter. The process is simple:
+                      LawConnect به شما دسترسی به وکلای مورد اعتماد با تجربه و دانش محلی برای کمک به موضوع حقوقی شما می‌دهد. این فرآیند ساده است:
                     </p>
                   </div>
                   <div className="how-it-works_stepsContainer">
                     {[
                       {
-                        title: 'Describe your situation',
-                        desc: "Start by outlining your legal issue, you can explain things in your own words, without worrying about the legal jargon. Whatever you're going through LawConnect is here to help.",
+                        title: 'وضعیت خود را توصیف کنید',
+                        desc: "با شرح مسئله حقوقی خود شروع کنید، می‌توانید چیزها را با کلمات خودتان توضیح دهید، بدون نگرانی از اصطلاحات حقوقی. هر چه که تجربه می‌کنید، LawConnect اینجا است تا کمک کند.",
                         desktop: '/assets/legal-network/how-it-works-step1-desktop.webp',
                         tablet: '/assets/legal-network/how-it-works-step1-tablet.webp',
                         mobile: '/assets/legal-network/how-it-works-step1-mobile.webp',
                       },
                       {
-                        title: 'Get tailored AI information',
-                        desc: "LawConnect provides clear, practical information and next steps based on your situation. You'll receive easy-to-understand guidance to help you feel more confident about your options and what to do next.",
+                        title: 'اطلاعات هوش مصنوعی شخصی‌سازی شده دریافت کنید',
+                        desc: "LawConnect اطلاعات واضح و عملی و مراحل بعدی را بر اساس وضعیت شما ارائه می‌دهد. شما راهنمایی آسان‌فهمی دریافت خواهید کرد تا در مورد گزینه‌های خود و آنچه باید در ادامه انجام دهید، اعتماد به نفس بیشتری داشته باشید.",
                         desktop: '/assets/legal-network/how-it-works-step2-desktop.webp',
                         tablet: '/assets/legal-network/how-it-works-step2-tablet.webp',
                         mobile: '/assets/legal-network/how-it-works-step2-mobile.webp',
                       },
                       {
-                        title: 'Connect with a lawyer',
-                        desc: "If your situation requires expert legal advice, we can connect you with a trusted lawyer from our network. You’ll be able to get professional help quickly and easily, so you can feel fully supported every step of the way.",
+                        title: 'با وکیل ارتباط برقرار کنید',
+                        desc: "اگر وضعیت شما نیاز به مشاوره حقوقی تخصصی دارد، می‌توانیم شما را با وکیلی مورد اعتماد از شبکه خود متصل کنیم. شما می‌توانید به سرعت و به راحتی کمک حرفه‌ای دریافت کنید، بنابراین می‌توانید در هر مرحله از راه کاملاً حمایت شده احساس کنید.",
                         desktop: '/assets/legal-network/how-it-works-step3-desktop.webp',
                         tablet: '/assets/legal-network/how-it-works-step3-tablet.webp',
                         mobile: '/assets/legal-network/how-it-works-step3-mobile.webp',
@@ -252,8 +251,8 @@ const LegalNetwork = () => {
                 </div>
               </div>
               <div className="how-it-works_disclaimer">
-                If you decide to consult a connected lawyer, they’ll explain their fees upfront.<br />
-                Any agreement is between you and the lawyer, not LawConnect
+                اگر تصمیم به مشاوره با وکیلی متصل بگیرید، آنها هزینه‌های خود را از قبل توضیح خواهند داد.<br />
+                هر توافقی بین شما و وکیل است، نه LawConnect
               </div>
             </div>
           </div>
@@ -263,10 +262,10 @@ const LegalNetwork = () => {
             <div className="advantages_widthWrapper">
               <div className="advantages_carouselContainer">
                 <div className="advantages_titleContainer">
-                  <h2 className="advantages_title">Our network advantage</h2>
+                  <h2 className="advantages_title">مزیت شبکه ما</h2>
                 </div>
                 <div className="advantages_descriptionContainer">
-                  <p className="advantages_description">LawConnect users benefit from:</p>
+                  <p className="advantages_description">کاربران LawConnect از موارد زیر بهره‌مند می‌شوند:</p>
                 </div>
                 <div className="styles-module__container advantages_carouselWrapper">
                   <div className="styles-module__cardsContainer">
@@ -332,7 +331,7 @@ const LegalNetwork = () => {
                     <div className="join-network-card_topContent">
                       <div className="join-network-card_leftContent">
                         <div className="join-network-card_titleWrapper">
-                          <h2 className="join-network-card_title">Join our lawyer network</h2>
+                          <h2 className="join-network-card_title">به شبکه وکلای ما بپیوندید</h2>
                         </div>
                         <div>
                           <img
@@ -357,11 +356,11 @@ const LegalNetwork = () => {
                       className="join-network-card_description"
                       dangerouslySetInnerHTML={{
                         __html:
-                          'Are you a legal professional looking to generate new business?<br><br>Join our network and connect directly with clients seeking your specific expertise. Expand your practice and build valuable client relationships through our streamlined lead generation system.',
+                          'آیا شما یک متخصص حقوقی هستید که به دنبال ایجاد کسب‌وکار جدید هستید؟<br><br>به شبکه ما بپیوندید و مستقیماً با مشتریانی که به تخصص خاص شما نیاز دارند ارتباط برقرار کنید. فعالیت خود را گسترش دهید و روابط مشتری ارزشمند را از طریق سیستم تولید سرنخ ساده‌سازی شده ما بسازید.',
                       }}
                     />
                     <a className="button_buttonContainer join-network-card_buttonContainer" href="/en-us/for-lawyers/sign-up">
-                      <div className="button_buttonText join-network-card_buttonText">Sign up now</div>
+                      <div className="button_buttonText join-network-card_buttonText">همین حالا ثبت نام کنید</div>
                       <div className="button_buttonArrow">
                         <div className="button_arrowIconWrapperHover">
                           <img alt="arrow-right-white" loading="lazy" width="16" height="16" className="button_arrowIcon" style={{ color: 'transparent' }} src="/assets/legal-network/arrow-right-blue.svg" />
@@ -384,8 +383,8 @@ const LegalNetwork = () => {
                 <div className="styles_container">
                   <div className="styles_card">
                     <div className="styles_textWrapper">
-                      <div className="styles_title">Need help with an issue?</div>
-                      <div className="styles_description">Ask LawConnect your legal question for quick, free answers!</div>
+                      <div className="styles_title">کمک به یک مسئله نیاز دارید؟</div>
+                      <div className="styles_description">سؤال حقوقی خود را از LawConnect بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
                     </div>
                     <div className="styles_imageWrapper">
                       <a
@@ -393,7 +392,7 @@ const LegalNetwork = () => {
                         className="styles_buttonWrapper styles_startCaseButton"
                         style={{ '--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)' }}
                       >
-                        <div className="styles_buttonText">Start now</div>
+                        <div className="styles_buttonText">همین حالا شروع کنید</div>
                         <div className="styles_buttonArrow">
                           <div className="styles_arrowIconWrapperHover">
                             <img alt="arrow-right" loading="lazy" width="16" height="16" className="styles_arrowIcon" style={{ color: 'transparent' }} src="/assets/legal-network/arrow-right-blue.svg" />

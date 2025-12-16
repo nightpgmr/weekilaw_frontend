@@ -13,23 +13,23 @@ const Header = ({ scrollElement }) => {
   }, []);
 
   const areasOfLaw = [
-    { title: "Commercial law", description: "Business transactions and agreements.", slug: "commercial-law" },
-    { title: "Criminal law", description: "Addressing crime and sentencing.", slug: "criminal-law" },
-    { title: "Employment law", description: "Fairness for employers and employees.", slug: "employment-law" },
-    { title: "Estate and probate law", description: "Managing and distributing assets.", slug: "estate-and-probate-law" },
-    { title: "Family law", description: "Separation, divorce, and settlements.", slug: "family-law" },
-    { title: "Immigration law", description: "Visas, residency, and sponsorships.", slug: "immigration-law" },
-    { title: "Litigation", description: "Matters involving the courts.", slug: "litigation" },
-    { title: "Personal injury law", description: "Been injured? Help is available.", slug: "personal-injury-law" },
-    { title: "Property law", description: "Settlements and property disputes.", slug: "property-law" },
+    { title: "حقوق تجاری", description: "معاملات و قراردادهای تجاری.", slug: "commercial-law" },
+    { title: "حقوق کیفری", description: "بررسی جرم و صدور حکم.", slug: "criminal-law" },
+    { title: "حقوق کار", description: "عدالت برای کارفرمایان و کارمندان.", slug: "employment-law" },
+    { title: "حقوق املاک و وصیت‌نامه", description: "مدیریت و توزیع دارایی‌ها.", slug: "estate-and-probate-law" },
+    { title: "حقوق خانواده", description: "جدایی، طلاق و تسویه حساب.", slug: "family-law" },
+    { title: "حقوق مهاجرت", description: "ویزا، اقامت و حمایت.", slug: "immigration-law" },
+    { title: "دادخواهی", description: "امور مربوط به دادگاه‌ها.", slug: "litigation" },
+    { title: "حقوق جراحات شخصی", description: "آسیب دیدید؟ کمک در دسترس است.", slug: "personal-injury-law" },
+    { title: "حقوق املاک", description: "تسویه حساب و اختلافات املاک.", slug: "property-law" },
   ];
 
   const aboutItems = [
-    { title: "Our AI technology", description: "Harnesses the power of advanced AI.", to: "/en-us/about/ai-technology" },
-    { title: "Our legal network", description: "Specialist lawyers across all areas of law.", to: "/en-us/about/legal-network" },
-    { title: "Company", description: "Our values and structure.", to: "/en-us/about/company" },
-    { title: "Careers", description: "Opportunities with LawConnect.", to: "/en-us/about/careers" },
-    { title: "Sailing", description: "About the Sydney to Hobart supermaxi.", to: "/en-us/about/sailing" },
+    { title: "فناوری هوش مصنوعی ما", description: "قدرت هوش مصنوعی پیشرفته را به کار می‌گیرد.", to: "/en-us/about/ai-technology" },
+    { title: "شبکه حقوقی ما", description: "وکلای متخصص در تمام زمینه‌های حقوقی.", to: "/en-us/about/legal-network" },
+    { title: "شرکت", description: "ارزش‌ها و ساختار ما.", to: "/en-us/about/company" },
+    { title: "فرصت‌های شغلی", description: "فرصت‌ها با LawConnect.", to: "/en-us/about/careers" },
+    { title: "قایق‌رانی", description: "درباره سوپر ماکسی سیدنی به هوبارت.", to: "/en-us/about/sailing" },
   ];
 
   const toggleDropdown = (dropdown) => {
@@ -87,7 +87,7 @@ const Header = ({ scrollElement }) => {
                   to="/chat"
                   className={`styles-module__gradientButton ${isScrolled ? 'styles-module__isScrolled' : ''}`}
                 >
-                  <div className="styles-module__gradientButtonLabel">Chat now</div>
+                  <div className="styles-module__gradientButtonLabel">چت کنید</div>
                 </Link>
                 <div className="styles-module__spacer"></div>
 
@@ -99,8 +99,8 @@ const Header = ({ scrollElement }) => {
                 >
                   <div className="styles-module__menuItemContainer">
                     <div className="styles-module__labelContainer">
-                      <span className="styles-module__labelTitle" title="Areas of law">
-                        Areas of law
+                      <span className="styles-module__labelTitle" title="زمینه‌های حقوقی">
+                        زمینه‌های حقوقی
                       </span>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="#333333" xmlns="http://www.w3.org/2000/svg" className="styles-module__chevronIcon">
                         <g id="icon/chevron down">
@@ -142,7 +142,7 @@ const Header = ({ scrollElement }) => {
                 >
                   <div className="styles-module__menuItemContainer">
                     <div className="styles-module__labelContainer">
-                      <span className="styles-module__labelTitle" title="About">About</span>
+                      <span className="styles-module__labelTitle" title="درباره">درباره</span>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="#333333" xmlns="http://www.w3.org/2000/svg" className="styles-module__chevronIcon">
                         <g id="icon/chevron down">
                           <path id="Union" d="M12.6467 5.14644C12.7372 5.05596 12.8622 5 13.0002 5C13.2764 5 13.5002 5.22386 13.5002 5.5C13.5002 5.64045 13.4423 5.76737 13.3491 5.85819L8.35844 10.8489C8.26761 10.9421 8.14069 11 8.00024 11C7.8598 11 7.73287 10.9421 7.64205 10.8489L2.65139 5.85819C2.55815 5.76737 2.50024 5.64045 2.50024 5.5C2.50024 5.22386 2.7241 5 3.00024 5C3.13831 5 3.26331 5.05596 3.35379 5.14644L8.00024 9.79283L12.6467 5.14644Z"></path>
@@ -194,7 +194,7 @@ const Header = ({ scrollElement }) => {
                 >
                   <div className="styles-module__menuItemContainer">
                     <div className="styles-module__labelContainer">
-                      <span className="styles-module__labelTitle" title="For lawyers">For lawyers</span>
+                      <span className="styles-module__labelTitle" title="برای وکلا">برای وکلا</span>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="#333333" xmlns="http://www.w3.org/2000/svg" className="styles-module__chevronIcon">
                         <g id="icon/chevron down">
                           <path id="Union" d="M12.6467 5.14644C12.7372 5.05596 12.8622 5 13.0002 5C13.2764 5 13.5002 5.22386 13.5002 5.5C13.5002 5.64045 13.4423 5.76737 13.3491 5.85819L8.35844 10.8489C8.26761 10.9421 8.14069 11 8.00024 11C7.8598 11 7.73287 10.9421 7.64205 10.8489L2.65139 5.85819C2.55815 5.76737 2.50024 5.64045 2.50024 5.5C2.50024 5.22386 2.7241 5 3.00024 5C3.13831 5 3.26331 5.05596 3.35379 5.14644L8.00024 9.79283L12.6467 5.14644Z"></path>
@@ -205,10 +205,10 @@ const Header = ({ scrollElement }) => {
                   {activeDropdown === 'lawyers' && (
                     <div className="styles-module__childContainer styles-module__hoverMenu">
                       <Link to="/en-us/for-lawyers/legal-network" className="styles-module__menuItem">
-                        <span className="styles-module__menuItemText">Our legal network</span>
+                        <span className="styles-module__menuItemText">شبکه حقوقی ما</span>
                       </Link>
                       <Link to="/en-us/for-lawyers/sign-up" className="styles-module__menuItem">
-                        <span className="styles-module__menuItemText">Sign up</span>
+                        <span className="styles-module__menuItemText">ثبت نام</span>
                       </Link>
                     </div>
                   )}
@@ -242,8 +242,8 @@ const Header = ({ scrollElement }) => {
                           src="/assets/account-profile.svg"
                         />
                       </div>
-                      <span className="styles-module__labelTitle styles-module__accountLabelTitle" title="Account">
-                        Account
+                      <span className="styles-module__labelTitle styles-module__accountLabelTitle" title="حساب کاربری">
+                        حساب کاربری
                       </span>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="#333333" xmlns="http://www.w3.org/2000/svg" className="styles-module__chevronIcon styles-module__chevronIcon styles-module__noRotate">
                         <g id="icon/chevron down">

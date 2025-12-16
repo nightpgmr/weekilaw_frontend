@@ -5,247 +5,247 @@
 
 const createGenericContent = ({ slug, title, description }) => {
   const lower = title.toLowerCase();
-  const summary = description || `Get clear, plain-language help on ${lower}.`;
+  const summary = description || `راهنمایی واضح و ساده در مورد ${lower} دریافت کنید.`;
 
   return {
     slug,
     breadcrumbLabel: title,
     breadcrumbHref: `/en-us/${slug}`,
-    heroTitle: `Free AI help for ${lower}`,
-    introText: `${summary} Our AI assistant answers common questions, outlines options, and highlights when speaking with a lawyer could help.`,
-    moreInfoText: `A quick summary about ${lower} in the United States`,
+    heroTitle: `کمک هوش مصنوعی رایگان برای ${lower}`,
+    introText: `${summary} دستیار هوش مصنوعی ما به سؤالات رایج پاسخ می‌دهد، گزینه‌ها را شرح می‌دهد و زمان‌هایی را که صحبت با وکیل می‌تواند کمک کند برجسته می‌کند.`,
+    moreInfoText: `خلاصه سریع درباره ${lower} در ایالات متحده`,
     moreInfoHref: `/en-us/${slug}/summary`,
     introImage: '/assets/default-area-of-law.webp',
-    subcategoriesTitle: `What ${lower} issues can our AI legal assistant help you with`,
-    subcategoriesDescription: `Our AI legal assistant is trained to help with a broad range of ${lower} matters. Here are the main areas where it can provide instant support:`,
+    subcategoriesTitle: `چه مسائل ${lower} می‌تواند دستیار حقوقی هوش مصنوعی ما به شما کمک کند`,
+    subcategoriesDescription: `دستیار حقوقی هوش مصنوعی ما آموزش دیده است تا در طیف وسیعی از مسائل ${lower} کمک کند. در اینجا زمینه‌های اصلی که می‌تواند پشتیبانی فوری ارائه دهد آورده شده است:`,
     subCategories: [
       {
-        title: `${title} basics`,
+        title: `اصول ${title}`,
         image: '/assets/default-area-of-law.webp',
-        description: `Understand the foundations of ${lower}, key terminology, and typical processes.`
+        description: `مبانی ${lower}، اصطلاحات کلیدی و فرآیندهای معمول را درک کنید.`
       },
       {
-        title: `${title} documents`,
+        title: `اسناد ${title}`,
         image: '/assets/default-area-of-law.webp',
-        description: `Learn what documents are commonly required, how to prepare them, and what to watch for.`
+        description: `بیاموزید چه اسنادی معمولاً مورد نیاز است، چگونه آنها را تهیه کنید و به چه چیزهایی توجه کنید.`
       },
       {
-        title: `${title} disputes`,
+        title: `اختلافات ${title}`,
         image: '/assets/default-area-of-law.webp',
-        description: `Get guidance on resolving common disputes and when to consider professional advice.`
+        description: `راهنمایی در مورد حل اختلافات رایج و زمان‌هایی که باید مشاوره حرفه‌ای را در نظر بگیرید دریافت کنید.`
       }
     ],
-    whyUseTitle: `Why use AI for ${lower} help`,
-    whyUseDescription: `When dealing with ${lower}, processes can be confusing. LawConnect helps you understand your rights and responsibilities without hassle.`,
+    whyUseTitle: `چرا از هوش مصنوعی برای کمک ${lower} استفاده کنید`,
+    whyUseDescription: `وقتی با ${lower} سر و کار دارید، فرآیندها می‌توانند گیج‌کننده باشند. LawConnect به شما کمک می‌کند حقوق و مسئولیت‌های خود را بدون دردسر درک کنید.`,
     whyUseSections: [
       {
-        title: `Built on reliable ${lower} information`,
+        title: `بر اساس اطلاعات قابل اعتماد ${lower} ساخته شده`,
         image: '/assets/default-area-of-law.webp',
-        description: `Quality guidance based on widely accepted principles so you can make informed decisions.`
+        description: `راهنمایی با کیفیت بر اساس اصول پذیرفته شده به طور گسترده تا بتوانید تصمیمات آگاهانه بگیرید.`
       },
       {
-        title: `Instant help to understand your options`,
+        title: `کمک فوری برای درک گزینه‌های شما`,
         image: '/assets/default-area-of-law.webp',
-        description: `Clear explanations of common scenarios, timelines, and next steps for your situation.`
+        description: `توضیحات واضح از سناریوهای رایج، زمان‌بندی‌ها و مراحل بعدی برای وضعیت شما.`
       },
       {
-        title: `Plain language that's simple to understand`,
+        title: `زبانی ساده که درک آن آسان است`,
         image: '/assets/default-area-of-law.webp',
-        description: `Confidential, pressure-free answers that help you move forward with confidence.`
+        description: `پاسخ‌های محرمانه و بدون فشار که به شما کمک می‌کنند با اطمینان پیش بروید.`
       }
     ],
-    howItWorksTitle: `How to use LawConnect for ${lower} help`,
-    howItWorksDescription: `Getting started is straightforward. You're always in control of what you share and the help you receive.`,
+    howItWorksTitle: `چگونه از LawConnect برای کمک ${lower} استفاده کنید`,
+    howItWorksDescription: `شروع کار ساده است. شما همیشه کنترل آنچه را که به اشتراک می‌گذارید و کمک‌هایی که دریافت می‌کنید در اختیار دارید.`,
     howItWorksSteps: [
       {
-        title: 'Describe your situation',
+        title: 'وضعیت خود را توصیف کنید',
         image: '/assets/how-it-works-step1-desktop.webp',
-        description: `Explain your ${lower} issue in your own words—no legal jargon needed.`
+        description: `مسئله ${lower} خود را با کلمات خودتان توضیح دهید - نیازی به اصطلاحات حقوقی نیست.`
       },
       {
-        title: 'Get tailored AI assistance',
+        title: 'کمک هوش مصنوعی شخصی‌سازی شده دریافت کنید',
         image: '/assets/how-it-works-step2-desktop.webp',
-        description: `Receive practical guidance, likely options, and considerations specific to your scenario.`
+        description: `راهنمایی عملی، گزینه‌های احتمالی و ملاحظات خاص سناریوی خود را دریافت کنید.`
       },
       {
-        title: 'Get your personalized report instantly',
+        title: 'گزارش شخصی‌سازی شده خود را فوراً دریافت کنید',
         image: '/assets/how-it-works-step3-v2-desktop.webp',
-        description: `Download a free summary of your chat to help you decide next steps.`
+        description: `خلاصه رایگان چت خود را دانلود کنید تا به شما کمک کند مراحل بعدی را تصمیم بگیرید.`
       }
     ],
-    faqTitle: `${title} FAQs`,
+    faqTitle: `سؤالات متداول ${title}`,
     faqItems: [
-      { question: `Can the AI assistant help with ${lower}?`, answer: 'Yes. It provides general guidance and next steps so you can act with confidence.' },
-      { question: 'Is this service really free?', answer: "Yes. There's no charge to use LawConnect's AI assistant and no obligation to proceed further." },
-      { question: `What topics can I ask about in ${lower}?`, answer: `Ask about common processes, documents, timelines, and typical next steps for ${lower}.` },
-      { question: 'Will my information stay private?', answer: 'Yes. Your chats are anonymous and secure.' },
-      { question: 'Do I always need a lawyer?', answer: 'Not always. The AI can help you decide when professional advice is worthwhile.' },
-      { question: 'Can I get help after hours?', answer: 'Yes. The assistant is available 24/7.' }
+      { question: `آیا دستیار هوش مصنوعی می‌تواند در ${lower} کمک کند؟`, answer: 'بله. راهنمایی کلی و مراحل بعدی ارائه می‌دهد تا بتوانید با اطمینان عمل کنید.' },
+      { question: 'آیا این سرویس واقعاً رایگان است؟', answer: "بله. هیچ هزینه‌ای برای استفاده از دستیار هوش مصنوعی LawConnect وجود ندارد و هیچ تعهدی برای ادامه دادن نیست." },
+      { question: `در مورد ${lower} چه موضوعاتی می‌توانم بپرسم؟`, answer: `در مورد فرآیندهای رایج، اسناد، زمان‌بندی‌ها و مراحل بعدی معمول برای ${lower} بپرسید.` },
+      { question: 'آیا اطلاعات من خصوصی باقی می‌ماند؟', answer: 'بله. چت‌های شما ناشناس و امن هستند.' },
+      { question: 'آیا همیشه به وکیل نیاز دارم؟', answer: 'نه همیشه. هوش مصنوعی می‌تواند به شما کمک کند تصمیم بگیرید چه زمانی مشاوره حرفه‌ای ارزشمند است.' },
+      { question: 'آیا می‌توانم بعد از ساعات اداری کمک بگیرم؟', answer: 'بله. دستیار ۲۴ ساعته در دسترس است.' }
     ],
-    helpTitle: `Need help with a ${lower} issue?`,
-    helpDescription: `Get started by asking any questions about your ${lower} matter`,
+    helpTitle: `کمک به یک مسئله ${lower} نیاز دارید؟`,
+    helpDescription: `با پرسیدن هر سؤالی درباره مسئله ${lower} خود شروع کنید`,
   };
 };
 
 export const areasOfLawContent = {
   'estate-and-probate-law': {
     slug: 'estate-and-probate-law',
-    breadcrumbLabel: 'Estate & probate law',
+    breadcrumbLabel: 'حقوق املاک و وصیت‌نامه',
     breadcrumbHref: '/en-us/estate-and-probate-law',
-    heroTitle: 'Free AI help for wills, trusts & estate law',
-    introText: "Dealing with wills, trusts, or estate matters? Whether you're planning your estate, administering a loved one's affairs, or navigating inheritance disputes, our AI legal assistant provides clear, helpful information in minutes, completely free. Built on established US estate planning and probate principles, it helps you understand your situation, explore your options, and move forward with confidence.",
+    heroTitle: 'کمک هوش مصنوعی رایگان برای وصیت‌نامه‌ها، اعتمادها و حقوق املاک',
+    introText: "با وصیت‌نامه‌ها، اعتمادها یا امور املاک سر و کار دارید؟ چه در حال برنامه‌ریزی املاک خود باشید، چه در حال اداره امور عزیز از دست رفته‌ای باشید یا در حال ناوبری اختلافات ارثی، دستیار حقوقی هوش مصنوعی ما اطلاعات واضح و مفید را در عرض چند دقیقه، کاملاً رایگان ارائه می‌دهد. بر اساس اصول برنامه‌ریزی املاک و وصیت‌نامه ایالات متحده ساخته شده، به شما کمک می‌کند وضعیت خود را درک کنید، گزینه‌های خود را بررسی کنید و با اطمینان پیش بروید.",
     moreInfoText: 'A quick summary about estate and probate law in the United States',
     moreInfoHref: '/en-us/estate-and-probate-law/summary',
     introImage: '/assets/intro-estate-probate.webp',
-    subcategoriesTitle: 'What estate and probate law issues can our AI legal assistant help you with',
-    subcategoriesDescription: 'Our AI legal assistant is trained to help with a broad range of estate planning and probate law matters. Here are the main areas where it can provide instant support:',
+    subcategoriesTitle: 'چه مسائل حقوق املاک و وصیت‌نامه می‌تواند دستیار حقوقی هوش مصنوعی ما به شما کمک کند',
+    subcategoriesDescription: 'دستیار حقوقی هوش مصنوعی ما آموزش دیده است تا در طیف وسیعی از مسائل برنامه‌ریزی املاک و حقوق وصیت‌نامه کمک کند. در اینجا زمینه‌های اصلی که می‌تواند پشتیبانی فوری ارائه دهد آورده شده است:',
     subCategories: [
       {
-        title: 'Making or updating your will',
+        title: 'نوشتن یا به‌روزرسانی وصیت‌نامه شما',
         image: '/assets/family-property-finances.webp',
-        description: 'Considering writing your first will or updating an existing one? Our legal chat assistant explains will requirements, what makes a will valid in your state, witness requirements, and when you might need to update your will. Learn about different types of wills and what happens if you die without one (intestate).'
+        description: 'در حال فکر کردن به نوشتن اولین وصیت‌نامه خود یا به‌روزرسانی یک وصیت‌نامه موجود هستید؟ دستیار چت حقوقی ما الزامات وصیت‌نامه، آنچه وصیت‌نامه را در ایالت شما معتبر می‌کند، الزامات شاهد و زمان‌هایی که ممکن است نیاز به به‌روزرسانی وصیت‌نامه خود داشته باشید را توضیح می‌دهد. در مورد انواع مختلف وصیت‌نامه و آنچه در صورت مرگ بدون وصیت‌نامه اتفاق می‌افتد (وصیت‌نامه) بیاموزید.'
       },
       {
-        title: 'Understanding estate planning options',
+        title: 'درک گزینه‌های برنامه‌ریزی املاک',
         image: '/assets/what-expert-lawyer-referral-2x.webp',
-        description: 'Planning how your assets will be distributed? Get clear information about federal estate tax thresholds, lifetime gifts, and how to structure your estate efficiently. Our AI guide explains the basics of estate planning and when professional advice becomes essential for complex situations.'
+        description: 'در حال برنامه‌ریزی نحوه توزیع دارایی‌های خود هستید؟ اطلاعات واضحی درباره آستانه‌های مالیات بر ارث فدرال، هدایای طول عمر و نحوه ساختاردهی کارآمد املاک خود دریافت کنید. راهنمای هوش مصنوعی ما اصول برنامه‌ریزی املاک را توضیح می‌دهد و زمان‌هایی که مشاوره حرفه‌ای برای موقعیت‌های پیچیده ضروری می‌شود.'
       },
       {
-        title: 'Free help with probate',
+        title: 'کمک رایگان با وصیت‌نامه',
         image: '/assets/what-navigating-probate-2x.webp',
-        description: 'Dealing with probate after losing someone close? LawConnect clarifies the probate process, when probate is needed, how to file for probate in your state, and your duties as an executor or personal representative. Understand the difference between formal and informal probate procedures, and learn about the timescales involved.'
+        description: 'پس از از دست دادن کسی نزدیک با وصیت‌نامه سر و کار دارید؟ LawConnect فرآیند وصیت‌نامه را روشن می‌کند، چه زمانی وصیت‌نامه مورد نیاز است، چگونه در ایالت خود برای وصیت‌نامه اقدام کنید و وظایف شما به عنوان مجری یا نماینده شخصی. تفاوت بین رویه‌های وصیت‌نامه رسمی و غیررسمی را درک کنید و در مورد زمان‌بندی‌های درگیر بیاموزید.'
       },
       {
-        title: 'Understanding inheritance & estate taxes',
+        title: 'درک ارث و مالیات‌های املاک',
         image: '/assets/what-letters-admin-2x.webp',
-        description: 'Concerned about estate tax implications? Our AI assistant explains current federal estate tax exemptions, state estate taxes, and common strategies for tax reduction. Learn about the annual gift tax exclusion, marital deductions, and when estate taxes become payable.'
+        description: 'در مورد تأثیرات مالیات بر ارث نگران هستید؟ دستیار هوش مصنوعی ما معافیت‌های فعلی مالیات بر ارث فدرال، مالیات‌های املاک ایالتی و استراتژی‌های رایج کاهش مالیات را توضیح می‌دهد. در مورد استثنای سالانه مالیات بر هدیه، کسورات زناشویی و زمان‌هایی که مالیات‌های املاک پرداختنی می‌شوند بیاموزید.'
       },
       {
-        title: 'Setting up or administering a trust',
+        title: 'راه‌اندازی یا اداره اعتماد',
         image: '/assets/commercial-business-contract.webp',
-        description: 'Considering setting up a trust or dealing with trust administration? Get information about different types of trusts, their tax implications, and trustee responsibilities. Our legal chatbot explains revocable living trusts, irrevocable trusts, and when trusts might be appropriate for your circumstances.'
+        description: 'در حال فکر کردن به راه‌اندازی اعتماد یا سر و کار داشتن با اداره اعتماد هستید؟ اطلاعاتی درباره انواع مختلف اعتماد، تأثیرات مالیاتی آنها و مسئولیت‌های امین دریافت کنید. چت‌بات حقوقی ما اعتمادهای قابل فسخ زندگی، اعتمادهای غیرقابل فسخ و زمان‌هایی که اعتمادها ممکن است برای شرایط شما مناسب باشند را توضیح می‌دهد.'
       },
       {
-        title: 'Help with wills, trusts & estate disputes',
+        title: 'کمک با اختلافات وصیت‌نامه، اعتماد و املاک',
         image: '/assets/what-will-disputes-2x.webp',
-        description: 'Facing a dispute over a will or trust? LawConnect provides information about grounds for contesting wills, claims by omitted heirs or spouses, and disputes between beneficiaries. Understand your rights and options when inheritance matters become contentious.'
+        description: 'با اختلاف بر سر وصیت‌نامه یا اعتماد مواجه هستید؟ LawConnect اطلاعاتی درباره دلایل اعتراض به وصیت‌نامه‌ها، ادعاهای وارثان یا همسران حذف شده و اختلافات بین ذینفعان ارائه می‌دهد. حقوق و گزینه‌های خود را درک کنید هنگامی که مسائل ارثی بحث‌برانگیز می‌شوند.'
       }
     ],
-    whyUseTitle: 'Why use AI for estate and probate law help',
-    whyUseDescription: "When you're dealing with wills, trusts, probate, or inheritance disputes, legal processes can be confusing and stressful. LawConnect helps you understand your rights and responsibilities without the hassle. Our AI legal assistant provides fast, accurate information for free so you can handle issues with more confidence.",
+    whyUseTitle: 'چرا از هوش مصنوعی برای کمک حقوق املاک و وصیت‌نامه استفاده کنید',
+    whyUseDescription: "وقتی با وصیت‌نامه‌ها، اعتمادها، وصیت‌نامه یا اختلافات ارثی سر و کار دارید، فرآیندهای حقوقی می‌توانند گیج‌کننده و استرس‌زا باشند. LawConnect به شما کمک می‌کند حقوق و مسئولیت‌های خود را بدون دردسر درک کنید. دستیار حقوقی هوش مصنوعی ما اطلاعات سریع و دقیقی را به صورت رایگان ارائه می‌دهد تا بتوانید مسائل را با اعتماد به نفس بیشتری مدیریت کنید.",
     whyUseSections: [
       {
-        title: "Built on LawConnect's proprietary US legal knowledge base",
+        title: "بر پایه پایگاه دانش حقوقی اختصاصی LawConnect در ایالات متحده ساخته شده",
         image: '/assets/legal-knowledge.webp',
-        description: "LawConnect's AI assistant draws from a comprehensive database of publicly available US estate planning and probate law, including recent legislative changes and established legal principles. You receive quality information specific to federal law and general state law principles, though specific state requirements may vary."
+        description: "دستیار هوش مصنوعی LawConnect از پایگاه داده جامعی از قوانین برنامه‌ریزی املاک و وصیت‌نامه ایالات متحده که در دسترس عموم است، از جمله تغییرات اخیر قانونگذاری و اصول حقوقی تثبیت شده، استفاده می‌کند. شما اطلاعات با کیفیت خاصی را دریافت می‌کنید که مخصوص قانون فدرال و اصول عمومی قانون ایالتی است، اگرچه الزامات خاص ایالت ممکن است متفاوت باشد."
       },
       {
-        title: 'Instant help in understanding your options & when to speak to an attorney',
+        title: 'کمک فوری در درک گزینه‌های شما و زمان صحبت با وکیل',
         image: '/assets/always-ready.webp',
-        description: 'Access clear, personalized information covering wills, probate, estate taxes, and trust matters. Available 24/7 and completely free with no obligations, LawConnect supports your understanding from your very first inquiry and can help you recognize when professional legal advice is necessary.'
+        description: 'به اطلاعات واضح و شخصی‌سازی شده دسترسی پیدا کنید که وصیت‌نامه‌ها، وصیت‌نامه، مالیات‌های املاک و مسائل اعتماد را پوشش می‌دهد. در دسترس ۲۴ ساعته و کاملاً رایگان بدون هیچ تعهدی، LawConnect از اولین سؤال شما حمایت می‌کند و می‌تواند به شما کمک کند تشخیص دهید چه زمانی مشاوره حقوقی حرفه‌ای ضروری است.'
       },
       {
-        title: "Plain language legal information that's simple to understand",
+        title: "اطلاعات حقوقی به زبان ساده که درک آن آسان است",
         image: '/assets/personalised-legal-information.webp',
-        description: 'Your conversations remain completely confidential and secure. Whether asking about will validity, probate procedures, or inheritance disputes, explore your options safely without any pressure to proceed with formal legal action until you\'re ready.'
+        description: 'گفتگوهای شما کاملاً محرمانه و امن باقی می‌ماند. چه در مورد اعتبار وصیت‌نامه، رویه‌های وصیت‌نامه یا اختلافات ارثی بپرسید، گزینه‌های خود را به صورت ایمن بررسی کنید بدون هیچ فشاری برای ادامه با اقدام حقوقی رسمی تا زمانی که آماده باشید.'
       }
     ],
-    howItWorksTitle: 'How to use LawConnect for wills, trusts & probate help',
-    howItWorksDescription: "Getting started is straightforward. You're always in control of the information you share and the help you receive.",
+    howItWorksTitle: 'چگونه از LawConnect برای کمک وصیت‌نامه‌ها، اعتمادها و وصیت‌نامه استفاده کنید',
+    howItWorksDescription: "شروع کار ساده است. شما همیشه کنترل اطلاعات خود را که به اشتراک می‌گذارید و کمک‌هایی که دریافت می‌کنید در اختیار دارید.",
     howItWorksSteps: [
       {
-        title: 'Describe your situation',
+        title: 'وضعیت خود را توصیف کنید',
         image: '/assets/how-it-works-step1-desktop.webp',
-        description: "Begin by describing your estate planning or probate concern in your own words, without worrying about legal terminology. Whether you're dealing with estate administration, inheritance disputes, or simply want to understand your rights, our AI legal chat assistant provides clarity without confusion."
+        description: "با توصیف نگرانی برنامه‌ریزی املاک یا وصیت‌نامه خود با کلمات خودتان شروع کنید، بدون نگرانی درباره اصطلاحات حقوقی. چه با اداره املاک، اختلافات ارثی سر و کار داشته باشید یا صرفاً بخواهید حقوق خود را درک کنید، دستیار چت حقوقی هوش مصنوعی ما وضوح را بدون سردرگمی ارائه می‌دهد."
       },
       {
-        title: 'Get tailored AI assistance',
+        title: 'کمک هوش مصنوعی شخصی‌سازی شده دریافت کنید',
         image: '/assets/how-it-works-step2-desktop.webp',
-        description: "LawConnect provides practical and clear information based on your specific circumstances. You'll receive straightforward explanations covering relevant federal and state law, your rights and obligations, potential options, and practical next steps to help you feel more confident about your position."
+        description: "LawConnect اطلاعات عملی و واضحی بر اساس شرایط خاص شما ارائه می‌دهد. شما توضیحات مستقیمی دریافت خواهید کرد که قانون فدرال و ایالتی مربوطه، حقوق و تعهدات شما، گزینه‌های احتمالی و مراحل عملی بعدی را پوشش می‌دهد تا احساس اعتماد به نفس بیشتری در مورد موقعیت خود داشته باشید."
       },
       {
-        title: 'Get your personalized estate and probate law report instantly',
+        title: 'گزارش شخصی‌سازی شده حقوق املاک و وصیت‌نامه خود را فوراً دریافت کنید',
         image: '/assets/how-it-works-step3-v2-desktop.webp',
-        description: "Once you’ve finished chatting with our AI legal chat assistant we’ll send you a personalized report. It's free, fast, and available whenever you need information."
+        description: "پس از پایان چت با دستیار چت حقوقی هوش مصنوعی ما، یک گزارش شخصی‌سازی شده برای شما ارسال خواهیم کرد. این گزارش رایگان، سریع است و هر زمان که به اطلاعات نیاز دارید در دسترس است."
       }
     ],
-    faqTitle: 'Wills & probate FAQs',
+    faqTitle: 'سؤالات متداول وصیت‌نامه‌ها و وصیت‌نامه',
     faqItems: [
       {
-        question: 'Can the AI legal assistant help with estate planning issues?',
-        answer: 'Yes, it can. The assistant offers support with wills, probate, trusts, estate taxes, disputes, and general estate planning matters.'
+        question: 'آیا دستیار حقوقی هوش مصنوعی می‌تواند در مسائل برنامه‌ریزی املاک کمک کند؟',
+        answer: 'بله، می‌تواند. دستیار پشتیبانی با وصیت‌نامه‌ها، وصیت‌نامه، اعتمادها، مالیات‌های املاک، اختلافات و مسائل عمومی برنامه‌ریزی املاک ارائه می‌دهد.'
       },
       {
-        question: 'Is this service really free?',
-        answer: "Yes. There's no charge to use LawConnect's AI assistant and no obligation to take further action."
+        question: 'آیا این سرویس واقعاً رایگان است؟',
+        answer: "بله. هیچ هزینه‌ای برای استفاده از دستیار هوش مصنوعی LawConnect وجود ندارد و هیچ تعهدی برای اقدام بیشتر نیست."
       },
       {
-        question: 'What types of issues can I ask about?',
-        answer: 'You can ask about wills, probate, inheritance disputes, estate taxes, trusts, and many other common estate and probate issues.'
+        question: 'چه انواع مسائلی می‌توانم بپرسم؟',
+        answer: 'می‌توانید در مورد وصیت‌نامه‌ها، وصیت‌نامه، اختلافات ارثی، مالیات‌های املاک، اعتمادها و بسیاری از مسائل رایج دیگر املاک و وصیت‌نامه بپرسید.'
       },
       {
-        question: 'How much does an estate lawyer cost?',
-        answer: 'It varies. Fees depend on your specific situation. The AI can outline typical cost structures and let you know when it might be worthwhile to consult a lawyer. Some lawyers offer fixed rates or free initial consultations.'
+        question: 'یک وکیل املاک چقدر هزینه دارد؟',
+        answer: 'متغیر است. هزینه‌ها به موقعیت خاص شما بستگی دارد. هوش مصنوعی می‌تواند ساختارهای هزینه معمول را شرح دهد و به شما اطلاع دهد چه زمانی ممکن است مشاوره با وکیل ارزشمند باشد. برخی از وکلا نرخ‌های ثابت یا مشاوره‌های اولیه رایگان ارائه می‌دهند.'
       },
       {
-        question: 'How long does probate take?',
-        answer: 'It depends on the estate. Simple estates may be resolved in months, while more complex matters can take longer. The AI can give you a sense of the likely timeline based on your circumstances.'
+        question: 'وصیت‌نامه چقدر طول می‌کشد؟',
+        answer: 'به املاک بستگی دارد. املاک ساده ممکن است در عرض چند ماه حل شوند، در حالی که مسائل پیچیده‌تر ممکن است بیشتر طول بکشد. هوش مصنوعی می‌تواند بر اساس شرایط شما حس زمان‌بندی احتمالی را به شما بدهد.'
       },
       {
-        question: 'Will my information stay private?',
-        answer: 'Yes. Your chats are anonymous and secure.'
+        question: 'آیا اطلاعات من خصوصی باقی می‌ماند؟',
+        answer: 'بله. چت‌های شما ناشناس و امن هستند.'
       },
       {
-        question: 'Do I need a lawyer for every estate issue?',
-        answer: 'Not always. Many estate issues can be resolved with information. The AI can help you decide when legal advice is worth it.'
+        question: 'آیا برای هر مسئله املاک به وکیل نیاز دارم؟',
+        answer: 'نه همیشه. بسیاری از مسائل املاک می‌توانند با اطلاعات حل شوند. هوش مصنوعی می‌تواند به شما کمک کند تصمیم بگیرید چه زمانی مشاوره حقوقی ارزشمند است.'
       },
       {
-        question: 'Can I get help on weekends or after hours?',
-        answer: 'Yes. The AI assistant is available 24/7 so you can ask a question any time.'
+        question: 'آیا می‌توانم در تعطیلات آخر هفته یا بعد از ساعات اداری کمک بگیرم؟',
+        answer: 'بله. دستیار هوش مصنوعی ۲۴ ساعته در دسترس است بنابراین می‌توانید هر زمان سؤالی بپرسید.'
       }
     ],
-    helpTitle: 'Need help with a wills, trusts and probate law issue?',
-    helpDescription: 'Get started by asking any questions about your wills, trusts and probate law matter'
+    helpTitle: 'کمک به یک مسئله وصیت‌نامه‌ها، اعتمادها و حقوق وصیت‌نامه نیاز دارید؟',
+    helpDescription: 'با پرسیدن هر سؤالی درباره مسئله وصیت‌نامه‌ها، اعتمادها و حقوق وصیت‌نامه خود شروع کنید'
   },
   'commercial-law': createGenericContent({
     slug: 'commercial-law',
-    title: 'Commercial law',
-    description: 'Business transactions, contracts, and day-to-day operations guidance.'
+    title: 'حقوق تجاری',
+    description: 'راهنمایی معاملات تجاری، قراردادها و عملیات روزمره.'
   }),
   'criminal-law': createGenericContent({
     slug: 'criminal-law',
-    title: 'Criminal law',
-    description: 'Information on criminal processes, rights, and sentencing basics.'
+    title: 'حقوق کیفری',
+    description: 'اطلاعات درباره فرآیندهای کیفری، حقوق و اصول صدور حکم.'
   }),
   'employment-law': createGenericContent({
     slug: 'employment-law',
-    title: 'Employment law',
-    description: 'Fairness for employers and employees across common workplace issues.'
+    title: 'حقوق کار',
+    description: 'عدالت برای کارفرمایان و کارمندان در مسائل رایج محل کار.'
   }),
   'family-law': createGenericContent({
     slug: 'family-law',
-    title: 'Family law',
-    description: 'Separation, divorce, parenting, and settlement guidance.'
+    title: 'حقوق خانواده',
+    description: 'راهنمایی جدایی، طلاق، فرزندپروری و تسویه حساب.'
   }),
   'immigration-law': createGenericContent({
     slug: 'immigration-law',
-    title: 'Immigration law',
-    description: 'Visas, residency, sponsorships, and status information.'
+    title: 'حقوق مهاجرت',
+    description: 'ویزا، اقامت، حمایت و اطلاعات وضعیت.'
   }),
   litigation: createGenericContent({
     slug: 'litigation',
-    title: 'Litigation',
-    description: 'Court processes, claims, and dispute resolution essentials.'
+    title: 'دادخواهی',
+    description: 'فرآیندهای دادگاه، ادعاها و ضروریات حل اختلاف.'
   }),
   'personal-injury-law': createGenericContent({
     slug: 'personal-injury-law',
-    title: 'Personal injury law',
-    description: 'Injury claims, liability, and recovery options.'
+    title: 'حقوق جراحات شخصی',
+    description: 'ادعاهای جراحت، مسئولیت و گزینه‌های بهبودی.'
   }),
   'property-law': createGenericContent({
     slug: 'property-law',
-    title: 'Property law',
-    description: 'Property transactions, disputes, and settlements.'
+    title: 'حقوق املاک',
+    description: 'معاملات املاک، اختلافات و تسویه حساب.'
   }),
 };
 
