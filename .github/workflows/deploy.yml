@@ -34,17 +34,28 @@ jobs:
         port: ${{ secrets.SSH_PORT || 50022 }}
         script: |
           # Create deployment directory if it doesn't exist
-          mkdir -p /var/www/weekilaw-frontend/dist
+          sudo mkdir -p /var/www/weekilaw-frontend
 
-          # Ensure proper directory structure
+          # Add maintenance mode or backup (if needed)
           echo "Starting frontend deployment..."
 
     - name: Sync built files to server
       uses: burnett01/rsync-deployments@6.0.0
       with:
-        switches: -avz --delete
+        switches: -avz --delete --exclude='.git' --exclude='node_modules' --exclude='src' --exclude='public/assets' --exclude='.github' --exclude='*.md' --exclude='*.json' --exclude='*.js' --exclude='*.config.js' --exclude='*.config.ts'
         path: dist/
-        remote_path: /var/www/weekilaw-frontend
+        remote_path: /var/www/weekilaw-frontend/dist
+        remote_host: ${{ secrets.SSH_HOST }}
+        remote_user: ${{ secrets.SSH_USER }}
+        remote_key: ${{ secrets.SSH_KEY }}
+        remote_port: ${{ secrets.SSH_PORT || 50022 }}
+
+    - name: Sync public assets to server
+      uses: burnett01/rsync-deployments@6.0.0
+      with:
+        switches: -avz --delete
+        path: public/
+        remote_path: /var/www/weekilaw-frontend/dist
         remote_host: ${{ secrets.SSH_HOST }}
         remote_user: ${{ secrets.SSH_USER }}
         remote_key: ${{ secrets.SSH_KEY }}
@@ -58,15 +69,10 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT || 50022 }}
         script: |
-          # Set proper permissions for deployment user
-          chown -R $USER:$USER /var/www/weekilaw-frontend
+          # Set proper permissions
+          sudo chown -R www-data:www-data /var/www/weekilaw-frontend
 
-          # Make files readable by nginx (www-data group)
-          chmod -R 755 /var/www/weekilaw-frontend
-
-          # Note: For production, you may need to manually run:
-          # sudo chown -R www-data:www-data /var/www/weekilaw-frontend
-          # sudo systemctl reload nginx
+          # Restart nginx to ensure changes are picked up
+          sudo systemctl reload nginx
 
           echo "Frontend deployment completed successfully!"
-          echo "Note: You may need to run 'sudo chown -R www-data:www-data /var/www/weekilaw-frontend && sudo systemctl reload nginx' on the server"
