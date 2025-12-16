@@ -2101,7 +2101,7 @@
   justify-content:center;
   width:100%;
   height:100%;
-  max-width:var(--inner-content-max-width);
+  max-width:100vw;
   z-index:1
 }
 @media (max-width:769px) {
