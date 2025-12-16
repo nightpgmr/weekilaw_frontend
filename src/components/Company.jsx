@@ -22,7 +22,7 @@ const Company = () => {
             <div className="styles_heroImageContainer ">
               <div className="styles_heroImageWrapper">
                 <img
-                  alt="Hero Image 1"
+                  alt="تصویر قهرمان ۱"
                   loading="lazy"
                   width="0"
                   height="0"
@@ -33,7 +33,7 @@ const Company = () => {
               </div>
               <div className="styles_heroImageIconContainer">
                 <img
-                  alt="Logo Icon"
+                  alt="آیکون لوگو"
                   loading="lazy"
                   width="80"
                   height="80"
@@ -46,7 +46,7 @@ const Company = () => {
             <div className="styles_heroIconWrapper">
               <div className="styles_heroIconContainer">
                 <img
-                  alt="Hero BG Icon"
+                  alt="آیکون پس‌زمینه قهرمان"
                   loading="lazy"
                   width="0"
                   height="0"
@@ -65,7 +65,7 @@ const Company = () => {
             <div className="styles_missionStatementContainer">
               <div className="styles_missionStatement">
                 <img
-                  alt="Double Quotes Left"
+                  alt="گیومه دوبل چپ"
                   loading="lazy"
                   width="24"
                   height="24"
@@ -75,7 +75,7 @@ const Company = () => {
                 />
                 مأموریت ما این است که همه را با ابزارها و اطلاعات مناسبی که برای شروع سفر حقوقی خود با اطمینان نیاز دارند، مجهز کنیم، بنابراین هیچ‌کس بدون حمایت رها نشود.
                 <img
-                  alt="Double Quotes Right"
+                  alt="گیومه دوبل راست"
                   loading="lazy"
                   width="24"
                   height="24"
@@ -160,7 +160,7 @@ const Company = () => {
                   src="/assets/company/user-white.svg"
                 />
                 <div className="stats_statsTitle" style={{ '--number': 94903, '--transition-duration': '1000ms' }}></div>
-                <div className="stats_statsDescription">Unique user accounts</div>
+                <div className="stats_statsDescription">حساب‌های کاربری منحصر به فرد</div>
               </div>
               <div className="stats_statsCard">
                 <img
@@ -173,7 +173,7 @@ const Company = () => {
                   src="/assets/company/briefcase-white.svg"
                 />
                 <div className="stats_statsTitle" style={{ '--number': 126332, '--transition-duration': '1000ms' }}></div>
-                <div className="stats_statsDescription">Cases created</div>
+                <div className="stats_statsDescription">پرونده‌های ایجاد شده</div>
               </div>
               <div className="stats_statsCard">
                 <img
@@ -186,7 +186,7 @@ const Company = () => {
                   src="/assets/company/chat-tick-white.svg"
                 />
                 <div className="stats_statsTitle" style={{ '--number': 682193, '--transition-duration': '1000ms' }}></div>
-                <div className="stats_statsDescription">Answers provided</div>
+                <div className="stats_statsDescription">پاسخ‌های ارائه شده</div>
               </div>
             </div>
           </div>
@@ -195,7 +195,7 @@ const Company = () => {
         {/* Empowering highlights */}
         <div className="styles_largerInnerWidthWrapper">
           <div className="styles_legalInsightsContainer">
-            <div className="styles_subTitle">Empowering your path to justice</div>
+            <div className="styles_subTitle">قدرتمندسازی مسیر شما به سوی عدالت</div>
             <div className="triple-highlight_cardStackContainer   " style={{ '--card-shared-height': '248px' }}>
               <div className="triple-highlight_itemCardContainer ">
                 <img
@@ -237,9 +237,9 @@ const Company = () => {
                   style={{ color: 'transparent' }}
                   src="/assets/company/lightning-blue.svg"
                 />
-                <div className="triple-highlight_itemCardTitle ">Empowering</div>
+                <div className="triple-highlight_itemCardTitle ">قدرتمندسازی</div>
                 <div className="triple-highlight_itemCardDescription ">
-                  Our user-friendly interfaces enable users to navigate complex issues and make informed legal decisions.
+                  رابط‌های کاربرپسند ما به کاربران امکان می‌دهند تا مسائل پیچیده را پیمایش کنند و تصمیمات حقوقی آگاهانه‌ای بگیرند.
                 </div>
               </div>
             </div>
@@ -321,8 +321,8 @@ const Company = () => {
         <div className="styles_container">
           <div className="styles_card">
             <div className="styles_textWrapper">
-              <div className="styles_title">Need help with an issue?</div>
-              <div className="styles_description">Ask LawConnect your legal question for quick, free answers!</div>
+              <div className="styles_title">نیاز به کمک دارید؟</div>
+              <div className="styles_description">سؤال حقوقی خود را از LawConnect بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
             </div>
             <div className="styles_imageWrapper">
               <a
@@ -330,7 +330,7 @@ const Company = () => {
                 className="styles_buttonWrapper styles_startCaseButton"
                 style={{ '--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)' }}
               >
-                <div className="styles_buttonText">Start now</div>
+                        <div className="styles_buttonText">همین حالا شروع کنید</div>
                 <div className="styles_buttonArrow">
                   <div className="styles_arrowIconWrapperHover">
                     <img

@@ -2112,9 +2112,9 @@
 }
 .hero_heroContainer .hero_innerWidthWrapper .hero_heroBlueCircle {
   position:absolute;
-  left:0;
+  right:0;
   top:50%;
-  transform:translate(-70%, -50%);
+  transform:translate(70%, -50%);
   width:1000px;
   height:1000px;
   z-index:-1;

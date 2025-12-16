@@ -1,3 +1,36 @@
+/* Vazirmatn Font for all elements - Global override with maximum specificity */
+html, body {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+* {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+p, span, div, a, button, input, textarea, label, select, option,
+strong, em, b, i, small, mark, del, ins, sub, sup,
+blockquote, pre, code, kbd, samp, var, address,
+abbr, acronym, dfn, cite, q,
+th, td, caption, legend, fieldset {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+/* Force Vazirmatn on all text elements */
+body * {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+/* Override any existing font-family variables */
+:root {
+  --font-family: 'Vazirmatn', sans-serif !important;
+  --secondary-font-family: 'Vazirmatn', sans-serif !important;
+}
+
 .site_widthContainer {
   display:flex;
   justify-content:center;
@@ -562,6 +595,29 @@
   [dir="rtl"] .styles_heroImageContainer {
     transform: translateX(-18px) !important;
   }
+}
+
+/* FINAL OVERRIDE: Ensure ALL elements use Vazirmatn font - highest priority */
+html, body, body *, * {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+/* ABSOLUTE FINAL OVERRIDE - Highest specificity possible */
+html body div, html body span, html body p, html body h1, html body h2, html body h3,
+html body h4, html body h5, html body h6, html body a, html body button,
+html body input, html body textarea, html body label, html body select,
+html body strong, html body em, html body b, html body i {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+/* Override CSS module classes */
+[class*="styles_"], [class*="styles-"] {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+/* Nuclear option - force Vazirmatn on everything */
+* {
+  font-family: 'Vazirmatn', sans-serif !important;
 }
 
 @media (max-width:769px) {

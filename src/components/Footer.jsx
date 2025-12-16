@@ -36,25 +36,25 @@ const Footer = () => {
                     <div className="style-module__selector">
                       <div className="style-module__languages">
                         <div className="style-module__languageName style-module__active">
-                          USA
+                          آمریکا
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M14.5 3.5C14.5 3.22386 14.2761 3 14 3C13.8608 3 13.7348 3.0569 13.6442 3.14872L5.00004 11.7929L2.35359 9.14642C2.26311 9.05594 2.13807 9 2 9C1.72386 9 1.5 9.22386 1.5 9.5C1.5 9.64045 1.55791 9.76737 1.65115 9.85819L4.64181 12.8489C4.73264 12.9421 4.85956 13 5 13C5.13809 13 5.2631 12.944 5.35358 12.8535L14.3536 3.85353C14.4441 3.76305 14.5 3.63806 14.5 3.5Z" fill="#666666"></path>
                           </svg>
                         </div>
-                        <div className="style-module__languageName">Australia</div>
-                        <div className="style-module__languageName">België</div>
-                        <div className="style-module__languageName">Brasil</div>
-                        <div className="style-module__languageName">Canada (English)</div>
-                        <div className="style-module__languageName">Canada (Français)</div>
-                        <div className="style-module__languageName">Danmark</div>
-                        <div className="style-module__languageName">Deutschland</div>
-                        <div className="style-module__languageName">España</div>
-                        <div className="style-module__languageName">France</div>
-                        <div className="style-module__languageName">Ireland</div>
-                        <div className="style-module__languageName">Italia</div>
-                        <div className="style-module__languageName">Nederland</div>
-                        <div className="style-module__languageName">New Zealand</div>
-                        <div className="style-module__languageName">United Kingdom</div>
+                        <div className="style-module__languageName">استرالیا</div>
+                        <div className="style-module__languageName">بلژیک</div>
+                        <div className="style-module__languageName">برزیل</div>
+                        <div className="style-module__languageName">کانادا (انگلیسی)</div>
+                        <div className="style-module__languageName">کانادا (فرانسوی)</div>
+                        <div className="style-module__languageName">دانمارک</div>
+                        <div className="style-module__languageName">آلمان</div>
+                        <div className="style-module__languageName">اسپانیا</div>
+                        <div className="style-module__languageName">فرانسه</div>
+                        <div className="style-module__languageName">ایرلند</div>
+                        <div className="style-module__languageName">ایتالیا</div>
+                        <div className="style-module__languageName">هلند</div>
+                        <div className="style-module__languageName">نیوزیلند</div>
+                        <div className="style-module__languageName">انگلستان</div>
                         <div className="style-module__languageName">USA (Español)</div>
                         <div className="style-module__languageName">भारत</div>
                         <div className="style-module__languageName">ভারত</div>
@@ -170,20 +170,20 @@ const Footer = () => {
                               <path d="M14.5 3.5C14.5 3.22386 14.2761 3 14 3C13.8608 3 13.7348 3.0569 13.6442 3.14872L5.00004 11.7929L2.35359 9.14642C2.26311 9.05594 2.13807 9 2 9C1.72386 9 1.5 9.22386 1.5 9.5C1.5 9.64045 1.55791 9.76737 1.65115 9.85819L4.64181 12.8489C4.73264 12.9421 4.85956 13 5 13C5.13809 13 5.2631 12.944 5.35358 12.8535L14.3536 3.85353C14.4441 3.76305 14.5 3.63806 14.5 3.5Z" fill="#666666"></path>
                             </svg>
                           </div>
-                          <div className="style-module__languageName">Australia</div>
-                          <div className="style-module__languageName">België</div>
-                          <div className="style-module__languageName">Brasil</div>
-                          <div className="style-module__languageName">Canada (English)</div>
-                          <div className="style-module__languageName">Canada (Français)</div>
-                          <div className="style-module__languageName">Danmark</div>
-                          <div className="style-module__languageName">Deutschland</div>
-                          <div className="style-module__languageName">España</div>
-                          <div className="style-module__languageName">France</div>
-                          <div className="style-module__languageName">Ireland</div>
-                          <div className="style-module__languageName">Italia</div>
-                          <div className="style-module__languageName">Nederland</div>
-                          <div className="style-module__languageName">New Zealand</div>
-                          <div className="style-module__languageName">United Kingdom</div>
+                          <div className="style-module__languageName">استرالیا</div>
+                          <div className="style-module__languageName">بلژیک</div>
+                          <div className="style-module__languageName">برزیل</div>
+                          <div className="style-module__languageName">کانادا (انگلیسی)</div>
+                          <div className="style-module__languageName">کانادا (فرانسوی)</div>
+                          <div className="style-module__languageName">دانمارک</div>
+                          <div className="style-module__languageName">آلمان</div>
+                          <div className="style-module__languageName">اسپانیا</div>
+                          <div className="style-module__languageName">فرانسه</div>
+                          <div className="style-module__languageName">ایرلند</div>
+                          <div className="style-module__languageName">ایتالیا</div>
+                          <div className="style-module__languageName">هلند</div>
+                          <div className="style-module__languageName">نیوزیلند</div>
+                          <div className="style-module__languageName">انگلستان</div>
                           <div className="style-module__languageName">USA (Español)</div>
                           <div className="style-module__languageName">भारत</div>
                           <div className="style-module__languageName">ভারত</div>
@@ -204,7 +204,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="style-module__copyright">
-            <div>Copyright © {new Date().getFullYear()} LEAP Legal Software.</div>
+            <div>حق انتشار © {new Date().getFullYear()} LEAP Legal Software.</div>
             <div className="style-module__copyrightBottom">
               <div>تمام حقوق محفوظ است.&nbsp;</div>
               <div>

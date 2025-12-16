@@ -1,6 +1,6 @@
 :root {
-   --font-family:"Inter",sans-serif;
-   --secondary-font-family:"Nunito Sans","Inter",sans-serif;
+   --font-family:"Vazirmatn",sans-serif;
+   --secondary-font-family:"Vazirmatn",sans-serif;
    --max-content-width:1760px;
    --menu-max-width:1600px;
    --large-max-width:1600px;
@@ -112,7 +112,7 @@
    --chat-sender-dark-background-color:#162845
 }
  * {
-   font-family:Inter,sans-serif;
+   font-family:Vazirmatn,sans-serif;
    font-family:var(--font-family);
    padding:0;
    margin:0
@@ -187,7 +187,7 @@
    -moz-osx-font-smoothing:grayscale
 }
  h1 {
-   font-family:Nunito Sans,Inter,sans-serif;
+   font-family:Vazirmatn,sans-serif;
    font-family:var(--secondary-font-family);
    font-weight:200;
    color:#666666;
@@ -222,7 +222,7 @@
   
 }
  h2 {
-   font-family:Nunito Sans,Inter,sans-serif;
+   font-family:Vazirmatn,sans-serif;
    font-family:var(--secondary-font-family);
    font-weight:700;
    color:#333333;
@@ -243,7 +243,7 @@
   
 }
  h3 {
-   font-family:Nunito Sans,Inter,sans-serif;
+   font-family:Vazirmatn,sans-serif;
    font-family:var(--secondary-font-family);
    font-weight:700;
    color:#333333;
@@ -264,7 +264,7 @@
   
 }
  select,textarea {
-   font-family:Inter,sans-serif;
+   font-family:Vazirmatn,sans-serif;
    font-family:var(--font-family);
    color:#333333;
    color:var(--grey-1)
@@ -2379,7 +2379,7 @@
    position:relative
 }
  .styles-module__tabList .styles-module__tabItems .styles-module__tabItem {
-   font-family:Inter;
+   font-family:Vazirmatn;
    font-size:14px;
    font-weight:300;
    line-height:20px;
@@ -8620,7 +8620,7 @@
    animation:styles-module__spin .8s linear infinite
 }
  @font-face {
-   font-family:Inter;
+   font-family:Vazirmatn;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8628,7 +8628,7 @@
    unicode-range:u+0460-052f,u+1c80-1c8a,u+20b4,u+2de0-2dff,u+a640-a69f,u+fe2e-fe2f
 }
  @font-face {
-   font-family:Inter;
+   font-family:Vazirmatn;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8636,7 +8636,7 @@
    unicode-range:u+0301,u+0400-045f,u+0490-0491,u+04b0-04b1,u+2116
 }
  @font-face {
-   font-family:Inter;
+   font-family:Vazirmatn;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8644,7 +8644,7 @@
    unicode-range:u+1f??
 }
  @font-face {
-   font-family:Inter;
+   font-family:Vazirmatn;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8652,7 +8652,7 @@
    unicode-range:u+0370-0377,u+037a-037f,u+0384-038a,u+038c,u+038e-03a1,u+03a3-03ff
 }
  @font-face {
-   font-family:Inter;
+   font-family:Vazirmatn;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8660,7 +8660,7 @@
    unicode-range:u+0102-0103,u+0110-0111,u+0128-0129,u+0168-0169,u+01a0-01a1,u+01af-01b0,u+0300-0301,u+0303-0304,u+0308-0309,u+0323,u+0329,u+1ea0-1ef9,u+20ab
 }
  @font-face {
-   font-family:Inter;
+   font-family:Vazirmatn;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8668,7 +8668,7 @@
    unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff
 }
  @font-face {
-   font-family:Inter;
+   font-family:Vazirmatn;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8676,7 +8676,7 @@
    unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd
 }
  @font-face {
-   font-family:Inter Fallback;
+   font-family:Vazirmatn Fallback;
    src:local("Arial");
    ascent-override:90.44%;
    descent-override:22.52%;
@@ -8684,7 +8684,7 @@
    size-adjust:107.12%
 }
  .__className_f367f3 {
-   font-family:Inter,Inter Fallback;
+   font-family:Vazirmatn,Vazirmatn Fallback;
    font-style:normal
 }
  .__variable_f367f3 {
@@ -11408,9 +11408,9 @@
 }
  .hero_heroContainer .hero_innerWidthWrapper .hero_heroBlueCircle {
    position:absolute;
-   left:0;
+   right:0;
    top:50%;
-   transform:translate(-70%,-50%);
+   transform:translate(70%,-50%);
    width:1000px;
    height:1000px;
    z-index:-1;

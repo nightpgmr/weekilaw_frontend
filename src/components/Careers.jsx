@@ -35,7 +35,7 @@ const Careers = () => {
             <div className="styles_heroIconWrapper">
               <div className="styles_heroIconContainer">
                 <img
-                  alt="Hero BG Icon"
+                  alt="آیکون پس‌زمینه قهرمان"
                   loading="lazy"
                   width="0"
                   height="0"

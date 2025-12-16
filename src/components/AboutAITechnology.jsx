@@ -205,7 +205,7 @@ const AboutAITechnology = () => {
                       src="/assets/ai-tech/user-white.svg"
                     />
                     <div className="stats_statsTitle"></div>
-                    <div className="stats_statsDescription">Unique user accounts</div>
+                    <div className="stats_statsDescription">حساب‌های کاربری منحصر به فرد</div>
                   </div>
                   <div className="stats_statsCard">
                     <img
@@ -218,7 +218,7 @@ const AboutAITechnology = () => {
                       src="/assets/ai-tech/briefcase-white.svg"
                     />
                     <div className="stats_statsTitle"></div>
-                    <div className="stats_statsDescription">Cases created</div>
+                    <div className="stats_statsDescription">پرونده‌های ایجاد شده</div>
                   </div>
                   <div className="stats_statsCard">
                     <img
@@ -231,7 +231,7 @@ const AboutAITechnology = () => {
                       src="/assets/ai-tech/chat-tick-white.svg"
                     />
                     <div className="stats_statsTitle"></div>
-                    <div className="stats_statsDescription">Answers provided</div>
+                    <div className="stats_statsDescription">پاسخ‌های ارائه شده</div>
                   </div>
                 </div>
               </div>
@@ -242,7 +242,7 @@ const AboutAITechnology = () => {
             <div className="styles_widthWrapper">
               <div className="styles_innerWidthWrapper">
                 <div className="file-analysis_fileHeader">
-                  Our AI can analyse files and generates documents that you can use to make informed decisions
+                  هوش مصنوعی ما می‌تواند فایل‌ها را تحلیل کند و اسنادی تولید کند که می‌توانید از آنها برای تصمیم‌گیری آگاهانه استفاده کنید
                 </div>
                 <div className="file-analysis_triCardStackContainer">
                   <div className="file-analysis_triCardStackContainerInner">
@@ -309,8 +309,8 @@ const AboutAITechnology = () => {
                 <div className="styles_container">
                   <div className="styles_card">
                     <div className="styles_textWrapper">
-                      <div className="styles_title">Need help with an issue?</div>
-                      <div className="styles_description">Ask LawConnect your legal question for quick, free answers!</div>
+                      <div className="styles_title">نیاز به کمک دارید؟</div>
+                      <div className="styles_description">سؤال حقوقی خود را از LawConnect بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
                     </div>
                     <div className="styles_imageWrapper">
                       <a
@@ -318,7 +318,7 @@ const AboutAITechnology = () => {
                         className="styles_buttonWrapper styles_startCaseButton"
                         style={{ '--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)' }}
                       >
-                        <div className="styles_buttonText">Start now</div>
+                        <div className="styles_buttonText">همین حالا شروع کنید</div>
                         <div className="styles_buttonArrow">
                           <div className="styles_arrowIconWrapperHover">
                             <img

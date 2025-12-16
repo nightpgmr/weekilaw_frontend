@@ -22,7 +22,7 @@ const Sailing = () => {
             <div className="styles_heroImageContainer ">
               <div className="styles_heroImageWrapper">
                 <img
-                  alt="Hero Image 1"
+                  alt="تصویر قهرمان ۱"
                   loading="lazy"
                   width="0"
                   height="0"
@@ -35,7 +35,7 @@ const Sailing = () => {
             <div className="styles_heroIconWrapper">
               <div className="styles_heroIconContainer">
                 <img
-                  alt="Hero BG Icon"
+                  alt="آیکون پس‌زمینه قهرمان"
                   loading="lazy"
                   width="0"
                   height="0"
@@ -135,7 +135,7 @@ const Sailing = () => {
                 <span>مجموعه را همین حالا ببینید</span>
                 <div className="styles_watchArrowIconContainer">
                   <img
-                    alt="Arrow Right Icon"
+                    alt="آیکون فلش راست"
                     loading="lazy"
                     width="0"
                     height="0"
@@ -144,7 +144,7 @@ const Sailing = () => {
                     src="/assets/sailing/arrow-right-blue.svg"
                   />
                   <img
-                    alt="Arrow Right Icon"
+                    alt="آیکون فلش راست"
                     loading="lazy"
                     width="0"
                     height="0"

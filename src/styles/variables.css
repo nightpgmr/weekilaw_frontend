@@ -1,6 +1,6 @@
 :root {
-  --font-family:"Inter", sans-serif;
-  --secondary-font-family:"Nunito Sans", "Inter", sans-serif;
+  --font-family:"Vazirmatn", sans-serif;
+  --secondary-font-family:"Vazirmatn", sans-serif;
   --max-content-width:1760px;
   --menu-max-width:1600px;
   --large-max-width:1600px;
@@ -112,7 +112,7 @@
   --chat-sender-dark-background-color:#162845
 }
 * {
-  font-family:Inter, sans-serif;
+  font-family:Vazirmatn, sans-serif;
   font-family:var(--font-family);
   padding:0;
   margin:0
@@ -184,7 +184,7 @@ a:hover {
   -moz-osx-font-smoothing:grayscale
 }
 h1 {
-  font-family:Nunito Sans, Inter, sans-serif;
+  font-family:Vazirmatn, sans-serif;
   font-family:var(--secondary-font-family);
   font-weight:200;
   color:#666666;
@@ -215,7 +215,7 @@ h1 {
   }
 }
 h2 {
-  font-family:Nunito Sans, Inter, sans-serif;
+  font-family:Vazirmatn, sans-serif;
   font-family:var(--secondary-font-family);
   font-weight:700;
   color:#333333;
@@ -234,7 +234,7 @@ h2 {
   }
 }
 h3 {
-  font-family:Nunito Sans, Inter, sans-serif;
+  font-family:Vazirmatn, sans-serif;
   font-family:var(--secondary-font-family);
   font-weight:700;
   color:#333333;
@@ -253,7 +253,7 @@ h3 {
   }
 }
 select, textarea {
-  font-family:Inter, sans-serif;
+  font-family:Vazirmatn, sans-serif;
   font-family:var(--font-family);
   color:#333333;
   color:var(--grey-1)

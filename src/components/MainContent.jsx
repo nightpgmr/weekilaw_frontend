@@ -199,7 +199,7 @@ const MainContent = () => {
         <div className="hero_heroContainer">
           <div className="hero_innerWidthWrapper">
             <img 
-              alt="Hero Blue Circle" 
+              alt="دایره آبی قهرمان" 
               loading="lazy" 
               width="0" 
               height="0" 
@@ -232,7 +232,7 @@ const MainContent = () => {
                 {[1, 2, 3].map((imageNum, index) => (
                 <img
                     key={index}
-                    alt={`Hero Image ${imageNum}`}
+                    alt={`تصویر قهرمان ${imageNum}`}
                     fetchPriority={index === 0 ? "high" : undefined}
                     loading={index === 0 ? undefined : "lazy"}
                   width="0"
@@ -566,7 +566,7 @@ const MainContent = () => {
                     {areasOfLaw.map((area, index) => (
                       <a key={index} href={area.href} className="knowledge_carouselCardContainer">
                         <img 
-                          alt={`Image of ${area.name}`} 
+                          alt={`تصویر ${area.name}`} 
                           loading="lazy" 
                           width="165" 
                           height="165" 

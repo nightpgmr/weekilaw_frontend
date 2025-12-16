@@ -2042,7 +2042,7 @@ to {
   position:relative
 }
 .styles-module__tabList .styles-module__tabItems .styles-module__tabItem {
-  font-family:Inter;
+  font-family:Vazirmatn;
   font-size:14px;
   font-weight:300;
   line-height:20px;
@@ -9110,7 +9110,7 @@ to {
 .ai-tech_page {
   --ai-tech-max-width: 1140px;
   color: #191919;
-  font-family: var(--secondary-font-family, 'Inter'), sans-serif;
+  font-family: var(--secondary-font-family, 'Vazirmatn'), sans-serif;
 }
 .ai-tech_section {
   padding: 72px 24px;

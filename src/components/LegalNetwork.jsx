@@ -6,7 +6,7 @@ const LegalNetwork = () => {
   const lawyerCards = [
     { name: 'Lilit Chakman', firm: 'Miltons Lawyers', specialization: 'Commercial law', image: '/assets/legal-network/miltons-lawyers-lilit-chakman.jpg' },
     { name: 'Kayte Lewis', firm: 'Voice Lawyers', specialization: 'Employment law', image: '/assets/legal-network/voice-lawyers-kayte-lewis.jpg' },
-    { name: 'David Lechem', firm: 'AGEIS', specialization: 'Estate and probate', image: '/assets/legal-network/ageis-david-lechem.jpg' },
+    { name: 'David Lechem', firm: 'AGEIS', specialization: 'املاک و وصیت‌نامه', image: '/assets/legal-network/ageis-david-lechem.jpg' },
     { name: 'Tash Nolan', firm: 'Nolan Lawyers', specialization: 'Family law', image: '/assets/legal-network/nolan-lawyers-tash-nolan.jpg' },
     { name: 'Saurabh Smar', firm: 'Northam Lawyers', specialization: 'Immigration', image: '/assets/legal-network/northam-lawyers-saurabh-smar.jpg' },
     { name: 'Thomas Bassil', firm: 'Finn Roache', specialization: 'Litigation', image: '/assets/legal-network/finn-roache-thomas-bassil.jpg' },
@@ -308,7 +308,7 @@ const LegalNetwork = () => {
               <div className="join_backgroundContainer">
                 <div className="join_backgroundImage">
                   <img
-                    alt="Legal Network Background"
+                    alt="پس‌زمینه شبکه حقوقی"
                     loading="lazy"
                     className="join_bgImage"
                     style={{ color: 'transparent' }}
@@ -316,7 +316,7 @@ const LegalNetwork = () => {
                   />
                   <div className="join_logoIconWrapper">
                     <img
-                      alt="Logo Icon"
+                      alt="آیکون لوگو"
                       loading="lazy"
                       className="join_logoIcon"
                       style={{ color: 'transparent' }}

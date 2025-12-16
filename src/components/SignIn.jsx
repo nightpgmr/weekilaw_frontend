@@ -171,10 +171,10 @@ function SignIn() {
             <p
               className="kinde-util-hide-visually"
               data-kinde-live-region="true"
-              data-kinde-live-region-copy-to-clipboard="Copied to clipboard"
-              data-kinde-live-region-copy-to-clipboard-alt="Copied"
-              data-kinde-live-region-form-loading="Form loading"
-              data-kinde-live-region-form-submit="Form submitting"
+              data-kinde-live-region-copy-to-clipboard="در کلیپ‌بورد کپی شد"
+              data-kinde-live-region-copy-to-clipboard-alt="کپی شد"
+              data-kinde-live-region-form-loading="فرم در حال بارگذاری"
+              data-kinde-live-region-form-submit="فرم در حال ارسال"
               role="alert"
             />
           </div>

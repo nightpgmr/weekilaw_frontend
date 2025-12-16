@@ -108,7 +108,7 @@ const EstateProbate = () => {
                         id="double-input-estate" 
                         className="style-module__textareaInput style-module__withPreTextIcon" 
                         rows="1" 
-                        placeholder="Ask your legal question"
+                        placeholder="سؤال حقوقی خود را بپرسید"
                         style={{height: '72px'}}
                       />
                     </div>
@@ -460,7 +460,7 @@ const EstateProbate = () => {
                     className="styles_buttonWrapper styles_startCaseButton"
                     style={{'--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)'}}
                   >
-                    <div className="styles_buttonText">Start now</div>
+                    <div className="styles_buttonText">همین حالا شروع کنید</div>
                     <div className="styles_buttonArrow">
                       <div className="styles_arrowIconWrapperHover">
                         <img 
@@ -539,7 +539,7 @@ const EstateProbate = () => {
                           id="double-input-estate-last-section"
                           className="style-module__textareaInput style-module__withPreTextIcon"
                           rows="1"
-                          placeholder="Ask your legal question"
+                          placeholder="سؤال حقوقی خود را بپرسید"
                           style={{height: '72px'}}
                         />
                       </div>

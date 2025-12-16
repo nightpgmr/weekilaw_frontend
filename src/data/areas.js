@@ -94,7 +94,7 @@ export const areasOfLawContent = {
     breadcrumbHref: '/en-us/estate-and-probate-law',
     heroTitle: 'کمک هوش مصنوعی رایگان برای وصیت‌نامه‌ها، اعتمادها و حقوق املاک',
     introText: "با وصیت‌نامه‌ها، اعتمادها یا امور املاک سر و کار دارید؟ چه در حال برنامه‌ریزی املاک خود باشید، چه در حال اداره امور عزیز از دست رفته‌ای باشید یا در حال ناوبری اختلافات ارثی، دستیار حقوقی هوش مصنوعی ما اطلاعات واضح و مفید را در عرض چند دقیقه، کاملاً رایگان ارائه می‌دهد. بر اساس اصول برنامه‌ریزی املاک و وصیت‌نامه ایالات متحده ساخته شده، به شما کمک می‌کند وضعیت خود را درک کنید، گزینه‌های خود را بررسی کنید و با اطمینان پیش بروید.",
-    moreInfoText: 'A quick summary about estate and probate law in the United States',
+    moreInfoText: 'خلاصه‌ای سریع درباره حقوق املاک و وصیت‌نامه در ایالات متحده',
     moreInfoHref: '/en-us/estate-and-probate-law/summary',
     introImage: '/assets/intro-estate-probate.webp',
     subcategoriesTitle: 'چه مسائل حقوق املاک و وصیت‌نامه می‌تواند دستیار حقوقی هوش مصنوعی ما به شما کمک کند',

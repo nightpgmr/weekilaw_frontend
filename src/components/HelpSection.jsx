@@ -15,11 +15,11 @@ const HelpSection = () => {
                 <div className="button-buttonText help-helpButtonText">سؤالات متداول</div>
                 <div className="button-buttonArrow help-helpButtonArrow">
                   <div className="button-arrowIconWrapperHover">
-                    <img src="/assets/arrow-right-blue.svg" alt="arrow-right-white" 
+                    <img src="/assets/arrow-right-blue.svg" alt="فلش راست سفید" 
                          className="button-arrowIcon" width="16" height="16" />
                   </div>
                   <div className="button-arrowIconWrapper">
-                    <img src="/assets/arrow-right-midnight.svg" alt="arrow-right" 
+                    <img src="/assets/arrow-right-midnight.svg" alt="فلش راست" 
                          className="button-arrowIcon" width="16" height="16" />
                   </div>
                 </div>

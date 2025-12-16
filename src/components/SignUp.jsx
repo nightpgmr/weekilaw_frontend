@@ -231,7 +231,7 @@ const SignUp = () => {
               <div className="get-started_backgroundContainer">
                 <div className="get-started_backgroundImage">
                   <img
-                    alt="Register Interest Background"
+                    alt="پس‌زمینه ثبت علاقه‌مندی"
                     className="get-started_bgImage"
                     style={{ color: 'transparent' }}
                     src="/assets/sign-up/legal-network-bg-desktop.webp"
@@ -343,7 +343,7 @@ const SignUp = () => {
                         {[
                           { name: 'Lilit Chakman', firm: 'Miltons Lawyers', img: 'miltons-lawyers-lilit-chakman.jpg', area: 'Commercial law' },
                           { name: 'Kayte Lewis', firm: 'Voice Lawyers', img: 'voice-lawyers-kayte-lewis.jpg', area: 'Employment law' },
-                          { name: 'David Lechem', firm: 'AGEIS', img: 'ageis-david-lechem.jpg', area: 'Estate and probate' },
+                          { name: 'David Lechem', firm: 'AGEIS', img: 'ageis-david-lechem.jpg', area: 'املاک و وصیت‌نامه' },
                           { name: 'Tash Nolan', firm: 'Nolan Lawyers', img: 'nolan-lawyers-tash-nolan.jpg', area: 'Family law' },
                           { name: 'Saurabh Smar', firm: 'Northam Lawyers', img: 'northam-lawyers-saurabh-smar.jpg', area: 'Immigration' },
                           { name: 'Thomas Bassil', firm: 'Finn Roache', img: 'finn-roache-thomas-bassil.jpg', area: 'Litigation' },
@@ -380,8 +380,8 @@ const SignUp = () => {
               <div className="styles_container">
                 <div className="styles_card">
                   <div className="styles_textWrapper">
-                    <div className="styles_title">Need help with an issue?</div>
-                    <div className="styles_description">Ask LawConnect your legal question for quick, free answers!</div>
+                    <div className="styles_title">نیاز به کمک دارید؟</div>
+                    <div className="styles_description">سؤال حقوقی خود را از LawConnect بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
                   </div>
                   <div className="styles_imageWrapper">
                     <a
@@ -389,7 +389,7 @@ const SignUp = () => {
                       className="styles_buttonWrapper styles_startCaseButton"
                       style={{ '--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)' }}
                     >
-                      <div className="styles_buttonText">Start now</div>
+                      <div className="styles_buttonText">همین حالا شروع کنید</div>
                       <div className="styles_buttonArrow">
                         <div className="styles_arrowIconWrapperHover">
                           <img
