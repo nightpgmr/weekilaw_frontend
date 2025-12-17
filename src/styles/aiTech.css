@@ -2494,24 +2494,6 @@
    margin-top:8px;
    gap:8px
 }
- .styles-module__actionButton {
-   text-align:center;
-   border-radius:16px;
-   font-family:var(--font-family);
-   font-size:12px;
-   font-weight:400;
-   line-height:16px;
-   padding:3px 15px 3px 3px;
-   border:1px solid var(--greyscale-14);
-   display:flex;
-   justify-content:flex-start;
-   align-items:center;
-   gap:10px;
-   color:var(--greyscale-2);
-   background-color:var(--white);
-   cursor:pointer;
-   transition:all .2s ease-in-out
-}
  .styles-module__actionButton .styles-module__dot {
    border:1px solid var(--greyscale-14);
    border-radius:50%;
@@ -2521,17 +2503,6 @@
 }
  .styles-module__actionButton.styles-module__disabled {
    cursor:not-allowed
-}
- .styles-module__actionButton.styles-module__active,.styles-module__actionButton:hover {
-   background:var(--chat-sender-background-color);
-   color:#fff;
-   border-color:var(--chat-sender-background-color)
-}
- .styles-module__actionButton.styles-module__active .styles-module__dot,.styles-module__actionButton:hover .styles-module__dot {
-   border:4px solid #fff
-}
- .styles-module__actionButton.styles-module__error {
-   border-color:var(--error)
 }
  .styles-module__numericInput {
    border-radius:10px;
@@ -3943,49 +3914,6 @@
 }
  .styles-module__container .styles-module__cardsContainer:after {
    background:linear-gradient(270deg,#fff,rgba(255,255,255,.90196) 50%,rgba(255,255,255,.74902) 80%,rgba(255,255,255,0))
-}
- .styles-module__container .styles-module__cards {
-   display:grid;
-   grid-gap:20px;
-   height:100%;
-   grid-auto-flow:column;
-   overflow-x:auto;
-   scroll-snap-type:x mandatory;
-   scrollbar-width:none;
-   -ms-overflow-style:none;
-   min-height:100px
-}
- .styles-module__container .styles-module__cards::-webkit-scrollbar {
-   display:none
-}
- .styles-module__container .styles-module__actionBar {
-   display:flex;
-   align-items:center;
-   gap:20px;
-   margin-top:20px;
-   position:relative;
-   z-index:1
-}
- .styles-module__container .styles-module__actionBar .styles-module__scrollBar {
-   position:relative;
-   flex:1;
-   background-color:var(--carousel-scroll-bar-background-color);
-   height:4px;
-   border-radius:20px;
-   overflow-x:hidden
-}
- .styles-module__container .styles-module__actionBar .styles-module__scrollBar .styles-module__scrolledPosition {
-   position:absolute;
-   left:0;
-   background-color:var(--carousel-scroll-bar-active-color);
-   height:100%;
-   border-radius:inherit;
-   transition:left .2s ease-in-out
-}
- .styles-module__container .styles-module__actionBar .styles-module__actionButtonContainer {
-   display:flex;
-   gap:20px;
-   align-items:center
 }
  .styles-module__container .styles-module__actionBar .styles-module__actionButtonContainer.styles-module__hidden {
    display:none
@@ -10028,41 +9956,9 @@
  .style_button:hover:not([disabled]):not(.style_disabled) .style_icon svg path {
    fill:var(--white)
 }
- .style_solidButton {
-   background-color:var(--ui-blue);
-   color:var(--white);
-   font-weight:600;
-   font-size:16px;
-   line-height:24px;
-   border-radius:10px;
-   padding:12px 40px;
-   cursor:pointer;
-   transition:all .3s ease-in-out;
-   text-align:center
-}
- @media (max-width:769px) {
-   .style_solidButton {
-     border-radius:4px;
-     font-size:14px;
-     padding:10px 40px
-  }
-  
-}
- .style_solidButton:hover {
-   background-color:var(--ui-blue-hover)
-}
  .style_solidButton.style_disabled {
    cursor:not-allowed;
    opacity:.25
-}
- .why-use_titleContainer {
-   margin-bottom:40px
-}
- @media (max-width:769px),(min-width:770px) and (max-width:1184px) {
-   .why-use_titleContainer {
-     margin-bottom:20px
-  }
-  
 }
  .why-use_titleContainer .why-use_title {
    font-family:var(--font-family);
@@ -11336,76 +11232,6 @@
  .content-card_notAvailableContainer .content-card_learnWhy:hover {
    color:var(--brand-midnight)
 }
- .hero_heroContainer {
-   display:flex;
-   justify-content:center;
-   background-color:var(--brand-dark-blue);
-   overflow:hidden;
-   z-index:99
-}
- @media (min-width:1601px) {
-   .hero_heroContainer {
-     height:560px
-  }
-  
-}
- @media (max-width:1600px) and (min-width:1185px) {
-   .hero_heroContainer {
-     height:460px
-  }
-  
-}
- @media (min-width:770px) and (max-width:1184px) {
-   .hero_heroContainer {
-     height:360px
-  }
-  
-}
- @media (max-width:769px) {
-   .hero_heroContainer {
-     flex-direction:column;
-     height:calc(100dvh - var(--mobile-header-height));
-     min-height:540px;
-     max-height:760px
-  }
-  
-}
- @media (min-width:1185px) {
-   .hero_heroContainer {
-     padding:0 var(--desktop-side-margin)
-  }
-
-}
- @media (min-width:770px) and (max-width:1184px) {
-   .hero_heroContainer {
-     padding:0 var(--tablet-side-margin)
-  }
-  
-}
- @media (max-width:769px) {
-   .hero_heroContainer {
-     padding:0 var(--mobile-side-margin)
-  }
-  
-}
- .hero_heroContainer .hero_innerWidthWrapper {
-   position:relative;
-   display:flex;
-   flex-direction:column;
-   align-items:center;
-   justify-content:center;
-   width:100%;
-   height:100%;
-   max-width:100vw;
-   z-index:1
-}
- @media (max-width:769px) {
-   .hero_heroContainer .hero_innerWidthWrapper {
-     flex-direction:column;
-     justify-content:flex-start
-  }
-  
-}
  .hero_heroContainer .hero_innerWidthWrapper .hero_heroBlueCircle {
    position:absolute;
    right:0;
@@ -12094,22 +11920,6 @@
  .help_helpButtonContainer .help_helpButton .help_helpButtonArrow {
    border:1px solid var(--brand-midnight)
 }
- .help_helpContainer {
-   display:flex;
-   flex-direction:column
-}
- @media (min-width:1185px) {
-   .help_helpContainer {
-     gap:80px
-  }
-  
-}
- @media (max-width:769px),(min-width:770px) and (max-width:1184px) {
-   .help_helpContainer {
-     gap:40px
-  }
-  
-}
  .help_helpDropdownContainer {
    display:flex;
    flex-direction:column;
@@ -12187,83 +11997,8 @@
   }
   
 }
- .content_contentContainer {
-   display:flex;
-   flex-direction:column;
-   align-items:center
-}
- .content_sectionContainer {
-   display:flex;
-   justify-content:center;
-   width:100%
-}
- @media (min-width:1185px) {
-   .content_sectionContainer {
-     padding-right:var(--desktop-side-margin);
-     padding-left:var(--desktop-side-margin)
-  }
-  
-}
- @media (min-width:770px) and (max-width:1184px) {
-   .content_sectionContainer {
-     padding-right:var(--tablet-side-margin);
-     padding-left:var(--tablet-side-margin)
-  }
-  
-}
- @media (max-width:769px) {
-   .content_sectionContainer {
-     padding-right:var(--mobile-side-margin);
-     padding-left:var(--mobile-side-margin)
-  }
-  
-}
- .content_sectionContainer .content_innerWidthWrapper,.content_sectionContainer .content_largerInnerWidthWrapper {
-   display:flex;
-   flex-direction:column;
-   width:100%;
-   max-width:var(--inner-content-max-width)
-}
  .content_sectionContainer .content_largerInnerWidthWrapper {
    max-width:var(--menu-max-width)
-}
- .content_contentRowHeader {
-   font-weight:700
-}
- @media (min-width:1185px) {
-   .content_contentRowHeader {
-     font-size:18px;
-     line-height:24px
-  }
-  
-}
- @media (max-width:769px),(min-width:770px) and (max-width:1184px) {
-   .content_contentRowHeader {
-     font-size:14px;
-     line-height:24px
-  }
-  
-}
- .content_contentRowHeader {
-   color:var(--brand-midnight);
-   text-align:center
-}
- .content_contentRowBody {
-   font-weight:200
-}
- @media (min-width:1185px) {
-   .content_contentRowBody {
-     font-size:16px;
-     line-height:24px
-  }
-  
-}
- @media (max-width:769px),(min-width:770px) and (max-width:1184px) {
-   .content_contentRowBody {
-     font-size:14px;
-     line-height:24px
-  }
-  
 }
  .content_contentRowBody {
    color:var(--brand-midnight);
@@ -12289,28 +12024,6 @@
 }
  .content_disclaimerTextWrapper .content_disclaimer b {
    font-weight:700
-}
- .content_descriptionHeader {
-   display:flex;
-   flex-direction:column;
-   gap:20px
-}
- @media (min-width:1185px) {
-   .content_descriptionHeader {
-     justify-content:center;
-     align-items:center;
-     padding:0 40px
-  }
-   .content_descriptionHeader .content_bodyText.content_maxWidth {
-     max-width:750px
-  }
-  
-}
- .content_statsContainerInner,.content_statsContainer {
-   display:flex;
-   justify-content:center;
-   align-self:center;
-   width:100%
 }
  .content_statsContainerInner {
    max-width:var(--menu-max-width)

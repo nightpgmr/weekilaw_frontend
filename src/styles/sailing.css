@@ -2494,24 +2494,6 @@
    margin-top:8px;
    gap:8px
 }
- .styles-module__actionButton {
-   text-align:center;
-   border-radius:16px;
-   font-family:var(--font-family);
-   font-size:12px;
-   font-weight:400;
-   line-height:16px;
-   padding:3px 15px 3px 3px;
-   border:1px solid var(--greyscale-14);
-   display:flex;
-   justify-content:flex-start;
-   align-items:center;
-   gap:10px;
-   color:var(--greyscale-2);
-   background-color:var(--white);
-   cursor:pointer;
-   transition:all .2s ease-in-out
-}
  .styles-module__actionButton .styles-module__dot {
    border:1px solid var(--greyscale-14);
    border-radius:50%;
@@ -2521,17 +2503,6 @@
 }
  .styles-module__actionButton.styles-module__disabled {
    cursor:not-allowed
-}
- .styles-module__actionButton.styles-module__active,.styles-module__actionButton:hover {
-   background:var(--chat-sender-background-color);
-   color:#fff;
-   border-color:var(--chat-sender-background-color)
-}
- .styles-module__actionButton.styles-module__active .styles-module__dot,.styles-module__actionButton:hover .styles-module__dot {
-   border:4px solid #fff
-}
- .styles-module__actionButton.styles-module__error {
-   border-color:var(--error)
 }
  .styles-module__numericInput {
    border-radius:10px;
@@ -3943,49 +3914,6 @@
 }
  .styles-module__container .styles-module__cardsContainer:after {
    background:linear-gradient(270deg,#fff,rgba(255,255,255,.90196) 50%,rgba(255,255,255,.74902) 80%,rgba(255,255,255,0))
-}
- .styles-module__container .styles-module__cards {
-   display:grid;
-   grid-gap:20px;
-   height:100%;
-   grid-auto-flow:column;
-   overflow-x:auto;
-   scroll-snap-type:x mandatory;
-   scrollbar-width:none;
-   -ms-overflow-style:none;
-   min-height:100px
-}
- .styles-module__container .styles-module__cards::-webkit-scrollbar {
-   display:none
-}
- .styles-module__container .styles-module__actionBar {
-   display:flex;
-   align-items:center;
-   gap:20px;
-   margin-top:20px;
-   position:relative;
-   z-index:1
-}
- .styles-module__container .styles-module__actionBar .styles-module__scrollBar {
-   position:relative;
-   flex:1;
-   background-color:var(--carousel-scroll-bar-background-color);
-   height:4px;
-   border-radius:20px;
-   overflow-x:hidden
-}
- .styles-module__container .styles-module__actionBar .styles-module__scrollBar .styles-module__scrolledPosition {
-   position:absolute;
-   left:0;
-   background-color:var(--carousel-scroll-bar-active-color);
-   height:100%;
-   border-radius:inherit;
-   transition:left .2s ease-in-out
-}
- .styles-module__container .styles-module__actionBar .styles-module__actionButtonContainer {
-   display:flex;
-   gap:20px;
-   align-items:center
 }
  .styles-module__container .styles-module__actionBar .styles-module__actionButtonContainer.styles-module__hidden {
    display:none
