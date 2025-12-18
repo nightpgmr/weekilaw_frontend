@@ -9451,7 +9451,8 @@ to {
 .styles_arrowIcon {
   fill:var(--white);
   width:24px;
-  height:24px
+  height:24px;
+  transform: scaleX(-1);
 }
 @media (max-width:769px), (min-width:770px) and (max-width:1184px) {
   .styles_arrowIcon {

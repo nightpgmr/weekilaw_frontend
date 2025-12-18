@@ -12512,9 +12512,6 @@
    background-color:var(--white);
    z-index:6
 }
- .styles_buttonWrapper:hover .styles_buttonArrow .styles_arrowIconWrapperHover,.styles_buttonWrapper:hover .styles_buttonArrow .styles_arrowIconWrapper {
-   transform:translateX(0)
-}
  .styles_buttonWrapper .styles_buttonText {
    flex:1;
    color:var(--white);
@@ -12530,54 +12527,8 @@
   }
   
 }
- .styles_buttonWrapper .styles_buttonArrow {
-   display:flex;
-   align-items:center;
-   border:1px solid var(--white);
-   border-radius:24px;
-   width:48px;
-   height:48px;
-   overflow:hidden;
-   transition:all .4s ease-in-out;
-   z-index:2
-}
- @media (max-width:769px),(min-width:770px) and (max-width:1184px) {
-   .styles_buttonWrapper .styles_buttonArrow {
-     width:24px;
-     height:24px
-  }
-  
-}
- .styles_buttonWrapper .styles_buttonArrow .styles_arrowIconWrapperHover,.styles_buttonWrapper .styles_buttonArrow .styles_arrowIconWrapper {
-   display:flex;
-   align-items:center;
-   justify-content:center;
-   min-width:48px;
-   height:48px;
-   transition:all .3s ease-in-out;
-   transform:translateX(-100%)
-}
- @media (max-width:769px),(min-width:770px) and (max-width:1184px) {
-   .styles_buttonWrapper .styles_buttonArrow .styles_arrowIconWrapperHover,.styles_buttonWrapper .styles_buttonArrow .styles_arrowIconWrapper {
-     min-width:24px;
-     height:24px
-  }
-  
-}
  .styles_buttonWrapper .styles_buttonArrow .styles_arrowIconWrapperHover .styles_arrowIcon {
    fill:var(--ui-blue)
-}
- .styles_buttonWrapper .styles_buttonArrow .styles_arrowIcon {
-   fill:var(--white);
-   width:24px;
-   height:24px
-}
- @media (max-width:769px),(min-width:770px) and (max-width:1184px) {
-   .styles_buttonWrapper .styles_buttonArrow .styles_arrowIcon {
-     width:16px;
-     height:16px
-  }
-  
 }
  .styles_stackedCardWrapper {
    display:flex;
