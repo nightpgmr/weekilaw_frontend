@@ -12975,10 +12975,7 @@
    color:var(--white)
 }
  .button_buttonContainer:hover .button_buttonArrow {
-   background-color:var(--white)
-}
- .button_buttonContainer:hover .button_arrowIconWrapperHover,.button_buttonContainer:hover .button_arrowIconWrapper {
-   transform:translateX(0)
+  background-color:var(--white)
 }
  .button_buttonText {
    color:var(--ui-blue);
@@ -13021,17 +13018,7 @@
      min-width:24px;
      height:24px
   }
-  
-}
- :root .button_arrowIconWrapperHover,:root .button_arrowIconWrapper {
-   display:flex;
-   align-items:center;
-   justify-content:center;
-   transform:translateX(-100%);
-   min-width:inherit;
-   width:100%;
-   height:inherit;
-   transition:all .3s ease-in-out
+
 }
  :root .button_arrowIcon {
    width:16px;

@@ -1033,3 +1033,21 @@ html body strong, html body em, html body b, html body i {
     padding-right: var(--mobile-card-width);
   }
 }
+
+/* Global Button Arrow Icon Wrapper Styles */
+.button_arrowIconWrapperHover,
+.button_arrowIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100%);
+  min-width: inherit;
+  width: 100%;
+  height: inherit;
+  transition: all .3s ease-in-out;
+}
+
+.button_buttonContainer:hover .button_arrowIconWrapperHover,
+.button_buttonContainer:hover .button_arrowIconWrapper {
+  transform: translateX(0);
+}
