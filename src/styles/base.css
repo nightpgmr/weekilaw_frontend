@@ -52,30 +52,6 @@
     gap:var(--mobile-gap)
   }
 }
-.styles_pageGapWrapper {
-  display:flex;
-  flex-direction:column
-}
-@media (min-width:1601px) {
-  .styles_pageGapWrapper {
-    gap:var(--large-desktop-gap)
-  }
-}
-@media (max-width:1600px) and (min-width:1185px) {
-  .styles_pageGapWrapper {
-    gap:var(--small-desktop-gap)
-  }
-}
-@media (min-width:770px) and (max-width:1184px) {
-  .styles_pageGapWrapper {
-    gap:var(--tablet-gap)
-  }
-}
-@media (max-width:769px) {
-  .styles_pageGapWrapper {
-    gap:var(--mobile-gap)
-  }
-}
 @media (min-width:770px) and (max-width:1184px) {
   .styles_pageGapWrapper .styles_noMargin {
     width:100vw;
@@ -137,33 +113,6 @@
 }
 .styles_breadcrumbClass, .styles_breadcrumbClass a, .styles_headerClass {
   color:var(--white)!important
-}
-.styles_introContainer {
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  background:var(--brand-light-greyish-blue)
-}
-@media (min-width:1185px) {
-  .styles_introContainer {
-    margin-top:calc(var(--large-desktop-gap) * -1);
-    padding-top:var(--large-desktop-gap);
-    padding-bottom:352px
-  }
-}
-@media (max-width:1600px) and (min-width:1185px) {
-  .styles_introContainer {
-    padding-bottom:336px;
-    margin-top:calc(var(--small-desktop-gap) * -1);
-    padding-top:var(--small-desktop-gap)
-  }
-}
-@media (max-width:769px), (min-width:770px) and (max-width:1184px) {
-  .styles_introContainer {
-    margin-top:calc(var(--tablet-gap) * -1);
-    padding-top:var(--tablet-gap)
-  }
 }
 .styles_needLawyerContainer {
   z-index:1
