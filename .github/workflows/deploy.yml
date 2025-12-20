@@ -42,7 +42,7 @@ jobs:
     - name: Sync built files to server
       uses: burnett01/rsync-deployments@6.0.0
       with:
-        switches: -avz --delete --exclude='.git' --exclude='node_modules' --exclude='src' --exclude='public/assets' --exclude='.github' --exclude='*.md' --exclude='*.json' --exclude='*.js' --exclude='*.config.js' --exclude='*.config.ts'
+        switches: -avz --delete --exclude='.git' --exclude='node_modules' --exclude='src' --exclude='public/assets' --exclude='.github' --exclude='*.md' --exclude='*.json' --exclude='*.config.js' --exclude='*.config.ts'
         path: dist/
         remote_path: /var/www/weekilaw-frontend/dist
         remote_host: ${{ secrets.SSH_HOST }}

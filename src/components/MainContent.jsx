@@ -21,41 +21,41 @@ const MainContent = () => {
   ];
 
   const areasOfLaw = [
-    { name: "حقوق بازرگانی", href: "/en-us/commercial-law", image: "/assets/commercial-law-us.webp" },
-    { name: "حقوق کیفری", href: "/en-us/criminal-law", image: "/assets/criminal-law.webp" },
-    { name: "حقوق کار", href: "/en-us/employment-law", image: "/assets/employment-law.webp" },
-    { name: "حقوق ارث و املاک", href: "/en-us/estate-and-probate-law", image: "/assets/estate-and-probate-law.webp" },
-    { name: "حقوق خانواده", href: "/en-us/family-law", image: "/assets/family-law.webp" },
-    { name: "حقوق مهاجرت", href: "/en-us/immigration-law", image: "/assets/immigration-law.webp" },
-    { name: "دادرسی", href: "/en-us/litigation", image: "/assets/litigation-law.webp" },
-    { name: "حقوق جراحت شخصی", href: "/en-us/personal-injury-law", image: "/assets/personal-injury-law.webp" },
-    { name: "حقوق املاک", href: "/en-us/property-law", image: "/assets/property-law.webp" },
+    { name: "حقوق بازرگانی", href: "/en-us/commercial-law", image: "/assets/carousel-legal-1.webp" },
+    { name: "حقوق کیفری", href: "/en-us/criminal-law", image: "/assets/carousel-legal-2.webp" },
+    { name: "حقوق کار", href: "/en-us/employment-law", image: "/assets/carousel-legal-3.webp" },
+    { name: "حقوق ارث و املاک", href: "/en-us/estate-and-probate-law", image: "/assets/carousel-legal-4.webp" },
+    { name: "حقوق خانواده", href: "/en-us/family-law", image: "/assets/carousel-legal-5.webp" },
+    { name: "حقوق مهاجرت", href: "/en-us/immigration-law", image: "/assets/carousel-legal-6.webp" },
+    { name: "دادرسی", href: "/en-us/litigation", image: "/assets/carousel-legal-7.webp" },
+    { name: "حقوق جراحت شخصی", href: "/en-us/personal-injury-law", image: "/assets/carousel-legal-8.webp" },
+    { name: "حقوق املاک", href: "/en-us/property-law", image: "/assets/carousel-legal-9.webp" },
   ];
 
   const faqItems = [
     {
-      question: "LawConnect چیست و چگونه کار می‌کند؟",
-      answer: "LawConnect یک پلتفرم آنلاین رایگان است که از AI برای کمک به مردم در جهت‌یابی مسائل حقوقی استفاده می‌کند. این پلتفرم برای سادگی و دسترسی طراحی شده و به کاربران اطلاعات حقوقی شخصی‌سازی شده فوری ارائه می‌دهد. پس از تعامل با دستیار حقوقی AI ما، کاربران می‌توانند با یک وکیل متخصص برای حمایت بیشتر ارتباط برقرار کنند."
+      question: "Weekilaw چیست و چگونه کار می‌کند؟",
+      answer: "Weekilaw یک پلتفرم آنلاین رایگان است که از AI برای کمک به مردم در جهت‌یابی مسائل حقوقی استفاده می‌کند. این پلتفرم برای سادگی و دسترسی طراحی شده و به کاربران اطلاعات حقوقی شخصی‌سازی شده فوری ارائه می‌دهد. پس از تعامل با دستیار حقوقی AI ما، کاربران می‌توانند با یک وکیل متخصص برای حمایت بیشتر ارتباط برقرار کنند."
     },
     {
-      question: "آیا LawConnect جایگزین مشاوره حقوقی است؟",
-      answer: "LawConnect جایگزین مشاوره حرفه‌ای حقوقی نیست. در حالی که اطلاعات حقوقی سریع و مفید ارائه می‌دهد، اما به عنوان نقطه شروع طراحی شده، به ویژه اگر مطمئن نیستید از کجا شروع کنید یا نیاز به وکیل مربوطه دارید."
+      question: "آیا Weekilaw جایگزین مشاوره حقوقی است؟",
+      answer: "Weekilaw جایگزین مشاوره حرفه‌ای حقوقی نیست. در حالی که اطلاعات حقوقی سریع و مفید ارائه می‌دهد، اما به عنوان نقطه شروع طراحی شده، به ویژه اگر مطمئن نیستید از کجا شروع کنید یا نیاز به وکیل مربوطه دارید."
     },
     {
-      question: "آیا می‌توانم از طریق LawConnect با یک وکیل واقعی صحبت کنم؟",
-      answer: "بله، LawConnect گزینه ارتباط با یک وکیل واجد شرایط را ارائه می‌دهد اگر نیاز به حمایت بیشتر داشته باشید. پس از چت با دستیار AI حقوقی ما، می‌توانید درخواست صحبت با یک متخصص حقوقی که مسئله شما را درک می‌کند، داشته باشید."
+      question: "آیا می‌توانم از طریق Weekilaw با یک وکیل واقعی صحبت کنم؟",
+      answer: "بله، Weekilaw گزینه ارتباط با یک وکیل واجد شرایط را ارائه می‌دهد اگر نیاز به حمایت بیشتر داشته باشید. پس از چت با دستیار AI حقوقی ما، می‌توانید درخواست صحبت با یک متخصص حقوقی که مسئله شما را درک می‌کند، داشته باشید."
     },
     {
-      question: "استفاده از دستیار حقوقی AI LawConnect رایگان است؟",
-      answer: "بله، استفاده از دستیار AI LawConnect کاملاً رایگان است. می‌توانید سؤال بپرسید و اطلاعات حقوقی مفید دریافت کنید بدون هیچ هزینه‌ای. اگر تصمیم بگیرید در مرحله بعدی از طریق پلتفرم با یک وکیل صحبت کنید، ممکن است بسته به خدمات وکیل هزینه‌هایی وجود داشته باشد."
+      question: "استفاده از دستیار حقوقی AI Weekilaw رایگان است؟",
+      answer: "بله، استفاده از دستیار AI Weekilaw کاملاً رایگان است. می‌توانید سؤال بپرسید و اطلاعات حقوقی مفید دریافت کنید بدون هیچ هزینه‌ای. اگر تصمیم بگیرید در مرحله بعدی از طریق پلتفرم با یک وکیل صحبت کنید، ممکن است بسته به خدمات وکیل هزینه‌هایی وجود داشته باشد."
     },
     {
       question: "چه نوع مسائل حقوقی می‌توانم کمک بگیرم؟",
-      answer: "LawConnect می‌تواند در مسائل حقوقی مختلفی که ممکن است با آنها مواجه شوید کمک کند، از جمله امور خانواده، مشکلات شغلی، حقوق مصرف‌کننده، اختلافات اجاره، بدهی، جریمه‌های رانندگی، مسائل کسب‌وکار، و وصیت‌نامه یا املاک. این پلتفرم برای ارائه نمای کلی از حقوق و گزینه‌های شما برای موقعیت‌های حقوقی رایج طراحی شده است."
+      answer: "Weekilaw می‌تواند در مسائل حقوقی مختلفی که ممکن است با آنها مواجه شوید کمک کند، از جمله امور خانواده، مشکلات شغلی، حقوق مصرف‌کننده، اختلافات اجاره، بدهی، جریمه‌های رانندگی، مسائل کسب‌وکار، و وصیت‌نامه یا املاک. این پلتفرم برای ارائه نمای کلی از حقوق و گزینه‌های شما برای موقعیت‌های حقوقی رایج طراحی شده است."
     },
     {
-      question: "مرحله بعدی پس از استفاده از LawConnect چیست؟",
-      answer: "پس از چت با دستیار حقوقی AI LawConnect برای درک مسئله خود، می‌توانید یا با استفاده از گزارش ارائه شده اقدام کنید یا با یک وکیل برای کمک عمیق‌تر ارتباط برقرار کنید. هدف این است که اعتماد و حمایت لازم را به شما بدهیم تا پیش بروید، چه مسئله را خودتان حل کنید یا تصمیم بگیرید مشاوره حقوقی حرفه‌ای بگیرید."
+      question: "مرحله بعدی پس از استفاده از Weekilaw چیست؟",
+      answer: "پس از چت با دستیار حقوقی AI Weekilaw برای درک مسئله خود، می‌توانید یا با استفاده از گزارش ارائه شده اقدام کنید یا با یک وکیل برای کمک عمیق‌تر ارتباط برقرار کنید. هدف این است که اعتماد و حمایت لازم را به شما بدهیم تا پیش بروید، چه مسئله را خودتان حل کنید یا تصمیم بگیرید مشاوره حقوقی حرفه‌ای بگیرید."
     }
   ];
 
@@ -63,15 +63,15 @@ const MainContent = () => {
     {
       href: "/en-us/about/sailing",
       image: "/assets/about-sailing.webp",
-      title: "بازگشت به بازگشت: چگونه LawConnect هوبارت را فتح کرد",
+      title: "بازگشت به بازگشت: چگونه Weekilaw هوبارت را فتح کرد",
       description: "در سفر فراموش‌نشدنی در سری جدید پشت صحنه ما از supermaxi ما به دریا بزنید.",
-      linkText: "قایقرانی LawConnect"
+      linkText: "قایقرانی Weekilaw"
     },
     {
       href: "/en-us/about/ai-technology",
       image: "/assets/about-technology.webp",
       title: "فناوری AI ما",
-      description: "LawConnect از قدرت AI پیشرفته برای ارائه اطلاعات حقوقی سفارشی رایگان استفاده می‌کند.",
+      description: "Weekilaw از قدرت AI پیشرفته برای ارائه اطلاعات حقوقی سفارشی رایگان استفاده می‌کند.",
       linkText: "فناوری AI ما"
     },
     {
@@ -91,7 +91,7 @@ const MainContent = () => {
     {
       href: "/en-us/about/careers",
       image: "/assets/about-careers.webp",
-      title: "مشاغل LawConnect می‌توانند شما را به هر جایی ببرند",
+      title: "مشاغل Weekilaw می‌توانند شما را به هر جایی ببرند",
       description: "ما طیف متنوعی از موقعیت‌ها را در چندین مکان در دسترس داریم.",
       linkText: "مشاغل"
     }
@@ -577,9 +577,9 @@ const MainContent = () => {
                   alt="Stats Icon" 
                   loading="lazy" 
                   width="360" 
-                  height="360" 
-                  className="stats_statsLogoIcon" 
-                  src="/assets/logo-icon.svg" 
+                  height="360"
+                  className="stats_statsLogoIcon"
+                  src="/assets/logo-icon.png" 
                 />
                 <div className="stats_statsCard">
                   <img alt="User" loading="lazy" width="40" height="40" className="stats_statsIcon" src="/assets/user-white.svg" />
@@ -607,7 +607,7 @@ const MainContent = () => {
             <div className="knowledge_knowledgeHeaderContainer">
               <h2 className="knowledge_subTitle">موردهای واقعی را بررسی کنید</h2>
               <div className="knowledge_bodyText">
-                حوزه‌های مختلف حقوق را بررسی کنید و نمونه‌های واقعی از نحوه شروع سفر حقوقی مردم با LawConnect را ببینید.
+                حوزه‌های مختلف حقوق را بررسی کنید و نمونه‌های واقعی از نحوه شروع سفر حقوقی مردم با Weekilaw را ببینید.
               </div>
             </div>
             <div>
@@ -689,9 +689,9 @@ const MainContent = () => {
               alt="knowledge-background" 
               loading="lazy" 
               width="0" 
-              height="0" 
-              className="knowledge_knowledgeBackgroundIcon" 
-              src="/assets/logo-icon.svg" 
+              height="0"
+              className="knowledge_knowledgeBackgroundIcon"
+              src="/assets/logo-icon.png"
             />
           </div>
         </div>
@@ -828,7 +828,7 @@ const MainContent = () => {
             <div className="content_innerWidthWrapper">
               <div className="content_disclaimerTextWrapper">
                 <div className="content_disclaimer">
-                  <b>سلب مسئولیت</b>: محتوای ارائه شده در این وب‌سایت فقط برای اهداف اطلاع‌رسانی است و نباید به عنوان جایگزین مشاوره حقوقی قابل اعتماد باشد. گیرندگان توصیه می‌شوند قبل از اجرای هر گونه توصیه‌ای در اینجا، با مشاور حقوقی واجد شرایط مشورت کنند. LawConnect مسئولیت اقدامات انجام شده بر اساس این اطلاعات را نخواهد داشت.
+                  <b>سلب مسئولیت</b>: محتوای ارائه شده در این وب‌سایت فقط برای اهداف اطلاع‌رسانی است و نباید به عنوان جایگزین مشاوره حقوقی قابل اعتماد باشد. گیرندگان توصیه می‌شوند قبل از اجرای هر گونه توصیه‌ای در اینجا، با مشاور حقوقی واجد شرایط مشورت کنند. Weekilaw مسئولیت اقدامات انجام شده بر اساس این اطلاعات را نخواهد داشت.
                 </div>
                 <div className="content_disclaimer content_disclaimerLawyer">
                   * لطفاً توجه داشته باشید که اگر تصمیم بگیرید با یک وکیل همکاری کنید، ممکن است هزینه‌هایی برای خدمات آنها دریافت شود.

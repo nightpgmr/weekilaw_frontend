@@ -37,10 +37,10 @@
 }
 
 .account-modal_logo img {
-  width: 36px;
-  height: 36px;
+  width: 136px;
+  height: 136px;
   object-fit: contain;
-  margin: 0 auto 16px;
+  margin: 0 auto 30px;
   display: block;
 }
 

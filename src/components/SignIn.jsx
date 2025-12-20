@@ -24,7 +24,7 @@ function SignIn() {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <img src="/assets/sign-in/logo" alt="Visit LawConnect" />
+                <img src="/assets/logo.png" alt="Visit Weekilaw" />
               </a>
             </div>
             <h1
@@ -38,7 +38,7 @@ function SignIn() {
               <p>ایمیل خود را وارد کنید و کد ورود را برای شما ارسال خواهیم کرد.</p>
             </div>
           </header>
-          <div className="kinde-layout-widget" data-kinde-layout-widget="true" data-page-title="Sign in | LawConnect">
+          <div className="kinde-layout-widget" data-kinde-layout-widget="true" data-page-title="Sign in | Weekilaw">
             <div className="kinde-layout-widget-content" data-kinde-layout-widget-content="true">
               <form
                 className="kinde-form"

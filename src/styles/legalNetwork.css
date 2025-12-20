@@ -42,8 +42,8 @@
   
 }
  :root {
-   --font-family:"Vazirmatn",sans-serif;
-   --secondary-font-family:"Vazirmatn",sans-serif;
+  --font-family:"Yekan",sans-serif;
+  --secondary-font-family:"Yekan",sans-serif;
    --max-content-width:1760px;
    --menu-max-width:1600px;
    --large-max-width:1600px;
@@ -155,7 +155,7 @@
    --chat-sender-dark-background-color:#162845
 }
  * {
-   font-family:Vazirmatn,sans-serif;
+   font-family:Yekan,sans-serif;
    font-family:var(--font-family);
    padding:0;
    margin:0
@@ -230,7 +230,7 @@
    -moz-osx-font-smoothing:grayscale
 }
  h1 {
-   font-family:Vazirmatn,sans-serif;
+   font-family:Yekan,sans-serif;
    font-family:var(--secondary-font-family);
    font-weight:200;
    color:#666666;
@@ -265,7 +265,7 @@
   
 }
  h2 {
-   font-family:Vazirmatn,sans-serif;
+   font-family:Yekan,sans-serif;
    font-family:var(--secondary-font-family);
    font-weight:700;
    color:#333333;
@@ -286,7 +286,7 @@
   
 }
  h3 {
-   font-family:Vazirmatn,sans-serif;
+   font-family:Yekan,sans-serif;
    font-family:var(--secondary-font-family);
    font-weight:700;
    color:#333333;
@@ -307,7 +307,7 @@
   
 }
  select,textarea {
-   font-family:Vazirmatn,sans-serif;
+   font-family:Yekan,sans-serif;
    font-family:var(--font-family);
    color:#333333;
    color:var(--grey-1)
@@ -2329,7 +2329,7 @@
    position:relative
 }
  .styles-module__tabList .styles-module__tabItems .styles-module__tabItem {
-   font-family:Vazirmatn;
+   font-family:Yekan;
    font-size:14px;
    font-weight:300;
    line-height:20px;
@@ -2933,8 +2933,7 @@
 }
  .styles-module__splitDateInputWrapper select {
    background:transparent;
-   background-image:url(data:image/svg+xml;
-   base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNyAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzLjMxMzQgNS4xNDY0NEMxMy40MDM5IDUuMDU1OTYgMTMuNTI4OSA1IDEzLjY2NyA1QzEzLjk0MzEgNSAxNC4xNjcgNS4yMjM4NiAxNC4xNjcgNS41QzE0LjE2NyA1LjY0MDQ1IDE0LjEwOTEgNS43NjczNyAxNC4wMTU4IDUuODU4MTlMOS4wMjUxOSAxMC44NDg5QzguOTM0MzYgMTAuOTQyMSA4LjgwNzQ0IDExIDguNjY2OTkgMTFDOC41MjY1NSAxMSA4LjM5OTYyIDEwLjk0MjEgOC4zMDg4IDEwLjg0ODlMMy4zMTgxNCA1Ljg1ODE5QzMuMjI0OSA1Ljc2NzM3IDMuMTY2OTkgNS42NDA0NSAzLjE2Njk5IDUuNUMzLjE2Njk5IDUuMjIzODYgMy4zOTA4NSA1IDMuNjY2OTkgNUMzLjgwNTA2IDUgMy45MzAwNiA1LjA1NTk2IDQuMDIwNTQgNS4xNDY0NEw4LjY2Njk5IDkuNzkyODNMMTMuMzEzNCA1LjE0NjQ0WiIgZmlsbD0iIzk5OTk5OSIvPgo8L3N2Zz4K);
+   background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNyAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzLjMxMzQgNS4xNDY0NEMxMy40MDM5IDUuMDU1OTYgMTMuNTI4OSA1IDEzLjY2NyA1QzEzLjk0MzEgNSAxNC4xNjcgNS4yMjM4NiAxNC4xNjcgNS41QzE0LjE2NyA1LjY0MDQ1IDE0LjEwOTEgNS43NjczNyAxNC4wMTU4IDUuODU4MTlMOS4wMjUxOSAxMC44NDg5QzguOTM0MzYgMTAuOTQyMSA4LjgwNzQ0IDExIDguNjY2OTkgMTFDOC41MjY1NSAxMSA4LjM5OTYyIDEwLjk0MjEgOC4zMDg4IDEwLjg0ODlMMy4zMTgxNCA1Ljg1ODE5QzMuMjI0OSA1Ljc2NzM3IDMuMTY2OTkgNS42NDA0NSAzLjE2Njk5IDUuNUMzLjE2Njk5IDUuMjIzODYgMy4zOTA4NSA1IDMuNjY2OTkgNUMzLjgwNTA2IDUgMy45MzAwNiA1LjA1NTk2IDQuMDIwNTQgNS4xNDY0NEw4LjY2Njk5IDkuNzkyODNMMTMuMzEzNCA1LjE0NjQ0WiIgZmlsbD0iIzk5OTk5OSIvPgo8L3N2Zz4K);
    background-repeat:no-repeat;
    background-position-x:98%;
    background-position-y:55%;
@@ -3180,8 +3179,7 @@
    transform:translateY(-50%);
    width:12px;
    height:12px;
-   background-image:url(data:image/png;
-   base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABRSURBVHgB7Y47DsAwCEPhpix8zsTS3pTKe0PTKGPehGT7CaLDPlRV3P366qETEfIamtndSZChQx0jydR4JOnG3EmYuXBXFWem0F8gmX77sM4DmM8oWZTqZ0IAAAAASUVORK5CYII=);
+   background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABRSURBVHgB7Y47DsAwCEPhpix8zsTS3pTKe0PTKGPehGT7CaLDPlRV3P366qETEfIamtndSZChQx0jydR4JOnG3EmYuXBXFWem0F8gmX77sM4DmM8oWZTqZ0IAAAAASUVORK5CYII=);
    background-repeat:no-repeat;
    background-position:50%;
    background-size:contain;
@@ -4923,9 +4921,6 @@
    .styles-module__desktopMenuContainer .styles-module__floatingContainer:not(.styles-module__shrink) {
      height:138px
   }
-   .styles-module__desktopMenuContainer .styles-module__floatingContainer:not(.styles-module__shrink) .styles-module__logoContainer .styles-module__logo {
-     height:34px
-  }
    .styles-module__desktopMenuContainer .styles-module__floatingContainer.styles-module__shrink .styles-module__menuContentContainer .styles-module__menuLinksContainer {
      gap:0
   }
@@ -4937,11 +4932,6 @@
  .styles-module__desktopMenuContainer .styles-module__floatingContainer .styles-module__logoContainer {
    display:flex;
    align-items:center
-}
- .styles-module__desktopMenuContainer .styles-module__floatingContainer .styles-module__logoContainer .styles-module__logo {
-   height:24px;
-   width:auto;
-   pointer-events:auto
 }
  @media only screen and (max-width:1184px) and (min-width:770px) {
    .styles-module__desktopMenuContainer .styles-module__floatingContainer .styles-module__logoContainer .styles-module__logo {
@@ -7146,12 +7136,6 @@
    width:-moz-fit-content;
    width:fit-content
 }
- @media only screen and (min-width:1185px) {
-   .style-module__logo .style-module__logoImage {
-     height:28px
-  }
-  
-}
  @media only screen and (max-width:1184px) and (min-width:770px) {
    .style-module__logo .style-module__logoImage {
      height:26px
@@ -8498,7 +8482,7 @@
    animation:styles-module__spin .8s linear infinite
 }
  @font-face {
-   font-family:Vazirmatn;
+   font-family:Yekan;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8506,7 +8490,7 @@
    unicode-range:u+0460-052f,u+1c80-1c8a,u+20b4,u+2de0-2dff,u+a640-a69f,u+fe2e-fe2f
 }
  @font-face {
-   font-family:Vazirmatn;
+   font-family:Yekan;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8514,7 +8498,7 @@
    unicode-range:u+0301,u+0400-045f,u+0490-0491,u+04b0-04b1,u+2116
 }
  @font-face {
-   font-family:Vazirmatn;
+   font-family:Yekan;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8522,7 +8506,7 @@
    unicode-range:u+1f??
 }
  @font-face {
-   font-family:Vazirmatn;
+   font-family:Yekan;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8530,7 +8514,7 @@
    unicode-range:u+0370-0377,u+037a-037f,u+0384-038a,u+038c,u+038e-03a1,u+03a3-03ff
 }
  @font-face {
-   font-family:Vazirmatn;
+   font-family:Yekan;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8538,7 +8522,7 @@
    unicode-range:u+0102-0103,u+0110-0111,u+0128-0129,u+0168-0169,u+01a0-01a1,u+01af-01b0,u+0300-0301,u+0303-0304,u+0308-0309,u+0323,u+0329,u+1ea0-1ef9,u+20ab
 }
  @font-face {
-   font-family:Vazirmatn;
+   font-family:Yekan;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8546,7 +8530,7 @@
    unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff
 }
  @font-face {
-   font-family:Vazirmatn;
+   font-family:Yekan;
    font-style:normal;
    font-weight:100 900;
    font-display:swap;
@@ -8554,7 +8538,7 @@
    unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd
 }
  @font-face {
-   font-family:Vazirmatn Fallback;
+   font-family:Yekan Fallback;
    src:local("Arial");
    ascent-override:90.44%;
    descent-override:22.52%;
@@ -8562,7 +8546,7 @@
    size-adjust:107.12%
 }
  .__className_f367f3 {
-   font-family:Vazirmatn,Vazirmatn Fallback;
+   font-family:Yekan,Yekan Fallback;
    font-style:normal
 }
  .__variable_f367f3 {
@@ -14950,7 +14934,7 @@
 }
  @media (min-width:1601px) {
    .hero_heroImageContainer .hero_heroImage {
-     height:711px;
+     height:600px;
      transform:translateX(50%)
   }
   

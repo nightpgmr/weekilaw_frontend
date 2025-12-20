@@ -79,7 +79,7 @@ const ChatModal = ({ open, onClose }) => {
           <div className="chat-modal_brand">
             <div className="chat-modal_logoCircle">LC</div>
             <div>
-              <div className="chat-modal_title">LawConnect</div>
+              <div className="chat-modal_title">Weekilaw</div>
               <div className="chat-modal_subtitle">Free AI legal assistant</div>
             </div>
           </div>

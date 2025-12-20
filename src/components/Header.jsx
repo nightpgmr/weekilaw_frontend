@@ -28,7 +28,7 @@ const Header = ({ scrollElement }) => {
     { title: "فناوری هوش مصنوعی ما", description: "قدرت هوش مصنوعی پیشرفته را به کار می‌گیرد.", to: "/en-us/about/ai-technology" },
     { title: "شبکه حقوقی ما", description: "وکلای متخصص در تمام زمینه‌های حقوقی.", to: "/en-us/about/legal-network" },
     { title: "شرکت", description: "ارزش‌ها و ساختار ما.", to: "/en-us/about/company" },
-    { title: "فرصت‌های شغلی", description: "فرصت‌ها با LawConnect.", to: "/en-us/about/careers" },
+    { title: "فرصت‌های شغلی", description: "فرصت‌ها با Weekilaw.", to: "/en-us/about/careers" },
     { title: "قایق‌رانی", description: "درباره سوپر ماکسی سیدنی به هوبارت.", to: "/en-us/about/sailing" },
   ];
 
@@ -79,7 +79,7 @@ const Header = ({ scrollElement }) => {
                   width="0"
                   height="20"
                   className="styles-module__logo"
-                  src="/assets/logo-icon.svg"
+                  src="/assets/logo-icon.png"
                 />
               </Link>
               <div className="styles-module__menuLinksContainer">

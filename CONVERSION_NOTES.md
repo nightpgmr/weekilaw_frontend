@@ -33,7 +33,7 @@ Since the original HTML file contains mostly JSON data in script tags (Next.js s
 
 The original HTML file is at:
 ```
-Free AI Legal Chat, Answers & Help 24_7 in the U.S. _ LawConnect.html
+Free AI Legal Chat, Answers & Help 24_7 in the U.S. _ Weekilaw.html
 ```
 
 To extract the actual visible content:

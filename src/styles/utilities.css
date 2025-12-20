@@ -1,15 +1,15 @@
-/* Vazirmatn Font for all elements - Global override with maximum specificity */
+/* Yekan Font for all elements - Global override with maximum specificity */
 html, body {
-  font-family: 'Vazirmatn', sans-serif !important;
+  font-family: 'Yekan', sans-serif !important;
 }
 
 * {
-  font-family: 'Vazirmatn', sans-serif !important;
+  font-family: 'Yekan', sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6,
 h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
-  font-family: 'Vazirmatn', sans-serif !important;
+  font-family: 'Yekan', sans-serif !important;
 }
 
 p, span, div, a, button, input, textarea, label, select, option,
@@ -17,18 +17,18 @@ strong, em, b, i, small, mark, del, ins, sub, sup,
 blockquote, pre, code, kbd, samp, var, address,
 abbr, acronym, dfn, cite, q,
 th, td, caption, legend, fieldset {
-  font-family: 'Vazirmatn', sans-serif !important;
+  font-family: 'Yekan', sans-serif !important;
 }
 
-/* Force Vazirmatn on all text elements */
+/* Force Yekan on all text elements */
 body * {
-  font-family: 'Vazirmatn', sans-serif !important;
+  font-family: 'Yekan', sans-serif !important;
 }
 
 /* Override any existing font-family variables */
 :root {
-  --font-family: 'Vazirmatn', sans-serif !important;
-  --secondary-font-family: 'Vazirmatn', sans-serif !important;
+  --font-family: 'Yekan', sans-serif !important;
+  --secondary-font-family: 'Yekan', sans-serif !important;
 }
 
 .site_widthContainer {
@@ -598,9 +598,9 @@ body * {
   }
 }
 
-/* FINAL OVERRIDE: Ensure ALL elements use Vazirmatn font - highest priority */
+/* FINAL OVERRIDE: Ensure ALL elements use Yekan font - highest priority */
 html, body, body *, * {
-  font-family: 'Vazirmatn', sans-serif !important;
+  font-family: 'Yekan', sans-serif !important;
 }
 
 /* ABSOLUTE FINAL OVERRIDE - Highest specificity possible */
@@ -608,17 +608,17 @@ html body div, html body span, html body p, html body h1, html body h2, html bod
 html body h4, html body h5, html body h6, html body a, html body button,
 html body input, html body textarea, html body label, html body select,
 html body strong, html body em, html body b, html body i {
-  font-family: 'Vazirmatn', sans-serif !important;
+  font-family: 'Yekan', sans-serif !important;
 }
 
 /* Override CSS module classes */
 [class*="styles_"], [class*="styles-"] {
-  font-family: 'Vazirmatn', sans-serif !important;
+  font-family: 'Yekan', sans-serif !important;
 }
 
-/* Nuclear option - force Vazirmatn on everything */
+/* Nuclear option - force Yekan on everything */
 * {
-  font-family: 'Vazirmatn', sans-serif !important;
+  font-family: 'Yekan', sans-serif !important;
 }
 
 @media (max-width:769px) {

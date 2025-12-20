@@ -3005,7 +3005,7 @@
 }
 .knowledge_carouselCardContainer .knowledge_cardImage {
   width:100%;
-  height:auto;
+  height:100%;
   -o-object-fit:cover;
   object-fit:cover;
   border-radius:inherit

@@ -39,7 +39,7 @@ const Company = () => {
                   height="80"
                   className="styles_heroIcon"
                   style={{ color: 'transparent' }}
-                  src="/assets/company/logo-icon.svg"
+                  src="/assets/logo-icon.png"
                 />
               </div>
             </div>
@@ -120,7 +120,7 @@ const Company = () => {
         {/* Purpose text */}
         <div className="styles_innerWidthWrapper">
           <div className="styles_purposeText">
-            LawConnect توسط کارآفرین فناوری حقوقی کریستیان بک تأسیس شده و شکاف بین افراد عادی که با چالش‌های حقوقی مواجه هستند و وکلایی که می‌توانند کمک کنند را پر می‌کند.
+            Weekilaw توسط کارآفرین فناوری حقوقی کریستیان بک تأسیس شده و شکاف بین افراد عادی که با چالش‌های حقوقی مواجه هستند و وکلایی که می‌توانند کمک کنند را پر می‌کند.
             <br />
             <br />
             با ارائه پاسخ‌های مبتنی بر هوش مصنوعی به سؤالات حقوقی شما و ارائه گزینه صحبت مستقیم با وکیل هنگامی که نیاز به کمک بیشتر دارید، اطمینان می‌دهیم که هیچ‌کس بدون حمایت رها نشود. مأموریت ما توانمندسازی شما با منابع حقوقی قابل دسترس و اطمینان از اینکه عدالت یک حق اساسی برای همه باقی می‌ماند.
@@ -147,7 +147,7 @@ const Company = () => {
                 height="360"
                 className="stats_statsLogoIcon"
                 style={{ color: 'transparent' }}
-                src="/assets/company/logo-icon.svg"
+                src="/assets/logo-icon.png"
               />
               <div className="stats_statsCard">
                 <img
@@ -322,7 +322,7 @@ const Company = () => {
           <div className="styles_card">
             <div className="styles_textWrapper">
               <div className="styles_title">نیاز به کمک دارید؟</div>
-              <div className="styles_description">سؤال حقوقی خود را از LawConnect بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
+              <div className="styles_description">سؤال حقوقی خود را از Weekilaw بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
             </div>
             <div className="styles_imageWrapper">
               <a

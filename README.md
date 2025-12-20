@@ -80,7 +80,7 @@ The build folder will contain the optimized production build.
 ## Original Files
 
 The original HTML file and all assets are preserved in the parent directory:
-- `Free AI Legal Chat, Answers & Help 24_7 in the U.S. _ LawConnect.html`
-- `Free AI Legal Chat, Answers & Help 24_7 in the U.S. _ LawConnect_files/`
+- `Free AI Legal Chat, Answers & Help 24_7 in the U.S. _ Weekilaw.html`
+- `Free AI Legal Chat, Answers & Help 24_7 in the U.S. _ Weekilaw_files/`
 
 

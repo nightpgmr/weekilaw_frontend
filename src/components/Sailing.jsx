@@ -17,7 +17,7 @@ const Sailing = () => {
                 <span className="styles_breadcrumb ">&nbsp;/&nbsp;</span>
                 <span className="styles_breadcrumb styles_bold">قایق‌رانی</span>
               </div>
-              <h1 className="styles_heroTitle ">قایق سوپر ماکسی LawConnect</h1>
+              <h1 className="styles_heroTitle ">قایق سوپر ماکسی Weekilaw</h1>
             </div>
             <div className="styles_heroImageContainer ">
               <div className="styles_heroImageWrapper">
@@ -53,7 +53,7 @@ const Sailing = () => {
           <div className="styles_innerWidthWrapper">
             <div className="styles_contentTextWrapper">
               <div className="styles_descriptionText">
-                قایق سوپر ماکسی LawConnect به عنوان یکی از رقبای برتر در مسابقه قایق‌رانی Rolex Sydney Hobart، یکی از معتبرترین رویدادهای قایق‌رانی جهان، ظاهر شده است. <br /> <br />
+                قایق سوپر ماکسی Weekilaw به عنوان یکی از رقبای برتر در مسابقه قایق‌رانی Rolex Sydney Hobart، یکی از معتبرترین رویدادهای قایق‌رانی جهان، ظاهر شده است. <br /> <br />
                 پس از کسب پیروزی‌های تاریخی متوالی در سال‌های 2023 و 2024، این قایق 100 فوتی که متعلق به کریستیان بک است و توسط او هدایت می‌شود، بر موفقیت‌های پیاپی خود می‌افزاید و تعهد بک به بهبود دسترسی به عدالت را منعکس می‌کند.
               </div>
             </div>
@@ -123,12 +123,12 @@ const Sailing = () => {
         <div className="styles_widthWrapper">
           <div className="styles_innerWidthWrapper">
             <div className="styles_headerDescriptionContainer">
-              <div className="styles_headerTitle">متوالی: چگونه LawConnect هوبارت را فتح کرد</div>
+              <div className="styles_headerTitle">متوالی: چگونه Weekilaw هوبارت را فتح کرد</div>
               <div
                 className="styles_headerDescription"
                 dangerouslySetInnerHTML={{
                   __html:
-                    'در جدیدترین مجموعه ما، سفری فراموش‌نشدنی را آغاز کنید که شما را پشت صحنه قایق سوپر ماکسی LawConnect می‌برد - از آغاز اولیه آن تا پیروزی‌های متوالی افتخارات خط سیدنی به هوبارت در سال‌های 2023 و 2024.<br> <br>بینش‌های انحصاری از خدمه دریافت کنید زیرا آنها پیروزی‌ها، چالش‌ها و اراده محکم را که LawConnect را به پیروزی رساند، بازگو می‌کنند. این داستانی از تعهد، نوآوری و قایقی است که برای رفتن تا انتها ساخته شده.',
+                    'در جدیدترین مجموعه ما، سفری فراموش‌نشدنی را آغاز کنید که شما را پشت صحنه قایق سوپر ماکسی Weekilaw می‌برد - از آغاز اولیه آن تا پیروزی‌های متوالی افتخارات خط سیدنی به هوبارت در سال‌های 2023 و 2024.<br> <br>بینش‌های انحصاری از خدمه دریافت کنید زیرا آنها پیروزی‌ها، چالش‌ها و اراده محکم را که Weekilaw را به پیروزی رساند، بازگو می‌کنند. این داستانی از تعهد، نوآوری و قایقی است که برای رفتن تا انتها ساخته شده.',
                 }}
               />
               <a className="styles_watchLink" href="https://www.youtube.com/@asklawconnect" target="_blank" rel="noreferrer">
@@ -179,11 +179,11 @@ const Sailing = () => {
           <div className="styles_innerWidthWrapper">
             <div className="styles_contentTextWrapper">
               <div className="styles_descriptionText">
-                سوپر ماکسی به عنوان سفیر شناور نوآوری عمل می‌کند و تعهد LawConnect به پیش بردن مرزها هم روی آب و هم بیرون از آن را برجسته می‌کند.
+                سوپر ماکسی به عنوان سفیر شناور نوآوری عمل می‌کند و تعهد Weekilaw به پیش بردن مرزها هم روی آب و هم بیرون از آن را برجسته می‌کند.
                 <br /> <br />
                 ادامه سنت افتخارآمیز، هر سال کریستیان بک چند کارمند را به کشتی دعوت می‌کند تا مسابقه را از نزدیک همراه با قایقرانان مشهور جهانی مانند تونی موتر و کریس نیکلسون تجربه کنند.
                 <br /> <br />
-                این فرصت فرهنگی از همکاری و رشد شخصی را پرورش می‌دهد - که تعهد LawConnect به غلبه بر چالش‌ها و دستیابی به برتری را منعکس می‌کند.
+                این فرصت فرهنگی از همکاری و رشد شخصی را پرورش می‌دهد - که تعهد Weekilaw به غلبه بر چالش‌ها و دستیابی به برتری را منعکس می‌کند.
               </div>
             </div>
           </div>
@@ -195,7 +195,7 @@ const Sailing = () => {
             <div className="styles_card">
               <div className="styles_textWrapper">
                 <div className="styles_title">کمک به یک مسئله نیاز دارید؟</div>
-                <div className="styles_description">سؤال حقوقی خود را از LawConnect بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
+                <div className="styles_description">سؤال حقوقی خود را از Weekilaw بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
               </div>
               <div className="styles_imageWrapper">
                 <a

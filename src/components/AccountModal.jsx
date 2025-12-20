@@ -13,7 +13,7 @@ const AccountModal = ({ open, onClose }) => {
         </button>
 
         <div className="account-modal_logo">
-          <img src="/assets/sign-in/logo" alt="LawConnect" />
+          <img src="/assets/logo.png" alt="Weekilaw" width="200" height="200"/>
         </div>
 
         <p className="account-modal_lead">لطفاً وارد شوید یا یک حساب کاربری رایگان ایجاد کنید.</p>

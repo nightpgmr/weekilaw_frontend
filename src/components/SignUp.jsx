@@ -77,7 +77,7 @@ const SignUp = () => {
                         <div>
                           <h3 className="register-intro_cardTitle">حضور آنلاین خود را تقویت کنید</h3>
                           <p className="register-intro_cardDescription">
-                            نمایه LawConnect دریافت کنید که دفتر شما را نمایش می‌دهد و به موکلین کمک می‌کند تا با اطمینان با شما تماس بگیرند.
+                            نمایه Weekilaw دریافت کنید که دفتر شما را نمایش می‌دهد و به موکلین کمک می‌کند تا با اطمینان با شما تماس بگیرند.
                           </p>
                         </div>
                       </div>
@@ -121,7 +121,7 @@ const SignUp = () => {
                     <div className="register-interest-form_cardWrapper">
                       <div className="register-form-card_cardContainer">
                         <div className="register-form-card_formSection">
-                          <h2 className="register-form-card_title">امروز برای پیوستن به LawConnect درخواست دهید</h2>
+                          <h2 className="register-form-card_title">امروز برای پیوستن به Weekilaw درخواست دهید</h2>
                           <form className="register-form-card_form">
                             <div className="register-form-card_formRow">
                               <div className="register-form-card_inputGroup">
@@ -240,9 +240,9 @@ const SignUp = () => {
               </div>
               <div className="get-started_getStartedWrapper">
                 <div className="get-started_getStartedContainer">
-                  <h2 className="get-started_getStartedTitle">با LawConnect به صورت رایگان شروع کنید</h2>
+                  <h2 className="get-started_getStartedTitle">با Weekilaw به صورت رایگان شروع کنید</h2>
                   <div className="get-started_getStartedDescription">
-                    ببینید چگونه LawConnect با دوره آزمایشی رایگان ما به شما کمک می‌کند تا پایگاه مشتریان خود را گسترش دهید
+                    ببینید چگونه Weekilaw با دوره آزمایشی رایگان ما به شما کمک می‌کند تا پایگاه مشتریان خود را گسترش دهید
                   </div>
                   <div className="get-started_getStartedStepsContainer">
                     <div className="get-started_step">
@@ -381,7 +381,7 @@ const SignUp = () => {
                 <div className="styles_card">
                   <div className="styles_textWrapper">
                     <div className="styles_title">نیاز به کمک دارید؟</div>
-                    <div className="styles_description">سؤال حقوقی خود را از LawConnect بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
+                    <div className="styles_description">سؤال حقوقی خود را از Weekilaw بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
                   </div>
                   <div className="styles_imageWrapper">
                     <a

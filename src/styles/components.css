@@ -1955,7 +1955,7 @@ to {
   position:relative
 }
 .styles-module__tabList .styles-module__tabItems .styles-module__tabItem {
-  font-family:Vazirmatn;
+  font-family:Yekan;
   font-size:14px;
   font-weight:300;
   line-height:20px;
@@ -4529,9 +4529,14 @@ to {
   align-items:center
 }
 .styles-module__desktopMenuContainer .styles-module__floatingContainer .styles-module__logoContainer .styles-module__logo {
-  height:24px;
+  height:48px;
   width:auto;
   pointer-events:auto
+}
+@media only screen and (min-width: 1185px) {
+  .style-module__logo .style-module__logoImage {
+      height: 75px !important;
+  }
 }
 @media only screen and (max-width:1184px) and (min-width:770px) {
   .styles-module__desktopMenuContainer .styles-module__floatingContainer .styles-module__logoContainer .styles-module__logo {
@@ -6788,6 +6793,9 @@ to {
   .style-module__countryLanguageSelector .style-module__clickableWrapper .style-module__language {
     font-size:18px
   }
+  .styles-module__desktopMenuContainer .styles-module__floatingContainer:not(.styles-module__shrink) .styles-module__logoContainer .styles-module__logo {
+    height:64px
+  }
 }
 @media only screen and (max-width:1600px) and (min-width:1185px) {
   .style-module__countryLanguageSelector .style-module__clickableWrapper .style-module__language {
@@ -8980,7 +8988,7 @@ to {
 .ai-tech_page {
   --ai-tech-max-width: 1140px;
   color: #191919;
-  font-family: var(--secondary-font-family, 'Vazirmatn'), sans-serif;
+  font-family: var(--secondary-font-family, 'Yekan'), sans-serif;
 }
 .ai-tech_section {
   padding: 72px 24px;

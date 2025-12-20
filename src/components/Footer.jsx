@@ -9,10 +9,10 @@ const Footer = () => {
             <img 
               width="202" 
               height="28" 
-              alt="LawConnect" 
-              loading="lazy" 
-              className="style-module__logoImage" 
-              src="/assets/logo-icon.svg" 
+              alt="Weekilaw" 
+              loading="lazy"
+              className="style-module__logoImage"
+              src="/assets/logo-icon.png" 
             />
           </a>
           <div className="style-module__headerLanguageSelector">

@@ -13,7 +13,7 @@ const Hero = () => {
           <div className="hero-image">
             <img 
               src="/assets/header-hero-1-1x.webp" 
-              alt="LawConnect Hero" 
+              alt="Weekilaw Hero" 
             />
           </div>
         </div>

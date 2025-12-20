@@ -49,7 +49,7 @@ const AboutAITechnology = () => {
                 </div>
                 <div className="intro_introDescription">
                   دستیار حقوقی هوش مصنوعی ما پاسخ‌های آسان‌فهم و شخصی‌سازی شده‌ای به سؤالات حقوقی شما ارائه می‌دهد.
-                  اگر نیاز به مشاوره حرفه‌ای دارید، LawConnect پیدا کردن وکیل مناسب را ساده می‌کند.
+                  اگر نیاز به مشاوره حرفه‌ای دارید، Weekilaw پیدا کردن وکیل مناسب را ساده می‌کند.
                 </div>
 
                 <div className="intro_triCardStackContainer">
@@ -86,7 +86,7 @@ const AboutAITechnology = () => {
                         />
                         <div className="triple-highlight_itemCardTitle">پردازش هوشمند</div>
                         <div className="triple-highlight_itemCardDescription intro_mainItemCardDescriptionClassName">
-                          هوش مصنوعی ما از پاسخ‌های چت و پرسشنامه شما استفاده می‌کند تا بینش‌های واضح و مرتبط ارائه دهد. اگر تصمیم به دریافت مشاوره حرفه‌ای بگیرید، LawConnect پیدا کردن وکیل مناسب را آسان می‌کند.
+                          هوش مصنوعی ما از پاسخ‌های چت و پرسشنامه شما استفاده می‌کند تا بینش‌های واضح و مرتبط ارائه دهد. اگر تصمیم به دریافت مشاوره حرفه‌ای بگیرید، Weekilaw پیدا کردن وکیل مناسب را آسان می‌کند.
                         </div>
                       </div>
                       <div className="triple-highlight_itemCardContainer intro_itemCardClassName">
@@ -192,7 +192,7 @@ const AboutAITechnology = () => {
                     loading="lazy"
                     className="stats_statsLogoIcon"
                     style={{ color: 'transparent' }}
-                    src="/assets/ai-tech/logo-icon.svg"
+                    src="/assets/logo-icon.png"
                   />
                   <div className="stats_statsCard">
                     <img
@@ -310,7 +310,7 @@ const AboutAITechnology = () => {
                   <div className="styles_card">
                     <div className="styles_textWrapper">
                       <div className="styles_title">نیاز به کمک دارید؟</div>
-                      <div className="styles_description">سؤال حقوقی خود را از LawConnect بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
+                      <div className="styles_description">سؤال حقوقی خود را از Weekilaw بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
                     </div>
                     <div className="styles_imageWrapper">
                       <a

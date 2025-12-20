@@ -86,7 +86,7 @@ const LegalNetwork = () => {
                   </div>
                 </div>
                 <div className="intro_introDescription">
-                  LawConnect افتخار می‌کند که به کاربران خود دسترسی به شبکه‌ای از متخصصان حقوقی واجد شرایط ارائه می‌دهد. هنگامی که چالش‌های حقوقی پیش می‌آید، شما شایسته راهنمایی حرفه‌ای از وکلای با تجربه‌ای هستید که نیازهای خاص شما را درک می‌کنند.
+                  Weekilaw افتخار می‌کند که به کاربران خود دسترسی به شبکه‌ای از متخصصان حقوقی واجد شرایط ارائه می‌دهد. هنگامی که چالش‌های حقوقی پیش می‌آید، شما شایسته راهنمایی حرفه‌ای از وکلای با تجربه‌ای هستید که نیازهای خاص شما را درک می‌کنند.
                 </div>
               </div>
             </div>
@@ -208,21 +208,21 @@ const LegalNetwork = () => {
                   <div className="how-it-works_titleContainer how-it-works_titleContainer">
                     <h2 className="how-it-works_title how-it-works_title">چگونه یافتن کمک حقوقی را آسان‌تر می‌کنیم</h2>
                     <p className="how-it-works_description how-it-works_description">
-                      LawConnect به شما دسترسی به وکلای مورد اعتماد با تجربه و دانش محلی برای کمک به موضوع حقوقی شما می‌دهد. این فرآیند ساده است:
+                      Weekilaw به شما دسترسی به وکلای مورد اعتماد با تجربه و دانش محلی برای کمک به موضوع حقوقی شما می‌دهد. این فرآیند ساده است:
                     </p>
                   </div>
                   <div className="how-it-works_stepsContainer">
                     {[
                       {
                         title: 'وضعیت خود را توصیف کنید',
-                        desc: "با شرح مسئله حقوقی خود شروع کنید، می‌توانید چیزها را با کلمات خودتان توضیح دهید، بدون نگرانی از اصطلاحات حقوقی. هر چه که تجربه می‌کنید، LawConnect اینجا است تا کمک کند.",
+                        desc: "با شرح مسئله حقوقی خود شروع کنید، می‌توانید چیزها را با کلمات خودتان توضیح دهید، بدون نگرانی از اصطلاحات حقوقی. هر چه که تجربه می‌کنید، Weekilaw اینجا است تا کمک کند.",
                         desktop: '/assets/legal-network/how-it-works-step1-desktop.webp',
                         tablet: '/assets/legal-network/how-it-works-step1-tablet.webp',
                         mobile: '/assets/legal-network/how-it-works-step1-mobile.webp',
                       },
                       {
                         title: 'اطلاعات هوش مصنوعی شخصی‌سازی شده دریافت کنید',
-                        desc: "LawConnect اطلاعات واضح و عملی و مراحل بعدی را بر اساس وضعیت شما ارائه می‌دهد. شما راهنمایی آسان‌فهمی دریافت خواهید کرد تا در مورد گزینه‌های خود و آنچه باید در ادامه انجام دهید، اعتماد به نفس بیشتری داشته باشید.",
+                        desc: "Weekilaw اطلاعات واضح و عملی و مراحل بعدی را بر اساس وضعیت شما ارائه می‌دهد. شما راهنمایی آسان‌فهمی دریافت خواهید کرد تا در مورد گزینه‌های خود و آنچه باید در ادامه انجام دهید، اعتماد به نفس بیشتری داشته باشید.",
                         desktop: '/assets/legal-network/how-it-works-step2-desktop.webp',
                         tablet: '/assets/legal-network/how-it-works-step2-tablet.webp',
                         mobile: '/assets/legal-network/how-it-works-step2-mobile.webp',
@@ -252,7 +252,7 @@ const LegalNetwork = () => {
               </div>
               <div className="how-it-works_disclaimer">
                 اگر تصمیم به مشاوره با وکیلی متصل بگیرید، آنها هزینه‌های خود را از قبل توضیح خواهند داد.<br />
-                هر توافقی بین شما و وکیل است، نه LawConnect
+                هر توافقی بین شما و وکیل است، نه Weekilaw
               </div>
             </div>
           </div>
@@ -265,7 +265,7 @@ const LegalNetwork = () => {
                   <h2 className="advantages_title">مزیت شبکه ما</h2>
                 </div>
                 <div className="advantages_descriptionContainer">
-                  <p className="advantages_description">کاربران LawConnect از موارد زیر بهره‌مند می‌شوند:</p>
+                  <p className="advantages_description">کاربران Weekilaw از موارد زیر بهره‌مند می‌شوند:</p>
                 </div>
                 <div className="styles-module__container advantages_carouselWrapper">
                   <div className="styles-module__cardsContainer">
@@ -335,7 +335,7 @@ const LegalNetwork = () => {
                         </div>
                         <div>
                           <img
-                            alt="LawConnect"
+                            alt="Weekilaw"
                             loading="lazy"
                             className="join-network-card_logo"
                             style={{ color: 'transparent' }}
@@ -384,7 +384,7 @@ const LegalNetwork = () => {
                   <div className="styles_card">
                     <div className="styles_textWrapper">
                       <div className="styles_title">کمک به یک مسئله نیاز دارید؟</div>
-                      <div className="styles_description">سؤال حقوقی خود را از LawConnect بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
+                      <div className="styles_description">سؤال حقوقی خود را از Weekilaw بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
                     </div>
                     <div className="styles_imageWrapper">
                       <a
