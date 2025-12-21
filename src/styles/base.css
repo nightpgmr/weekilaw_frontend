@@ -27,7 +27,7 @@
   display:flex;
   flex-direction:column;
   width:100%;
-  max-width:var(--inner-content-max-width)
+  max-width:100% !important;
 }
 .styles_widthWrapper .styles_largerInnerWidthWrapper {
   max-width:var(--menu-max-width)
@@ -1082,7 +1082,7 @@
   display:flex;
   flex-direction:column;
   width:100%;
-  max-width:var(--inner-content-max-width)
+  max-width:100%
 }
 .styles_widthWrapper .styles_largerInnerWidthWrapper {
   max-width:var(--menu-max-width)

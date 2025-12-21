@@ -2045,6 +2045,7 @@
   font-weight: 700;
   color: #000;
   margin-bottom: 30px;
+  text-align: right;
 }
 
 .kinde-layout-page-logo img {
@@ -2055,6 +2056,7 @@
 .kinde-layout-page-description {
   margin-top: 4px;
   margin-bottom: 30px;
+  text-align: right;
 }
 
 .kinde-layout-widget-content {
