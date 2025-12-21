@@ -204,7 +204,7 @@ const Header = ({ scrollElement }) => {
                   </div>
                   {activeDropdown === 'lawyers' && (
                     <div className="styles-module__childContainer styles-module__hoverMenu">
-                      <Link to="/en-us/for-lawyers/legal-network" className="styles-module__menuItem">
+                      <Link to="/en-us/about/legal-network" className="styles-module__menuItem">
                         <span className="styles-module__menuItemText">شبکه حقوقی ما</span>
                       </Link>
                       <Link to="/en-us/for-lawyers/sign-up" className="styles-module__menuItem">

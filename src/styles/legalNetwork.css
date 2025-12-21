@@ -16165,7 +16165,7 @@
    object-fit:cover;
    -o-object-position:center;
    object-position:center;
-   height:24px;
+   height:40px;
    width:auto
 }
  @media (max-width:769px) {
