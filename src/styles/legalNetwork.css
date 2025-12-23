@@ -16859,7 +16859,7 @@
  .join-network-card_logo {
    -o-object-fit:contain;
    object-fit:contain;
-   height:24px;
+   height:100px;
    width:auto
 }
  @media (max-width:769px),(min-width:770px) and (max-width:1184px) {
@@ -16879,7 +16879,7 @@
    height:310px;
    position:absolute;
    bottom:0;
-   right:14px
+   left:14px
 }
  @media (min-width:770px) and (max-width:1184px) {
    .join-network-card_phoneImage {

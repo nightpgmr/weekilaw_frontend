@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { areasOfLawContent, defaultAreaSlug } from '../data/areas';
 import PageLayout from './PageLayout.jsx';
@@ -7,6 +7,17 @@ const EstateProbate = () => {
   const { areaSlug } = useParams();
   const area = areasOfLawContent[areaSlug] || areasOfLawContent[defaultAreaSlug];
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  const [heroStep, setHeroStep] = useState(0);
+  const [showFixedChat, setShowFixedChat] = useState(false);
+  const [isAtLastSection, setIsAtLastSection] = useState(false);
+  const chatInputRef = useRef(null);
+  const lastSectionRef = useRef(null);
+  const [percentage, setPercentage] = useState(0);
+
+  // Carousel state
+  const [carouselScrollPosition, setCarouselScrollPosition] = useState(0);
+  const carouselRef = useRef(null);
 
   const {
     breadcrumbLabel,
@@ -34,6 +45,142 @@ const EstateProbate = () => {
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
+
+  // Carousel scroll function with RTL support
+  const scrollCarousel = useCallback((direction) => {
+    if (!carouselRef.current) return;
+  
+    const container = carouselRef.current;
+      
+    if (direction === 'left') {
+      container.scrollTo({
+        left: 0,
+        behavior: 'smooth'
+      });
+    } else if (direction === 'right') {
+      
+    const maxScroll = container.scrollWidth - container.clientWidth;
+      container.scrollTo({
+        left: -maxScroll,
+        behavior: 'smooth'
+      });
+    }
+  
+    // Update scroll position
+    setTimeout(() => {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const currentScroll = container.scrollLeft;
+      let percentage = maxScroll > 0 ? (currentScroll / maxScroll) * 100 : 0;
+      setPercentage((percentage * -1) < 50 ? 0 : 80);
+      
+      setCarouselScrollPosition(Math.min(100, Math.max(0, percentage)));
+    }, 500);
+  }, []);
+
+  // Update progress bar on manual scroll
+  const handleCarouselScroll = useCallback(() => {
+    if (!carouselRef.current) return;
+  
+    const container = carouselRef.current;
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    const currentScroll = container.scrollLeft;
+    let percentage = 0;
+  
+    if (maxScroll > 0) {
+      percentage = (currentScroll / maxScroll) * 100;
+      setPercentage((percentage * -1) < 50 ? 0 : 80);
+      if (percentage > 99) percentage = 100;
+      if (percentage < 0.1) percentage = 0;
+    }
+  
+    setCarouselScrollPosition(Math.max(0, Math.min(100, percentage)));
+  }, []);
+
+
+    // Add these state variables after the existing carousel state
+  const [siteCardsScrollPosition, setSiteCardsScrollPosition] = useState(0);
+  const siteCardsRef = useRef(null);
+  const [percentageCards, setPercentageCards] = useState(0);
+
+  // Add this scroll function after the existing scrollCarousel function
+  const scrollSiteCards = useCallback((direction) => {
+    if (!siteCardsRef.current) return;
+
+    const container = siteCardsRef.current;
+      
+    if (direction === 'left') {
+      container.scrollTo({
+        left: 0,
+        behavior: 'smooth'
+      });
+    } else if (direction === 'right') {
+      
+    const maxScroll = container.scrollWidth - container.clientWidth;
+      container.scrollTo({
+        left: -maxScroll,
+        behavior: 'smooth'
+      });
+    }
+
+    // Update scroll position
+    setTimeout(() => {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const currentScroll = container.scrollLeft;
+      let percentage = maxScroll > 0 ? (currentScroll / maxScroll) * 100 : 0;
+      setPercentageCards((percentage * -1) < 50 ? 0 : 77);;
+      setSiteCardsScrollPosition(Math.min(100, Math.max(0, percentage)));
+    }, 500);
+  }, []);
+
+  // Auto-rotate hero slider
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroStep((prevStep) => (prevStep + 1) % area.length);
+    }, 4000); // Change slide every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [area.length]);
+
+  // Track chat input visibility for fixed bottom chat and last section position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (chatInputRef.current) {
+        const rect = chatInputRef.current.getBoundingClientRect();
+        // Show fixed chat when original is scrolled above viewport (top is above viewport)
+        // Hide when original is visible again (top is within viewport)
+        setShowFixedChat(rect.top < -100);
+      }
+
+      // Check if we're at the last section
+      if (lastSectionRef.current) {
+        const lastSectionRect = lastSectionRef.current.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        // If last section is visible in viewport (bottom is near or past viewport bottom)
+        setIsAtLastSection(lastSectionRect.bottom <= viewportHeight + 100);
+      }
+    };
+
+    // Throttle scroll events for better performance
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    handleScroll(); // Check initial position
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
 
   return (
     <PageLayout>
@@ -247,11 +394,13 @@ const EstateProbate = () => {
               <div className="styles-module__container subcategories_carouselWrapper">
                 <div className="styles-module__cardsContainer">
                   <div 
+                    ref={carouselRef}
                     className="styles-module__cards subcategories_cardsContainer"
                     style={{gap: '0px 40px', gridAutoColumns: 'minmax(270px, 1fr)', gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))'}}
+                    onScroll={handleCarouselScroll}
                   >
                     {subCategories.map((category, index) => (
-                      <div key={index} className="subcategories_gridItem subcategories_notClickable">
+                      <a key={index} href={category.href}  className="subcategories_gridItem subcategories_notClickable">
                         <div className="subcategories_categoryImageContainer">
                           <img 
                             src={category.image} 
@@ -269,22 +418,22 @@ const EstateProbate = () => {
                             <span style={{color: '#333333'}}>{category.description}</span>
                           </p>
                         </div>
-                      </div>
+                      </a>
                     ))}
                   </div>
                 </div>
                 <div className="styles-module__actionBar subcategories_actionBarWrapper">
                   <div className="styles-module__scrollBar">
-                    <div className="styles-module__scrolledPosition" style={{width: '25%', left: '0%'}}></div>
+                    <div className="styles-module__scrolledPosition" style={{width: '25%', right: `${percentage}%`}}></div>
                   </div>
-                  <div className="styles-module__actionButtonContainer subcategories_arrowButtonContainer">
-                    <button className="styles-module__actionButton" disabled>
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#777777" xmlns="http://www.w3.org/2000/svg" className="styles-module__actionIcon">
+                  <div className="styles-module__actionButtonContainer subcategories_arrowButtonContainer" style={{direction: 'ltr'}}>
+                    <button className="styles-module__actionButton" onClick={() => scrollCarousel('left')}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#777777" xmlns="http://www.w3.org/2000/svg" className="styles-module__actionIcon" style={{transform: 'scaleX(-1)'}}>
                         <path d="M12.5303 5.03032C12.6661 4.8946 12.75 4.7071 12.75 4.5C12.75 4.08579 12.4142 3.75 12 3.75C11.7893 3.75 11.5989 3.83686 11.4627 3.97672L3.97672 11.4627C3.83686 11.5989 3.75 11.7893 3.75 12C3.75 12.2107 3.83686 12.4011 3.97672 12.5373L11.4627 20.0233C11.599 20.1631 11.7893 20.25 12 20.25C12.4142 20.25 12.75 19.9142 12.75 19.5C12.75 19.2929 12.6661 19.1054 12.5303 18.9697L6.31075 12.75H19.5C19.9142 12.75 20.25 12.4142 20.25 12C20.25 11.5858 19.9142 11.25 19.5 11.25H6.31075L12.5303 5.03032Z"></path>
                       </svg>
                     </button>
-                    <button className="styles-module__actionButton">
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="#0E5FE3" xmlns="http://www.w3.org/2000/svg" className="styles-module__actionIcon">
+                    <button className="styles-module__actionButton" onClick={() => scrollCarousel('right')}>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="#0E5FE3" xmlns="http://www.w3.org/2000/svg" className="styles-module__actionIcon" style={{transform: 'scaleX(-1)'}}>
                         <path d="M7.64644 3.35355C7.55596 3.26306 7.5 3.13807 7.5 3C7.5 2.72386 7.72386 2.5 8 2.5C8.14045 2.5 8.26737 2.55791 8.35819 2.65115L13.3489 7.64181C13.4421 7.73263 13.5 7.85955 13.5 8C13.5 8.14045 13.4421 8.26737 13.3489 8.35819L8.35819 13.3489C8.26737 13.4421 8.14045 13.5 8 13.5C7.72386 13.5 7.5 13.2761 7.5 13C7.5 12.8619 7.55596 12.7369 7.64644 12.6465L11.7928 8.5H3C2.72386 8.5 2.5 8.27614 2.5 8C2.5 7.72386 2.72386 7.5 3 7.5H11.7928L7.64644 3.35355Z"></path>
                       </svg>
                     </button>
