@@ -1,3 +1,325 @@
+/* Legal Network Mobile Styles - Matching lawconnect.com design */
+
+.legal-network-hero {
+  background: linear-gradient(135deg, #0E5FE3 0%, #8B60EA 100%);
+  padding: 60px 0;
+  color: white;
+  text-align: center;
+}
+
+.legal-network-hero__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.legal-network-hero__content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.legal-network-hero__title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.legal-network-hero__subtitle {
+  font-size: 24px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.legal-network-hero__search {
+  margin-top: 40px;
+}
+
+.legal-network-search {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.legal-network-search__input {
+  width: 100%;
+  padding: 16px 60px 16px 24px;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  background: white;
+  color: #333;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.legal-network-search__input::placeholder {
+  color: #666;
+}
+
+.legal-network-search__button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #0E5FE3;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.legal-network-search__button:hover {
+  background: #0056B3;
+}
+
+.legal-network-content {
+  padding: 80px 0;
+}
+
+.legal-network-section {
+  margin-bottom: 80px;
+}
+
+.legal-network-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.legal-network-section__title {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #333;
+}
+
+.legal-network-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.legal-network-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.legal-network-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.legal-network-card__icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  background: #F8F9FF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.legal-network-card__icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.legal-network-card__title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.legal-network-card__description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.legal-network-steps {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legal-network-step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  gap: 24px;
+}
+
+.legal-network-step__number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #0E5FE3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.legal-network-step__content {
+  flex: 1;
+}
+
+.legal-network-step__title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.legal-network-step__description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.legal-network-cta {
+  background: linear-gradient(135deg, #0E5FE3 0%, #8B60EA 100%);
+  padding: 80px 0;
+  color: white;
+  text-align: center;
+}
+
+.legal-network-cta__container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.legal-network-cta__title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.legal-network-cta__description {
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.legal-network-cta__button {
+  background: white;
+  color: #0E5FE3;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.legal-network-cta__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 769px) {
+  .legal-network-hero {
+    padding: 40px 0;
+  }
+
+  .legal-network-hero__title {
+    font-size: 32px;
+  }
+
+  .legal-network-hero__subtitle {
+    font-size: 18px;
+  }
+
+  .legal-network-search__input {
+    padding: 14px 50px 14px 20px;
+    font-size: 16px;
+  }
+
+  .legal-network-search__button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .legal-network-search__button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .legal-network-content {
+    padding: 60px 0;
+  }
+
+  .legal-network-section {
+    margin-bottom: 60px;
+  }
+
+  .legal-network-container {
+    padding: 0 16px;
+  }
+
+  .legal-network-section__title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .legal-network-cards {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .legal-network-card {
+    padding: 32px 24px;
+  }
+
+  .legal-network-step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .legal-network-step__number {
+    margin-bottom: 16px;
+  }
+
+  .legal-network-cta {
+    padding: 60px 0;
+  }
+
+  .legal-network-cta__title {
+    font-size: 28px;
+  }
+
+  .legal-network-cta__description {
+    font-size: 16px;
+  }
+
+  .legal-network-cta__button {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+}
+
 /* Custom overrides to ensure lawyer carousel flows horizontally and scrolls */ .lawyer-carousel_carouselContainer {
    position:relative;
    width:100%;
@@ -14052,7 +14374,7 @@
 }
  @media (min-width:1185px) {
    .how-it-works_step2 {
-     margin-top:80px
+     margin-top:0px
   }
    .how-it-works_step3 {
      margin-top:160px
@@ -14640,6 +14962,14 @@
 }
  :root .content-card_stackButtonContainer .content-card_stackButtonText {
    font-weight:200
+}
+ :root .content-card_warningNote {
+   color:#666;
+   font-size:12px;
+   font-weight:400;
+   margin-top:-10px;
+   text-align:right;
+   line-height:1.4
 }
  :root .content-card_cardStackDescription {
    border-radius:0 0 40px 40px;

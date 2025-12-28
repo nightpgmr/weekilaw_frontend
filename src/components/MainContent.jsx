@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageLayout from './PageLayout.jsx';
 
 const MainContent = () => {
+  const navigate = useNavigate();
   const [heroStep, setHeroStep] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
   const [showFixedChat, setShowFixedChat] = useState(false);
@@ -9,6 +11,10 @@ const MainContent = () => {
   const chatInputRef = useRef(null);
   const lastSectionRef = useRef(null);
   const [percentage, setPercentage] = useState(0);
+
+  // Chat input states
+  const [heroChatInput, setHeroChatInput] = useState('');
+  const [lastSectionChatInput, setLastSectionChatInput] = useState('');
 
   // Carousel state
   const [carouselScrollPosition, setCarouselScrollPosition] = useState(0);
@@ -63,9 +69,9 @@ const MainContent = () => {
     {
       href: "/en-us/about/sailing",
       image: "/assets/about-sailing.webp",
-      title: "بازگشت به بازگشت: چگونه Weekilaw هوبارت را فتح کرد",
-      description: "در سفر فراموش‌نشدنی در سری جدید پشت صحنه ما از supermaxi ما به دریا بزنید.",
-      linkText: "قایقرانی Weekilaw"
+      title: "ویکیلا؛ پیشگام عدالت هوشمند در ایران",
+      description: "ویکیلا تنها یک سامانه‌ی پاسخ‌گویی حقوقی نیست؛ بلکه یک حرکت ملی برای دسترسی سریع، دقیق و عادلانه به خدمات حقوقی در سراسر کشور است.",
+      linkText: "درباره ویکیلا"
     },
     {
       href: "/en-us/about/ai-technology",
@@ -101,33 +107,57 @@ const MainContent = () => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
+  const handleHeroChatSubmit = (event) => {
+    event.preventDefault();
+    const trimmed = heroChatInput.trim();
+    if (trimmed) {
+      navigate('/chat', { state: { initialPrompt: trimmed } });
+    }
+  };
+
+  const handleLastSectionChatSubmit = (event) => {
+    event.preventDefault();
+    const trimmed = lastSectionChatInput.trim();
+    if (trimmed) {
+      navigate('/chat', { state: { initialPrompt: trimmed } });
+    }
+  };
+
   // Carousel scroll function with RTL support
-  const scrollCarousel = useCallback((direction) => {
+  const scrollCarousel = useCallback((direction, targetPosition = null) => {
     if (!carouselRef.current) return;
-  
+
     const container = carouselRef.current;
-      
-    if (direction === 'left') {
+
+    if (direction === 'position' && targetPosition !== null) {
+      // Scroll to specific position (for dots navigation)
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const targetScroll = (targetPosition / 100) * maxScroll;
+      container.scrollTo({
+        left: -targetScroll,
+        behavior: 'smooth'
+      });
+    } else if (direction === 'left') {
       container.scrollTo({
         left: 0,
         behavior: 'smooth'
       });
     } else if (direction === 'right') {
-      
+
     const maxScroll = container.scrollWidth - container.clientWidth;
       container.scrollTo({
         left: -maxScroll,
         behavior: 'smooth'
       });
     }
-  
+
     // Update scroll position
     setTimeout(() => {
       const maxScroll = container.scrollWidth - container.clientWidth;
       const currentScroll = container.scrollLeft;
       let percentage = maxScroll > 0 ? (currentScroll / maxScroll) * 100 : 0;
       setPercentage((percentage * -1) < 50 ? 0 : 80);
-      
+
       setCarouselScrollPosition(Math.min(100, Math.max(0, percentage)));
     }, 500);
   }, []);
@@ -313,17 +343,17 @@ const MainContent = () => {
         {/* Chat Input - Positioned at bottom edge center of hero section (half in hero, half in content) */}
         <div className="chat_doubleChatInputWrapper" ref={chatInputRef}>
           <div className="chat_outerWrapper">
-            <div className="style-module__chatInputContainer styles-module__outerWrapper">
+            <form onSubmit={handleHeroChatSubmit} className="style-module__chatInputContainer styles-module__outerWrapper">
               <div className="style-module__shinyBorderContainer">
                 <div className="style-module__chatInput styles-module__inputWrapper" id="chat-input">
                   <input className="style-module__fileInput" multiple type="file" />
-                  <img 
-                    className="style-module__preTextIcon" 
-                    src="/assets/spark-gray.svg" 
-                    alt="spark" 
+                  <img
+                    className="style-module__preTextIcon"
+                    src="/assets/spark-gray.svg"
+                    alt="spark"
                   />
                   <div className="style-module__actions">
-                    <button className="style-module__sendButton" id="send-button" aria-label="send-button">
+                    <button className="style-module__sendButton" type="submit" id="send-button" aria-label="send-button" disabled={!heroChatInput.trim()}>
                       <div className="style-module__sendArrowImageWrapper">
                         <div className="style-module__sendArrowWrapperHover">
                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="style-module__sendArrow">
@@ -345,11 +375,19 @@ const MainContent = () => {
                       rows="1"
                       placeholder="سؤال حقوقی خود را بپرسید"
                       style={{height: '72px'}}
+                      value={heroChatInput}
+                      onChange={(e) => setHeroChatInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                          e.preventDefault();
+                          handleHeroChatSubmit(e);
+                        }
+                      }}
                     />
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
 
@@ -376,9 +414,9 @@ const MainContent = () => {
             <div className="content-card_cardStack">
               <div className="content-card_cardStackHeaderContainer">
                 <div className="content-card_iconTitleContainer">
-                  <div className="content-card_cardStackHeader">گزینه‌های حقوقی خود را درک کنید</div>
+                  <div className="content-card_cardStackHeader">دریافت راهنمای حقوقی هوشمند</div>
                   <img
-                    alt="گزینه‌های حقوقی خود را درک کنید"
+                    alt="دریافت راهنمای حقوقی هوشمند"
                     loading="lazy"
                     width="64"
                     height="64"
@@ -397,6 +435,7 @@ const MainContent = () => {
                     </div>
                   </div>
                 </a>
+                <div className="content-card_warningNote">⚠️ پاسخ‌ها جنبه راهنمایی عمومی دارد و جایگزین مشاوره وکالتی نیست</div>
                 <picture className="content-card_pictureWrapper">
                   <source media="(max-width: 769px)" srcSet="/assets/phone-4-mobile.webp 1x" type="image/webp" />
                   <img 
@@ -420,9 +459,9 @@ const MainContent = () => {
             <div className="content-card_cardStack">
               <div className="content-card_cardStackHeaderContainer">
                 <div className="content-card_iconTitleContainer">
-                  <div className="content-card_cardStackHeader">کمک از یک وکیل مورد اعتماد دریافت کنید</div>
+                  <div className="content-card_cardStackHeader">در صورت نیاز، وکیل متخصص را پیدا کنید</div>
                   <img
-                    alt="کمک از یک وکیل مورد اعتماد دریافت کنید"
+                    alt="در صورت نیاز، وکیل متخصص را پیدا کنید"
                     loading="lazy"
                     width="64"
                     height="64"
@@ -644,8 +683,22 @@ const MainContent = () => {
                   </div>
                 </div>
                 <div className="styles-module__actionBar knowledge_carouselActionBar">
-                  <div className="styles-module__scrollBar">
+                  {/* Desktop/Tablet Progress Bar */}
+                  <div className="styles-module__scrollBar knowledge_desktopProgressBar">
                     <div className="styles-module__scrolledPosition" style={{width: '20%', right: `${percentage}%`}}></div>
+                  </div>
+                  {/* Mobile Dots Navigation */}
+                  <div className="knowledge_mobileDotsContainer">
+                    {[0, 1, 2, 3, 4].map((dotIndex) => (
+                      <button
+                        key={dotIndex}
+                        className={`knowledge_dotButton ${Math.floor(percentage / 20) === dotIndex ? 'knowledge_dotActive' : ''}`}
+                        onClick={() => {
+                          const targetScroll = (dotIndex * 20) / 100;
+                          scrollCarousel('position', targetScroll);
+                        }}
+                      />
+                    ))}
                   </div>
                   <div className="styles-module__actionButtonContainer knowledge_carouselArrowButtonContainer" style={{direction: 'ltr'}}>
                   <button 
@@ -843,17 +896,17 @@ const MainContent = () => {
           <div className="content_sectionContainer">
             <div className="chat_doubleChatInputWrapper">
               <div className="chat_outerWrapper">
-                <div className="style-module__chatInputContainer styles-module__outerWrapper">
+                <form onSubmit={handleLastSectionChatSubmit} className="style-module__chatInputContainer styles-module__outerWrapper">
                   <div className="style-module__shinyBorderContainer">
                     <div className="style-module__chatInput styles-module__inputWrapper" id="chat-input-last-section">
                       <input className="style-module__fileInput" multiple type="file" />
-                      <img 
-                        className="style-module__preTextIcon" 
-                        src="/assets/spark-gray.svg" 
-                        alt="spark" 
+                      <img
+                        className="style-module__preTextIcon"
+                        src="/assets/spark-gray.svg"
+                        alt="spark"
                       />
                       <div className="style-module__actions">
-                        <button className="style-module__sendButton" id="send-button-last-section" aria-label="send-button">
+                        <button className="style-module__sendButton" type="submit" id="send-button-last-section" aria-label="send-button" disabled={!lastSectionChatInput.trim()}>
                           <div className="style-module__sendArrowImageWrapper">
                             <div className="style-module__sendArrowWrapperHover">
                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="style-module__sendArrow">
@@ -875,11 +928,19 @@ const MainContent = () => {
                           rows="1"
                           placeholder="سؤال حقوقی خود را بپرسید"
                           style={{height: '72px'}}
+                          value={lastSectionChatInput}
+                          onChange={(e) => setLastSectionChatInput(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' && !e.shiftKey) {
+                              e.preventDefault();
+                              handleLastSectionChatSubmit(e);
+                            }
+                          }}
                         />
                       </div>
                     </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>

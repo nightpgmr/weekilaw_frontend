@@ -6,6 +6,8 @@ const Header = ({ scrollElement }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showAccountModal, setShowAccountModal] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileSubMenu, setMobileSubMenu] = useState(null);
 
   const handleScroll = useCallback(() => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -48,6 +50,20 @@ const Header = ({ scrollElement }) => {
     }
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setMobileSubMenu(null);
+  };
+
+  const handleMobileSubMenu = (menu) => {
+    setMobileSubMenu(mobileSubMenu === menu ? null : menu);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setMobileSubMenu(null);
+  };
+
   useEffect(() => {
     // Listen for scroll events on the body element (where scrolling actually happens)
     const scrollHandler = () => {
@@ -66,6 +82,141 @@ const Header = ({ scrollElement }) => {
 
   return (
     <>
+      {/* Mobile Menu */}
+      <div className="styles-module__mobileMenuWrapper">
+        <div className="styles-module__mobileMenuContainer">
+          <div className="styles-module__menuIconContainer" onClick={toggleMobileMenu}>
+            <div className="styles-module__iconWrapper">
+              <svg
+                className={`styles-module__menuIcon styles-module__defaultIcon styles-module__burgerIcon ${isMobileMenuOpen ? 'styles-module__hidden' : ''}`}
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M3 12H21M3 6H21M3 18H21" stroke="#333333" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+              <svg
+                className={`styles-module__menuIcon styles-module__activeIcon styles-module__closeIcon ${!isMobileMenuOpen ? 'styles-module__hidden' : ''}`}
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M18 6L6 18M6 6L18 18" stroke="#333333" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
+          </div>
+          <Link to="/" className="styles-module__logoContainer" onClick={closeMobileMenu}>
+            <img
+              alt="logo"
+              className="styles-module__logo"
+              src="/assets/logo-icon.png"
+            />
+          </Link>
+          <div></div>
+        </div>
+      </div>
+
+      {/* Mobile Menu Modal Overlay */}
+      <div className={`styles-module__menuModalOverlay ${isMobileMenuOpen ? 'styles-module__menuModalOverlayOpen' : ''}`}>
+        <div className="styles-module__menuModalContent">
+          <div className="styles-module__menuLinksContainer">
+            {/* Chat Button */}
+            <Link
+              to="/chat"
+              className="styles-module__mainMenuLink styles-module__gradientText"
+              onClick={closeMobileMenu}
+            >
+              <span className="styles-module__gradientTextContent">چت کنید</span>
+            </Link>
+
+            {/* Areas of Law */}
+            <div className="styles-module__mainMenuLink" onClick={() => handleMobileSubMenu('areas')}>
+              <span>زمینه‌های حقوقی</span>
+            </div>
+            {mobileSubMenu === 'areas' && (
+              <div className="styles-module__menuLinksContainer styles-module__subCategories">
+                {areasOfLaw.map((area, index) => (
+                  <Link
+                    key={index}
+                    to={`/en-us/${area.slug}`}
+                    className="styles-module__subMenuLink"
+                    onClick={closeMobileMenu}
+                  >
+                    {area.title}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* About */}
+            <div className="styles-module__mainMenuLink" onClick={() => handleMobileSubMenu('about')}>
+              <span>درباره</span>
+            </div>
+            {mobileSubMenu === 'about' && (
+              <div className="styles-module__menuLinksContainer styles-module__subCategories">
+                {aboutItems.map((item, index) => {
+                  const isInternal = !!item.to;
+                  if (isInternal) {
+                    return (
+                      <Link
+                        key={index}
+                        to={item.to}
+                        className="styles-module__subMenuLink"
+                        onClick={closeMobileMenu}
+                      >
+                        {item.title}
+                      </Link>
+                    );
+                  }
+                  return (
+                    <a
+                      key={index}
+                      href={item.href}
+                      className="styles-module__subMenuLink"
+                      onClick={closeMobileMenu}
+                    >
+                      {item.title}
+                    </a>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* For Lawyers */}
+            <div className="styles-module__mainMenuLink" onClick={() => handleMobileSubMenu('lawyers')}>
+              <span>برای وکلا</span>
+            </div>
+            {mobileSubMenu === 'lawyers' && (
+              <div className="styles-module__menuLinksContainer styles-module__subCategories">
+                <Link
+                  to="/en-us/about/legal-network"
+                  className="styles-module__subMenuLink"
+                  onClick={closeMobileMenu}
+                >
+                  شبکه حقوقی ما
+                </Link>
+                <Link
+                  to="/en-us/for-lawyers/sign-up"
+                  className="styles-module__subMenuLink"
+                  onClick={closeMobileMenu}
+                >
+                  ثبت نام
+                </Link>
+              </div>
+            )}
+
+            {/* Account */}
+            <div className="styles-module__mainMenuLink" onClick={() => { closeMobileMenu(); handleAccountClick(); }}>
+              <span>حساب کاربری</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="layout_menuHeightWrapper">
         <div className="styles-module__desktopMenuContainer" id="MENU_HEADER_ID">
           <div

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import '../styles/chatModal.css';
 
@@ -7,11 +8,8 @@ import '../styles/chatModal.css';
  * Replace `callChatApi` with your own backend call.
  */
 const ChatModal = ({ open, onClose }) => {
-  const [messages, setMessages] = useState(() => [
-    { id: 'm-hello', role: 'assistant', text: 'سلام 👋 من دستیار حقوقی هوش مصنوعی شما هستم. چگونه می‌توانم کمک کنم؟' },
-  ]);
+  const navigate = useNavigate();
   const [input, setInput] = useState('');
-  const [isSending, setIsSending] = useState(false);
 
   useEffect(() => {
     if (open) {
@@ -24,46 +22,15 @@ const ChatModal = ({ open, onClose }) => {
     return undefined;
   }, [open]);
 
-  const callChatApi = useMemo(
-    () =>
-      /**
-       * Stub: connect this to your API.
-       * Example:
-       * const res = await fetch('/api/chat', { method:'POST', body: JSON.stringify({ message: text })});
-       * const data = await res.json();
-       * return data.reply;
-       */
-      async (text) => {
-        // Mock reply for now
-        return `You said: "${text}"`;
-      },
-    []
-  );
 
-  const handleSend = async (event) => {
+  const handleSend = (event) => {
     event.preventDefault();
     const trimmed = input.trim();
-    if (!trimmed || isSending) return;
+    if (!trimmed) return;
 
-    const userMessage = { id: `u-${Date.now()}`, role: 'user', text: trimmed };
-    setMessages((prev) => [...prev, userMessage]);
-    setInput('');
-    setIsSending(true);
-
-    try {
-      const reply = await callChatApi(trimmed);
-      const botMessage = { id: `b-${Date.now()}`, role: 'assistant', text: reply || '...' };
-      setMessages((prev) => [...prev, botMessage]);
-    } catch (err) {
-      const errorMessage = {
-        id: `e-${Date.now()}`,
-        role: 'assistant',
-        text: 'متأسفانه، مشکلی پیش آمد. لطفاً دوباره امتحان کنید.',
-      };
-      setMessages((prev) => [...prev, errorMessage]);
-    } finally {
-      setIsSending(false);
-    }
+    // Close modal and navigate to chat page with the prompt
+    onClose();
+    navigate('/chat', { state: { initialPrompt: trimmed } });
   };
 
   if (!open) return null;
@@ -88,33 +55,28 @@ const ChatModal = ({ open, onClose }) => {
 
         <div className="chat-modal_body">
           <div className="chat-modal_messages">
-            {messages.map((m) => (
-              <div
-                key={m.id}
-                className={`chat-modal_message ${m.role === 'assistant' ? 'is-assistant' : 'is-user'}`}
-              >
-                {m.role === 'assistant' && <div className="chat-modal_avatar">AI</div>}
-                <div className="chat-modal_bubble">{m.text}</div>
-              </div>
-            ))}
-            {isSending && (
-              <div className="chat-modal_message is-assistant">
-                <div className="chat-modal_avatar">AI</div>
-                <div className="chat-modal_bubble">Typing…</div>
-              </div>
-            )}
+            <div className="chat-modal_message is-assistant">
+              <div className="chat-modal_avatar">AI</div>
+              <div className="chat-modal_bubble" dangerouslySetInnerHTML={{ __html: 'سلام 👋<br><br>من راهنمای حقوقی هوشمند هستم.<br><br>مسئله حقوقی خود را مطرح کنید تا به صفحه چت کامل بروید.' }}></div>
+            </div>
           </div>
 
           <form className="chat-modal_inputBar" onSubmit={handleSend}>
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="پیام خود را اینجا تایپ کنید"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault();
+                  handleSend(e);
+                }
+              }}
+              placeholder="سؤال حقوقی خود را اینجا بنویسید"
               rows={1}
               className="chat-modal_textarea"
             />
-            <button className="chat-modal_send" type="submit" disabled={isSending || !input.trim()}>
-              Send
+            <button className="chat-modal_send" type="submit" disabled={!input.trim()}>
+              شروع چت
             </button>
           </form>
         </div>

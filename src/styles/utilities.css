@@ -137,7 +137,7 @@ body * {
 }
 .site_widthContainer .site_websiteCard .site_websiteCardImage {
   width:100%;
-  height:auto;
+  height:240px;
   -o-object-fit:cover;
   object-fit:cover;
   scale:1.2;

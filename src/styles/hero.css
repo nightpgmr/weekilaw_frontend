@@ -831,6 +831,12 @@
   font-weight:700;
   color:var(--brand-midnight)
 }
+@media (max-width:769px) {
+  .dropdown_dropDownContainer .dropdown_dropDownItem .dropdown_dropDownItemTitle .dropdown_dropDownItemTitleText {
+    font-size:14px;
+    line-height:24px
+  }
+}
 .dropdown_dropDownContainer .dropdown_dropDownItem .dropdown_dropDownItemTitle:hover {
   background-color:var(--brand-light-greyish-blue)
 }
@@ -845,6 +851,11 @@
   height:auto;
   opacity:1;
   border-top:1px solid var(--grey-5)
+}
+@media (max-width:769px) {
+  .dropdown_dropDownContainer .dropdown_dropDownItem .dropdown_dropDownItemContent.dropdown_open {
+    padding:16px 14px
+  }
 }
 .dropdown_dropDownContainer .dropdown_dropDownItem .dropdown_dropDownItemContent a {
   -webkit-text-decoration:underline;
@@ -3033,6 +3044,44 @@
 }
 .knowledge_directory .knowledge_cardImage {
   height:100%
+}
+
+/* Mobile Dots Navigation for Carousel */
+.knowledge_mobileDotsContainer {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+@media (max-width: 769px) {
+  .knowledge_mobileDotsContainer {
+    display: flex;
+  }
+
+  .knowledge_desktopProgressBar {
+    display: none;
+  }
+}
+
+.knowledge_dotButton {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.knowledge_dotButton:hover {
+  background-color: #bbb;
+}
+
+.knowledge_dotActive {
+  background-color: #0E5FE3 !important;
 }
 @media (min-width:1601px) {
   .knowledge_carouselWidthContainer {

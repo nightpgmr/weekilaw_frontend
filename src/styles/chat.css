@@ -65,8 +65,12 @@
 }
 @media (max-width:769px) {
   .chat_chatInputContainer {
-    position:relative;
-    padding:0
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    right:20px;
+    padding:0;
+    z-index:1000;
   }
 }
 .chat_chatInput {
@@ -81,6 +85,15 @@
 @media (max-width:769px) {
   .chat_chatInput textarea, .chat_chatInput textarea:focus {
     font-size:16px!important
+  }
+
+  .chat_chatInput {
+    border-radius:16px;
+    box-shadow:0 4px 20px rgba(0, 0, 0, 0.15);
+    background:rgba(255, 255, 255, 0.95);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(0, 0, 0, 0.1);
   }
 }
 .chat_chatInput .chat_inputs {

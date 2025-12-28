@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { areasOfLawContent, defaultAreaSlug } from '../data/areas';
 import PageLayout from './PageLayout.jsx';
 
 const EstateProbate = () => {
+  const navigate = useNavigate();
   const { areaSlug } = useParams();
   const area = areasOfLawContent[areaSlug] || areasOfLawContent[defaultAreaSlug];
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
@@ -14,6 +15,10 @@ const EstateProbate = () => {
   const chatInputRef = useRef(null);
   const lastSectionRef = useRef(null);
   const [percentage, setPercentage] = useState(0);
+
+  // Chat input states
+  const [estateChatInput, setEstateChatInput] = useState('');
+  const [estateLastSectionChatInput, setEstateLastSectionChatInput] = useState('');
 
   // Carousel state
   const [carouselScrollPosition, setCarouselScrollPosition] = useState(0);
@@ -44,6 +49,22 @@ const EstateProbate = () => {
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
+  const handleEstateChatSubmit = (event) => {
+    event.preventDefault();
+    const trimmed = estateChatInput.trim();
+    if (trimmed) {
+      navigate('/chat', { state: { initialPrompt: trimmed } });
+    }
+  };
+
+  const handleEstateLastSectionChatSubmit = (event) => {
+    event.preventDefault();
+    const trimmed = estateLastSectionChatInput.trim();
+    if (trimmed) {
+      navigate('/chat', { state: { initialPrompt: trimmed } });
+    }
   };
 
   // Carousel scroll function with RTL support
@@ -225,17 +246,17 @@ const EstateProbate = () => {
           <div className="styles_inputWrapper">
           <div className="chat_doubleChatInputWrapper">
             <div className="chat_outerWrapper">
-              <div className="style-module__chatInputContainer styles-module__outerWrapper">
+              <form onSubmit={handleEstateChatSubmit} className="style-module__chatInputContainer styles-module__outerWrapper">
                 <div className="style-module__shinyBorderContainer">
                   <div className="style-module__chatInput styles-module__inputWrapper" id="chat-input-estate">
                     <input className="style-module__fileInput" multiple type="file" />
-                    <img 
-                      className="style-module__preTextIcon" 
-                      src="/assets/spark-gray.svg" 
-                      alt="spark" 
+                    <img
+                      className="style-module__preTextIcon"
+                      src="/assets/spark-gray.svg"
+                      alt="spark"
                     />
                     <div className="style-module__actions">
-                      <button className="style-module__sendButton" id="send-button-estate" aria-label="send-button">
+                      <button className="style-module__sendButton" type="submit" id="send-button-estate" aria-label="send-button" disabled={!estateChatInput.trim()}>
                         <div className="style-module__sendArrowImageWrapper">
                           <div className="style-module__sendArrowWrapperHover">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="style-module__sendArrow">
@@ -251,17 +272,25 @@ const EstateProbate = () => {
                       </button>
                     </div>
                     <div className="style-module__inputs style-module__noFiles">
-                      <textarea 
-                        id="double-input-estate" 
-                        className="style-module__textareaInput style-module__withPreTextIcon" 
-                        rows="1" 
+                      <textarea
+                        id="double-input-estate"
+                        className="style-module__textareaInput style-module__withPreTextIcon"
+                        rows="1"
                         placeholder="سؤال حقوقی خود را بپرسید"
                         style={{height: '72px'}}
+                        value={estateChatInput}
+                        onChange={(e) => setEstateChatInput(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' && !e.shiftKey) {
+                            e.preventDefault();
+                            handleEstateChatSubmit(e);
+                          }
+                        }}
                       />
                     </div>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
           </div>
@@ -658,7 +687,7 @@ const EstateProbate = () => {
           <div className="content_sectionContainer">
             <div className="chat_doubleChatInputWrapper">
               <div className="chat_outerWrapper">
-                <div className="style-module__chatInputContainer styles-module__outerWrapper">
+                <form onSubmit={handleEstateLastSectionChatSubmit} className="style-module__chatInputContainer styles-module__outerWrapper">
                   <div className="style-module__shinyBorderContainer">
                     <div className="style-module__chatInput styles-module__inputWrapper" id="chat-input-estate-last-section">
                       <input className="style-module__fileInput" multiple type="file" />
@@ -668,7 +697,7 @@ const EstateProbate = () => {
                         alt="spark"
                       />
                       <div className="style-module__actions">
-                        <button className="style-module__sendButton" id="send-button-estate-last-section" aria-label="send-button">
+                        <button className="style-module__sendButton" type="submit" id="send-button-estate-last-section" aria-label="send-button" disabled={!estateLastSectionChatInput.trim()}>
                           <div className="style-module__sendArrowImageWrapper">
                             <div className="style-module__sendArrowWrapperHover">
                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="style-module__sendArrow">
@@ -690,11 +719,19 @@ const EstateProbate = () => {
                           rows="1"
                           placeholder="سؤال حقوقی خود را بپرسید"
                           style={{height: '72px'}}
+                          value={estateLastSectionChatInput}
+                          onChange={(e) => setEstateLastSectionChatInput(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' && !e.shiftKey) {
+                              e.preventDefault();
+                              handleEstateLastSectionChatSubmit(e);
+                            }
+                          }}
                         />
                       </div>
                     </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>

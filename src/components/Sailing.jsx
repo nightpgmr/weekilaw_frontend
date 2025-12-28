@@ -15,9 +15,9 @@ const Sailing = () => {
                   درباره
                 </a>
                 <span className="styles_breadcrumb ">&nbsp;/&nbsp;</span>
-                <span className="styles_breadcrumb styles_bold">قایق‌رانی</span>
+                <span className="styles_breadcrumb styles_bold">درباره ویکیلا</span>
               </div>
-              <h1 className="styles_heroTitle ">قایق سوپر ماکسی Weekilaw</h1>
+              <h1 className="styles_heroTitle ">ویکیلا؛ پیشگام عدالت هوشمند در ایران</h1>
             </div>
             <div className="styles_heroImageContainer ">
               <div className="styles_heroImageWrapper">
@@ -53,8 +53,9 @@ const Sailing = () => {
           <div className="styles_innerWidthWrapper">
             <div className="styles_contentTextWrapper">
               <div className="styles_descriptionText">
-                قایق سوپر ماکسی Weekilaw به عنوان یکی از رقبای برتر در مسابقه قایق‌رانی Rolex Sydney Hobart، یکی از معتبرترین رویدادهای قایق‌رانی جهان، ظاهر شده است. <br /> <br />
-                پس از کسب پیروزی‌های تاریخی متوالی در سال‌های 2023 و 2024، این قایق 100 فوتی که متعلق به کریستیان بک است و توسط او هدایت می‌شود، بر موفقیت‌های پیاپی خود می‌افزاید و تعهد بک به بهبود دسترسی به عدالت را منعکس می‌کند.
+                ویکیلا تنها یک سامانه‌ی پاسخ‌گویی حقوقی نیست؛<br /> <br />
+                بلکه یک حرکت ملی برای دسترسی سریع، دقیق و عادلانه به خدمات حقوقی در سراسر کشور است.<br /> <br />
+                ما با استفاده از فناوری هوش مصنوعی حقوقی، در مسیر ایجاد عدالت هوشمند، شفافیت قانونی و توانمندسازی مردم ایران قدم برداشته‌ایم.
               </div>
             </div>
           </div>
@@ -102,7 +103,7 @@ const Sailing = () => {
                         <div className="styles_wreathText">2024</div>
                       </div>
                     </div>
-                    <div className="styles_sailingBG1Description">برنده متوالی افتخارات خط سیدنی به هوبارت.</div>
+                    <div className="styles_sailingBG1Description">افتخارات ویکیلا</div>
                   </div>
                   <img
                     alt="Stacked BG Icon"
@@ -123,12 +124,12 @@ const Sailing = () => {
         <div className="styles_widthWrapper">
           <div className="styles_innerWidthWrapper">
             <div className="styles_headerDescriptionContainer">
-              <div className="styles_headerTitle">متوالی: چگونه Weekilaw هوبارت را فتح کرد</div>
+              <div className="styles_headerTitle">افتخارات ویکیلا</div>
               <div
                 className="styles_headerDescription"
                 dangerouslySetInnerHTML={{
                   __html:
-                    'در جدیدترین مجموعه ما، سفری فراموش‌نشدنی را آغاز کنید که شما را پشت صحنه قایق سوپر ماکسی Weekilaw می‌برد - از آغاز اولیه آن تا پیروزی‌های متوالی افتخارات خط سیدنی به هوبارت در سال‌های 2023 و 2024.<br> <br>بینش‌های انحصاری از خدمه دریافت کنید زیرا آنها پیروزی‌ها، چالش‌ها و اراده محکم را که Weekilaw را به پیروزی رساند، بازگو می‌کنند. این داستانی از تعهد، نوآوری و قایقی است که برای رفتن تا انتها ساخته شده.',
+                    'ویکیلا به‌عنوان یکی از پیشگامان فناوری حقوقی کشور، موفق شده است:<br><br>• هزاران کاربر را در مسیر صحیح قانونی هدایت کند<br>• در کاهش اطاله دادرسی نقش مؤثر داشته باشد<br>• دسترسی به دانش حقوقی را برای عموم مردم ساده و رایگان کند<br>• فرهنگ مراجعه آگاهانه حقوقی را توسعه دهد',
                 }}
               />
               <a className="styles_watchLink" href="https://www.youtube.com/@asklawconnect" target="_blank" rel="noreferrer">
@@ -179,11 +180,12 @@ const Sailing = () => {
           <div className="styles_innerWidthWrapper">
             <div className="styles_contentTextWrapper">
               <div className="styles_descriptionText">
-                سوپر ماکسی به عنوان سفیر شناور نوآوری عمل می‌کند و تعهد Weekilaw به پیش بردن مرزها هم روی آب و هم بیرون از آن را برجسته می‌کند.
-                <br /> <br />
-                ادامه سنت افتخارآمیز، هر سال کریستیان بک چند کارمند را به کشتی دعوت می‌کند تا مسابقه را از نزدیک همراه با قایقرانان مشهور جهانی مانند تونی موتر و کریس نیکلسون تجربه کنند.
-                <br /> <br />
-                این فرصت فرهنگی از همکاری و رشد شخصی را پرورش می‌دهد - که تعهد Weekilaw به غلبه بر چالش‌ها و دستیابی به برتری را منعکس می‌کند.
+                <strong>تعهد ما به عدالت</strong><br /><br />
+                ویکیلا متعهد است:<br /><br />
+                • محرمانگی اطلاعات حقوقی کاربران را حفظ کند<br />
+                • از ارائه اطلاعات نادرست یا گمراه‌کننده پرهیز کند<br />
+                • مسیر قانونی را شفاف و قابل فهم برای عموم مردم ارائه دهد<br />
+                • هیچ‌گاه منافع تجاری را بر عدالت مقدم نداند
               </div>
             </div>
           </div>
@@ -194,8 +196,8 @@ const Sailing = () => {
           <div className="styles_container">
             <div className="styles_card">
               <div className="styles_textWrapper">
-                <div className="styles_title">کمک به یک مسئله نیاز دارید؟</div>
-                <div className="styles_description">سؤال حقوقی خود را از Weekilaw بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
+                <div className="styles_title">ویکیلا یک برند ملی است</div>
+                <div className="styles_description">همان‌گونه که برندهای بزرگ ملی پرچم کیفیت و اعتماد کشور خود هستند،<br />ویکیلا نیز خود را پرچم‌دار عدالت هوشمند و دسترسی عمومی به حقوق قانونی مردم ایران می‌داند.</div>
               </div>
               <div className="styles_imageWrapper">
                 <a
