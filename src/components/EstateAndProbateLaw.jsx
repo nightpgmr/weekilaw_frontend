@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { areasOfLawContent, defaultAreaSlug } from '../data/areas';
 import PageLayout from './PageLayout.jsx';
 
-const EstateProbate = () => {
+const EstateAndProbateLaw = () => {
   const navigate = useNavigate();
   const { areaSlug } = useParams();
   const area = areasOfLawContent[areaSlug] || areasOfLawContent[defaultAreaSlug];
@@ -742,5 +742,5 @@ const EstateProbate = () => {
   );
 };
 
-export default EstateProbate;
+export default EstateAndProbateLaw;
 
