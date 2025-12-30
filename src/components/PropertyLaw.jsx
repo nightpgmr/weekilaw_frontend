@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { areasOfLawContent } from '../data/areas';
 import PageLayout from './PageLayout.jsx';
 
 const PropertyLaw = () => {
   const navigate = useNavigate();
-  const area = areasOfLawContent['property-law'];
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const [heroStep, setHeroStep] = useState(0);
@@ -28,28 +26,105 @@ const PropertyLaw = () => {
   const siteCardsRef = useRef(null);
   const [percentageCards, setPercentageCards] = useState(0);
 
-  const {
-    breadcrumbLabel,
-    breadcrumbHref,
-    heroTitle,
-    introText,
-    moreInfoText,
-    moreInfoHref,
-    introImage,
-    subCategories,
-    subcategoriesTitle,
-    subcategoriesDescription,
-    whyUseTitle,
-    whyUseDescription,
-    whyUseSections,
-    howItWorksTitle,
-    howItWorksDescription,
-    howItWorksSteps,
-    faqTitle,
-    faqItems,
-    helpTitle,
-    helpDescription,
-  } = area;
+  // Static content for Property Law
+  const breadcrumbLabel = 'حقوق املاک';
+  const breadcrumbHref = '/en-us/property-law';
+  const heroTitle = 'راهنمای قانون املاک (Property Law) — ویکیلا';
+  const introText = "ویکیلا راهنمایی جامع درباره «قانون املاک و مستغلات» ارائه می‌دهد که برای آشنایی عمومی با مسائل حقوقی مربوط به ملک طراحی شده است. این محتوا با زبانی ساده، مفاهیم پیچیده حقوقی را قابل‌فهم می‌کند. قانون املاک مجموعه‌ای از قوانین و مقررات است که به موضوعات مالکیت اموال غیرمنقول، خرید و فروش ملک، اجاره و روابط موجر و مستأجر، انتقال سند، اختلافات و دعاوی ملکی می‌پردازد. هدف ویکیلا این است که کاربران دید روشنی نسبت به حقوق و تعهدات خود در امور ملکی داشته باشند.";
+  const moreInfoText = 'مروری سریع بر قانون املاک در نظام حقوقی ایران';
+  const moreInfoHref = '/en-us/property-law/summary';
+  const introImage = '/assets/intro-property.webp';
+  const subcategoriesTitle = 'چه مسائل حقوق املاک می‌تواند دستیار حقوقی هوش مصنوعی ما به شما کمک کند';
+  const subcategoriesDescription = 'دستیار حقوقی هوش مصنوعی ما آموزش دیده است تا در طیف وسیعی از مسائل حقوق املاک کمک کند. در اینجا زمینه‌های اصلی که می‌تواند پشتیبانی فوری ارائه دهد آورده شده است:';
+  const subCategories = [
+    {
+      title: 'خرید و فروش ملک',
+      image: '/assets/default-area-of-law.webp',
+      description: 'آشنایی با مراحل قانونی معامله، تنظیم قرارداد، انتقال مالکیت و نکات مهم قبل از امضای مبایعه‌نامه.'
+    },
+    {
+      title: 'اجاره ملک',
+      image: '/assets/default-area-of-law.webp',
+      description: 'بررسی حقوق و وظایف موجر و مستأجر، شرایط فسخ قرارداد، افزایش اجاره‌بها و تخلیه ملک.'
+    },
+    {
+      title: 'اختلافات ملکی',
+      image: '/assets/default-area-of-law.webp',
+      description: 'راهنمای کلی برای حل اختلافات رایج مانند تصرف، تخلیه، سرقفلی، حق کسب و پیشه و دعاوی مربوط به سند.'
+    },
+    {
+      title: 'ساخت‌وساز و تغییرات ملکی',
+      image: '/assets/default-area-of-law.webp',
+      description: 'اطلاعات عمومی درباره لزوم اخذ مجوز، رعایت مقررات شهری و پیامدهای تخلف ساختمانی.'
+    }
+  ];
+  const whyUseTitle = 'چرا از ویکیلا برای کمک در امور املاک استفاده کنید';
+  const whyUseDescription = "ویکیلا اولین گام برای درک حقوق قانونی‌تان را آسان می‌کند. در شرایط پیچیده املاک و مستغلات، با چند پرسش ساده از هوش مصنوعی ما، می‌توانید تصویری روشن از مسیر قانونی خود پیدا کنید. سیستم ما بر پایه‌ی منابع معتبر حقوقی ایران طراحی شده و اطلاعاتی ساده، دقیق و شخصی‌سازی‌شده ارائه می‌دهد.";
+  const whyUseSections = [
+    {
+      title: "بر اساس قوانین و آیین‌نامه‌های معتبر ایران",
+      image: '/assets/legal-knowledge.webp',
+      description: "اطلاعات ارائه‌شده مطابق آخرین مصوبات قانونی و اصول معتبر حقوقی کشور بوده و برای عموم قابل فهم است. با اینکه شرایط هر استان ممکن است جزئی تفاوت‌هایی داشته باشد، ما تلاش می‌کنیم راهنمایی کلی و قابل اتکا ارائه دهیم."
+    },
+    {
+      title: 'دسترسی آسان و رایگان به اطلاعات حقوقی',
+      image: '/assets/always-ready.webp',
+      description: 'بدون نیاز به جست‌وجوی طولانی یا اصطلاحات پیچیده حقوقی، کافی است وضعیت خود را توضیح دهید تا دستیار هوشمند، اطلاعات مرتبط را به زبان ساده در اختیار شما قرار دهد. این اطلاعات به شما کمک می‌کند تصمیمات آگاهانه‌تری اتخاذ کنید.'
+    },
+    {
+      title: "اطلاعات به زبان ساده و قابل درک",
+      image: '/assets/personalised-legal-information.webp',
+      description: 'پاسخ‌های بدون اصطلاحات پیچیده حقوقی که به راحتی قابل درک هستند. گفتگوها به‌صورت امن و محرمانه انجام می‌شود و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.'
+    }
+  ];
+  const howItWorksTitle = 'آماده‌اید شروع کنید؟';
+  const howItWorksDescription = "آیا سؤالی درباره‌ی حقوق خود در امور ملکی دارید؟ همین حالا بینش‌های فوری درباره‌ی سؤالات املاک خود را با دستیار هوش مصنوعی رایگان ویکیلا دریافت کنید. ویکیلا – راهنمای هوشمند شما در مسیر احقاق حق با اطمینان و آگاهی.";
+  const howItWorksSteps = [
+    {
+      title: 'سؤال خود را مطرح کنید',
+      image: '/assets/how-it-works-step1-desktop.webp',
+      description: "هر پرسشی درباره‌ی حقوق املاک و مستغلات دارید، به سادگی آن را با کلمات خودتان مطرح کنید. نیازی به دانستن اصطلاحات حقوقی نیست."
+    },
+    {
+      title: 'پاسخ هوشمند دریافت کنید',
+      image: '/assets/how-it-works-step2-desktop.webp',
+      description: "دستیار هوشمند ویکیلا بر اساس قوانین ایران به شما پاسخ می‌دهد و اطلاعات کاربردی، شفاف و قابل اتکا ارائه می‌دهد."
+    },
+    {
+      title: 'تصمیم آگاهانه بگیرید',
+      image: '/assets/how-it-works-step3-v2-desktop.webp',
+      description: "با اطلاعات دریافتی، وضعیت خود را بهتر درک کنید، گزینه‌هایتان را بسنجید و با اطمینان تصمیم بگیرید."
+    }
+  ];
+  const faqTitle = 'سؤالات متداول درباره حقوق املاک';
+  const faqItems = [
+    {
+      question: 'آیا استفاده از ویکیلا رایگان است؟',
+      answer: 'بله، استفاده از دستیار هوشمند ویکیلا برای دریافت اطلاعات حقوقی عمومی در حوزه حقوق املاک کاملاً رایگان است.'
+    },
+    {
+      question: 'چه نوع سوالاتی می‌توانم بپرسم؟',
+      answer: 'می‌توانید درباره انواع معاملات ملکی، حقوق مالکیت، قراردادهای اجاره، اختلافات ملکی و سایر مسائل مرتبط با حقوق املاک بپرسید.'
+    },
+    {
+      question: 'آیا این اطلاعات جایگزین مشاوره حقوقی است؟',
+      answer: 'خیر. اطلاعات ارائه‌شده صرفاً جنبه آگاهی‌بخشی دارد و جایگزین مشاوره تخصصی و رسمی حقوقی نیست.'
+    },
+    {
+      question: 'آیا اطلاعات من محرمانه می‌ماند؟',
+      answer: 'بله. تمامی گفتگوها به‌صورت امن و محرمانه نگهداری می‌شوند و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.'
+    },
+    {
+      question: 'آیا همیشه نیاز به وکیل دارم؟',
+      answer: 'نه همیشه. در بسیاری از موارد، آگاهی اولیه می‌تواند مسیر تصمیم‌گیری را روشن کند، اما برای مسائل پیچیده، مشاوره وکیل متخصص ضروری است.'
+    },
+    {
+      question: 'آیا ویکیلا همیشه در دسترس است؟',
+      answer: 'بله. دستیار حقوقی به‌صورت ۲۴ ساعته در دسترس است.'
+    }
+  ];
+  const helpTitle = 'کمک به یک مسئله املاک نیاز دارید؟';
+  const helpDescription = 'هر پرسشی درباره‌ی حقوق خود در امور ملکی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید';
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -154,11 +229,11 @@ const PropertyLaw = () => {
   // Auto-rotate hero slider
   useEffect(() => {
     const interval = setInterval(() => {
-      setHeroStep((prevStep) => (prevStep + 1) % area.length);
+      setHeroStep((prevStep) => (prevStep + 1) % 3); // 3 static slides
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, [area.length]);
+  }, []);
 
   // Track chat input visibility for fixed bottom chat and last section position
   useEffect(() => {
@@ -397,7 +472,7 @@ const PropertyLaw = () => {
                   height="0"
                   decoding="async"
                   className="intro_image"
-                  style={{color: 'transparent'}}
+                  style={{color: 'transparent', transform: 'scaleX(-1)', marginRight: '70%'}}
                     src={introImage}
                 />
               </div>

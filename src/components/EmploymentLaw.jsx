@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { areasOfLawContent } from '../data/areas';
 import PageLayout from './PageLayout.jsx';
 
 const EmploymentLaw = () => {
   const navigate = useNavigate();
-  const area = areasOfLawContent['employment-law'];
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const [heroStep, setHeroStep] = useState(0);
@@ -28,28 +26,82 @@ const EmploymentLaw = () => {
   const siteCardsRef = useRef(null);
   const [percentageCards, setPercentageCards] = useState(0);
 
-  const {
-    breadcrumbLabel,
-    breadcrumbHref,
-    heroTitle,
-    introText,
-    moreInfoText,
-    moreInfoHref,
-    introImage,
-    subCategories,
-    subcategoriesTitle,
-    subcategoriesDescription,
-    whyUseTitle,
-    whyUseDescription,
-    whyUseSections,
-    howItWorksTitle,
-    howItWorksDescription,
-    howItWorksSteps,
-    faqTitle,
-    faqItems,
-    helpTitle,
-    helpDescription,
-  } = area;
+  // Static content for Employment Law
+  const breadcrumbLabel = 'قانون استخدام';
+  const breadcrumbHref = '/en-us/employment-law';
+  const heroTitle = 'قانون استخدام';
+  const introText = 'راهنمای حقوق استخدام با کمک دستیار هوش مصنوعی اگر با مسایل حقوقی محل کار روبه‌رو هستید — مانند اخراج ناعادلانه، مسائل قرارداد کاری، تبعیض در محیط کار و سایر چالش‌های شغلی — دستیار هوش مصنوعی ما اطلاعات ضروری را فراهم می‌کند تا بتوانید تصمیمات آگاهانه اتخاذ کنید. این سرویس پاسخ‌های روشن، مفید و سریع دربارهٔ قوانین استخدام در اختیار شما قرار می‌دهد و استفاده از آن کاملاً رایگان است.';
+  const moreInfoText = 'خلاصه سریع درباره قانون استخدام';
+  const moreInfoHref = '/en-us/employment-law/summary';
+  const introImage = '/assets/intro-employment.webp';
+  const subcategoriesTitle = 'پاسخ به مسائل حقوق استخدام';
+  const subcategoriesDescription = 'دستیار هوش مصنوعی می‌تواند در موارد متعدد مرتبط با حقوق کار به شما کمک کند، از جمله:';
+  const subCategories = [
+    {
+      title: 'توضیح وضعیت حقوقی شما در مواجهه با اختلاف‌های کاری',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'دستیار هوش مصنوعی پاسخ‌های مرتبط و مفید ارائه می‌دهد.'
+    },
+    {
+      title: 'تفسیر حقوق و تعهدات کارمند و کارفرما',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'دستیار هوش مصنوعی پاسخ‌های مرتبط و مفید ارائه می‌دهد.'
+    },
+    {
+      title: 'ارائه اطلاعات دربارهٔ اصول قانونی، مانند قوانین ضد تبعیض، پرداخت دستمزد، شرایط قرارداد و روند رسیدگی به اختلافات کاری',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'دستیار هوش مصنوعی پاسخ‌های مرتبط و مفید ارائه می‌دهد.'
+    }
+  ];
+  const whyUseTitle = 'چگونه سرویس کار می‌کند';
+  const whyUseDescription = 'فرآیند ساده و کاربرپسند برای دریافت کمک حقوقی در مسائل استخدام:';
+  const whyUseSections = [
+    {
+      title: 'شرح وضعیت حقوقی خود را وارد کنید',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'شرایط و جزئیات موضوع کاری که با آن مواجه هستید را توضیح دهید تا دستیار هوش مصنوعی بتواند پاسخ دقیق‌تر تهیه کند.'
+    },
+    {
+      title: 'دریافت اطلاعات دقیق و قابل‌فهم',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'دستیار پاسخ‌های مرتبط، ساده و قابل‌فهم بر اساس قوانین جاری ایالات متحده ارائه می‌دهد.'
+    },
+    {
+      title: 'دریافت گزارش حقوقی شخصی‌شده',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'پس از ارسال سوال، گزارش مرتبط با وضعیت شما تهیه می‌شود تا در تصمیم‌گیری حقوقی کمک کند.'
+    }
+  ];
+  const howItWorksTitle = 'سوالات متداول دربارهٔ قانون استخدام';
+  const howItWorksDescription = 'پاسخ به سوالات رایج در مورد سرویس حقوق استخدام:';
+  const howItWorksSteps = [
+    {
+      title: 'آیا این سرویس مشاوره حقوقی رسمی محسوب می‌شود؟',
+      image: '/assets/how-it-works-step1-desktop.webp',
+      description: 'خیر. اطلاعاتی که ارائه می‌شود اطلاعات عمومی حقوقی است و جایگزین مشاوره رسمی و تخصصی با وکیل نمی‌شود. در موارد پیچیده یا حساس توصیه می‌شود با یک وکیل متخصص مشورت کنید.'
+    },
+    {
+      title: 'آیا استفاده از این سرویس هزینه دارد؟',
+      image: '/assets/how-it-works-step2-desktop.webp',
+      description: 'خیر. استفاده از دستیار هوش مصنوعی برای پاسخ به سوالات حقوق استخدام کاملاً رایگان است و هیچ هزینه پنهان یا تعهدی ایجاد نمی‌کند.'
+    },
+    {
+      title: 'آیا اطلاعات من محرمانه خواهد بود؟',
+      image: '/assets/how-it-works-step3-v2-desktop.webp',
+      description: 'بله. تمامی اطلاعاتی که ارائه می‌دهید خصوصی و محرمانه باقی می‌ماند و بدون رضایت شما به دیگران منتقل نمی‌شود.'
+    },
+    {
+      title: 'آیا کارفرمایان هم می‌توانند از این سرویس استفاده کنند؟',
+      image: '/assets/how-it-works-step1-desktop.webp',
+      description: 'بله. دستیار هوش مصنوعی برای کارمندان و کارفرمایان طراحی شده تا هر دو بتوانند حقوق، تعهدات و شیوه‌های درست قانونی را بشناسند و از آن آگاه شوند.'
+    }
+  ];
+  const faqTitle = 'نکته مهم';
+  const faqItems = [
+    { question: 'اطلاعات ارائه‌شده در این بخش صرفاً برای افزایش آگاهی عمومی است و نباید به‌عنوان مشاوره حقوقی تخصصی و رسمی تلقی شود. برای موقعیت‌های پیچیده یا مواردی که نیاز به تحلیل دقیق‌تر دارد، مراجعه به وکیل متخصص ضروری است.', answer: '' }
+  ];
+  const helpTitle = 'کمک به یک مسئله حقوق کار نیاز دارید؟';
+  const helpDescription = 'با پرسیدن هر سؤالی درباره مسئله حقوق استخدام خود شروع کنید';
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -154,11 +206,11 @@ const EmploymentLaw = () => {
   // Auto-rotate hero slider
   useEffect(() => {
     const interval = setInterval(() => {
-      setHeroStep((prevStep) => (prevStep + 1) % area.length);
+      setHeroStep((prevStep) => (prevStep + 1) % 3); // 3 static slides
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, [area.length]);
+  }, []);
 
   // Track chat input visibility for fixed bottom chat and last section position
   useEffect(() => {
@@ -397,7 +449,7 @@ const EmploymentLaw = () => {
                   height="0"
                   decoding="async"
                   className="intro_image"
-                  style={{color: 'transparent'}}
+                  style={{color: 'transparent', transform: 'scaleX(-1)', marginRight: '70%'}}
                     src={introImage}
                 />
               </div>

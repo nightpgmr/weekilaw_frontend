@@ -27,15 +27,15 @@ const MainContent = () => {
   ];
 
   const areasOfLaw = [
-    { name: "حقوق بازرگانی", href: "/en-us/commercial-law", image: "/assets/carousel-legal-1.webp" },
-    { name: "حقوق کیفری", href: "/en-us/criminal-law", image: "/assets/carousel-legal-2.webp" },
-    { name: "حقوق کار", href: "/en-us/employment-law", image: "/assets/carousel-legal-3.webp" },
-    { name: "حقوق ارث و املاک", href: "/en-us/estate-and-probate-law", image: "/assets/carousel-legal-4.webp" },
-    { name: "حقوق خانواده", href: "/en-us/family-law", image: "/assets/carousel-legal-5.webp" },
-    { name: "حقوق مهاجرت", href: "/en-us/immigration-law", image: "/assets/carousel-legal-6.webp" },
-    { name: "دادرسی", href: "/en-us/litigation", image: "/assets/carousel-legal-7.webp" },
-    { name: "حقوق جراحت شخصی", href: "/en-us/personal-injury-law", image: "/assets/carousel-legal-8.webp" },
-    { name: "حقوق املاک", href: "/en-us/property-law", image: "/assets/carousel-legal-9.webp" },
+    { name: "حقوق بازرگانی", href: "/en-us/commercial-law", image: "/assets/commercial-law.webp" },
+    { name: "حقوق کیفری", href: "/en-us/criminal-law", image: "/assets/criminal-law.webp" },
+    { name: "حقوق کار", href: "/en-us/employment-law", image: "/assets/employment-law.webp" },
+    { name: "حقوق ارث و املاک", href: "/en-us/estate-and-probate-law", image: "/assets/estate-and-probate-law.webp" },
+    { name: "حقوق خانواده", href: "/en-us/family-law", image: "/assets/family-law.webp" },
+    { name: "حقوق مهاجرت", href: "/en-us/immigration-law", image: "/assets/immigration-law.webp" },
+    { name: "دادرسی", href: "/en-us/litigation", image: "/assets/litigation.webp" },
+    { name: "حقوق جراحت شخصی", href: "/en-us/personal-injury-law", image: "/assets/personal-injury-law.webp" },
+    { name: "حقوق املاک", href: "/en-us/property-law", image: "/assets/property-law.webp" },
   ];
 
   const faqItems = [

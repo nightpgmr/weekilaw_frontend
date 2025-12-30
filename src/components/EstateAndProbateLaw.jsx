@@ -1,12 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { areasOfLawContent, defaultAreaSlug } from '../data/areas';
+import { useNavigate } from 'react-router-dom';
 import PageLayout from './PageLayout.jsx';
 
 const EstateAndProbateLaw = () => {
   const navigate = useNavigate();
-  const { areaSlug } = useParams();
-  const area = areasOfLawContent[areaSlug] || areasOfLawContent[defaultAreaSlug];
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const [heroStep, setHeroStep] = useState(0);
@@ -24,28 +21,115 @@ const EstateAndProbateLaw = () => {
   const [carouselScrollPosition, setCarouselScrollPosition] = useState(0);
   const carouselRef = useRef(null);
 
-  const {
-    breadcrumbLabel,
-    breadcrumbHref,
-    heroTitle,
-    introText,
-    moreInfoText,
-    moreInfoHref,
-    introImage,
-    subCategories,
-    subcategoriesTitle,
-    subcategoriesDescription,
-    whyUseTitle,
-    whyUseDescription,
-    whyUseSections,
-    howItWorksTitle,
-    howItWorksDescription,
-    howItWorksSteps,
-    faqTitle,
-    faqItems,
-    helpTitle,
-    helpDescription,
-  } = area;
+  // Static content for Estate and Probate Law
+  const breadcrumbLabel = 'حقوق املاک و وصیت‌نامه';
+  const breadcrumbHref = '/en-us/estate-and-probate-law';
+  const heroTitle = 'مشاوره هوشمند رایگان در زمینه وصیت‌نامه و امور ارث و میراث | ویکیلا';
+  const introText = "به کمک هوش مصنوعی، تصمیم‌های آگاهانه درباره امور وصیت‌نامه، وقف و ارث اتخاذ کنید برنامه‌ریزی و مدیریت دارایی با راهنمای هوشمند ویکیلا اگر درگیر تنظیم وصیت‌نامه، امور پس از فوت نزدیکان، یا اختلافات ارث و میراث هستید، دستیار حقوقی هوش مصنوعی ویکیلا اطلاعات کاربردی و روشن را در چند دقیقه در اختیارتان قرار می‌دهد — کاملاً رایگان. این دستیار بر اساس اصول تثبیت‌شده حقوق ارث و وصیت طراحی شده تا بتوانید وضعیت خود را بهتر درک کنید، گزینه‌هایتان را بسنجید و با اطمینان تصمیم بگیرید.";
+  const moreInfoText = 'خلاصه‌ای از قوانین وصیت، ارث و میراث در ایران';
+  const moreInfoHref = '/en-us/estate-and-probate-law/summary';
+  const introImage = '/assets/intro-estate-probate.webp';
+  const subcategoriesTitle = 'چه مسائل وصیت‌نامه، ارث و میراث می‌تواند دستیار حقوقی هوش مصنوعی ما به شما کمک کند';
+  const subcategoriesDescription = 'دستیار حقوقی هوش مصنوعی ما آموزش دیده است تا در طیف وسیعی از مسائل وصیت‌نامه، ارث و برنامه‌ریزی دارایی کمک کند. در اینجا زمینه‌های اصلی که می‌تواند پشتیبانی فوری ارائه دهد آورده شده است:';
+  const subCategories = [
+    {
+      title: 'تنظیم یا به‌روزرسانی وصیت‌نامه',
+      image: '/assets/family-property-finances.webp',
+      description: 'اگر قصد دارید نخستین وصیت‌نامه‌تان را بنویسید یا نسخه قدیمی را به‌روز کنید، دستیار ویکیلا شرایط لازم برای اعتبار وصیت‌نامه در ایران را توضیح می‌دهد: قوانین مربوط به شاهدها و نحوه تنظیم رسمی، انواع وصیت‌نامه (رسمی، خودنوشت، سری) و نیز اینکه اگر فردی بدون وصیت‌نامه از دنیا برود، چه اتفاقی برای اموالش می‌افتد.'
+    },
+    {
+      title: 'انتخاب بهترین روش برنامه‌ریزی دارایی',
+      image: '/assets/what-expert-lawyer-referral-2x.webp',
+      description: 'برنامه‌ریزی برای توزیع دارایی‌ها پس از فوت تنها مربوط به وصیت‌نامه نیست. ویکیلا اطلاعات شفافی درباره قوانین مالیات بر ارث در ایران، انتقال دارایی‌ها در زمان حیات (هبه، صلح‌نامه و …) و بهترین ساختار برای حفظ سرمایه خانواده در اختیارتان قرار می‌دهد تا از نظر مالی و قانونی بهترین تصمیم را بگیرید.'
+    },
+    {
+      title: 'راهنمای رایگان برای روند انحصار وراثت',
+      image: '/assets/what-navigating-probate-2x.webp',
+      description: 'در صورت فوت یکی از عزیزان، ویکیلا روند حقوقی صدور گواهی انحصار وراثت، تعیین مدیر ترکه و تقسیم اموال را برای شما توضیح می‌دهد. اطلاعاتی درباره مراحل رسمی و غیررسمی، مدارک مورد نیاز و زمان‌بندی نیز ارائه می‌شود.'
+    },
+    {
+      title: 'مالیات و هزینه‌های ارث',
+      image: '/assets/what-letters-admin-2x.webp',
+      description: 'نگران مالیات بر ارث هستید؟ دستیار هوشمند ویکیلا میزان معافیت‌ها، نرخ‌های قانونی و راهکارهای کاهش هزینه انتقال ارث را برایتان شرح می‌دهد، از جمله مواردی مثل بخشش و هبه در زمان حیات، معافیت همسر و فرزندان، زمان پرداخت مالیات بر ارث.'
+    },
+    {
+      title: 'ایجاد یا اداره اعتمادها (تراست‌ها)',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'اگر به فکر ایجاد صندوق یا اعتماد مالی هستید، یا وظیفه اداره آن را دارید، ویکیلا اطلاعاتی درباره انواع اعتمادهای رایج، مسئولیت‌های متولی، و آثار مالیاتی مرتبط ارائه می‌دهد. با توضیح تفاوت تراست‌های قابل فسخ و غیرقابل فسخ، بهترین گزینه را برای شرایط خود انتخاب کنید.'
+    },
+    {
+      title: 'حل اختلافات مربوط به وصیت‌نامه و ارث',
+      image: '/assets/what-will-disputes-2x.webp',
+      description: 'در صورت بروز اختلاف میان وراث یا وصی‌ها، ویکیلا راهنمای جامع ارائه می‌دهد درباره دلایل قانونی ابطال وصیت‌نامه، دعاوی حذف‌شدگان از ارث، اختلاف میان وراث بر سر دارایی‌ها تا بتوانید حقوق خود را بشناسید و اقدامات قانونی مناسب انجام دهید.'
+    }
+  ];
+  const whyUseTitle = 'چرا از ویکیلا برای کمک در امور وصیت‌نامه و ارث استفاده کنید';
+  const whyUseDescription = "ویکیلا تحول تازه‌ای در دسترسی به مشاوره حقوقی ایجاد کرده است. با بهره‌گیری از هوش مصنوعی، در اولین قدم به شما اعتماد و آگاهی می‌دهد تا پیش از تصمیم‌های مهم، شرایط خود را بهتر درک کنید. پایگاه دانش اختصاصی حقوق ارث ویکیلا بر اساس بانک اطلاعاتی گسترده‌ای از قوانین و آیین‌نامه‌های ارث و وصیت ایران طراحی شده است.";
+  const whyUseSections = [
+    {
+      title: "بر اساس قوانین و آیین‌نامه‌های معتبر ایران",
+      image: '/assets/legal-knowledge.webp',
+      description: "اطلاعات ارائه‌شده مطابق آخرین مصوبات قانونی و اصول معتبر حقوقی کشور بوده و برای عموم قابل فهم است. با اینکه شرایط هر استان ممکن است جزئی تفاوت‌هایی داشته باشد، ما تلاش می‌کنیم راهنمایی کلی و قابل اتکا ارائه دهیم."
+    },
+    {
+      title: 'دسترسی آسان و رایگان به اطلاعات حقوقی',
+      image: '/assets/always-ready.webp',
+      description: 'بدون نیاز به جست‌وجوی طولانی یا اصطلاحات پیچیده حقوقی، کافی است وضعیت خود را توضیح دهید تا دستیار هوشمند، اطلاعات مرتبط را به زبان ساده در اختیار شما قرار دهد. این اطلاعات به شما کمک می‌کند تصمیمات آگاهانه‌تری اتخاذ کنید.'
+    },
+    {
+      title: "اطلاعات به زبان ساده و قابل درک",
+      image: '/assets/personalised-legal-information.webp',
+      description: 'پاسخ‌های بدون اصطلاحات پیچیده حقوقی که به راحتی قابل درک هستند. گفتگوها به‌صورت امن و محرمانه انجام می‌شود و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.'
+    }
+  ];
+  const howItWorksTitle = 'آماده‌اید شروع کنید؟';
+  const howItWorksDescription = "به سادگی سؤال خود را در مورد وصیت‌نامه یا ارث مطرح کنید و پاسخ تخصصی رایگان دریافت کنید. ویکیلا – آینده مشاوره حقوقی هوشمند در ایران.";
+  const howItWorksSteps = [
+    {
+      title: 'سؤال خود را مطرح کنید',
+      image: '/assets/how-it-works-step1-desktop.webp',
+      description: "هر سؤالی درباره وصیت‌نامه، ارث یا برنامه‌ریزی دارایی دارید، به سادگی آن را با کلمات خودتان مطرح کنید. نیازی به دانستن اصطلاحات حقوقی نیست."
+    },
+    {
+      title: 'پاسخ هوشمند دریافت کنید',
+      image: '/assets/how-it-works-step2-desktop.webp',
+      description: "دستیار هوشمند ویکیلا بر اساس قوانین ایران به شما پاسخ می‌دهد و اطلاعات کاربردی، شفاف و قابل اتکا ارائه می‌دهد."
+    },
+    {
+      title: 'تصمیم آگاهانه بگیرید',
+      image: '/assets/how-it-works-step3-v2-desktop.webp',
+      description: "با اطلاعات دریافتی، وضعیت خود را بهتر درک کنید، گزینه‌هایتان را بسنجید و با اطمینان تصمیم بگیرید."
+    }
+  ];
+  const faqTitle = 'سؤالات متداول درباره وصیت‌نامه و ارث';
+  const faqItems = [
+    {
+      question: 'آیا استفاده از ویکیلا رایگان است؟',
+      answer: 'بله، استفاده از دستیار هوشمند ویکیلا برای دریافت اطلاعات حقوقی عمومی در حوزه وصیت‌نامه و ارث کاملاً رایگان است.'
+    },
+    {
+      question: 'چه نوع سوالاتی می‌توانم بپرسم؟',
+      answer: 'می‌توانید درباره تنظیم وصیت‌نامه، قوانین ارث، مالیات بر ارث، اعتمادها، اختلافات ارثی و سایر مسائل مرتبط با برنامه‌ریزی دارایی بپرسید.'
+    },
+    {
+      question: 'آیا این اطلاعات جایگزین مشاوره حقوقی است؟',
+      answer: 'خیر. اطلاعات ارائه‌شده صرفاً جنبه آگاهی‌بخشی دارد و جایگزین مشاوره تخصصی و رسمی حقوقی نیست.'
+    },
+    {
+      question: 'آیا اطلاعات من محرمانه می‌ماند؟',
+      answer: 'بله. تمامی گفتگوها به‌صورت امن و محرمانه نگهداری می‌شوند و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.'
+    },
+    {
+      question: 'آیا همیشه نیاز به وکیل دارم؟',
+      answer: 'نه همیشه. در بسیاری از موارد، آگاهی اولیه می‌تواند مسیر تصمیم‌گیری را روشن کند، اما برای مسائل پیچیده، مشاوره وکیل ضروری است.'
+    },
+    {
+      question: 'آیا ویکیلا همیشه در دسترس است؟',
+      answer: 'بله. دستیار حقوقی به‌صورت ۲۴ ساعته در دسترس است.'
+    }
+  ];
+  const helpTitle = 'کمک به یک مسئله وصیت‌نامه یا ارث نیاز دارید؟';
+  const helpDescription = 'هر سؤالی درباره وصیت‌نامه، ارث یا برنامه‌ریزی دارایی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید';
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -156,11 +240,11 @@ const EstateAndProbateLaw = () => {
   // Auto-rotate hero slider
   useEffect(() => {
     const interval = setInterval(() => {
-      setHeroStep((prevStep) => (prevStep + 1) % area.length);
+      setHeroStep((prevStep) => (prevStep + 1) % 3); // 3 static slides
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, [area.length]);
+  }, []);
 
   // Track chat input visibility for fixed bottom chat and last section position
   useEffect(() => {
@@ -399,7 +483,7 @@ const EstateAndProbateLaw = () => {
                   height="0" 
                   decoding="async" 
                   className="intro_image" 
-                  style={{color: 'transparent'}} 
+                    style={{color: 'transparent', transform: 'scaleX(-1)', marginRight: '70%'}} 
                     src={introImage}
                 />
               </div>

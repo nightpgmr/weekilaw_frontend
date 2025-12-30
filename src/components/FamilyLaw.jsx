@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { areasOfLawContent } from '../data/areas';
 import PageLayout from './PageLayout.jsx';
 
 const FamilyLaw = () => {
   const navigate = useNavigate();
-  const area = areasOfLawContent['family-law'];
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const [heroStep, setHeroStep] = useState(0);
@@ -28,28 +26,115 @@ const FamilyLaw = () => {
   const siteCardsRef = useRef(null);
   const [percentageCards, setPercentageCards] = useState(0);
 
-  const {
-    breadcrumbLabel,
-    breadcrumbHref,
-    heroTitle,
-    introText,
-    moreInfoText,
-    moreInfoHref,
-    introImage,
-    subCategories,
-    subcategoriesTitle,
-    subcategoriesDescription,
-    whyUseTitle,
-    whyUseDescription,
-    whyUseSections,
-    howItWorksTitle,
-    howItWorksDescription,
-    howItWorksSteps,
-    faqTitle,
-    faqItems,
-    helpTitle,
-    helpDescription,
-  } = area;
+  // Static content for Family Law
+  const breadcrumbLabel = 'حقوق خانواده';
+  const breadcrumbHref = '/en-us/family-law';
+  const heroTitle = 'مشاوره هوشمند رایگان در زمینه حقوق خانواده';
+  const introText = "به کمک دستیار هوش مصنوعی ویکیلا، پاسخ رایگان به پرسش‌های خود درباره‌ی طلاق، حضانت، نفقه و سایر موضوعات مربوط به حقوق خانواده دریافت کنید. با راهنمایی شفاف و قابل‌فهم ما، تصمیم‌های آگاهانه‌تری درباره‌ پرونده‌های خانوادگی بگیرید. همراه هوشمند شما در حل مسائل خانوادگی موضوعاتی مانند طلاق، حضانت فرزند، توافق مالی، یا خشونت خانگی می‌تواند فشار روانی زیادی به همراه داشته باشد. ویکیلا با بهره‌گیری از هوش مصنوعی و دانش حقوقی به‌روز، اطلاعات دقیق و قابل استناد ارائه می‌دهد تا احساس کنترل بیشتری بر شرایطتان داشته باشید — کاملاً رایگان. این سامانه بر پایه‌ی اصول تثبیت‌شده‌ی حقوق خانواده طراحی شده و به شما کمک می‌کند حقوق، مسئولیت‌ها و گزینه‌های خود را بهتر بشناسید.";
+  const moreInfoText = 'خلاصه‌ای از قوانین خانواده در ایران';
+  const moreInfoHref = '/en-us/family-law/summary';
+  const introImage = '/assets/intro-family.webp';
+  const subcategoriesTitle = 'چه مسائل حقوق خانواده می‌تواند دستیار حقوقی هوش مصنوعی ما به شما کمک کند';
+  const subcategoriesDescription = 'دستیار حقوقی هوش مصنوعی ما آموزش دیده است تا در طیف وسیعی از مسائل حقوق خانواده کمک کند. در اینجا زمینه‌های اصلی که می‌تواند پشتیبانی فوری ارائه دهد آورده شده است:';
+  const subCategories = [
+    {
+      title: 'طلاق و جدایی',
+      image: '/assets/default-area-of-law.webp',
+      description: 'اگر به فکر طلاق یا جدایی قانونی هستید، دستیار ویکیلا شرایط طرح دادخواست طلاق برای زن و مرد، مراحل قانونی از ثبت دادخواست تا صدور حکم، تقسیم دارایی‌ها، مهریه، نفقه و اجرت‌المثل، و حضانت فرزندان پس از طلاق را توضیح می‌دهد.'
+    },
+    {
+      title: 'حضانت فرزند و برنامه‌ریزی تربیتی',
+      image: '/assets/default-area-of-law.webp',
+      description: 'اگر قصد تنظیم توافق حضانت یا تغییر در شرایط قبلی را دارید، ویکیلا تفاوت حضانت، ولایت و ملاقات، معیارهای دادگاه در تعیین صلاحیت والدین، و چگونگی حفظ منافع فرزند در روند تصمیم‌گیری را توضیح می‌دهد.'
+    },
+    {
+      title: 'نفقه و حمایت مالی از فرزند',
+      image: '/assets/default-area-of-law.webp',
+      description: 'ویکیلا به‌صورت واضح توضیح می‌دهد چگونه میزان نفقه بر اساس درآمد و نیاز تعیین می‌شود، در چه شرایطی می‌توان نفقه را افزایش یا کاهش داد، و چه مراحلی برای الزام پرداخت یا پیگیری مطالبات وجود دارد.'
+    },
+    {
+      title: 'توافقات پیش از ازدواج و پس از ازدواج',
+      image: '/assets/default-area-of-law.webp',
+      description: 'اگر قصد ازدواج دارید یا ازدواج کرده‌اید و می‌خواهید امور مالی یا تعهدات را شفاف‌تر تعریف کنید، دستیار هوشمند ویکیلا توافق‌نامه‌های پیش از ازدواج، توافقات پس از ازدواج، و شرایط قانونی و زمان مناسب مشورت با وکیل را توضیح می‌دهد.'
+    },
+    {
+      title: 'خشونت خانگی و دستورهای حمایتی',
+      image: '/assets/default-area-of-law.webp',
+      description: 'در صورت تجربه خشونت یا نیاز به حمایت فوری، ویکیلا روند درخواست دستور منع تماس یا خروج از منزل، نهادهای حمایتی و پناهگاه‌های قانونی، و حقوق قربانیان خشونت و اقدامات فوری برای امنیت را توضیح می‌دهد.'
+    },
+    {
+      title: 'فرزندخواندگی و حقوق والدین',
+      image: '/assets/default-area-of-law.webp',
+      description: 'اگر قصد سرپرستی کودک را دارید یا درگیر مسائل حقوقی مربوط به والدین هستید، ویکیلا مراحل قانونی فرزندخواندگی در ایران، شرایط لازم برای متقاضیان، و حقوق والدین در موارد استثنایی را روشن می‌کند.'
+    }
+  ];
+  const whyUseTitle = 'چرا از ویکیلا برای کمک در امور خانوادگی استفاده کنید';
+  const whyUseDescription = "ویکیلا اولین گام برای درک حقوق قانونی‌تان را آسان می‌کند. در شرایط دشوار خانوادگی، با چند پرسش ساده از هوش مصنوعی ما، می‌توانید تصویری روشن از موقعیت خود پیدا کنید. سیستم ما بر پایه‌ی منابع معتبر حقوقی ایران طراحی شده و اطلاعاتی ساده، دقیق و شخصی‌سازی‌شده ارائه می‌دهد.";
+  const whyUseSections = [
+    {
+      title: "بر اساس قوانین و آیین‌نامه‌های معتبر ایران",
+      image: '/assets/legal-knowledge.webp',
+      description: "اطلاعات ارائه‌شده مطابق آخرین مصوبات قانونی و اصول معتبر حقوقی کشور بوده و برای عموم قابل فهم است. با اینکه شرایط هر استان ممکن است جزئی تفاوت‌هایی داشته باشد، ما تلاش می‌کنیم راهنمایی کلی و قابل اتکا ارائه دهیم."
+    },
+    {
+      title: 'دسترسی آسان و رایگان به اطلاعات حقوقی',
+      image: '/assets/always-ready.webp',
+      description: 'بدون نیاز به جست‌وجوی طولانی یا اصطلاحات پیچیده حقوقی، کافی است وضعیت خود را توضیح دهید تا دستیار هوشمند، اطلاعات مرتبط را به زبان ساده در اختیار شما قرار دهد. این اطلاعات به شما کمک می‌کند تصمیمات آگاهانه‌تری اتخاذ کنید.'
+    },
+    {
+      title: "اطلاعات به زبان ساده و قابل درک",
+      image: '/assets/personalised-legal-information.webp',
+      description: 'پاسخ‌های بدون اصطلاحات پیچیده حقوقی که به راحتی قابل درک هستند. گفتگوها به‌صورت امن و محرمانه انجام می‌شود و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.'
+    }
+  ];
+  const howItWorksTitle = 'آماده‌اید شروع کنید؟';
+  const howItWorksDescription = "هر سؤالی درباره‌ی طلاق، حضانت، نفقه یا سایر امور خانوادگی دارید — هم‌اکنون از دستیار هوش مصنوعی ویکیلا بپرسید و پاسخ شفاف و رایگان دریافت کنید. ویکیلا – همراه مطمئن شما در مسیر آرام و آگاه خانوادگی.";
+  const howItWorksSteps = [
+    {
+      title: 'سؤال خود را مطرح کنید',
+      image: '/assets/how-it-works-step1-desktop.webp',
+      description: "هر سؤالی درباره‌ی طلاق، حضانت، نفقه یا سایر امور خانوادگی دارید، به سادگی آن را با کلمات خودتان مطرح کنید. نیازی به دانستن اصطلاحات حقوقی نیست."
+    },
+    {
+      title: 'پاسخ هوشمند دریافت کنید',
+      image: '/assets/how-it-works-step2-desktop.webp',
+      description: "دستیار هوشمند ویکیلا بر اساس قوانین ایران به شما پاسخ می‌دهد و اطلاعات کاربردی، شفاف و قابل اتکا ارائه می‌دهد."
+    },
+    {
+      title: 'تصمیم آگاهانه بگیرید',
+      image: '/assets/how-it-works-step3-v2-desktop.webp',
+      description: "با اطلاعات دریافتی، وضعیت خود را بهتر درک کنید، گزینه‌هایتان را بسنجید و با اطمینان تصمیم بگیرید."
+    }
+  ];
+  const faqTitle = 'سؤالات متداول درباره حقوق خانواده';
+  const faqItems = [
+    {
+      question: 'آیا استفاده از ویکیلا رایگان است؟',
+      answer: 'بله، استفاده از دستیار هوشمند ویکیلا برای دریافت اطلاعات حقوقی عمومی در حوزه حقوق خانواده کاملاً رایگان است.'
+    },
+    {
+      question: 'چه نوع سوالاتی می‌توانم بپرسم؟',
+      answer: 'می‌توانید درباره طلاق، حضانت فرزند، نفقه، خشونت خانگی، فرزندخواندگی و سایر مسائل مرتبط با حقوق خانواده بپرسید.'
+    },
+    {
+      question: 'آیا این اطلاعات جایگزین مشاوره حقوقی است؟',
+      answer: 'خیر. اطلاعات ارائه‌شده صرفاً جنبه آگاهی‌بخشی دارد و جایگزین مشاوره تخصصی و رسمی حقوقی نیست.'
+    },
+    {
+      question: 'آیا اطلاعات من محرمانه می‌ماند؟',
+      answer: 'بله. تمامی گفتگوها به‌صورت امن و محرمانه نگهداری می‌شوند و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.'
+    },
+    {
+      question: 'آیا همیشه نیاز به وکیل دارم؟',
+      answer: 'نه همیشه. در بسیاری از موارد، آگاهی اولیه می‌تواند مسیر تصمیم‌گیری را روشن کند، اما برای مسائل پیچیده، مشاوره وکیل ضروری است.'
+    },
+    {
+      question: 'آیا ویکیلا همیشه در دسترس است؟',
+      answer: 'بله. دستیار حقوقی به‌صورت ۲۴ ساعته در دسترس است.'
+    }
+  ];
+  const helpTitle = 'کمک به یک مسئله خانوادگی نیاز دارید؟';
+  const helpDescription = 'هر سؤالی درباره‌ی طلاق، حضانت، نفقه یا سایر امور خانوادگی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید';
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -154,11 +239,11 @@ const FamilyLaw = () => {
   // Auto-rotate hero slider
   useEffect(() => {
     const interval = setInterval(() => {
-      setHeroStep((prevStep) => (prevStep + 1) % area.length);
+      setHeroStep((prevStep) => (prevStep + 1) % 3); // 3 static slides
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, [area.length]);
+  }, []);
 
   // Track chat input visibility for fixed bottom chat and last section position
   useEffect(() => {
@@ -397,7 +482,7 @@ const FamilyLaw = () => {
                   height="0"
                   decoding="async"
                   className="intro_image"
-                  style={{color: 'transparent'}}
+                  style={{color: 'transparent', transform: 'scaleX(-1)', marginRight: '70%'}}
                     src={introImage}
                 />
               </div>

@@ -80,7 +80,7 @@ const ChatPage = () => {
     () =>
       async (text) => {
         try {
-          const response = await fetch('/api/chat/ask', {
+          const response = await fetch('https://panel.weekila.com/api/chat/ask', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

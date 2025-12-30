@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { areasOfLawContent } from '../data/areas';
 import PageLayout from './PageLayout.jsx';
 
 const PersonalInjuryLaw = () => {
   const navigate = useNavigate();
-  const area = areasOfLawContent['personal-injury-law'];
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const [heroStep, setHeroStep] = useState(0);
@@ -28,28 +26,115 @@ const PersonalInjuryLaw = () => {
   const siteCardsRef = useRef(null);
   const [percentageCards, setPercentageCards] = useState(0);
 
-  const {
-    breadcrumbLabel,
-    breadcrumbHref,
-    heroTitle,
-    introText,
-    moreInfoText,
-    moreInfoHref,
-    introImage,
-    subCategories,
-    subcategoriesTitle,
-    subcategoriesDescription,
-    whyUseTitle,
-    whyUseDescription,
-    whyUseSections,
-    howItWorksTitle,
-    howItWorksDescription,
-    howItWorksSteps,
-    faqTitle,
-    faqItems,
-    helpTitle,
-    helpDescription,
-  } = area;
+  // Static content for Personal Injury Law
+  const breadcrumbLabel = 'حقوق جراحات شخصی';
+  const breadcrumbHref = '/en-us/personal-injury-law';
+  const heroTitle = 'راهنمای هوشمند رایگان در امور صدمات شخصی و دعاوی مربوط به آن';
+  const introText = "تجربه‌ی صدمات شخصی می‌تواند زندگی شما را کاملاً مختل کند و اغلب با هزینه‌های ناگهانی پزشکی، از دست دادن درآمد و استرس فراوان همراه است. اگر بر اثر سهل‌انگاری شخص دیگری آسیب دیده‌اید، باید از حقوق خود در مورد جبران خسارت و راه‌های قانونی پیش رو آگاه باشید. دستیار هوش مصنوعی رایگان ما راهنمایی فوری و بدون تعهدی در مورد مسئولیت مدنی، ادعاهای خسارت ناشی از حوادث، و پیگیری غرامت ارائه می‌دهد. دستیار هوشمند ما به شما کمک می‌کند تا پیچیدگی‌های ادعای صدمات شخصی را درک کنید و ارزیابی این موارد را برایتان ساده‌تر سازد: تعیین مسئولیت، مدارک مورد نیاز برای یک ادعا، و انواع خساراتی که ممکن است حق شما باشد.";
+  const moreInfoText = 'مروری سریع بر قانون صدمات شخصی در نظام حقوقی ایران';
+  const moreInfoHref = '/en-us/personal-injury-law/summary';
+  const introImage = '/assets/intro-personal-injury.webp';
+  const subcategoriesTitle = 'چه مسائل حقوق جراحات شخصی می‌تواند دستیار حقوقی هوش مصنوعی ما به شما کمک کند';
+  const subcategoriesDescription = 'دستیار حقوقی هوش مصنوعی ما آموزش دیده است تا در طیف وسیعی از مسائل حقوق جراحات شخصی کمک کند. در اینجا زمینه‌های اصلی که می‌تواند پشتیبانی فوری ارائه دهد آورده شده است:';
+  const subCategories = [
+    {
+      title: 'آگاهی از حقوق خود پیش از اقدام قانونی',
+      image: '/assets/default-area-of-law.webp',
+      description: 'پیش از استخدام وکیل یا طرح دعوا، از هوش مصنوعی برای روشن شدن حقوق خود استفاده کنید. این سیستم عناصر حیاتی مانند مهلت‌های قانونی طرح دعوا، اثبات تقصیر طرف مقابل، و شواهدی که برای اثبات خسارات وارده لازم است را توضیح می‌دهد.'
+    },
+    {
+      title: 'پشتیبانی برای ثبت ادعای خسارت یا طرح شکایت',
+      image: '/assets/default-area-of-law.webp',
+      description: 'اگر تصمیم به پیگیری غرامت گرفتید، دستیار هوشمند ما روند کار را ترسیم می‌کند. این ابزار تفاوت بین تسویه حساب با شرکت بیمه و طرح یک دادخواست رسمی صدمات شخصی را توضیح می‌دهد و به جمع‌آوری ادله مورد نیاز کمک می‌کند.'
+    },
+    {
+      title: 'راهنمایی در مواجهه با کارشناسان بیمه و مذاکرات',
+      image: '/assets/default-area-of-law.webp',
+      description: 'شرکت‌های بیمه اغلب تلاش می‌کنند تا پرونده را سریعاً و با مبلغی کمتر از آنچه حق شماست، فیصله دهند. ابزار هوش مصنوعی ما به شما کمک می‌کند تا تاکتیک‌های ارزیابان بیمه را درک کنید و ارزش منصفانه‌ی ادعای خود را ارزیابی کنید.'
+    },
+    {
+      title: 'پشتیبانی برای دعاوی پیچیده صدمات شخصی',
+      image: '/assets/default-area-of-law.webp',
+      description: 'برای پرونده‌های پیچیده‌تر مانند قصور پزشکی یا آسیب‌های ناشی از محصولات معیوب، دستیار هوشمند ما استانداردهای بالاتر اثبات مورد نیاز را توضیح می‌دهد و به درک مفاهیم تخصصی مانند تعهد به مراقبت و رابطه سببیت کمک می‌کند.'
+    },
+    {
+      title: 'درک انواع خسارات وارده',
+      image: '/assets/default-area-of-law.webp',
+      description: 'پرونده‌های صدمات شخصی معمولاً شامل انواع مختلف غرامت هستند. هوش مصنوعی تفاوت بین خسارات مادی و خسارات معنوی را روشن می‌سازد و به شما کمک می‌کند تا تصویری جامع از زیان مالی خود بسازید.'
+    },
+    {
+      title: 'پوشش جامع سؤالات حقوقی',
+      image: '/assets/default-area-of-law.webp',
+      description: 'آیا مطمئن نیستید که آیا حادثه‌ی شما مشمول پرونده‌ی صدمات شخصی می‌شود؟ دستیار ما با پرسش سؤالات مرتبط در مورد حادثه، مشخص می‌کند که آیا عنصر کلیدی "سهل‌انگاری" وجود دارد یا خیر، و قدم منطقی بعدی را مشخص می‌سازد.'
+    }
+  ];
+  const whyUseTitle = 'چرا از ویکیلا برای کمک در امور صدمات شخصی استفاده کنید';
+  const whyUseDescription = "ویکیلا اولین گام برای درک حقوق قانونی‌تان را آسان می‌کند. در شرایط پیچیده صدمات و آسیب‌ها، با چند پرسش ساده از هوش مصنوعی ما، می‌توانید تصویری روشن از مسیر قانونی خود پیدا کنید. سیستم ما بر پایه‌ی منابع معتبر حقوقی ایران طراحی شده و اطلاعاتی ساده، دقیق و شخصی‌سازی‌شده ارائه می‌دهد.";
+  const whyUseSections = [
+    {
+      title: "بر اساس قوانین و آیین‌نامه‌های معتبر ایران",
+      image: '/assets/legal-knowledge.webp',
+      description: "اطلاعات ارائه‌شده مطابق آخرین مصوبات قانونی و اصول معتبر حقوقی کشور بوده و برای عموم قابل فهم است. با اینکه شرایط هر پرونده ممکن است منحصر به فرد باشد، ما تلاش می‌کنیم راهنمایی کلی و قابل اتکا ارائه دهیم."
+    },
+    {
+      title: 'دسترسی آسان و رایگان به اطلاعات حقوقی',
+      image: '/assets/always-ready.webp',
+      description: 'بدون نیاز به جست‌وجوی طولانی یا اصطلاحات پیچیده حقوقی، کافی است وضعیت خود را توضیح دهید تا دستیار هوشمند، اطلاعات مرتبط را به زبان ساده در اختیار شما قرار دهد. این اطلاعات به شما کمک می‌کند تصمیمات آگاهانه‌تری اتخاذ کنید.'
+    },
+    {
+      title: "اطلاعات به زبان ساده و قابل درک",
+      image: '/assets/personalised-legal-information.webp',
+      description: 'پاسخ‌های بدون اصطلاحات پیچیده حقوقی که به راحتی قابل درک هستند. گفتگوها به‌صورت امن و محرمانه انجام می‌شود و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.'
+    }
+  ];
+  const howItWorksTitle = 'آماده‌اید شروع کنید؟';
+  const howItWorksDescription = "آیا سؤالی درباره‌ی حقوق خود پس از یک حادثه دارید؟ همین حالا بینش‌های فوری درباره‌ی سؤالات صدمات شخصی خود را با دستیار هوش مصنوعی رایگان ویکیلا دریافت کنید. ویکیلا – راهنمای هوشمند شما در مسیر احقاق حق با اطمینان و آگاهی.";
+  const howItWorksSteps = [
+    {
+      title: 'سؤال خود را مطرح کنید',
+      image: '/assets/how-it-works-step1-desktop.webp',
+      description: "هر پرسشی درباره‌ی صدمات شخصی و حقوق خود دارید، به سادگی آن را با کلمات خودتان مطرح کنید. نیازی به دانستن اصطلاحات حقوقی نیست."
+    },
+    {
+      title: 'پاسخ هوشمند دریافت کنید',
+      image: '/assets/how-it-works-step2-desktop.webp',
+      description: "دستیار هوشمند ویکیلا بر اساس قوانین ایران به شما پاسخ می‌دهد و اطلاعات کاربردی، شفاف و قابل اتکا ارائه می‌دهد."
+    },
+    {
+      title: 'تصمیم آگاهانه بگیرید',
+      image: '/assets/how-it-works-step3-v2-desktop.webp',
+      description: "با اطلاعات دریافتی، وضعیت خود را بهتر درک کنید، گزینه‌هایتان را بسنجید و با اطمینان تصمیم بگیرید."
+    }
+  ];
+  const faqTitle = 'سؤالات متداول درباره حقوق جراحات شخصی';
+  const faqItems = [
+    {
+      question: 'آیا استفاده از ویکیلا رایگان است؟',
+      answer: 'بله، استفاده از دستیار هوشمند ویکیلا برای دریافت اطلاعات حقوقی عمومی در حوزه حقوق جراحات شخصی کاملاً رایگان است.'
+    },
+    {
+      question: 'چه نوع سوالاتی می‌توانم بپرسم؟',
+      answer: 'می‌توانید درباره انواع صدمات، مسئولیت مدنی، خسارات، ادعاهای بیمه و سایر مسائل مرتبط با حقوق جراحات شخصی بپرسید.'
+    },
+    {
+      question: 'آیا این اطلاعات جایگزین مشاوره حقوقی است؟',
+      answer: 'خیر. اطلاعات ارائه‌شده صرفاً جنبه آگاهی‌بخشی دارد و جایگزین مشاوره تخصصی و رسمی حقوقی نیست.'
+    },
+    {
+      question: 'آیا اطلاعات من محرمانه می‌ماند؟',
+      answer: 'بله. تمامی گفتگوها به‌صورت امن و محرمانه نگهداری می‌شوند و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.'
+    },
+    {
+      question: 'آیا همیشه نیاز به وکیل دارم؟',
+      answer: 'نه همیشه. در بسیاری از موارد، آگاهی اولیه می‌تواند مسیر تصمیم‌گیری را روشن کند، اما برای مسائل پیچیده، مشاوره وکیل متخصص ضروری است.'
+    },
+    {
+      question: 'آیا ویکیلا همیشه در دسترس است؟',
+      answer: 'بله. دستیار حقوقی به‌صورت ۲۴ ساعته در دسترس است.'
+    }
+  ];
+  const helpTitle = 'کمک به یک مسئله صدمات شخصی نیاز دارید؟';
+  const helpDescription = 'آیا سؤالی درباره‌ی حقوق خود پس از یک حادثه دارید؟ همین حالا بینش‌های فوری درباره‌ی سؤالات صدمات شخصی خود را با دستیار هوش مصنوعی رایگان ویکیلا دریافت کنید.';
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -154,11 +239,11 @@ const PersonalInjuryLaw = () => {
   // Auto-rotate hero slider
   useEffect(() => {
     const interval = setInterval(() => {
-      setHeroStep((prevStep) => (prevStep + 1) % area.length);
+      setHeroStep((prevStep) => (prevStep + 1) % 3); // 3 static slides
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, [area.length]);
+  }, []);
 
   // Track chat input visibility for fixed bottom chat and last section position
   useEffect(() => {
@@ -397,7 +482,7 @@ const PersonalInjuryLaw = () => {
                   height="0"
                   decoding="async"
                   className="intro_image"
-                  style={{color: 'transparent'}}
+                  style={{color: 'transparent', transform: 'scaleX(-1)', marginRight: '70%'}}
                     src={introImage}
                 />
               </div>

@@ -1,423 +1,510 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageLayout from './PageLayout.jsx';
 import '../styles/signUp.css';
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const [step, setStep] = useState('phone'); // 'phone', 'otp', 'details'
+  const [phone, setPhone] = useState('');
+  const [otp, setOtp] = useState('');
+  const [name, setName] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
+  const [countdown, setCountdown] = useState(0);
+
+  const validatePhone = (phoneNumber) => {
+    const phoneRegex = /^09\d{9}$/;
+    return phoneRegex.test(phoneNumber);
+  };
+
+  const handleSendOTP = async (e) => {
+    e.preventDefault();
+    setError('');
+    setMessage('');
+
+    if (!validatePhone(phone)) {
+      setError('شماره موبایل باید با 09 شروع شود و 11 رقم باشد');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch('https://panel.weekila.com/api/auth/phone/send-register-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ phone }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setMessage(data.message);
+        setStep('otp');
+        setCountdown(300); // 5 minutes
+
+        // Start countdown timer
+        const timer = setInterval(() => {
+          setCountdown((prev) => {
+            if (prev <= 1) {
+              clearInterval(timer);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+      } else {
+        setError(data.message || 'خطا در ارسال کد تایید');
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+      if (err.name === 'TypeError' && err.message.includes('fetch')) {
+        setError('خطا در اتصال به سرور. لطفا اتصال اینترنت خود را بررسی کنید.');
+      } else {
+        setError('خطا در ارتباط با سرور');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleVerifyOTP = async (e) => {
+    e.preventDefault();
+    setError('');
+    setMessage('');
+
+    if (otp.length !== 4) {
+      setError('کد تایید باید 4 رقم باشد');
+      return;
+    }
+
+    if (!name.trim()) {
+      setError('نام و نام خانوادگی را وارد کنید');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch('https://panel.weekila.com/api/auth/phone/complete-registration', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ phone, otp, name: name.trim() }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setMessage('ثبت نام با موفقیت انجام شد');
+        // Store authentication state (session-based auth)
+        localStorage.setItem('is_authenticated', 'true');
+        // Redirect to account page
+        setTimeout(() => {
+          navigate('/account');
+        }, 1000);
+      } else {
+        setError(data.message || 'کد تایید اشتباه است');
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+      if (err.name === 'TypeError' && err.message.includes('fetch')) {
+        setError('خطا در اتصال به سرور. لطفا اتصال اینترنت خود را بررسی کنید.');
+      } else {
+        setError('خطا در ارتباط با سرور');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResendOTP = async () => {
+    setError('');
+    setMessage('');
+    setLoading(true);
+
+    try {
+      const response = await fetch('https://panel.weekila.com/api/auth/phone/resend-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ phone, type: 'register' }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setMessage('کد جدید ارسال شد');
+        setCountdown(300);
+
+        const timer = setInterval(() => {
+          setCountdown((prev) => {
+            if (prev <= 1) {
+              clearInterval(timer);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+      } else {
+        setError(data.message || 'خطا در ارسال کد جدید');
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+      if (err.name === 'TypeError' && err.message.includes('fetch')) {
+        setError('خطا در اتصال به سرور. لطفا اتصال اینترنت خود را بررسی کنید.');
+      } else {
+        setError('خطا در ارتباط با سرور');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/api/auth/google/url');
+      const data = await response.json();
+
+      if (data.success) {
+        window.location.href = data.auth_url;
+      } else {
+        setError('خطا در دریافت لینک گوگل');
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+      if (err.name === 'TypeError' && err.message.includes('fetch')) {
+        setError('خطا در اتصال به سرور. لطفا اتصال اینترنت خود را بررسی کنید.');
+      } else {
+        setError('خطا در ارتباط با سرور');
+      }
+    }
+  };
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
   return (
     <PageLayout>
-      <div className="layout_content">
-        {/* Hero header */}
-        <div className="styles_pageGapWrapper">
-          <div className="page-header_helpTitleContainer styles_heroClass">
-            <div className="page-header_widthWrapper">
-              <div className="page-header_innerWidthWrapper styles_heroInnerClassName">
-                <div className="breadcrumb_breadcrumbContainer">
-                  <span className="breadcrumb_breadcrumbItem styles_breadcrumbClassName">
-                    <a href="/en-us/for-lawyers/legal-network">برای وکلا</a>
-                  </span>
-                  <span className="breadcrumb_breadcrumbItem styles_breadcrumbClassName">
-                    &nbsp;/&nbsp;
-                    <a href="/en-us/for-lawyers/sign-up">ثبت نام</a>
-                  </span>
-                </div>
-                <h1 className="page-header_title styles_headerClassName">
-                  با موکلینی که به کمک شما نیاز دارند ارتباط برقرار کنید
-                </h1>
-                <div className="page-header_heroIconContainer">
-                  <img
-                    alt="hero-icon"
-                    width="260"
-                    height="260"
-                    className="page-header_heroIcon"
-                    style={{ color: 'transparent' }}
-                    src="/assets/sign-up/hero-icon.svg"
-                  />
-                </div>
-              </div>
+      <div className="layout_content" style={{ backgroundColor: '#f7f9fb', minHeight: '100vh', padding: '20px 0' }}>
+        <div style={{ maxWidth: '400px', margin: '0 auto', padding: '20px' }}>
+          <div style={{ background: 'white', borderRadius: '12px', padding: '40px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+
+            {/* Logo */}
+            <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+              <a href="/">
+                <img src="/assets/logo.png" alt="Weekilaw" style={{ height: '40px' }} />
+              </a>
             </div>
-          </div>
 
-          {/* Intro cards + form */}
-          <div className="styles_widthWrapper">
-            <div className="styles_innerWidthWrapper">
-              <div className="styles_container">
-                <div className="styles_introContainer">
-                  <div className="register-intro_container">
-                    <h2 className="register-intro_title">به دنبال جذب مشتریان بیشتر هستید؟</h2>
-                    <p className="register-intro_description">
-                      به شبکه‌ای مورد اعتماد از متخصصان حقوقی بپیوندید و شروع به دریافت درخواست‌ها از افرادی کنید که به کمک در زمینه تخصص شما نیاز دارند. حضور آنلاین خود را تقویت کنید و انتخاب دفتر شما را برای موکلین آسان‌تر کنید.
-                    </p>
-                    <div className="register-intro_cardsContainer">
-                      <div className="register-intro_card">
-                        <div className="register-intro_iconWrapper">
-                          <img
-                            alt="users icon"
-                            className="register-intro_cardIcon"
-                            style={{ color: 'transparent' }}
-                            src="/assets/sign-up/users-blue.svg"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="register-intro_cardTitle">سرنخ‌های باکیفیت دریافت کنید</h3>
-                          <p className="register-intro_cardDescription">
-                            موکلینی را جذب کنید که به طور فعال به دنبال کمک حقوقی در زمینه‌های تخصص شما هستند.
-                          </p>
-                        </div>
-                      </div>
+            {/* Title */}
+            <h1 style={{
+              fontSize: '24px',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              marginBottom: '10px',
+              color: '#1a202c'
+            }}>
+              ایجاد حساب کاربری
+            </h1>
 
-                      <div className="register-intro_card">
-                        <div className="register-intro_iconWrapper">
-                          <img
-                            alt="map pin icon"
-                            className="register-intro_cardIcon"
-                            style={{ color: 'transparent' }}
-                            src="/assets/sign-up/map-pin-blue.svg"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="register-intro_cardTitle">حضور آنلاین خود را تقویت کنید</h3>
-                          <p className="register-intro_cardDescription">
-                            نمایه Weekilaw دریافت کنید که دفتر شما را نمایش می‌دهد و به موکلین کمک می‌کند تا با اطمینان با شما تماس بگیرند.
-                          </p>
-                        </div>
-                      </div>
+            {/* Description */}
+            <p style={{
+              textAlign: 'center',
+              color: '#6b7280',
+              marginBottom: '30px',
+              fontSize: '14px'
+            }}>
+              {step === 'phone'
+                ? 'شماره موبایل خود را وارد کنید تا کد تایید برای شما ارسال شود.'
+                : step === 'otp'
+                ? 'کد تایید ارسال شده را وارد کنید.'
+                : 'اطلاعات خود را تکمیل کنید.'
+              }
+            </p>
 
-                      <div className="register-intro_card">
-                        <div className="register-intro_iconWrapper">
-                          <img
-                            alt="plus icon"
-                            className="register-intro_cardIcon"
-                            style={{ color: 'transparent' }}
-                            src="/assets/sign-up/plus-blue.svg"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="register-intro_cardTitle">شهرت خود را تقویت کنید</h3>
-                          <p className="register-intro_cardDescription">
-                            بخشی از شبکه حقوقی مورد اعتماد باشید و با فرصت‌های مناسب، فعالیت خود را گسترش دهید.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="register-intro_freeTrialContainer">
-                        <button className="register-intro_freeTrialButton">
-                          <span className="register-intro_freeTrialText">درباره دوره آزمایشی رایگان ما بیاموزید</span>
-                          <div className="register-intro_freeTrialArrow">
-                            <img
-                              alt="arrow down"
-                              className="register-intro_freeTrialArrowIcon"
-                              style={{ color: 'transparent' }}
-                              src="/assets/sign-up/arrow-down-blue.svg"
-                            />
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div id="register-interest-form" className="styles_formContainer">
-                  <div className="register-interest-form_container">
-                    <div className="register-interest-form_cardWrapper">
-                      <div className="register-form-card_cardContainer">
-                        <div className="register-form-card_formSection">
-                          <h2 className="register-form-card_title">امروز برای پیوستن به Weekilaw درخواست دهید</h2>
-                          <form className="register-form-card_form">
-                            <div className="register-form-card_formRow">
-                              <div className="register-form-card_inputGroup">
-                                <label htmlFor="name" className="register-form-card_label">
-                                  نام
-                                </label>
-                                <input
-                                  type="text"
-                                  id="name"
-                                  autoComplete="off"
-                                  className="register-form-card_input"
-                                  required
-                                  name="name"
-                                />
-                              </div>
-                              <div className="register-form-card_inputGroup">
-                                <label htmlFor="firmName" className="register-form-card_label">
-                                  نام شرکت
-                                </label>
-                                <input
-                                  type="text"
-                                  id="firmName"
-                                  autoComplete="off"
-                                  className="register-form-card_input"
-                                  required
-                                  name="firmName"
-                                />
-                              </div>
-                            </div>
-                            <div className="register-form-card_formRow">
-                              <div className="register-form-card_inputGroup">
-                                <label htmlFor="email" className="register-form-card_label">
-                                  ایمیل
-                                </label>
-                                <input
-                                  type="email"
-                                  id="email"
-                                  autoComplete="off"
-                                  className="register-form-card_input"
-                                  required
-                                  name="email"
-                                />
-                              </div>
-                              <div className="register-form-card_inputGroup">
-                                <label htmlFor="phone" className="register-form-card_label">
-                                  تلفن
-                                </label>
-                                <input
-                                  type="tel"
-                                  id="phone"
-                                  autoComplete="off"
-                                  className="register-form-card_input"
-                                  required
-                                  name="phone"
-                                />
-                              </div>
-                            </div>
-                            <div className="register-form-card_inputGroup">
-                              <label htmlFor="comments" className="register-form-card_label">
-                                نظرات
-                              </label>
-                              <textarea
-                                id="comments"
-                                name="comments"
-                                className="register-form-card_textarea"
-                                rows="3"
-                              ></textarea>
-                            </div>
-                          </form>
-                          <div className="button_buttonContainer" aria-disabled="false">
-                            <div className="button_buttonText register-form-card_buttonText">همین حالا ثبت نام کنید</div>
-                            <div className="button_buttonArrow">
-                              <div className="button_arrowIconWrapperHover">
-                                <img
-                                  alt="arrow-right-white"
-                                  width="16"
-                                  height="16"
-                                  className="button_arrowIcon"
-                                  style={{ color: 'transparent' }}
-                                  src="/assets/sign-up/arrow-right-blue.svg"
-                                />
-                              </div>
-                              <div className="button_arrowIconWrapper">
-                                <img
-                                  alt="arrow-right"
-                                  width="16"
-                                  height="16"
-                                  className="button_arrowIcon"
-                                  style={{ color: 'transparent' }}
-                                  src="/assets/sign-up/arrow-right-blue.svg"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            {/* Error Message */}
+            {error && (
+              <div style={{
+                color: '#dc3545',
+                backgroundColor: '#f8d7da',
+                padding: '12px',
+                borderRadius: '6px',
+                marginBottom: '20px',
+                textAlign: 'center',
+                fontSize: '14px'
+              }}>
+                {error}
               </div>
-            </div>
-          </div>
+            )}
 
-          {/* Get started section */}
-          <div id="get-started" className="styles_getStartedContainer">
-            <div className="get-started_container">
-              <div className="get-started_backgroundContainer">
-                <div className="get-started_backgroundImage">
-                  <img
-                    alt="پس‌زمینه ثبت علاقه‌مندی"
-                    className="get-started_bgImage"
-                    style={{ color: 'transparent' }}
-                    src="/assets/sign-up/legal-network-bg-desktop.webp"
-                  />
-                </div>
+            {/* Success Message */}
+            {message && (
+              <div style={{
+                color: '#155724',
+                backgroundColor: '#d4edda',
+                padding: '12px',
+                borderRadius: '6px',
+                marginBottom: '20px',
+                textAlign: 'center',
+                fontSize: '14px'
+              }}>
+                {message}
               </div>
-              <div className="get-started_getStartedWrapper">
-                <div className="get-started_getStartedContainer">
-                  <h2 className="get-started_getStartedTitle">با Weekilaw به صورت رایگان شروع کنید</h2>
-                  <div className="get-started_getStartedDescription">
-                    ببینید چگونه Weekilaw با دوره آزمایشی رایگان ما به شما کمک می‌کند تا پایگاه مشتریان خود را گسترش دهید
-                  </div>
-                  <div className="get-started_getStartedStepsContainer">
-                    <div className="get-started_step">
-                      <div className="get-started_iconWrapper">
-                        <img
-                          alt="tools icon"
-                          className="get-started_stepIcon"
-                          style={{ color: 'transparent' }}
-                          src="/assets/sign-up/tools-blue.svg"
-                        />
-                      </div>
-                      <div className="get-started_stepDescription">راه‌اندازی نمایه رایگان برای شرکت شما</div>
-                    </div>
-                    <div className="get-started_step">
-                      <div className="get-started_iconWrapper">
-                        <img
-                          alt="5x icon"
-                          className="get-started_stepIcon"
-                          style={{ color: 'transparent' }}
-                          src="/assets/sign-up/5x-blue.svg"
-                        />
-                      </div>
-                      <div className="get-started_stepDescription">اولین 5 درخواست خود را رایگان دریافت کنید</div>
-                    </div>
-                    <div className="get-started_step">
-                      <div className="get-started_iconWrapper">
-                        <img
-                          alt="access cards icon"
-                          className="get-started_stepIcon"
-                          style={{ color: 'transparent' }}
-                          src="/assets/sign-up/access-cards-blue.svg"
-                        />
-                      </div>
-                      <div className="get-started_stepDescription">100 اعتبار سرنخ برای شروع</div>
-                    </div>
-                  </div>
-                  <div className="get-started_buttonContainer">
-                    <div className="button_buttonContainer get-started_signUpButtonContainer">
-                      <div className="button_buttonText get-started_buttonText">همین حالا ثبت نام کنید</div>
-                      <div className="button_buttonArrow get-started_buttonArrow">
-                        <div className="button_arrowIconWrapperHover get-started_buttonArrowIcon">
-                          <img
-                            alt="arrow-right-white"
-                            width="16"
-                            height="16"
-                            className="button_arrowIcon"
-                            style={{ color: 'transparent' }}
-                            src="/assets/sign-up/arrow-right-white.svg"
-                          />
-                        </div>
-                        <div className="button_arrowIconWrapper get-started_buttonArrowIcon">
-                          <img
-                            alt="arrow-right"
-                            width="16"
-                            height="16"
-                            className="button_arrowIcon"
-                            style={{ color: 'transparent' }}
-                            src="/assets/sign-up/arrow-right-white.svg"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            )}
 
-          {/* Lawyer carousel */}
-          <div className="legal-practitioners_legalPractitionersContainer">
-            <div className="legal-practitioners_headerContainer">
-              <h2 className="legal-practitioners_headerTitle">Join thousands of professionals in our network</h2>
-            </div>
-            <div className="legal-practitioners_lawyerCarouselContainer">
-              <div className="lawyer-carousel_lawyerCarouselContainer">
-                <div className="lawyer-carousel_carouselContainerWrapper">
-                  <div
-                    className="rfm-marquee-container lawyer-carousel_carouselContainer"
+            {/* Phone Step */}
+            {step === 'phone' && (
+              <form onSubmit={handleSendOTP}>
+                <div style={{ marginBottom: '20px' }}>
+                  <label style={{
+                    display: 'block',
+                    marginBottom: '8px',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    color: '#374151'
+                  }}>
+                    شماره موبایل
+                  </label>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="09123456789"
                     style={{
-                      '--pause-on-hover': 'paused',
-                      '--pause-on-click': 'paused',
-                      '--width': '100%',
-                      '--transform': 'none',
+                      width: '100%',
+                      padding: '12px',
+                      border: '1px solid #d1d5db',
+                      borderRadius: '6px',
+                      fontSize: '16px',
+                      outline: 'none',
+                      boxSizing: 'border-box'
                     }}
-                  >
-                    <div
-                      className="rfm-marquee"
+                    autoFocus
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    backgroundColor: loading ? '#9ca3af' : '#3b82f6',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '6px',
+                    fontSize: '16px',
+                    fontWeight: '500',
+                    cursor: loading ? 'not-allowed' : 'pointer',
+                    marginBottom: '20px'
+                  }}
+                >
+                  {loading ? 'در حال ارسال...' : 'ارسال کد تایید'}
+                </button>
+              </form>
+            )}
+
+            {/* OTP Step */}
+            {step === 'otp' && (
+              <form onSubmit={handleVerifyOTP}>
+                <div style={{ marginBottom: '20px' }}>
+                  <label style={{
+                    display: 'block',
+                    marginBottom: '8px',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    color: '#374151'
+                  }}>
+                    کد تایید (4 رقم)
+                  </label>
+                  <input
+                    type="text"
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 4))}
+                    placeholder="1234"
+                    style={{
+                      width: '100%',
+                      padding: '12px',
+                      border: '1px solid #d1d5db',
+                      borderRadius: '6px',
+                      fontSize: '16px',
+                      textAlign: 'center',
+                      letterSpacing: '0.5em',
+                      outline: 'none',
+                      boxSizing: 'border-box'
+                    }}
+                    autoFocus
+                    required
+                    maxLength="4"
+                  />
+                </div>
+
+                <div style={{ marginBottom: '20px' }}>
+                  <label style={{
+                    display: 'block',
+                    marginBottom: '8px',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    color: '#374151'
+                  }}>
+                    نام و نام خانوادگی
+                  </label>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="نام و نام خانوادگی"
+                    style={{
+                      width: '100%',
+                      padding: '12px',
+                      border: '1px solid #d1d5db',
+                      borderRadius: '6px',
+                      fontSize: '16px',
+                      outline: 'none',
+                      boxSizing: 'border-box'
+                    }}
+                    required
+                  />
+                </div>
+
+                {/* Countdown/Resend */}
+                <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+                  {countdown > 0 ? (
+                    <span style={{ color: '#6b7280', fontSize: '14px' }}>
+                      ارسال مجدد کد تا {formatTime(countdown)}
+                    </span>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={handleResendOTP}
+                      disabled={loading}
                       style={{
-                        '--play': 'running',
-                        '--direction': 'normal',
-                        '--duration': '86.4s',
-                        '--delay': '0s',
-                        '--iteration-count': 'infinite',
-                        '--min-width': '100%',
+                        background: 'none',
+                        border: 'none',
+                        color: '#3b82f6',
+                        textDecoration: 'underline',
+                        cursor: 'pointer',
+                        fontSize: '14px'
                       }}
                     >
-                      <div className="rfm-initial-child-container">
-                        {[
-                          { name: 'Lilit Chakman', firm: 'Miltons Lawyers', img: 'miltons-lawyers-lilit-chakman.jpg', area: 'Commercial law' },
-                          { name: 'Kayte Lewis', firm: 'Voice Lawyers', img: 'voice-lawyers-kayte-lewis.jpg', area: 'Employment law' },
-                          { name: 'David Lechem', firm: 'AGEIS', img: 'ageis-david-lechem.jpg', area: 'املاک و وصیت‌نامه' },
-                          { name: 'Tash Nolan', firm: 'Nolan Lawyers', img: 'nolan-lawyers-tash-nolan.jpg', area: 'Family law' },
-                          { name: 'Saurabh Smar', firm: 'Northam Lawyers', img: 'northam-lawyers-saurabh-smar.jpg', area: 'Immigration' },
-                          { name: 'Thomas Bassil', firm: 'Finn Roache', img: 'finn-roache-thomas-bassil.jpg', area: 'Litigation' },
-                        ].map((lawyer, idx) => (
-                          <div className="rfm-child" style={{ '--transform': 'none' }} key={`lawyer-1-${idx}`}>
-                            <div className="lawyer-carousel_lawyerCard">
-                              <div className="lawyer-carousel_profileImageContainer">
-                                <img
-                                  alt={lawyer.name}
-                                  className="lawyer-carousel_profileImage"
-                                  style={{ color: 'transparent' }}
-                                  src={`/assets/sign-up/${lawyer.img}`}
-                                />
-                              </div>
-                              <div className="lawyer-carousel_lawyerInfoContainer">
-                                <h3 className="lawyer-carousel_lawyerName">{lawyer.name}</h3>
-                                <p className="lawyer-carousel_firmName">{lawyer.firm}</p>
-                              </div>
-                              <p className="lawyer-carousel_specialisation">{lawyer.area}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                      ارسال مجدد کد
+                    </button>
+                  )}
                 </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Need help card */}
-          <div className="styles_widthWrapper">
-            <div className="styles_innerWidthWrapper">
-              <div className="styles_container">
-                <div className="styles_card">
-                  <div className="styles_textWrapper">
-                    <div className="styles_title">نیاز به کمک دارید؟</div>
-                    <div className="styles_description">سؤال حقوقی خود را از Weekilaw بپرسید تا پاسخ‌های سریع و رایگان دریافت کنید!</div>
-                  </div>
-                  <div className="styles_imageWrapper">
-                    <a
-                      href="/chat"
-                      className="styles_buttonWrapper styles_startCaseButton"
-                      style={{ '--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)' }}
-                    >
-                      <div className="styles_buttonText">همین حالا شروع کنید</div>
-                      <div className="styles_buttonArrow">
-                        <div className="styles_arrowIconWrapperHover">
-                          <img
-                            alt="arrow-right"
-                            width="16"
-                            height="16"
-                            className="styles_arrowIcon"
-                            style={{ color: 'transparent' }}
-                            src="/assets/sign-up/arrow-right-blue.svg"
-                          />
-                        </div>
-                        <div className="styles_arrowIconWrapper">
-                          <img
-                            alt="arrow-right-white"
-                            width="16"
-                            height="16"
-                            className="styles_arrowIcon"
-                            style={{ color: 'transparent' }}
-                            src="/assets/sign-up/arrow-right-white.svg"
-                          />
-                        </div>
-                      </div>
-                    </a>
-                    <div className="styles_backgroundColour"></div>
-                    <div className="styles_backgroundSquare" style={{ backgroundColor: '#F0EFEC' }}></div>
-                  </div>
-                </div>
-              </div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    backgroundColor: loading ? '#9ca3af' : '#10b981',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '6px',
+                    fontSize: '16px',
+                    fontWeight: '500',
+                    cursor: loading ? 'not-allowed' : 'pointer',
+                    marginBottom: '10px'
+                  }}
+                >
+                  {loading ? 'در حال ثبت نام...' : 'تایید و ثبت نام'}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setStep('phone')}
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    background: 'none',
+                    border: 'none',
+                    color: '#6b7280',
+                    textDecoration: 'underline',
+                    cursor: 'pointer',
+                    fontSize: '14px'
+                  }}
+                >
+                  تغییر شماره موبایل
+                </button>
+              </form>
+            )}
+
+            {/* Google Login */}
+            <div style={{ textAlign: 'center', margin: '20px 0' }}>
+              <span style={{ color: '#9ca3af', fontSize: '14px' }}>یا</span>
+            </div>
+
+            <button
+              onClick={handleGoogleLogin}
+              style={{
+                width: '100%',
+                padding: '12px',
+                backgroundColor: 'white',
+                border: '1px solid #d1d5db',
+                borderRadius: '6px',
+                fontSize: '16px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10px',
+                marginBottom: '20px'
+              }}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#4285F4"
+                  d="M30.363 16.337c0-.987-.088-1.925-.238-2.837H16v5.637h8.087c-.362 1.85-1.424 3.413-3 4.476v3.75h4.826c2.825-2.613 4.45-6.463 4.45-11.026"
+                />
+                <path
+                  fill="#34A853"
+                  d="M16 31c4.05 0 7.438-1.35 9.913-3.637l-4.826-3.75c-1.35.9-3.062 1.45-5.087 1.45-3.912 0-7.225-2.638-8.413-6.2H2.612v3.862C5.075 27.625 10.137 31 16 31"
+                />
+                <path
+                  fill="#FBBC05"
+                  d="M7.588 18.863A8.7 8.7 0 0 1 7.112 16c0-1 .175-1.963.476-2.863V9.275H2.612a14.83 14.83 0 0 0 0 13.45z"
+                />
+                <path
+                  fill="#EA4335"
+                  d="M16 6.938c2.212 0 4.188.762 5.75 2.25l4.275-4.276C23.438 2.487 20.05 1 16 1 10.137 1 5.075 4.375 2.612 9.275l4.975 3.862c1.188-3.562 4.5-6.2 8.413-6.2Z"
+                />
+              </svg>
+              ادامه با گوگل
+            </button>
+
+            {/* Sign In Link */}
+            <div style={{ textAlign: 'center' }}>
+              <span style={{ color: '#6b7280', fontSize: '14px' }}>
+                حساب کاربری دارید؟{' '}
+                <a
+                  href="/sign-in"
+                  style={{
+                    color: '#3b82f6',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }}
+                >
+                  وارد شوید
+                </a>
+              </span>
             </div>
           </div>
         </div>
@@ -427,4 +514,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-

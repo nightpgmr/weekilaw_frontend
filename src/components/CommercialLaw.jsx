@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { areasOfLawContent } from '../data/areas';
 import PageLayout from './PageLayout.jsx';
 
 const CommercialLaw = () => {
   const navigate = useNavigate();
-  const area = areasOfLawContent['commercial-law'];
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const [heroStep, setHeroStep] = useState(0);
@@ -28,28 +26,91 @@ const CommercialLaw = () => {
   const siteCardsRef = useRef(null);
   const [percentageCards, setPercentageCards] = useState(0);
 
-  const {
-    breadcrumbLabel,
-    breadcrumbHref,
-    heroTitle,
-    introText,
-    moreInfoText,
-    moreInfoHref,
-    introImage,
-    subCategories,
-    subcategoriesTitle,
-    subcategoriesDescription,
-    whyUseTitle,
-    whyUseDescription,
-    whyUseSections,
-    howItWorksTitle,
-    howItWorksDescription,
-    howItWorksSteps,
-    faqTitle,
-    faqItems,
-    helpTitle,
-    helpDescription,
-  } = area;
+  // Static content for Commercial Law
+  const breadcrumbLabel = 'حقوق تجارت';
+  const breadcrumbHref = '/en-us/commercial-law';
+  const heroTitle = 'حقوق تجارت، دقیقاً وقتی به آن نیاز دارید';
+  const introText = 'مدیریت یا راه‌اندازی یک کسب‌وکار، همواره با تصمیم‌های حقوقی همراه است. از تنظیم و بررسی قراردادها گرفته تا روابط با شرکا، مشتریان و تأمین‌کنندگان، آشنایی با اصول حقوق تجارت نقش مهمی در کاهش ریسک و تصمیم‌گیری درست دارد. ما با استفاده از دستیار هوشمند حقوقی، اطلاعات حقوقی مرتبط با کسب‌وکار را به‌صورت ساده، قابل‌فهم و در دسترس در اختیار شما قرار می‌دهیم تا بتوانید با آگاهی بیشتری مسیر خود را انتخاب کنید.';
+  const moreInfoText = 'خلاصه سریع درباره حقوق تجارت';
+  const moreInfoHref = '/en-us/commercial-law/summary';
+  const introImage = '/assets/intro-us-commercial.webp';
+  const subcategoriesTitle = 'چگونه می‌توانیم کمک کنیم';
+  const subcategoriesDescription = 'دستیار حقوقی ما برای پاسخ‌گویی به سوالات رایج و کاربردی در حوزه حقوق تجارت طراحی شده است؛ سوالاتی که بسیاری از صاحبان کسب‌وکار روزانه با آن‌ها مواجه می‌شوند. شما می‌توانید درباره موضوعاتی مانند:';
+  const subCategories = [
+    {
+      title: 'قراردادهای تجاری',
+      image: '/assets/commercial-business-negotiation.webp',
+      description: 'اطلاعات اولیه و راهنمایی حقوقی دریافت کنید.'
+    },
+    {
+      title: 'روابط شرکا و سهام‌داران',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'اطلاعات اولیه و راهنمایی حقوقی دریافت کنید.'
+    },
+    {
+      title: 'اختلافات تجاری',
+      image: '/assets/commercial-business.webp',
+      description: 'اطلاعات اولیه و راهنمایی حقوقی دریافت کنید.'
+    },
+    {
+      title: 'تعهدات قانونی کسب‌وکار',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'اطلاعات اولیه و راهنمایی حقوقی دریافت کنید.'
+    },
+    {
+      title: 'مسائل حقوقی مرتبط با فعالیت‌های روزمره شرکت',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'اطلاعات اولیه و راهنمایی حقوقی دریافت کنید.'
+    }
+  ];
+  const whyUseTitle = 'دریافت سریع اطلاعات حقوقی';
+  const whyUseDescription = 'بدون نیاز به جست‌وجوی طولانی یا اصطلاحات پیچیده حقوقی، کافی است وضعیت خود را توضیح دهید تا دستیار هوشمند، اطلاعات مرتبط را به زبان ساده در اختیار شما قرار دهد. این اطلاعات به شما کمک می‌کند:';
+  const whyUseSections = [
+    {
+      title: 'موضوع حقوقی خود را بهتر درک کنید',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'اطلاعات مرتبط با کسب‌وکار را به‌صورت ساده، قابل‌فهم و در دسترس در اختیار شما قرار می‌دهیم.'
+    },
+    {
+      title: 'گزینه‌های پیش رو را بشناسید',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'با آگاهی بیشتری مسیر خود را انتخاب کنید.'
+    },
+    {
+      title: 'برای قدم بعدی آگاهانه تصمیم بگیرید',
+      image: '/assets/commercial-business-contract.webp',
+      description: 'تصمیم‌گیری درست در کاهش ریسک کسب‌وکار.'
+    }
+  ];
+  const howItWorksTitle = 'چه زمانی باید با وکیل صحبت کنید؟';
+  const howItWorksDescription = 'همه مسائل حقوقی نیاز به مراجعه فوری به وکیل ندارند. در بسیاری از موارد، آگاهی اولیه می‌تواند مسیر تصمیم‌گیری را روشن کند. اما در شرایطی که موضوع:';
+  const howItWorksSteps = [
+    {
+      title: 'پیچیده یا حساس باشد',
+      image: '/assets/how-it-works-step1-desktop.webp',
+      description: 'برای مسائل پیچیده، مشاوره وکیل ضروری است.'
+    },
+    {
+      title: 'تبعات مالی یا حقوقی جدی داشته باشد',
+      image: '/assets/how-it-works-step2-desktop.webp',
+      description: 'در صورت تبعات جدی، با وکیل متخصص مشورت کنید.'
+    },
+    {
+      title: 'نیاز به اقدام رسمی یا تنظیم اسناد حقوقی داشته باشد',
+      image: '/assets/how-it-works-step3-v2-desktop.webp',
+      description: 'دستیار هوشمند به شما پیشنهاد می‌دهد که با وکیل متخصص حقوق تجارت مشورت کنید.'
+    }
+  ];
+  const faqTitle = 'سوالات متداول حقوق تجارت';
+  const faqItems = [
+    { question: 'آیا استفاده از این خدمات رایگان است؟', answer: 'بله. استفاده از دستیار هوشمند برای دریافت اطلاعات حقوقی عمومی در حوزه حقوق تجارت رایگان است.' },
+    { question: 'چه نوع سوالاتی را می‌توانم مطرح کنم؟', answer: 'سوالات مرتبط با فعالیت‌های تجاری و کسب‌وکار، از جمله قراردادها، اختلافات، تعهدات قانونی و مسائل روزمره شرکت.' },
+    { question: 'آیا این اطلاعات جایگزین مشاوره حقوقی است؟', answer: 'خیر. اطلاعات ارائه‌شده صرفاً جنبه آگاهی‌بخشی دارد و جایگزین مشاوره تخصصی و رسمی حقوقی نیست.' },
+    { question: 'آیا اطلاعات من محرمانه می‌ماند؟', answer: 'بله. گفتگوها به‌صورت امن و محرمانه انجام می‌شود و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.' },
+    { question: 'آیا این خدمات همیشه در دسترس است؟', answer: 'بله. دستیار حقوقی به‌صورت ۲۴ ساعته در دسترس است.' }
+  ];
+  const helpTitle = 'نکته مهم';
+  const helpDescription = 'اطلاعات ارائه‌شده در این بخش صرفاً جهت افزایش آگاهی عمومی است و مشاوره حقوقی محسوب نمی‌شود. برای تصمیم‌گیری‌های مهم یا اقدامات حقوقی رسمی، توصیه می‌شود حتماً با وکیل متخصص مشورت شود.';
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -154,11 +215,11 @@ const CommercialLaw = () => {
   // Auto-rotate hero slider
   useEffect(() => {
     const interval = setInterval(() => {
-      setHeroStep((prevStep) => (prevStep + 1) % area.length);
+      setHeroStep((prevStep) => (prevStep + 1) % 3); // 3 static slides
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, [area.length]);
+  }, []);
 
   // Track chat input visibility for fixed bottom chat and last section position
   useEffect(() => {
@@ -397,7 +458,7 @@ const CommercialLaw = () => {
                   height="0"
                   decoding="async"
                   className="intro_image"
-                  style={{color: 'transparent'}}
+                  style={{color: 'transparent', transform: 'scaleX(-1)', marginRight: '70%'}}
                     src={introImage}
                 />
               </div>
@@ -741,3 +802,4 @@ const CommercialLaw = () => {
 };
 
 export default CommercialLaw;
+

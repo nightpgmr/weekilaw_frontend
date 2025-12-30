@@ -9,7 +9,7 @@ const Sailing = () => {
         {/* Hero */}
         <div className="styles_heroContainer ">
           <div className="styles_innerWidthWrapper ">
-            <div className="styles_heroTitleContainer">
+            <div className="styles_heroTitleContainer" style={{ maxWidth: '50%' }}>
               <div className="styles_breadcrumbsContainer">
                 <a href="/en-us/about" className="styles_breadcrumb ">
                   درباره

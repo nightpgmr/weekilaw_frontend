@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AccountModal from './AccountModal.jsx';
 
 const Header = ({ scrollElement }) => {
+  const navigate = useNavigate();
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showAccountModal, setShowAccountModal] = useState(false);
@@ -40,7 +41,18 @@ const Header = ({ scrollElement }) => {
 
   const handleAccountClick = () => {
     setActiveDropdown(null);
-    setShowAccountModal(true);
+
+    // Check if user is authenticated
+    const isAuthenticated = localStorage.getItem('is_authenticated') === 'true' ||
+                           sessionStorage.getItem('is_authenticated') === 'true';
+
+    if (isAuthenticated) {
+      // If logged in, go directly to account page
+      navigate('/account');
+    } else {
+      // If not logged in, show the modal
+      setShowAccountModal(true);
+    }
   };
 
   const handleAccountKeyDown = (event) => {

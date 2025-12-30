@@ -25,6 +25,9 @@ jobs:
     - name: Build application
       run: npm run build
 
+    - name: Wait for backend deployment
+      run: sleep 30
+
     - name: Deploy to server
       uses: appleboy/ssh-action@v1.0.3
       with:
@@ -42,20 +45,9 @@ jobs:
     - name: Sync built files to server
       uses: burnett01/rsync-deployments@6.0.0
       with:
-        switches: -avz --delete --exclude='.git' --exclude='node_modules' --exclude='src' --exclude='public/assets' --exclude='.github' --exclude='*.md' --exclude='*.json' --exclude='*.config.js' --exclude='*.config.ts'
+        switches: -avz --delete --exclude='.git' --exclude='node_modules' --exclude='src' --exclude='public' --exclude='.github' --exclude='*.md' --exclude='*.json' --exclude='*.config.js' --exclude='*.config.ts' --rsync-path='sudo rsync'
         path: dist/
-        remote_path: /var/www/weekilaw-frontend/dist
-        remote_host: ${{ secrets.SSH_HOST }}
-        remote_user: ${{ secrets.SSH_USER }}
-        remote_key: ${{ secrets.SSH_KEY }}
-        remote_port: ${{ secrets.SSH_PORT || 50022 }}
-
-    - name: Sync public assets to server
-      uses: burnett01/rsync-deployments@6.0.0
-      with:
-        switches: -avz --delete
-        path: public/
-        remote_path: /var/www/weekilaw-frontend/dist
+        remote_path: /var/www/weekilaw-frontend
         remote_host: ${{ secrets.SSH_HOST }}
         remote_user: ${{ secrets.SSH_USER }}
         remote_key: ${{ secrets.SSH_KEY }}
@@ -71,6 +63,10 @@ jobs:
         script: |
           # Set proper permissions
           sudo chown -R www-data:www-data /var/www/weekilaw-frontend
+
+          # Remove any conflicting files that might have been copied from backend
+          sudo rm -f /var/www/weekilaw-frontend/index.php
+          sudo rm -f /var/www/weekilaw-frontend/.htaccess
 
           # Restart nginx to ensure changes are picked up
           sudo systemctl reload nginx

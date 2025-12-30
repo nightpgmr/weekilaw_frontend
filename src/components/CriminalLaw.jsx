@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { areasOfLawContent } from '../data/areas';
 import PageLayout from './PageLayout.jsx';
 
 const CriminalLaw = () => {
   const navigate = useNavigate();
-  const area = areasOfLawContent['criminal-law'];
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const [heroStep, setHeroStep] = useState(0);
@@ -28,28 +26,94 @@ const CriminalLaw = () => {
   const siteCardsRef = useRef(null);
   const [percentageCards, setPercentageCards] = useState(0);
 
-  const {
-    breadcrumbLabel,
-    breadcrumbHref,
-    heroTitle,
-    introText,
-    moreInfoText,
-    moreInfoHref,
-    introImage,
-    subCategories,
-    subcategoriesTitle,
-    subcategoriesDescription,
-    whyUseTitle,
-    whyUseDescription,
-    whyUseSections,
-    howItWorksTitle,
-    howItWorksDescription,
-    howItWorksSteps,
-    faqTitle,
-    faqItems,
-    helpTitle,
-    helpDescription,
-  } = area;
+  // Static content for Criminal Law
+  const breadcrumbLabel = 'حقوق کیفری';
+  const breadcrumbHref = '/en-us/criminal-law';
+  const heroTitle = 'حقوق کیفری';
+  const introText = 'اطلاعات فوری حقوق کیفری با دستیار هوش مصنوعی در مواجهه با اتهامات کیفری یا سوالات حقوقی مرتبط، دستیار هوش مصنوعی ما اطلاعات لازم را در اختیار شما قرار می‌دهد تا تصمیمات آگاهانه‌تری دربارهٔ وضعیت حقوقی خود اتخاذ کنید. این سرویس پاسخ‌های ساده و قابل‌فهم دربارهٔ حقوق، روند دادگاهی و راهکارهای دفاعی ارائه می‌کند تا بتوانید در مسیر قانونی با اعتماد بیشتر حرکت کنید.';
+  const moreInfoText = 'خلاصه سریع درباره حقوق کیفری';
+  const moreInfoHref = '/en-us/criminal-law/summary';
+  const introImage = '/assets/intro-criminal.webp';
+  const subcategoriesTitle = 'پشتیبانی حقوق کیفری توسط دستیار هوش مصنوعی';
+  const subcategoriesDescription = 'اگر با موضوعات حقوق کیفری روبه‌رو هستید، می‌توانید هرگونه سوال خود را دربارهٔ وضعیت‌تان مطرح کنید و پاسخ‌های مرتبط را دریافت کنید.';
+  const subCategories = [
+    {
+      title: 'توضیح حقوق در زمان بازداشت',
+      image: '/assets/criminal-law.webp',
+      description: 'دستیار می‌تواند اطلاعات پایه‌ای دربارهٔ حقوق فرد در زمان بازداشت، از جمله حق سکوت، حق داشتن وکیل و روند بازجویی پلیس را برای شما توضیح دهد تا بهتر از حقوق خود آگاه باشید.'
+    },
+    {
+      title: 'اقدام پس از اتهام‌زدن',
+      image: '/assets/criminal-law.webp',
+      description: 'دستیار می‌تواند روند معمول بعد از اتهام‌زدن را شامل مراحل مثل قرار وثیقه، زمان‌های حضور در دادگاه و نحوهٔ آماده‌سازی دفاع توضیح دهد تا در مسیر قانونی بهتر پیش بروید.'
+    },
+    {
+      title: 'دفاع از اتهامات کیفری',
+      image: '/assets/criminal-law.webp',
+      description: 'اطلاعات درباره گزینه‌های دفاعی، حقوق در دادگاه، وکیل تسخیری و استراتژی‌های رایج دفاعی در برابر اتهامات مختلف کیفری.'
+    },
+    {
+      title: 'پیامدهای کیفری و اصلاحات',
+      image: '/assets/criminal-law.webp',
+      description: 'در مورد انواع مجازات‌ها، گزینه‌های آزادی مشروط، اصلاحات زندان و تأثیرات قانونی سوابق کیفری بر زندگی آینده بیاموزید.'
+    },
+    {
+      title: 'تعدیل و کاهش احکام کیفری',
+      image: '/assets/criminal-law.webp',
+      description: 'راهنمایی در مورد فرآیندهای تعدیل حکم، کاهش مجازات‌ها، آزادی مشروط و داستان‌های واقعی از افرادی که موفق به کاهش احکام خود شده‌اند.'
+    }
+  ];
+  const whyUseTitle = 'چرا استفاده از هوش مصنوعی برای پشتیبانی حقوق کیفری؟';
+  const whyUseDescription = 'با استفاده از این سرویس می‌توانید اطلاعات حقوقی را که معمولاً پیچیده و دشوار هستند، به‌صورت ساده، بدون هزینه و بدون نیاز به مراجعهٔ اولیه به وکیل دریافت کنید.';
+  const whyUseSections = [
+    {
+      title: 'درک بهتر وضعیت حقوقی',
+      image: '/assets/criminal-law.webp',
+      description: 'اطلاعات پایه‌ای و کاربردی دربارهٔ حقوق کیفری برای تصمیم‌گیری آگاهانه‌تر.'
+    },
+    {
+      title: 'دسترسی آسان و رایگان',
+      image: '/assets/criminal-law.webp',
+      description: 'بدون نیاز به وقت‌گیری قبلی یا هزینه‌های مشاوره اولیه.'
+    },
+    {
+      title: 'اطلاعات به زبان ساده',
+      image: '/assets/criminal-law.webp',
+      description: 'پاسخ‌های بدون اصطلاحات پیچیده حقوقی که به راحتی قابل درک هستند.'
+    }
+  ];
+  const howItWorksTitle = 'نحوه کار با سرویس حقوق کیفری';
+  const howItWorksDescription = 'فرآیند ساده و کاربرپسند برای دریافت کمک حقوقی:';
+  const howItWorksSteps = [
+    {
+      title: '۱. توضیح وضعیت خود',
+      image: '/assets/how-it-works-step1-desktop.webp',
+      description: 'وضعیت حقوقی یا مسئلهٔ کیفری خود را با جزئیات لازم شرح دهید تا دستیار هوش مصنوعی بتواند بهترین پاسخ را برای شما تهیه کند.'
+    },
+    {
+      title: '۲. توضیح قوانین مرتبط',
+      image: '/assets/how-it-works-step2-desktop.webp',
+      description: 'دستیار اطلاعات کلیدی از قوانین کیفری مرتبط با وضعیت شما را ارائه می‌دهد.'
+    },
+    {
+      title: '۳. دریافت گزارش شخصی‌شده',
+      image: '/assets/how-it-works-step3-v2-desktop.webp',
+      description: 'در نهایت گزارش حقوقی مناسب و مرتبط با سوال شما تهیه می‌شود تا وضعیت‌تان را بهتر درک کنید و تصمیم مناسب‌تری اتخاذ کنید.'
+    }
+  ];
+  const faqTitle = 'سوالات متداول دربارهٔ حقوق کیفری';
+  const faqItems = [
+    { question: 'آیا دستیار هوش مصنوعی مشاورهٔ حقوقی رسمی می‌دهد؟', answer: 'خیر. اطلاعات ارائه‌شده مبتنی بر قوانین عمومی و منابع معتبر حقوقی است و مشاورهٔ رسمی و حرفه‌ای حقوقی محسوب نمی‌شود. برای دریافت مشاورهٔ دقیق و تخصصی باید با وکیل متخصص در این حوزه مشورت کنید.' },
+    { question: 'آیا استفاده از این سرویس رایگان است؟', answer: 'بله. استفاده از دستیار حقوق کیفری برای پرسش و دریافت پاسخ، کاملاً رایگان است و هیچ هزینهٔ پنهانی یا تعهدی برای ادامهٔ فرآیند ایجاد نمی‌کند.' },
+    { question: 'اطلاعات ارائه‌شده چقدر قابل اتکا هستند؟', answer: 'اطلاعات بر اساس اصول و قوانین کیفری موجود در حوزهٔ قضایی ایالات متحده تدوین شده‌اند. این اطلاعات می‌تواند نقطهٔ شروع خوبی برای درک موضوع باشد، اما برای مسائل پیچیده‌تر یا شرایط خاص حتماً لازم است با وکیل متخصص مشورت کنید.' },
+    { question: 'آیا گفتگوها و اطلاعات من محرمانه هستند؟', answer: 'بله. تمامی گفتگوها به‌صورت امن و محرمانه نگهداری می‌شوند و اطلاعات شما بدون رضایت‌تان به اشخاص ثالث ارائه نمی‌شود.' },
+    { question: 'آیا لازم است حتماً اقدامی قانونی انجام دهم؟', answer: 'نه. شما می‌توانید فقط برای کسب اطلاعات دربارهٔ حقوق و گزینه‌های موجود از سرویس استفاده کنید و هیچ فشار یا الزام قانونی برای شروع یا ادامهٔ فرآیند وجود ندارد.' },
+    { question: 'آیا سرویس همیشه در دسترس است؟', answer: 'بله. این سرویس هوش مصنوعی به‌صورت شبانه‌روزی در دسترس است، حتی در تعطیلات و ساعات غیراداری.' },
+    { question: 'چگونه می‌تواند حقوق من در زمان بازداشت را توضیح دهد؟', answer: 'دستیار می‌تواند اطلاعات پایه‌ای دربارهٔ حقوق فرد در زمان بازداشت، از جمله حق سکوت، حق داشتن وکیل و روند بازجویی پلیس را برای شما توضیح دهد تا بهتر از حقوق خود آگاه باشید.' },
+    { question: 'چگونه می‌توانم پس از اتهام‌زدن اقدام کنم؟', answer: 'دستیار می‌تواند روند معمول بعد از اتهام‌زدن را شامل مراحل مثل قرار وثیقه، زمان‌های حضور در دادگاه و نحوهٔ آماده‌سازی دفاع توضیح دهد تا در مسیر قانونی بهتر پیش بروید.' }
+  ];
+  const helpTitle = 'توضیح مهم';
+  const helpDescription = 'مطالب ارائه‌شده در این بخش صرفاً برای افزایش آگاهی عمومی هستند و جایگزین مشاورهٔ حقوقی تخصصی و قانونی با وکیل متخصص نمی‌شوند. در موارد حقوقی پیچیده یا خاص، توصیه می‌شود با وکیل حرفه‌ای مشورت کنید.';
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -154,11 +218,11 @@ const CriminalLaw = () => {
   // Auto-rotate hero slider
   useEffect(() => {
     const interval = setInterval(() => {
-      setHeroStep((prevStep) => (prevStep + 1) % area.length);
+      setHeroStep((prevStep) => (prevStep + 1) % 3); // 3 static slides
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, [area.length]);
+  }, []);
 
   // Track chat input visibility for fixed bottom chat and last section position
   useEffect(() => {
@@ -397,7 +461,7 @@ const CriminalLaw = () => {
                   height="0"
                   decoding="async"
                   className="intro_image"
-                  style={{color: 'transparent'}}
+                  style={{color: 'transparent', transform: 'scaleX(-1)', marginRight: '70%'}}
                     src={introImage}
                 />
               </div>
@@ -741,3 +805,4 @@ const CriminalLaw = () => {
 };
 
 export default CriminalLaw;
+

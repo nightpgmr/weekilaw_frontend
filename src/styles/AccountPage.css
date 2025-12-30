@@ -1,0 +1,373 @@
+/* LawConnect Account Page Styles */
+
+.account-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  direction: rtl;
+}
+
+/* Header Section */
+._accountHeader_19xmy_73 {
+  background: #f6f7f8;
+  position: relative;
+  margin-bottom: 40px;
+  padding-top: 120px;
+  margin-top: 40px;
+}
+
+._background_19xmy_87 {
+  position: relative;
+}
+
+._backgroundWidthWrapper_19xmy_102 {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+._backgroundImage_19xmy_111 svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+}
+
+._content_19xmy_172 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #1a202c;
+  z-index: 2;
+}
+
+._profilePicture_19xmy_187 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+._profilePicture_19xmy_187 img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  object-fit: cover;
+}
+
+._profileAvatar_19xmy_187 {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+._name_19xmy_213 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1a202c;
+  text-align: center;
+}
+
+/* Main Content Sections */
+._accountSection_llh05_73 {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+._noGap_llh05_106 {
+  margin-bottom: 0;
+}
+
+._title_llh05_109 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 24px 0;
+  padding: 32px 32px 0 32px;
+}
+
+/* Recent Cases Section */
+._recentCases_1b17f_494 {
+  padding: 32px;
+}
+
+._carouselContainer_1b17f_430 {
+  margin-top: 24px;
+}
+
+.styles-module__container___UTp91 {
+  width: 100%;
+}
+
+.styles-module__cardsContainer___5LjEc {
+  display: grid;
+  gap: 40px;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(373px, 1fr);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.styles-module__cardsContainer___5LjEc::-webkit-scrollbar {
+  display: none;
+}
+
+.styles-module__cards___cdHPc {
+  display: contents;
+}
+
+._cardsPosition_1b17f_459 {
+  grid-template-columns: repeat(auto-fill, minmax(373px, 1fr)) !important;
+}
+
+._noCases_1b17f_305 {
+  gap: 0px 40px;
+}
+
+._card_10t7u_73 {
+  background: white;
+  border: 2px dashed #e2e8f0;
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+._card_10t7u_73:hover {
+  border-color: #0E5FE3;
+  background: #f8fafc;
+}
+
+._placeholder_10t7u_104 {
+  color: #0E5FE3;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 16px;
+}
+
+._addIcon_1b17f_408 {
+  margin: 0 auto 16px auto;
+}
+
+._placeholderCard_1b17f_405 {
+  border-style: dashed;
+}
+
+/* All Cases Section */
+._allCases_1b17f_509 {
+  padding: 32px;
+}
+
+._noCasesContainer_1b17f_305 {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+._title_1b17f_313 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 12px;
+}
+
+._description_1b17f_322 {
+  font-size: 1rem;
+  color: #718096;
+  margin-bottom: 32px;
+}
+
+._noCasesContainer_1b17f_305 svg {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 24px auto;
+  opacity: 0.6;
+}
+
+/* Action Buttons */
+._actions_1b17f_137 {
+  padding: 32px 0;
+  background: white;
+  margin-top: 40px;
+}
+
+._horizontalRule_h2a32_73 {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 0 32px;
+}
+
+._actionButtons_1b17f_152 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  padding: 24px 32px 0 32px;
+}
+
+._button_16eqb_73 {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid;
+  background: transparent;
+  width: 200px;
+  justify-content: center;
+}
+
+._settingsButton_1b17f_168 {
+  border-color: #000000;
+  color: #000000;
+}
+
+._settingsButton_1b17f_168:hover {
+  background: #000000;
+  color: white;
+}
+
+._exitButton_1b17f_168 {
+  border-color: #0E5FE3;
+  color: #0E5FE3;
+}
+
+._exitButton_1b17f_168:hover {
+  background: #0E5FE3;
+  color: white;
+}
+
+._button_1b17f_165:hover {
+  background: #0C4EB0;
+}
+
+._label_16eqb_93 {
+  font-weight: 600;
+}
+
+._icon_16eqb_114 {
+  margin-left: 8px;
+}
+
+._icon_16eqb_114 svg {
+  width: 20px;
+  height: 20px;
+}
+
+._settingsIcon_1b17f_177 {
+  color: #4a5568;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  ._content_19xmy_172 {
+    padding: 0 20px;
+  }
+
+  ._name_19xmy_213 {
+    font-size: 1.5rem;
+  }
+
+  ._accountSection_llh05_73 {
+    margin: 0 16px 16px 16px;
+    border-radius: 8px;
+  }
+
+  ._title_llh05_109 {
+    padding: 24px 24px 0 24px;
+    font-size: 1.25rem;
+  }
+
+  ._recentCases_1b17f_494,
+  ._allCases_1b17f_509 {
+    padding: 24px;
+  }
+
+  .styles-module__cardsContainer___5LjEc {
+    gap: 20px;
+    grid-auto-columns: minmax(280px, 1fr);
+  }
+
+  ._actionButtons_1b17f_152 {
+    padding: 24px 24px 0 24px;
+  }
+
+  ._button_16eqb_73 {
+    width: 180px;
+    justify-content: center;
+  }
+}
+
+/* Always use light theme */
+._accountSection_llh05_73 {
+  background: white;
+  border: 1px solid #e2e8f0;
+}
+
+._title_llh05_109 {
+  color: #1a202c;
+}
+
+._title_1b17f_313 {
+  color: #1a202c;
+}
+
+._description_1b17f_322 {
+  color: #718096;
+}
+
+._actions_1b17f_137 {
+  background: white;
+}
+
+._horizontalRule_h2a32_73 {
+  background: #e2e8f0;
+}
+
+/* RTL Support */
+[dir="rtl"] ._actionButtons_1b17f_152 {
+  direction: rtl;
+}
+
+[dir="rtl"] ._button_16eqb_73 {
+  direction: rtl;
+}
+
+[dir="rtl"] ._label_16eqb_93 {
+  direction: rtl;
+}
+
+[dir="rtl"] .styles-module__cardsContainer___5LjEc {
+  direction: rtl;
+}
+
+/* Text alignment for RTL */
+[dir="rtl"] ._title_llh05_109,
+[dir="rtl"] ._title_1b17f_313,
+[dir="rtl"] ._description_1b17f_322,
+[dir="rtl"] ._label_16eqb_93 {
+  text-align: right;
+}

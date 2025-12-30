@@ -20,6 +20,8 @@ import Company from './components/Company.jsx';
 import SignUp from './components/SignUp.jsx';
 import SignIn from './components/SignIn.jsx';
 import ChatPage from './components/ChatPage.jsx';
+import AccountPage from './components/AccountPage.jsx';
+import SettingsPage from './components/SettingsPage.jsx';
 
 function App() {
   return (
@@ -27,10 +29,10 @@ function App() {
       <div className="App layout_body __variable_f367f3 __variable_ad9d8d">
         <Routes>
           <Route path="/" element={<MainContent />} />
-          <Route path="/en-us/estate-and-probate-law" element={<EstateAndProbateLaw />} />
           <Route path="/en-us/commercial-law" element={<CommercialLaw />} />
           <Route path="/en-us/criminal-law" element={<CriminalLaw />} />
           <Route path="/en-us/employment-law" element={<EmploymentLaw />} />
+          <Route path="/en-us/estate-and-probate-law" element={<EstateAndProbateLaw />} />
           <Route path="/en-us/family-law" element={<FamilyLaw />} />
           <Route path="/en-us/immigration-law" element={<ImmigrationLaw />} />
           <Route path="/en-us/litigation" element={<Litigation />} />
@@ -43,6 +45,8 @@ function App() {
           <Route path="/en-us/about/sailing" element={<Sailing />} />
           <Route path="/en-us/for-lawyers/sign-up" element={<SignUp />} />
           <Route path="/auth/sign-in" element={<SignIn />} />
+          <Route path="/account" element={<AccountPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
           <Route path="/chat" element={<ChatPage />} />
         </Routes>
       </div>
