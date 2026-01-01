@@ -27,7 +27,7 @@ const SettingsPage = () => {
           return;
         }
 
-        const response = await fetch('http://localhost:8000/api/user/profile', {
+        const response = await fetch('https://panel.weekila.com/api/user/profile', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ const SettingsPage = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:8000/api/user/profile', {
+      const response = await fetch('https://panel.weekila.com/api/user/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ const SettingsPage = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:8000/api/user/account', {
+      const response = await fetch('https://panel.weekila.com/api/user/account', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

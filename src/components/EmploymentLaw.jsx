@@ -327,7 +327,6 @@ const EmploymentLaw = () => {
                         className="style-module__textareaInput style-module__withPreTextIcon"
                         rows="1"
                         placeholder="سؤال حقوقی خود را بپرسید"
-                        style={{height: '72px'}}
                         value={chatInput}
                         onChange={(e) => setChatInput(e.target.value)}
                         onKeyDown={(e) => {

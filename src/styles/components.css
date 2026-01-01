@@ -4287,10 +4287,6 @@ to {
   opacity:0;
   transform:rotate(-90deg)
 }
-.styles-module__mobileMenuContainer .styles-module__logo {
-  width:auto;
-  height:18px
-}
 .styles-module__menuModalOverlay .styles-module__menuModalContent, .styles-module__menuModalOverlay .styles-module__mobileBGIcon {
   display:none
 }
@@ -8166,20 +8162,22 @@ to {
 @media (max-width:1600px) and (min-width:1185px) {
   .styles_libraryHeaderWrapper .styles_inputWrapper {
     padding:0 var(--desktop-side-margin);
-    margin-bottom:calc(var(--desktop-chat-input-height) / 2 * -1)
+    margin-bottom:calc(var(--desktop-chat-input-height) / 2 * -1);
+    margin-bottom:calc(var(--mobile-chat-input-height) / 2 * -1);
   }
 }
 @media (min-width:770px) and (max-width:1184px) {
   .styles_libraryHeaderWrapper .styles_inputWrapper {
     padding:0 var(--tablet-side-margin);
-    margin-bottom:calc(var(--tablet-chat-input-height) / 2 * -1)
+    margin-bottom:calc(var(--tablet-chat-input-height) / 2 * -1);
+    margin-bottom:calc(var(--mobile-chat-input-height) / 2 * -1);
   }
 }
 @media (max-width:769px) {
   .styles_libraryHeaderWrapper .styles_inputWrapper {
     padding:0 var(--mobile-side-margin);
     margin-top:calc(var(--mobile-chat-input-height) / 2 * -1);
-    margin-bottom:0
+    margin-bottom:calc(var(--mobile-chat-input-height) / 2 * -1);
   }
 }
 .styles_libraryHeaderWrapper .styles_areaOfLawMaxWidth {
