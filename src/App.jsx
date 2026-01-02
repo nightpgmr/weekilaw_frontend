@@ -44,11 +44,13 @@ function App() {
           <Route path="/en-us/about/company" element={<Company />} />
           <Route path="/en-us/about/careers" element={<Careers />} />
           <Route path="/en-us/about/sailing" element={<Sailing />} />
+          <Route path="/sign-up" element={<SignUp />} />
           <Route path="/en-us/for-lawyers/sign-up" element={<SignUp />} />
           <Route path="/auth/sign-in" element={<SignIn />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/chat" element={<ChatPage />} />
+          <Route path="/chat/:chatId" element={<ChatPage />} />
           <Route path="/faqs" element={<FAQs />} />
         </Routes>
       </div>

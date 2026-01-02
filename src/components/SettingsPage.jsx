@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageLayout from './PageLayout.jsx';
 import '../styles/SettingsPage.css';
+import { API_ENDPOINTS, apiCall } from '../utils/api.js';
 
 const SettingsPage = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -27,33 +30,41 @@ const SettingsPage = () => {
           return;
         }
 
-        const response = await fetch('https://panel.weekila.com/api/user/profile', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include', // Include session cookies
-        });
+        const data = await apiCall(API_ENDPOINTS.USER.PROFILE);
 
-        if (response.ok) {
-          const data = await response.json();
           if (data.success && data.user) {
             setFormData({
-              firstName: data.user.first_name || '',
-              lastName: data.user.last_name || '',
+            firstName: data.user.first_name || data.user.name?.split(' ')[0] || '',
+            lastName: data.user.last_name || data.user.name?.split(' ').slice(1).join(' ') || '',
               email: data.user.email || '',
               phone: data.user.phone || ''
             });
+          // Store user data in localStorage for future use
+          localStorage.setItem('user_data', JSON.stringify(data.user));
           }
-        } else if (response.status === 401) {
-          // Authentication failed, redirect to sign-in
-          localStorage.removeItem('is_authenticated');
-          sessionStorage.clear();
-          navigate('/auth/sign-in');
-        }
       } catch (error) {
         console.error('Error loading profile:', error);
-        // For network errors, keep empty form but don't redirect
+        if (error.message.includes('401') || error.message.includes('403')) {
+          // Authentication failed, redirect to sign-in
+          localStorage.removeItem('is_authenticated');
+          localStorage.removeItem('auth_token');
+          sessionStorage.clear();
+          navigate('/auth/sign-in');
+          return;
+        }
+        // For other errors, try to load from localStorage as fallback
+        const storedUser = localStorage.getItem('user_data');
+        if (storedUser) {
+          const userData = JSON.parse(storedUser);
+          setFormData({
+            firstName: userData.first_name || userData.name?.split(' ')[0] || '',
+            lastName: userData.last_name || userData.name?.split(' ').slice(1).join(' ') || '',
+            email: userData.email || '',
+            phone: userData.phone || ''
+          });
+        }
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -76,6 +87,9 @@ const SettingsPage = () => {
   };
 
   const handleSave = async () => {
+    if (saving) return; // Prevent multiple simultaneous saves
+
+    setSaving(true);
     try {
       const isAuthenticated = localStorage.getItem('is_authenticated') === 'true';
       if (!isAuthenticated) {
@@ -84,43 +98,39 @@ const SettingsPage = () => {
         return;
       }
 
-      const response = await fetch('https://panel.weekila.com/api/user/profile', {
+      const data = await apiCall(API_ENDPOINTS.USER.PROFILE, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include', // Include session cookies
         body: JSON.stringify({
-          first_name: formData.firstName,
-          last_name: formData.lastName,
+          first_name: formData.firstName.trim(),
+          last_name: formData.lastName.trim(),
         }),
       });
 
-      if (response.status === 401 || response.status === 302 || response.redirected) {
-        // Authentication failed, just show error and continue
-        alert('خطا در احراز هویت. لطفا دوباره وارد شوید.');
-        return;
-      }
-
-      // Check if response is HTML (redirect page) instead of JSON
-      const contentType = response.headers.get('content-type');
-      if (contentType && contentType.includes('text/html')) {
-        // Authentication failed, just show error and continue
-        alert('خطا در احراز هویت. لطفا دوباره وارد شوید.');
-        return;
-      }
-
-      const data = await response.json();
-
       if (data.success) {
         alert('پروفایل با موفقیت بروزرسانی شد');
-        // Update local form data if needed
+        // Update localStorage with new data
+        const updatedUserData = {
+          ...JSON.parse(localStorage.getItem('user_data') || '{}'),
+          first_name: formData.firstName.trim(),
+          last_name: formData.lastName.trim(),
+        };
+        localStorage.setItem('user_data', JSON.stringify(updatedUserData));
       } else {
-        alert('خطا در بروزرسانی پروفایل: ' + (data.message || 'Unknown error'));
+        alert('خطا در بروزرسانی پروفایل: ' + (data.message || 'خطای ناشناخته'));
       }
     } catch (error) {
       console.error('Error saving profile:', error);
-      alert('خطا در اتصال به سرور');
+      if (error.message.includes('401') || error.message.includes('403')) {
+        alert('خطا در احراز هویت. لطفا دوباره وارد شوید.');
+        localStorage.removeItem('is_authenticated');
+        localStorage.removeItem('auth_token');
+        sessionStorage.clear();
+        navigate('/auth/sign-in');
+      } else {
+        alert('خطا در اتصال به سرور: ' + error.message);
+      }
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -152,42 +162,32 @@ const SettingsPage = () => {
         return;
       }
 
-      const response = await fetch('https://panel.weekila.com/api/user/account', {
+      const data = await apiCall(API_ENDPOINTS.USER.ACCOUNT, {
         method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include', // Include session cookies
       });
-
-      if (response.status === 401 || response.status === 302 || response.redirected) {
-        // Authentication failed, just show error and continue
-        alert('خطا در احراز هویت. لطفا دوباره وارد شوید.');
-        return;
-      }
-
-      // Check if response is HTML (redirect page) instead of JSON
-      const contentType = response.headers.get('content-type');
-      if (contentType && contentType.includes('text/html')) {
-        // Authentication failed, just show error and continue
-        alert('خطا در احراز هویت. لطفا دوباره وارد شوید.');
-        return;
-      }
-
-      const data = await response.json();
 
       if (data.success) {
         alert('حساب کاربری با موفقیت حذف شد');
         // Clear local storage and redirect
         localStorage.removeItem('is_authenticated');
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('user_data');
         sessionStorage.clear();
         navigate('/');
       } else {
-        alert('خطا در حذف حساب: ' + (data.message || 'Unknown error'));
+        alert('خطا در حذف حساب: ' + (data.message || 'خطای ناشناخته'));
       }
     } catch (error) {
       console.error('Error deleting account:', error);
-      alert('خطا در اتصال به سرور');
+      if (error.message.includes('401') || error.message.includes('403')) {
+        alert('خطا در احراز هویت. لطفا دوباره وارد شوید.');
+        localStorage.removeItem('is_authenticated');
+        localStorage.removeItem('auth_token');
+        sessionStorage.clear();
+        navigate('/auth/sign-in');
+      } else {
+        alert('خطا در اتصال به سرور: ' + error.message);
+      }
     }
   };
 
@@ -223,14 +223,24 @@ const SettingsPage = () => {
           <div className="_content_19xmy_172">
             <div className="_profilePicture_19xmy_187">
               <div className="_profileAvatar_19xmy_187">
-                {formData.firstName.charAt(0).toUpperCase()}
+                {loading ? '...' : (formData.firstName ? formData.firstName.charAt(0).toUpperCase() : '?')}
               </div>
             </div>
-            <div className="_name_19xmy_213">سلام، {formData.firstName}</div>
-            <div className="_userContact_19xmy_220">{formData.email}</div>
+            <div className="_name_19xmy_213">
+              {loading ? 'در حال بارگذاری...' : `سلام، ${formData.firstName || 'کاربر'}`}
+            </div>
+            <div className="_userContact_19xmy_220">{loading ? '...' : formData.email}</div>
           </div>
           <div className="_headerContainer_ky9b5_238">
-            <div className="chat-back_button" onClick={() => navigate(-1)} aria-label="بازگشت">
+            <div
+              className="chat-back_button"
+              onClick={() => {
+                console.log('Back button clicked');
+                navigate('/account');
+              }}
+              aria-label="بازگشت"
+              style={{cursor: 'pointer', zIndex: 10}}
+            >
               <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M12.9167 4.16667 6.25 10l6.6667 5.8333"
@@ -258,6 +268,8 @@ const SettingsPage = () => {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleInputChange}
+                        disabled={loading}
+                        placeholder={loading ? "در حال بارگذاری..." : ""}
                       />
                     </label>
                     <label className="_inputContainer_ky9b5_142">
@@ -267,16 +279,30 @@ const SettingsPage = () => {
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleInputChange}
+                        disabled={loading}
+                        placeholder={loading ? "در حال بارگذاری..." : ""}
                       />
                     </label>
                   </div>
                   <div className="_actionButtonContainer_ky9b5_400">
-                    <div className="_button_16eqb_73 _actionButton_ky9b5_400" onClick={handleSave}>
-                      <div className="_label_16eqb_93">ذخیره</div>
+                    <div
+                      className={`_button_16eqb_73 _actionButton_ky9b5_400 ${saving ? '_disabled' : ''}`}
+                      onClick={saving ? undefined : handleSave}
+                      style={{ pointerEvents: saving ? 'none' : 'auto', opacity: saving ? 0.6 : 1 }}
+                    >
+                      <div className="_label_16eqb_93">{saving ? 'در حال ذخیره...' : 'ذخیره'}</div>
                       <div className="_icon_16eqb_114">
+                        {saving ? (
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="#0E5FE3" xmlns="http://www.w3.org/2000/svg" className="_loadingSpinner">
+                            <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="2" fill="none" strokeDasharray="20" strokeDashoffset="20">
+                              <animateTransform attributeName="transform" type="rotate" from="0 8 8" to="360 8 8" dur="1s" repeatCount="indefinite"/>
+                            </circle>
+                          </svg>
+                        ) : (
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="#0E5FE3" xmlns="http://www.w3.org/2000/svg" className="_arrowRight_16eqb_136">
                           <path d="M7.64644 3.35355C7.55596 3.26306 7.5 3.13807 7.5 3C7.5 2.72386 7.72386 2.5 8 2.5C8.14045 2.5 8.26737 2.55791 8.35819 3.65115L13.3489 7.64181C13.4421 7.73263 13.5 7.85955 13.5 8C13.5 8.14045 13.4421 8.26737 13.3489 8.35819L8.35819 13.3489C8.26737 13.4421 8.14069 13.5 8 13.5C7.72386 13.5 7.5 13.2761 7.5 13C7.5 12.8619 7.55596 12.7369 7.64644 12.6465L11.7928 8.5H3C2.72386 8.5 2.5 8.27614 2.5 8C2.5 7.72386 2.72386 7.5 3 7.5H11.7928L7.64644 3.35355Z"></path>
                         </svg>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -310,7 +336,7 @@ const SettingsPage = () => {
               <div className="_section_ky9b5_73 _deleteSection_ky9b5_608">
                 <div className="_title_ky9b5_92">حذف حساب</div>
                 <div className="_deleteContainer_ky9b5_296">
-                  <div>ما درک می‌کنیم که می‌خواهید مسائل خصوصی بمانند. اگر دیگر نمی‌خواهید از LawConnect برای اطلاعات حقوقی استفاده کنید، تشویق می‌شوید حساب خود را حذف کنید.<br /><br />تمام مطالب پرونده موجود را از تمام سرورها حذف خواهیم کرد. این عمل قابل برگرداندن نخواهد بود.</div>
+                  <div>ما درک می‌کنیم که می‌خواهید مسائل خصوصی بمانند. اگر دیگر نمی‌خواهید از Weekilaw برای اطلاعات حقوقی استفاده کنید، تشویق می‌شوید حساب خود را حذف کنید.<br /><br />تمام مطالب پرونده موجود را از تمام سرورها حذف خواهیم کرد. این عمل قابل برگرداندن نخواهد بود.</div>
                   <div className="_actionButtonContainer_ky9b5_400">
                     <div className="_button_16eqb_73 _deleteButton_ky9b5_342" onClick={handleDeleteAccount}>
                       <div className="_label_16eqb_93">حذف</div>
@@ -351,3 +377,4 @@ const SettingsPage = () => {
 };
 
 export default SettingsPage;
+

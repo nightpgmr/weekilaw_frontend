@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/signIn.css';
 import PageLayout from './PageLayout.jsx';
+import { API_ENDPOINTS, apiCall } from '../utils/api.js';
 
 function SignIn() {
   const navigate = useNavigate();
@@ -12,10 +13,37 @@ function SignIn() {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [countdown, setCountdown] = useState(0);
+  const [retryCount, setRetryCount] = useState(0);
+  const [lastErrorTime, setLastErrorTime] = useState(null);
 
   const validatePhone = (phoneNumber) => {
     const phoneRegex = /^09\d{9}$/;
     return phoneRegex.test(phoneNumber);
+  };
+
+  const clearMessages = () => {
+    setError('');
+    setMessage('');
+  };
+
+  const handleError = (error, context = '') => {
+    console.error(`SignIn Error ${context}:`, error);
+    setLastErrorTime(Date.now());
+
+    // Provide user-friendly error messages
+    if (error.name === 'TypeError' && error.message.includes('fetch')) {
+      setError('خطا در اتصال به سرور. لطفا اتصال اینترنت خود را بررسی کنید.');
+    } else if (error.message.includes('timeout')) {
+      setError('زمان ارسال پیام به پایان رسید. لطفا دوباره تلاش کنید.');
+    } else if (error.message.includes('500')) {
+      setError('سرویس پیامک موقتاً در دسترس نیست. لطفا بعداً تلاش کنید.');
+    } else if (error.message.includes('401') || error.message.includes('403')) {
+      setError('خطا در تنظیمات سرویس. لطفا با پشتیبانی تماس بگیرید.');
+    } else {
+      setError(error.message || 'خطای نامشخص رخ داده است');
+    }
+
+    setRetryCount(prev => prev + 1);
   };
 
   const handleSendOTP = async (e) => {
@@ -31,15 +59,11 @@ function SignIn() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://panel.weekila.com/api/auth/phone/send-login-otp', {
+      clearMessages();
+      const data = await apiCall(API_ENDPOINTS.AUTH.PHONE.SEND_LOGIN_OTP, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify({ phone }),
       });
-
-      const data = await response.json();
 
       if (data.success) {
         setMessage(data.message);
@@ -56,20 +80,23 @@ function SignIn() {
             return prev - 1;
           });
         }, 1000);
+
+        // In development mode, show the OTP code for testing
+        if (data.dev_otp) {
+          setMessage(`${data.message} (برای تست: ${data.dev_otp})`);
+        }
+
+        setRetryCount(0); // Reset retry count on success
       } else {
         setError(data.message || 'خطا در ارسال کد تایید');
       }
     } catch (err) {
-      console.error('Send OTP error:', err);
-      if (err.name === 'TypeError' && err.message.includes('fetch')) {
-        setError('خطا در اتصال به سرور. لطفا اتصال اینترنت خود را بررسی کنید.');
-      } else {
-        setError('خطا در ارتباط با سرور');
-      }
+      handleError(err, 'Send OTP');
     } finally {
       setLoading(false);
     }
   };
+
 
   const handleVerifyOTP = async (e) => {
     e.preventDefault();
@@ -84,20 +111,23 @@ function SignIn() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://panel.weekila.com/api/auth/phone/verify-login-otp', {
+      clearMessages();
+      const data = await apiCall(API_ENDPOINTS.AUTH.PHONE.VERIFY_LOGIN_OTP, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify({ phone, otp }),
       });
 
-      const data = await response.json();
-
       if (data.success) {
         setMessage('ورود با موفقیت انجام شد');
-        // Store authentication state (session-based auth)
+        // Store authentication state and token
         localStorage.setItem('is_authenticated', 'true');
+        if (data.token) {
+          localStorage.setItem('auth_token', data.token);
+        }
+        // Store user data
+        if (data.user) {
+          localStorage.setItem('user_data', JSON.stringify(data.user));
+        }
         // Redirect to account page
         setTimeout(() => {
           navigate('/account');
@@ -106,12 +136,7 @@ function SignIn() {
         setError(data.message || 'کد تایید اشتباه است');
       }
     } catch (err) {
-      console.error('Verify OTP error:', err);
-      if (err.name === 'TypeError' && err.message.includes('fetch')) {
-        setError('خطا در اتصال به سرور. لطفا اتصال اینترنت خود را بررسی کنید.');
-      } else {
-        setError('خطا در ارتباط با سرور');
-      }
+      handleError(err, 'Verify OTP');
     } finally {
       setLoading(false);
     }
@@ -123,15 +148,11 @@ function SignIn() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://panel.weekila.com/api/auth/phone/resend-otp', {
+      clearMessages();
+      const data = await apiCall(API_ENDPOINTS.AUTH.PHONE.RESEND_OTP, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify({ phone, type: 'login' }),
       });
-
-      const data = await response.json();
 
       if (data.success) {
         setMessage('کد جدید ارسال شد');
@@ -146,16 +167,16 @@ function SignIn() {
             return prev - 1;
           });
         }, 1000);
+
+        // In development mode, show the OTP code for testing
+        if (data.dev_otp) {
+          setMessage(`کد جدید ارسال شد (برای تست: ${data.dev_otp})`);
+        }
       } else {
         setError(data.message || 'خطا در ارسال کد جدید');
       }
     } catch (err) {
-      console.error('Resend OTP error:', err);
-      if (err.name === 'TypeError' && err.message.includes('fetch')) {
-        setError('خطا در اتصال به سرور. لطفا اتصال اینترنت خود را بررسی کنید.');
-      } else {
-        setError('خطا در ارتباط با سرور');
-      }
+      handleError(err, 'Resend OTP');
     } finally {
       setLoading(false);
     }
@@ -163,8 +184,8 @@ function SignIn() {
 
   const handleGoogleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/auth/google/url');
-      const data = await response.json();
+      clearMessages();
+      const data = await apiCall(API_ENDPOINTS.AUTH.GOOGLE.URL);
 
       if (data.success) {
         window.location.href = data.auth_url;
@@ -172,7 +193,7 @@ function SignIn() {
         setError('خطا در دریافت لینک گوگل');
       }
     } catch (err) {
-      setError('خطا در ارتباط با سرور');
+      handleError(err, 'Google Login');
     }
   };
 
@@ -280,7 +301,7 @@ function SignIn() {
                 <form className="kinde-form" data-kinde-form="true" onSubmit={handleVerifyOTP}>
                   <div className="kinde-form-field kinde-form-field-variant-select-text">
                     <label className="kinde-control-label" htmlFor="otp">
-                      کد تایید (4 رقم)
+                      کد تایید
                     </label>
                     <input
                       className="kinde-control-select-text"
@@ -397,7 +418,7 @@ function SignIn() {
                   className="kinde-text-link kinde-text-link-is-inline"
                   data-kinde-text-link="true"
                   data-kinde-text-link-is-inline="true"
-                  href="/sign-up"
+                  href="/en-us/for-lawyers/sign-up"
                 >
                   ایجاد کنید
                 </a>

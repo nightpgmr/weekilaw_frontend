@@ -10,6 +10,28 @@ const Header = ({ scrollElement }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState(null);
   const [showHelpModal, setShowHelpModal] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Check authentication status on component mount and when localStorage changes
+  useEffect(() => {
+    const checkAuth = () => {
+      const authStatus = localStorage.getItem('is_authenticated') === 'true' ||
+                        sessionStorage.getItem('is_authenticated') === 'true';
+      setIsAuthenticated(authStatus);
+    };
+
+    checkAuth();
+
+    // Listen for storage changes (in case auth status changes in another tab)
+    const handleStorageChange = (e) => {
+      if (e.key === 'is_authenticated') {
+        checkAuth();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
 
   const handleScroll = useCallback(() => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -63,6 +85,13 @@ const Header = ({ scrollElement }) => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('is_authenticated');
+    sessionStorage.removeItem('is_authenticated');
+    setIsAuthenticated(false);
+    navigate('/');
+  };
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     setMobileSubMenu(null);
@@ -92,6 +121,19 @@ const Header = ({ scrollElement }) => {
       document.body.removeEventListener('scroll', scrollHandler);
     };
   }, [handleScroll]);
+
+  useEffect(() => {
+    const checkAuth = () => {
+      const authStatus = localStorage.getItem('is_authenticated') === 'true' ||
+                        sessionStorage.getItem('is_authenticated') === 'true';
+      setIsAuthenticated(authStatus);
+    };
+
+    checkAuth();
+    // Listen for storage changes
+    window.addEventListener('storage', checkAuth);
+    return () => window.removeEventListener('storage', checkAuth);
+  }, []);
 
   return (
     <>
@@ -451,6 +493,8 @@ const Header = ({ scrollElement }) => {
                   className="styles-module__menuItemWrapper styles-module__accountLinkWrapper"
                   role="button"
                   tabIndex={0}
+                  onMouseEnter={() => isAuthenticated && setActiveDropdown('account')}
+                  onMouseLeave={() => setActiveDropdown(null)}
                   onClick={handleAccountClick}
                   onKeyDown={handleAccountKeyDown}
                 >
@@ -477,13 +521,28 @@ const Header = ({ scrollElement }) => {
                       <span className="styles-module__labelTitle styles-module__accountLabelTitle" title="حساب کاربری">
                         حساب کاربری
                       </span>
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="#333333" xmlns="http://www.w3.org/2000/svg" className="styles-module__chevronIcon styles-module__chevronIcon styles-module__noRotate">
-                        <g id="icon/chevron down">
-                          <path id="Union" d="M12.6467 5.14644C12.7372 5.05596 12.8622 5 13.0002 5C13.2764 5 13.5002 5.22386 13.5002 5.5C13.5002 5.64045 13.4423 5.76737 13.3491 5.85819L8.35844 10.8489C8.26761 10.9421 8.14069 11 8.00024 11C7.8598 11 7.73287 10.9421 7.64205 10.8489L2.65139 5.85819C2.55815 5.76737 2.50024 5.64045 2.50024 5.5C2.50024 5.22386 2.7241 5 3.00024 5C3.13831 5 3.26331 5.05596 3.35379 5.14644L8.00024 9.79283L12.6467 5.14644Z"></path>
-                        </g>
-                      </svg>
+                      {isAuthenticated && (
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#333333" xmlns="http://www.w3.org/2000/svg" className="styles-module__chevronIcon">
+                          <g id="icon/chevron down">
+                            <path id="Union" d="M12.6467 5.14644C12.7372 5.05596 12.8622 5 13.0002 5C13.2764 5 13.5002 5.22386 13.5002 5.5C13.5002 5.64045 13.4423 5.76737 13.3491 5.85819L8.35844 10.8489C8.26761 10.9421 8.14069 11 8.00024 11C7.8598 11 7.73287 10.9421 7.64205 10.8489L2.65139 5.85819C2.55815 5.76737 2.50024 5.64045 2.50024 5.5C2.50024 5.22386 2.7241 5 3.00024 5C3.13831 5 3.26331 5.05596 3.35379 5.14644L8.00024 9.79283L12.6467 5.14644Z"></path>
+                          </g>
+                        </svg>
+                      )}
                     </div>
                   </div>
+                  {isAuthenticated && activeDropdown === 'account' && (
+                    <div className="styles-module__childContainer styles-module__hoverMenu">
+                      <div className="styles-module__menuItem" onClick={(e) => { e.stopPropagation(); navigate('/account'); setActiveDropdown(null); }}>
+                        <span className="styles-module__menuItemText">چت های من</span>
+                      </div>
+                      <div className="styles-module__menuItem" onClick={(e) => { e.stopPropagation(); navigate('/settings'); setActiveDropdown(null); }}>
+                        <span className="styles-module__menuItemText">تنظیمات</span>
+                      </div>
+                      <div className="styles-module__menuItem" onClick={(e) => { e.stopPropagation(); handleLogout(); setActiveDropdown(null); }}>
+                        <span className="styles-module__menuItemText">خروج</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

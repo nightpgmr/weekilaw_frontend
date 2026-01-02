@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import '../styles/chatModal.css';
 import PageLayout from './PageLayout.jsx';
+import { API_ENDPOINTS, apiCall } from '../utils/api.js';
 
 /**
  * Full-page chat experience (no iframe). Plug your API into `callChatApi`.
@@ -9,6 +10,7 @@ import PageLayout from './PageLayout.jsx';
 const ChatPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { chatId } = useParams();
   const fileInputRef = useRef(null);
   const scrollAnchorRef = useRef(null);
   const [messages, setMessages] = useState(() => [
@@ -17,6 +19,8 @@ const ChatPage = () => {
   const [input, setInput] = useState('');
   const [isSending, setIsSending] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [currentChatId, setCurrentChatId] = useState(null);
+  const [isLoadingChat, setIsLoadingChat] = useState(false);
   const processedPrompt = useRef('');
 
   useEffect(() => {
@@ -26,6 +30,57 @@ const ChatPage = () => {
       document.body.style.background = prev;
     };
   }, []);
+
+  // Load existing chat if chatId is provided
+  useEffect(() => {
+    if (chatId && chatId !== 'new') {
+      loadExistingChat(chatId);
+    } else {
+      // Reset to new chat state
+      setCurrentChatId(null);
+      setMessages([
+        { id: 'm-hello', role: 'assistant', text: 'سلام 👋<br><br>من راهنمای حقوقی هوشمند هستم.<br><br>لطفاً مسئله حقوقی خود را به زبان ساده مطرح کنید.' },
+      ]);
+    }
+  }, [chatId]);
+
+  const loadExistingChat = async (id) => {
+    try {
+      setIsLoadingChat(true);
+      const data = await apiCall(`${API_ENDPOINTS.CHAT.BASE}/${id}`);
+
+      if (data.success && data.chat) {
+        setCurrentChatId(data.chat.id);
+        const chatMessages = data.chat.messages || [];
+        const formattedMessages = [
+          { id: 'm-hello', role: 'assistant', text: 'سلام 👋<br><br>من راهنمای حقوقی هوشمند هستم.<br><br>لطفاً مسئله حقوقی خود را به زبان ساده مطرح کنید.' },
+        ];
+
+        chatMessages.forEach((msg, index) => {
+          formattedMessages.push({
+            id: `u-${index}`,
+            role: 'user',
+            text: msg.question,
+          });
+          formattedMessages.push({
+            id: `b-${index}`,
+            role: 'assistant',
+            text: msg.answer,
+          });
+        });
+
+        setMessages(formattedMessages);
+      }
+    } catch (error) {
+      console.error('Error loading chat:', error);
+      // Reset to new chat if loading fails
+      setMessages([
+        { id: 'm-hello', role: 'assistant', text: 'سلام 👋<br><br>من راهنمای حقوقی هوشمند هستم.<br><br>لطفاً مسئله حقوقی خود را به زبان ساده مطرح کنید.' },
+      ]);
+    } finally {
+      setIsLoadingChat(false);
+    }
+  };
 
   // Handle initial prompt from URL or navigation state
   useEffect(() => {
@@ -80,25 +135,23 @@ const ChatPage = () => {
     () =>
       async (text) => {
         try {
-          const response = await fetch('https://panel.weekila.com/api/chat/ask', {
+          const data = await apiCall(API_ENDPOINTS.CHAT.ASK, {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-            },
             body: JSON.stringify({
-              question: text
+              question: text,
+              chat_id: currentChatId
             }),
           });
 
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const data = await response.json();
-
           if (!data.success) {
             throw new Error(data.answer || 'خطا در دریافت پاسخ');
+          }
+
+          // Update current chat ID if this is a new chat
+          if (data.chat_id && !currentChatId) {
+            setCurrentChatId(data.chat_id);
+            // Update URL to include chat ID
+            navigate(`/chat/${data.chat_id}`, { replace: true });
           }
 
           return data.answer;
@@ -107,7 +160,7 @@ const ChatPage = () => {
           throw new Error('متأسفانه، مشکلی در ارتباط با سرور پیش آمد. لطفاً دوباره امتحان کنید.');
         }
       },
-    []
+    [currentChatId, navigate]
   );
 
   const handleSend = async (event) => {
@@ -136,6 +189,22 @@ const ChatPage = () => {
     }
   };
 
+  // Check authentication status
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const checkAuth = () => {
+      const authStatus = localStorage.getItem('is_authenticated') === 'true' ||
+                        sessionStorage.getItem('is_authenticated') === 'true';
+      setIsAuthenticated(authStatus);
+    };
+
+    checkAuth();
+    // Listen for storage changes
+    window.addEventListener('storage', checkAuth);
+    return () => window.removeEventListener('storage', checkAuth);
+  }, []);
+
   const handleMenuToggle = () => setShowMenu((prev) => !prev);
 
   const handleReset = () => {
@@ -148,6 +217,24 @@ const ChatPage = () => {
     setMessages([]);
     setShowMenu(false);
     processedPrompt.current = ''; // Reset for new conversations
+  };
+
+  const handleMyCase = () => {
+    navigate('/account');
+    setShowMenu(false);
+  };
+
+  const handleSettings = () => {
+    navigate('/settings');
+    setShowMenu(false);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('is_authenticated');
+    sessionStorage.removeItem('is_authenticated');
+    setIsAuthenticated(false);
+    setShowMenu(false);
+    // Optionally redirect to home or show a message
   };
 
   const handleAttachClick = () => {
@@ -205,14 +292,33 @@ const ChatPage = () => {
             </button>
             {showMenu && (
               <div className="chat-menu_dropdown">
-                <button type="button" className="chat-menu_item" onClick={handleReset}>
-                  <span>Reset</span>
-                  <span className="chat-menu_icon">↻</span>
-                </button>
-                <button type="button" className="chat-menu_item" onClick={handleDelete}>
-                  <span>Delete</span>
-                  <span className="chat-menu_icon">🗑</span>
-                </button>
+                {isAuthenticated ? (
+                  <>
+                    <button type="button" className="chat-menu_item" onClick={handleMyCase}>
+                      <span>چت های من</span>
+                      <span className="chat-menu_icon">📋</span>
+                    </button>
+                    <button type="button" className="chat-menu_item" onClick={handleSettings}>
+                      <span>تنظیمات</span>
+                      <span className="chat-menu_icon">⚙️</span>
+                    </button>
+                    <button type="button" className="chat-menu_item" onClick={handleLogout}>
+                      <span>خروج</span>
+                      <span className="chat-menu_icon">🚪</span>
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button type="button" className="chat-menu_item" onClick={handleReset}>
+                      <span>Reset</span>
+                      <span className="chat-menu_icon">↻</span>
+                    </button>
+                    <button type="button" className="chat-menu_item" onClick={handleDelete}>
+                      <span>Delete</span>
+                      <span className="chat-menu_icon">🗑</span>
+                    </button>
+                  </>
+                )}
               </div>
             )}
           </div>
