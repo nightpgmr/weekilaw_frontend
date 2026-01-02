@@ -22,6 +22,7 @@ import SignIn from './components/SignIn.jsx';
 import ChatPage from './components/ChatPage.jsx';
 import AccountPage from './components/AccountPage.jsx';
 import SettingsPage from './components/SettingsPage.jsx';
+import FAQs from './components/FAQs.jsx';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path="/account" element={<AccountPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/chat" element={<ChatPage />} />
+          <Route path="/faqs" element={<FAQs />} />
         </Routes>
       </div>
     </Router>

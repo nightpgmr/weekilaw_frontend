@@ -9,6 +9,7 @@ const Header = ({ scrollElement }) => {
   const [showAccountModal, setShowAccountModal] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState(null);
+  const [showHelpModal, setShowHelpModal] = useState(false);
 
   const handleScroll = useCallback(() => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -128,7 +129,9 @@ const Header = ({ scrollElement }) => {
               src="/assets/logo-icon.png"
             />
           </Link>
-          <div></div>
+          <Link to="/chat" className="styles-module__mobileChatButton" onClick={closeMobileMenu}>
+            <div className="styles-module__mobileChatButtonLabel">چت کنید</div>
+          </Link>
         </div>
       </div>
 
@@ -137,17 +140,22 @@ const Header = ({ scrollElement }) => {
         <div className="styles-module__menuModalContent">
           <div className="styles-module__menuLinksContainer">
             {/* Chat Button */}
-            <Link
-              to="/chat"
+            <div
               className="styles-module__mainMenuLink styles-module__gradientText"
-              onClick={closeMobileMenu}
+              onClick={() => { closeMobileMenu(); setShowHelpModal(true); }}
             >
-              <span className="styles-module__gradientTextContent">چت کنید</span>
-            </Link>
+              <span className="styles-module__gradientTextContent">کمک بگیرید</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
+                <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
+              </svg>
+            </div>
 
             {/* Areas of Law */}
             <div className="styles-module__mainMenuLink" onClick={() => handleMobileSubMenu('areas')}>
               <span>زمینه‌های حقوقی</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
+                <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
+              </svg>
             </div>
             {mobileSubMenu === 'areas' && (
               <div className="styles-module__menuLinksContainer styles-module__subCategories">
@@ -158,7 +166,10 @@ const Header = ({ scrollElement }) => {
                     className="styles-module__subMenuLink"
                     onClick={closeMobileMenu}
                   >
-                    {area.title}
+                    <span>{area.title}</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
+                      <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
+                    </svg>
                   </Link>
                 ))}
               </div>
@@ -167,6 +178,9 @@ const Header = ({ scrollElement }) => {
             {/* About */}
             <div className="styles-module__mainMenuLink" onClick={() => handleMobileSubMenu('about')}>
               <span>درباره</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
+                <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
+              </svg>
             </div>
             {mobileSubMenu === 'about' && (
               <div className="styles-module__menuLinksContainer styles-module__subCategories">
@@ -180,7 +194,10 @@ const Header = ({ scrollElement }) => {
                         className="styles-module__subMenuLink"
                         onClick={closeMobileMenu}
                       >
-                        {item.title}
+                        <span>{item.title}</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
+                          <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
+                        </svg>
                       </Link>
                     );
                   }
@@ -191,7 +208,10 @@ const Header = ({ scrollElement }) => {
                       className="styles-module__subMenuLink"
                       onClick={closeMobileMenu}
                     >
-                      {item.title}
+                      <span>{item.title}</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
+                        <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
+                      </svg>
                     </a>
                   );
                 })}
@@ -201,6 +221,9 @@ const Header = ({ scrollElement }) => {
             {/* For Lawyers */}
             <div className="styles-module__mainMenuLink" onClick={() => handleMobileSubMenu('lawyers')}>
               <span>برای وکلا</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
+                <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
+              </svg>
             </div>
             {mobileSubMenu === 'lawyers' && (
               <div className="styles-module__menuLinksContainer styles-module__subCategories">
@@ -209,14 +232,20 @@ const Header = ({ scrollElement }) => {
                   className="styles-module__subMenuLink"
                   onClick={closeMobileMenu}
                 >
-                  شبکه حقوقی ما
+                  <span>شبکه حقوقی ما</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
+                    <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
+                  </svg>
                 </Link>
                 <Link
                   to="/en-us/for-lawyers/sign-up"
                   className="styles-module__subMenuLink"
                   onClick={closeMobileMenu}
                 >
-                  ثبت نام
+                  <span>ثبت نام</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
+                    <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
+                  </svg>
                 </Link>
               </div>
             )}
@@ -224,7 +253,47 @@ const Header = ({ scrollElement }) => {
             {/* Account */}
             <div className="styles-module__mainMenuLink" onClick={() => { closeMobileMenu(); handleAccountClick(); }}>
               <span>حساب کاربری</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
+                <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
+              </svg>
             </div>
+
+            {/* Footer Links Section */}
+            <Link
+              to="/en-us/insights"
+              className="styles-module__mainMenuLink styles-module__footerLinkSpacing"
+              onClick={closeMobileMenu}
+            >
+              <span>بینش‌ها</span>
+            </Link>
+            <Link
+              to="/faqs"
+              className="styles-module__mainMenuLink"
+              onClick={closeMobileMenu}
+            >
+              <span>سؤالات متداول</span>
+            </Link>
+            <Link
+              to="/en-us/about/ai-technology"
+              className="styles-module__mainMenuLink"
+              onClick={closeMobileMenu}
+            >
+              <span>فناوری هوش مصنوعی ما</span>
+            </Link>
+            <Link
+              to="/en-us/about/company"
+              className="styles-module__mainMenuLink"
+              onClick={closeMobileMenu}
+            >
+              <span>شرکت</span>
+            </Link>
+            <Link
+              to="/en-us/contact-us"
+              className="styles-module__mainMenuLink"
+              onClick={closeMobileMenu}
+            >
+              <span>تماس با ما</span>
+            </Link>
           </div>
         </div>
       </div>
@@ -422,6 +491,69 @@ const Header = ({ scrollElement }) => {
         </div>
       </div>
       <AccountModal open={showAccountModal} onClose={() => setShowAccountModal(false)} />
+
+      {/* Help Modal */}
+      {showHelpModal && (
+        <div className="styles-module__helpModalOverlay">
+          <div className="styles-module__helpModalContent">
+            <div className="styles-module__closeWrapper">
+              <button
+                className="styles-module__helpModalCloseButton"
+                onClick={() => setShowHelpModal(false)}
+                aria-label="Close help modal"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__closeButton styles-module__activeIcon">
+                  <path d="M19.5 3.75C19.9142 3.75 20.25 4.08579 20.25 4.5C20.25 4.70708 20.1661 4.89456 20.0304 5.03028L13.0607 12L20.0304 18.9696C20.1661 19.1054 20.25 19.2929 20.25 19.5C20.25 19.9142 19.9142 20.25 19.5 20.25C19.2894 20.25 19.099 20.1632 18.9628 20.0233L12.0001 13.0606L5.03039 20.0303C4.89466 20.166 4.70713 20.25 4.5 20.25C4.08579 20.25 3.75 19.9142 3.75 19.5C3.75 19.2912 3.83535 19.1023 3.97308 18.9663L10.9394 12L3.97671 5.03727C3.83685 4.90104 3.75 4.71066 3.75 4.5C3.75 4.08579 4.08579 3.75 4.5 3.75C4.70711 3.75 4.89462 3.83395 5.03034 3.96968L12.0001 10.9393L18.9663 3.97308C19.1023 3.83535 19.2912 3.75 19.5 3.75Z" fill="#333333"></path>
+                </svg>
+              </button>
+            </div>
+            <div className="styles-module__modalContent">
+              <div className="styles-module__getHelpCardsContainerMobile">
+                <div className="styles-module__getHelpCardMobile">
+                  <div className="styles-module__getHelpCardContentMobile">
+                    <h3 className="styles-module__getHelpCardTitleMobile">دریافت راهنمای حقوقی هوشمند</h3>
+                    <div className="styles-module__getHelpCardCtaWrapper">
+                      <a className="button_buttonContainer content-card_stackButtonContainer" href="/chat" style={{marginTop: "-30px"}}>
+                        <div className="button_buttonText content-card_stackButtonText">یک سؤال بپرسید</div>
+                        <div className="button_buttonArrow content-card_stackButtonArrow">
+                          <div className="button_arrowIconWrapperHover">
+                            <img alt="arrow-right-white" loading="lazy" width="16" height="16" className="button_arrowIcon" src="/assets/arrow-right-blue.svg" />
+                          </div>
+                          <div className="button_arrowIconWrapper">
+                            <img alt="arrow-right" loading="lazy" width="16" height="16" className="button_arrowIcon" src="/assets/arrow-right-white.svg" />
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div style={{marginLeft: "-50px", marginRight: "90px", marginBottom: "-30px", fontSize: "12px"}}>⚠️ پاسخ‌ها جنبه راهنمایی عمومی دارد و جایگزین مشاوره وکالتی نیست</div>
+                  </div>
+                  <img alt="Get AI legal answers" className="styles-module__getHelpCardImageMobile" src="/assets/phone-4-mobile.webp" />
+                </div>
+                <div className="styles-module__getHelpCardMobile">
+                  <div className="styles-module__getHelpCardContentMobile">
+                    <h3 className="styles-module__getHelpCardTitleMobile">در صورت نیاز، وکیل متخصص را پیدا کنید</h3>
+                    <div className="styles-module__getHelpCardCtaWrapper">
+                      <a className="button_buttonContainer content-card_stackButtonContainer" href="/chat" style={{marginTop: "-30px"}}>
+                        <div className="button_buttonText content-card_stackButtonText">یک سؤال بپرسید</div>
+                        <div className="button_buttonArrow content-card_stackButtonArrow">
+                          <div className="button_arrowIconWrapperHover">
+                            <img alt="arrow-right-white" loading="lazy" width="16" height="16" className="button_arrowIcon" src="/assets/arrow-right-blue.svg" />
+                          </div>
+                          <div className="button_arrowIconWrapper">
+                            <img alt="arrow-right" loading="lazy" width="16" height="16" className="button_arrowIcon" src="/assets/arrow-right-white.svg" />
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <img alt="Find the right lawyer" className="styles-module__getHelpCardImageMobile" src="/assets/phone-hero-mobile.webp" />
+                </div>
+              </div>
+              <div className="styles-module__mobileBGIcon"></div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

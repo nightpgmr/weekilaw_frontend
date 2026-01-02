@@ -95,7 +95,7 @@ const Footer = () => {
           <div className="style-module__column">
             <div className="style-module__headerLabel"></div>
             <a href="/en-us/insights" className="style-module__menuItem">بینش‌ها</a>
-            <a href="/en-us/faqs" className="style-module__menuItem">سؤالات متداول</a>
+            <a href="/faqs" className="style-module__menuItem">سؤالات متداول</a>
             <a href="/en-us/about/ai-technology" className="style-module__menuItem">فناوری هوش مصنوعی ما</a>
             <a href="/en-us/about/company" className="style-module__menuItem">شرکت</a>
             <a href="/en-us/contact-us" className="style-module__menuItem">تماس با ما</a>
