@@ -47,6 +47,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/en-us/for-lawyers/sign-up" element={<SignUp />} />
           <Route path="/auth/sign-in" element={<SignIn />} />
+          <Route path="/login" element={<SignIn />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/chat" element={<ChatPage />} />
