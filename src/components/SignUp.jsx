@@ -103,7 +103,7 @@ const SignUp = () => {
     setError('');
     setMessage('');
 
-    if (otp.length !== 4) {
+    if (otp.length < 4 || otp.length > 6) {
       setError('کد تایید باید 4 رقم باشد');
       return;
     }
@@ -325,11 +325,11 @@ const SignUp = () => {
                       name="otp"
                     type="text"
                     value={otp}
-                    onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 4))}
-                    placeholder="1234"
+                    onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                    placeholder="کد تایید"
                     autoFocus
                     required
-                    maxLength="4"
+                    maxLength="6"
                   />
                 </div>
 
