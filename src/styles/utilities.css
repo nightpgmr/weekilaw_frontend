@@ -1103,7 +1103,7 @@ html body strong, html body em, html body b, html body i {
 }
 
 .style-module__actions .style-module__sendButton.style-module__hasText {
-  background-color: #0e5fe3;
+  background-color: #03377B;
 }
 
 .style-module__actions .style-module__sendButton.style-module__hasText svg {
@@ -1316,7 +1316,7 @@ html body strong, html body em, html body b, html body i {
     bottom:0;
     width:100vw;
     height:576px;
-    background:linear-gradient(180deg, #0a49af 31.08%, rgba(10, 73, 175, 0) 71.18%);
+    background:linear-gradient(180deg, #03377B 31.08%, rgba(3, 55, 123, 0) 71.18%);
     z-index:2
   }
 }

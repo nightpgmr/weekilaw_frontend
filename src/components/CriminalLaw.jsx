@@ -1,10 +1,13 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageLayout from './PageLayout.jsx';
+import SummaryModal from './SummaryModal.jsx';
+import { areasOfLawContent as areas } from '../data/areas.js';
 
 const CriminalLaw = () => {
   const navigate = useNavigate();
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [heroStep, setHeroStep] = useState(0);
   const [showFixedChat, setShowFixedChat] = useState(false);
@@ -34,6 +37,9 @@ const CriminalLaw = () => {
   const moreInfoText = 'خلاصه سریع درباره حقوق کیفری';
   const moreInfoHref = '/en-us/criminal-law/summary';
   const introImage = '/assets/intro-criminal.webp';
+
+  const areaData = areas['criminal-law'];
+  const modalContent = areaData.modalContent;
   const subcategoriesTitle = 'پشتیبانی حقوق کیفری توسط دستیار هوش مصنوعی';
   const subcategoriesDescription = 'اگر با موضوعات حقوق کیفری روبه‌رو هستید، می‌توانید هرگونه سوال خود را دربارهٔ وضعیت‌تان مطرح کنید و پاسخ‌های مرتبط را دریافت کنید.';
   const subCategories = [
@@ -430,7 +436,7 @@ const CriminalLaw = () => {
                       <div className="intro_moreInfoText">MORE INFO</div>
                     </div>
                     <div className="intro_moreInfoLinkContainer">
-                      <a href={moreInfoHref} className="intro_categoryActionContainer">
+                      <a onClick={() => setIsModalOpen(true)} className="intro_categoryActionContainer" style={{cursor: 'pointer'}}>
                         <span className="intro_categoryActionText">{moreInfoText}</span>
                         <div className="intro_categoryArrowContainer">
                           <img
@@ -799,6 +805,11 @@ const CriminalLaw = () => {
         </div>
 
       </div>
+      <SummaryModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        content={modalContent}
+      />
     </PageLayout>
   );
 };

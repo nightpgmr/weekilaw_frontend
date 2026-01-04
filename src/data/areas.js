@@ -197,7 +197,23 @@ export const areasOfLawContent = {
       }
     ],
     helpTitle: 'کمک به یک مسئله وصیت‌نامه یا ارث نیاز دارید؟',
-    helpDescription: 'هر سؤالی درباره وصیت‌نامه، ارث یا برنامه‌ریزی دارایی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید'
+    helpDescription: 'هر سؤالی درباره وصیت‌نامه، ارث یا برنامه‌ریزی دارایی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید',
+    modalContent: {
+      title: 'More information on estate and probate law',
+      desktopImage: '/static/cms/areas-of-law/intro-modal-us-estate-desktop.webp',
+      tabletImage: '/static/cms/areas-of-law/intro-modal-us-estate-tablet.webp',
+      mobileImage: '/static/cms/areas-of-law/intro-modal-us-estate-mobile.webp',
+      text: `<p><span style="color: #333333">Estate and probate law deals with the transfer of property and assets after death, including wills, trusts, and the probate process. Understanding these laws ensures your wishes are carried out and your loved ones are protected.</span><br></p>
+<h3>Key estate and probate concepts</h3>
+<ul>
+<li><p><strong>Wills and testaments</strong> - Legal documents that specify how your property should be distributed after death.</p></li>
+<li><p><strong>Trusts</strong> - Legal arrangements that hold assets for beneficiaries, often used to avoid probate or provide for minors.</p></li>
+<li><p><strong>Probate process</strong> - Court-supervised process of validating wills, paying debts, and distributing assets.</p></li>
+<li><p><strong>Intestate succession</strong> - Rules that determine how property is distributed when someone dies without a will.</p></li>
+<li><p><strong>Executor and administrator roles</strong> - Individuals responsible for managing the estate and carrying out the deceased's wishes.</p></li>
+<li><p><strong>Estate taxes</strong> - Federal and state taxes that may apply to large estates before distribution to heirs.</p></li>
+</ul>`
+    }
   },
   'commercial-law': {
     slug: 'commercial-law',
@@ -285,6 +301,22 @@ export const areasOfLawContent = {
     ],
     helpTitle: 'نکته مهم',
     helpDescription: 'اطلاعات ارائه‌شده در این بخش صرفاً جهت افزایش آگاهی عمومی است و مشاوره حقوقی محسوب نمی‌شود. برای تصمیم‌گیری‌های مهم یا اقدامات حقوقی رسمی، توصیه می‌شود حتماً با وکیل متخصص مشورت شود.',
+    modalContent: {
+      title: 'More information on commercial law',
+      desktopImage: '/static/cms/areas-of-law/intro-modal-us-commercial-desktop.webp',
+      tabletImage: '/static/cms/areas-of-law/intro-modal-us-commercial-tablet.webp',
+      mobileImage: '/static/cms/areas-of-law/intro-modal-us-commercial-mobile.webp',
+      text: `<p><span style="color: #333333">US commercial law helps business owners understand their rights and responsibilities when it comes to contracts, compliance, disputes and general operations. Whether you're starting a business, hiring staff or selling products and services, knowing which laws apply can help you make informed decisions and avoid costly mistakes.</span><br></p>
+<h3>Key legislation to consider</h3>
+<ul>
+<li><p><strong>The Uniform Commercial Code</strong> governs business transactions including sales of goods, contract terms, delivery obligations and remedies for breach. It has been adopted in some form by all 50 states.</p></li>
+<li><p><strong>The Federal Trade Commission Act</strong> enforces fair business practices, marketing standards and consumer protection rules across industries.</p></li>
+<li><p><strong>State business laws</strong> set out how to register and manage a company in your state, including LLC or corporation formation, tax ID registration and annual reporting requirements.</p></li>
+<li><p><strong>The Fair Labor Standards Act</strong> outlines minimum wage, overtime pay, employee classification and child labor protections for most private employers in the US.</p></li>
+<li><p><strong>The California Consumer Privacy Act</strong> and similar state privacy laws regulate how businesses collect, store and use customer data. These laws affect businesses that operate online or manage personal information.</p></li>
+<li><p><strong>US contract law</strong>, shaped by state statutes and case law, governs how contracts are formed and enforced. It covers issues like valid agreements, breach of contract and available remedies.</p></li>
+</ul>`
+    }
   },
   'criminal-law': {
     slug: 'criminal-law',
@@ -374,7 +406,23 @@ export const areasOfLawContent = {
       { question: 'چگونه می‌توانم پس از اتهام‌زدن اقدام کنم؟', answer: 'دستیار می‌تواند روند معمول بعد از اتهام‌زدن را شامل مراحل مثل قرار وثیقه، زمان‌های حضور در دادگاه و نحوهٔ آماده‌سازی دفاع توضیح دهد تا در مسیر قانونی بهتر پیش بروید.' }
     ],
     helpTitle: 'توضیح مهم',
-    helpDescription: 'مطالب ارائه‌شده در این بخش صرفاً برای افزایش آگاهی عمومی هستند و جایگزین مشاورهٔ حقوقی تخصصی و قانونی با وکیل متخصص نمی‌شوند. در موارد حقوقی پیچیده یا خاص، توصیه می‌شود با وکیل حرفه‌ای مشورت کنید.'
+    helpDescription: 'مطالب ارائه‌شده در این بخش صرفاً برای افزایش آگاهی عمومی هستند و جایگزین مشاورهٔ حقوقی تخصصی و قانونی با وکیل متخصص نمی‌شوند. در موارد حقوقی پیچیده یا خاص، توصیه می‌شود با وکیل حرفه‌ای مشورت کنید.',
+    modalContent: {
+      title: 'More information on criminal law',
+      desktopImage: '/static/cms/areas-of-law/intro-modal-us-criminal-desktop.webp',
+      tabletImage: '/static/cms/areas-of-law/intro-modal-us-criminal-tablet.webp',
+      mobileImage: '/static/cms/areas-of-law/intro-modal-us-criminal-mobile.webp',
+      text: `<p><span style="color: #333333">US criminal law covers offenses against society and individuals, from minor infractions to serious felonies. Understanding your rights during police encounters, arrest procedures, and court processes can help you navigate the criminal justice system more effectively.</span><br></p>
+<h3>Key criminal law concepts</h3>
+<ul>
+<li><p><strong>Miranda Rights</strong> protect your right to remain silent and have an attorney present during police questioning. Law enforcement must inform you of these rights before custodial interrogation.</p></li>
+<li><p><strong>Reasonable suspicion vs. probable cause</strong> determines when police can stop, frisk, or arrest you. Reasonable suspicion allows brief stops, while probable cause is needed for arrests.</p></li>
+<li><p><strong>Self-defense laws</strong> vary by state but generally allow you to use reasonable force to protect yourself or others from imminent harm.</p></li>
+<li><p><strong>Plea bargaining</strong> allows defendants to negotiate reduced charges or sentences with prosecutors, resulting in most criminal cases being resolved without trial.</p></li>
+<li><p><strong>Double jeopardy protection</strong> prevents someone from being tried twice for the same offense, though this doesn't apply to appeals or civil cases.</p></li>
+<li><p><strong>Statutes of limitations</strong> set time limits for prosecutors to file charges, varying by the severity of the crime.</p></li>
+</ul>`
+    }
   },
   'employment-law': {
     slug: 'employment-law',
@@ -452,7 +500,23 @@ export const areasOfLawContent = {
       { question: 'اطلاعات ارائه‌شده در این بخش صرفاً برای افزایش آگاهی عمومی است و نباید به‌عنوان مشاوره حقوقی تخصصی و رسمی تلقی شود. برای موقعیت‌های پیچیده یا مواردی که نیاز به تحلیل دقیق‌تر دارد، مراجعه به وکیل متخصص ضروری است.', answer: '' }
     ],
     helpTitle: 'کمک به یک مسئله حقوق کار نیاز دارید؟',
-    helpDescription: 'با پرسیدن هر سؤالی درباره مسئله حقوق استخدام خود شروع کنید'
+    helpDescription: 'با پرسیدن هر سؤالی درباره مسئله حقوق استخدام خود شروع کنید',
+    modalContent: {
+      title: 'More information on employment law',
+      desktopImage: '/static/cms/areas-of-law/intro-modal-us-employment-desktop.webp',
+      tabletImage: '/static/cms/areas-of-law/intro-modal-us-employment-tablet.webp',
+      mobileImage: '/static/cms/areas-of-law/intro-modal-us-employment-mobile.webp',
+      text: `<p><span style="color: #333333">US employment law governs the relationship between employers and employees, covering hiring practices, workplace rights, compensation, discrimination, and termination procedures. Understanding these laws helps both employers and employees navigate workplace issues effectively.</span><br></p>
+<h3>Key employment law areas</h3>
+<ul>
+<li><p><strong>Fair Labor Standards Act (FLSA)</strong> establishes minimum wage, overtime pay requirements, and child labor standards for most private and public employees.</p></li>
+<li><p><strong>Title VII of the Civil Rights Act</strong> prohibits employment discrimination based on race, color, religion, sex, or national origin.</p></li>
+<li><p><strong>Age Discrimination in Employment Act (ADEA)</strong> protects workers aged 40 and older from age-based discrimination.</p></li>
+<li><p><strong>Americans with Disabilities Act (ADA)</strong> requires employers to provide reasonable accommodations for employees with disabilities.</p></li>
+<li><p><strong>Family and Medical Leave Act (FMLA)</strong> provides eligible employees with up to 12 weeks of unpaid, job-protected leave for specified family and medical reasons.</p></li>
+<li><p><strong>Workers' Compensation laws</strong> provide medical care and wage replacement for employees injured or who become ill due to their job.</p></li>
+</ul>`
+    }
   },
   'family-law': {
     slug: 'family-law',
@@ -563,7 +627,23 @@ export const areasOfLawContent = {
       }
     ],
     helpTitle: 'کمک به یک مسئله خانوادگی نیاز دارید؟',
-    helpDescription: 'هر سؤالی درباره‌ی طلاق، حضانت، نفقه یا سایر امور خانوادگی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید'
+    helpDescription: 'هر سؤالی درباره‌ی طلاق، حضانت، نفقه یا سایر امور خانوادگی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید',
+    modalContent: {
+      title: 'More information on family law',
+      desktopImage: '/static/cms/areas-of-law/intro-modal-us-family-desktop.webp',
+      tabletImage: '/static/cms/areas-of-law/intro-modal-us-family-tablet.webp',
+      mobileImage: '/static/cms/areas-of-law/intro-modal-us-family-mobile.webp',
+      text: `<p><span style="color: #333333">Family law covers legal relationships between family members, including marriage, divorce, child custody, and support. Understanding family law helps individuals navigate major life changes and protect their rights and those of their loved ones.</span><br></p>
+<h3>Key family law areas</h3>
+<ul>
+<li><p><strong>Marriage and divorce</strong> - Legal requirements for marriage, grounds for divorce, and division of property and debts.</p></li>
+<li><p><strong>Child custody and support</strong> - Determining parental rights and responsibilities, visitation schedules, and financial support for children.</p></li>
+<li><p><strong>Spousal support (alimony)</strong> - Financial support paid by one spouse to another after divorce, based on need and ability to pay.</p></li>
+<li><p><strong>Domestic violence protection</strong> - Restraining orders and legal protections for victims of domestic abuse.</p></li>
+<li><p><strong>Adoption and guardianship</strong> - Legal processes for adopting children or establishing guardianship over incapacitated adults.</p></li>
+<li><p><strong>Prenuptial agreements</strong> - Contracts signed before marriage that specify how assets and debts will be divided in case of divorce.</p></li>
+</ul>`
+    }
   },
   'immigration-law': {
     slug: 'immigration-law',
@@ -669,7 +749,23 @@ export const areasOfLawContent = {
       }
     ],
     helpTitle: 'کمک به یک مسئله مهاجرتی نیاز دارید؟',
-    helpDescription: 'هر پرسشی درباره‌ی ویزا، اقامت یا تابعیت دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید'
+    helpDescription: 'هر پرسشی درباره‌ی ویزا، اقامت یا تابعیت دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید',
+    modalContent: {
+      title: 'More information on immigration law',
+      desktopImage: '/static/cms/areas-of-law/intro-modal-us-immigration-desktop.webp',
+      tabletImage: '/static/cms/areas-of-law/intro-modal-us-immigration-tablet.webp',
+      mobileImage: '/static/cms/areas-of-law/intro-modal-us-immigration-mobile.webp',
+      text: `<p><span style="color: #333333">US immigration law governs who can enter, live, and work in the United States. From visa applications to citizenship, understanding immigration requirements and procedures helps individuals and families navigate the complex immigration system effectively.</span><br></p>
+<h3>Key immigration law concepts</h3>
+<ul>
+<li><p><strong>Visa categories</strong> - Different types of visas for temporary stays, work, study, and family reunification.</p></li>
+<li><p><strong>Green card process</strong> - Permanent residency through employment, family sponsorship, or diversity lottery.</p></li>
+<li><p><strong>Citizenship requirements</strong> - Naturalization process including residency requirements, language proficiency, and civics knowledge.</p></li>
+<li><p><strong>Asylum and refugee status</strong> - Protection for individuals fleeing persecution in their home countries.</p></li>
+<li><p><strong>Deportation proceedings</strong> - Removal process for individuals who violate immigration laws or lose legal status.</p></li>
+<li><p><strong>DACA and TPS</strong> - Temporary protected status programs for certain immigrants from designated countries.</p></li>
+</ul>`
+    }
   },
   'litigation': {
     slug: 'litigation',
@@ -780,7 +876,23 @@ export const areasOfLawContent = {
       }
     ],
     helpTitle: 'کمک به یک مسئله دادخواهی نیاز دارید؟',
-    helpDescription: 'هر پرسشی درباره‌ی اقامه دعوا، دفاع در دادگاه یا اختلافات حقوقی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید'
+    helpDescription: 'هر پرسشی درباره‌ی اقامه دعوا، دفاع در دادگاه یا اختلافات حقوقی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید',
+    modalContent: {
+      title: 'More information on litigation',
+      desktopImage: '/static/cms/areas-of-law/intro-modal-us-litigation-desktop.webp',
+      tabletImage: '/static/cms/areas-of-law/intro-modal-us-litigation-tablet.webp',
+      mobileImage: '/static/cms/areas-of-law/intro-modal-us-litigation-mobile.webp',
+      text: `<p><span style="color: #333333">Litigation is the process of resolving disputes through the court system. Understanding the litigation process, from filing a complaint to trial and appeal, helps individuals and businesses navigate legal conflicts effectively and make informed decisions about whether to settle or proceed to court.</span><br></p>
+<h3>Key litigation concepts</h3>
+<ul>
+<li><p><strong>Pleadings</strong> - Initial court documents including complaints, answers, and motions that define the dispute.</p></li>
+<li><p><strong>Discovery</strong> - The process of exchanging information and evidence between parties before trial.</p></li>
+<li><p><strong>Motions practice</strong> - Requests to the court for rulings on procedural or substantive issues during litigation.</p></li>
+<li><p><strong>Settlement negotiations</strong> - Discussions between parties to resolve disputes without going to trial.</p></li>
+<li><p><strong>Alternative dispute resolution</strong> - Methods like mediation and arbitration that can resolve disputes faster and cheaper than litigation.</p></li>
+<li><p><strong>Appeals process</strong> - The right to challenge trial court decisions in higher courts.</p></li>
+</ul>`
+    }
   },
   'personal-injury-law': {
     slug: 'personal-injury-law',
@@ -891,7 +1003,23 @@ export const areasOfLawContent = {
       }
     ],
     helpTitle: 'کمک به یک مسئله صدمات شخصی نیاز دارید؟',
-    helpDescription: 'هر پرسشی درباره‌ی حقوق خود پس از یک حادثه دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید'
+    helpDescription: 'هر پرسشی درباره‌ی حقوق خود پس از یک حادثه دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید',
+    modalContent: {
+      title: 'More information on personal injury law',
+      desktopImage: '/static/cms/areas-of-law/intro-modal-us-personal-injury-desktop.webp',
+      tabletImage: '/static/cms/areas-of-law/intro-modal-us-personal-injury-tablet.webp',
+      mobileImage: '/static/cms/areas-of-law/intro-modal-us-personal-injury-mobile.webp',
+      text: `<p><span style="color: #333333">US personal injury law allows individuals harmed by the negligence or intentional actions of others to seek compensation for medical expenses, lost wages, pain and suffering, and other damages. Understanding your rights after an accident is crucial for protecting your interests.</span><br></p>
+<h3>Key personal injury law concepts</h3>
+<ul>
+<li><p><strong>Negligence</strong> - The failure to exercise reasonable care that results in harm to another person.</p></li>
+<li><p><strong>Comparative fault</strong> - A system where damages are reduced based on the injured person's percentage of fault.</p></li>
+<li><p><strong>Statute of limitations</strong> - Time limits for filing personal injury claims, varying by state and injury type.</p></li>
+<li><p><strong>Pain and suffering</strong> - Non-economic damages for physical and emotional distress caused by the injury.</p></li>
+<li><p><strong>Wrongful death claims</strong> - Lawsuits filed by family members when a loved one dies due to another's negligence.</p></li>
+<li><p><strong>Product liability</strong> - Legal responsibility for injuries caused by defective products.</p></li>
+</ul>`
+    }
   },
   'property-law': {
     slug: 'property-law',
@@ -992,7 +1120,23 @@ export const areasOfLawContent = {
       }
     ],
     helpTitle: 'کمک به یک مسئله املاک نیاز دارید؟',
-    helpDescription: 'هر پرسشی درباره‌ی حقوق خود در امور ملکی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید'
+    helpDescription: 'هر پرسشی درباره‌ی حقوق خود در امور ملکی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید',
+    modalContent: {
+      title: 'More information on property law',
+      desktopImage: '/static/cms/areas-of-law/intro-modal-us-property-desktop.webp',
+      tabletImage: '/static/cms/areas-of-law/intro-modal-us-property-tablet.webp',
+      mobileImage: '/static/cms/areas-of-law/intro-modal-us-property-mobile.webp',
+      text: `<p><span style="color: #333333">US property law governs ownership, transfer, and use of real property (land and buildings) and personal property (movable assets). Understanding property rights and legal procedures helps protect your assets and navigate transactions effectively.</span><br></p>
+<h3>Key property law concepts</h3>
+<ul>
+<li><p><strong>Real property vs. personal property</strong> - Real property includes land and permanently attached structures, while personal property includes movable items.</p></li>
+<li><p><strong>Property ownership types</strong> include fee simple (complete ownership), life estate (ownership for life), and leasehold (temporary ownership through lease).</p></li>
+<li><p><strong>Deeds and titles</strong> - Legal documents that transfer ownership and provide evidence of property rights.</p></li>
+<li><p><strong>Easements and rights-of-way</strong> - Legal rights to use someone else's property for specific purposes.</p></li>
+<li><p><strong>Zoning and land use regulations</strong> - Local laws that control how property can be used and developed.</p></li>
+<li><p><strong>Property taxes and assessments</strong> - Annual taxes based on property value, used to fund local government services.</p></li>
+</ul>`
+    }
   },
 };
 

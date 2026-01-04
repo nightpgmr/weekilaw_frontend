@@ -199,7 +199,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0e5fe3, #5ca4ff);
+  background: linear-gradient(135deg, #03377B, #5ca4ff);
   color: #ffffff;
   display: inline-flex;
   align-items: center;
@@ -221,7 +221,7 @@
 
 .chat-modal_status {
   font-size: 12px;
-  color: #0e5fe3;
+  color: #03377B;
   font-weight: 600;
 }
 
@@ -257,7 +257,7 @@
   height: 44px;
   border-radius: 50%;
   background: #e6efff;
-  color: #0e5fe3;
+  color: #03377B;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -277,9 +277,9 @@
 }
 
 .chat-modal_message.is-user .chat-modal_bubble {
-  background: #0e5fe3;
+  background: #03377B;
   color: #ffffff;
-  border-color: #0e5fe3;
+  border-color: #03377B;
 }
 
 .chat-modal_inputBar {

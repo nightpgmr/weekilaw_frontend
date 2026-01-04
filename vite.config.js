@@ -10,7 +10,7 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'https://panel.weekila.com',
+        target: 'https://panel.weekilaw.com',
         changeOrigin: true,
         secure: true,
       }

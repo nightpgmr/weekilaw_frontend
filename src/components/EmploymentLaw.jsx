@@ -1,10 +1,13 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageLayout from './PageLayout.jsx';
+import SummaryModal from './SummaryModal.jsx';
+import { areasOfLawContent as areas } from '../data/areas.js';
 
 const EmploymentLaw = () => {
   const navigate = useNavigate();
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [heroStep, setHeroStep] = useState(0);
   const [showFixedChat, setShowFixedChat] = useState(false);
@@ -34,6 +37,9 @@ const EmploymentLaw = () => {
   const moreInfoText = 'خلاصه سریع درباره قانون استخدام';
   const moreInfoHref = '/en-us/employment-law/summary';
   const introImage = '/assets/intro-employment.webp';
+
+  const areaData = areas['employment-law'];
+  const modalContent = areaData.modalContent;
   const subcategoriesTitle = 'پاسخ به مسائل حقوق استخدام';
   const subcategoriesDescription = 'دستیار هوش مصنوعی می‌تواند در موارد متعدد مرتبط با حقوق کار به شما کمک کند، از جمله:';
   const subCategories = [
@@ -428,7 +434,7 @@ const EmploymentLaw = () => {
                       <div className="intro_moreInfoText">MORE INFO</div>
                     </div>
                     <div className="intro_moreInfoLinkContainer">
-                      <a href={moreInfoHref} className="intro_categoryActionContainer">
+                      <a onClick={() => setIsModalOpen(true)} className="intro_categoryActionContainer" style={{cursor: 'pointer'}}>
                         <span className="intro_categoryActionText">{moreInfoText}</span>
                         <div className="intro_categoryArrowContainer">
                           <img
@@ -797,6 +803,11 @@ const EmploymentLaw = () => {
         </div>
 
       </div>
+      <SummaryModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        content={modalContent}
+      />
     </PageLayout>
   );
 };

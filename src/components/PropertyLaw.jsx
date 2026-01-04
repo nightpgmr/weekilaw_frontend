@@ -1,10 +1,13 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageLayout from './PageLayout.jsx';
+import SummaryModal from './SummaryModal.jsx';
+import { areasOfLawContent as areas } from '../data/areas.js';
 
 const PropertyLaw = () => {
   const navigate = useNavigate();
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [heroStep, setHeroStep] = useState(0);
   const [showFixedChat, setShowFixedChat] = useState(false);
@@ -34,6 +37,9 @@ const PropertyLaw = () => {
   const moreInfoText = 'مروری سریع بر قانون املاک در نظام حقوقی ایران';
   const moreInfoHref = '/en-us/property-law/summary';
   const introImage = '/assets/intro-property.webp';
+
+  const areaData = areas['property-law'];
+  const modalContent = areaData.modalContent;
   const subcategoriesTitle = 'چه مسائل حقوق املاک می‌تواند دستیار حقوقی هوش مصنوعی ما به شما کمک کند';
   const subcategoriesDescription = 'دستیار حقوقی هوش مصنوعی ما آموزش دیده است تا در طیف وسیعی از مسائل حقوق املاک کمک کند. در اینجا زمینه‌های اصلی که می‌تواند پشتیبانی فوری ارائه دهد آورده شده است:';
   const subCategories = [
@@ -441,7 +447,7 @@ const PropertyLaw = () => {
                       <div className="intro_moreInfoText">MORE INFO</div>
                     </div>
                     <div className="intro_moreInfoLinkContainer">
-                      <a href={moreInfoHref} className="intro_categoryActionContainer">
+                      <a onClick={() => setIsModalOpen(true)} className="intro_categoryActionContainer" style={{cursor: 'pointer'}}>
                         <span className="intro_categoryActionText">{moreInfoText}</span>
                         <div className="intro_categoryArrowContainer">
                           <img
@@ -810,6 +816,11 @@ const PropertyLaw = () => {
         </div>
 
       </div>
+      <SummaryModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        content={modalContent}
+      />
     </PageLayout>
   );
 };

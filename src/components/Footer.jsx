@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="style-module__footer">
       <div className="style-module__widthWrapper">
-        <div className="style-module__logoContainer style-module__large">
+        <div className="style-module__logoContainer style-module__large" style={{display: 'flex', justifyContent: 'space-between'}}>
           <a href="/" className="style-module__logo">
             <img 
               width="202" 
@@ -15,66 +15,12 @@ const Footer = () => {
               src="/assets/logo-icon.png" 
             />
           </a>
-          <div className="style-module__headerLanguageSelector">
-            <div className="style-module__countryLanguageSelector">
-              <div className="style-module__clickableWrapper">
-                <div className="style-module__icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="#666666" xmlns="http://www.w3.org/2000/svg">
-                    <g clipPath="url(#clip0_36_1915)">
-                      <path d="M11.8839 24.0007C5.09198 23.8856 -0.282071 18.4079 0.011478 11.3781C0.280085 4.94307 5.67716 -0.237198 12.4403 0.00838562C18.9175 0.244376 24.0921 5.46302 23.9635 12.347C23.8426 18.7974 18.505 24.0046 11.8839 23.9988V24.0007ZM1.61352 9.01438C1.52911 9.2427 1.46963 9.35782 1.44277 9.47869C0.679157 13.0051 1.38713 16.2169 3.69714 18.9797C7.10845 23.0568 13.0811 24.0966 17.6302 21.2878C17.9467 21.0921 18.0657 20.8964 18.0331 20.5261C17.9371 19.467 18.1942 18.5115 18.9291 17.6981C19.1478 17.4563 19.3473 17.157 19.4452 16.8481C19.8097 15.7065 19.7157 14.3923 18.0273 14.2829C17.5534 14.2522 17.0833 14.1371 16.619 14.0258C15.0784 13.6594 14.3378 12.4218 14.7023 10.885C15.0112 9.58038 15.7825 8.59804 16.809 7.78839C17.728 7.06507 18.7199 6.79838 19.8327 7.32984C20.0476 7.43152 20.2683 7.53129 20.4966 7.59652C20.9743 7.73083 21.4578 7.84019 21.9931 7.97257C21.0913 4.36557 15.2818 0.451587 12.0662 1.20752C12.0815 1.29578 12.0949 1.38595 12.1122 1.47613C12.4134 3.18754 11.6997 4.43464 10.0152 4.91429C9.15178 5.15988 8.22125 5.1618 7.33485 5.33447C6.52903 5.48988 5.72896 5.69709 4.94425 5.94075C4.53942 6.06546 4.33029 6.42425 4.27657 6.85594C4.14418 7.88623 4.85599 8.83979 5.87861 8.98177C6.2892 9.03932 6.7017 9.08153 7.1142 9.10456C8.04282 9.15636 8.77189 9.54968 9.2362 10.3593C9.75039 11.2592 10.4085 12.0055 11.2661 12.6022C12.0374 13.1394 12.4518 13.8934 12.2139 14.8738C11.9568 15.9387 11.3448 16.7234 10.2281 16.8826C9.24579 17.0208 8.62224 17.5542 8.08694 18.3139C7.73008 18.8185 7.34828 19.3174 6.91275 19.7529C6.39856 20.2671 5.72896 20.2402 5.26082 19.728C5.05169 19.4977 4.87326 19.2157 4.75622 18.926C4.38593 18.0108 4.23244 17.0592 4.41663 16.0711C4.54326 15.39 4.41663 14.7741 3.9504 14.2426C3.78156 14.0508 3.62807 13.8474 3.47075 13.6478C3.05057 13.1164 2.6726 12.5638 2.71865 11.8405C2.78772 10.7584 2.19103 9.94491 1.61161 9.01055L1.61352 9.01438Z"></path>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_36_1915">
-                        <rect width="23.9655" height="24" fill="white"></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-                <div className="style-module__language">
-                  ایران
-                  <div className="style-module__selectorWrapper">
-                    <div className="style-module__selector">
-                      <div className="style-module__languages">
-                        <div className="style-module__languageName style-module__active">
-                          آمریکا
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M14.5 3.5C14.5 3.22386 14.2761 3 14 3C13.8608 3 13.7348 3.0569 13.6442 3.14872L5.00004 11.7929L2.35359 9.14642C2.26311 9.05594 2.13807 9 2 9C1.72386 9 1.5 9.22386 1.5 9.5C1.5 9.64045 1.55791 9.76737 1.65115 9.85819L4.64181 12.8489C4.73264 12.9421 4.85956 13 5 13C5.13809 13 5.2631 12.944 5.35358 12.8535L14.3536 3.85353C14.4441 3.76305 14.5 3.63806 14.5 3.5Z" fill="#666666"></path>
-                          </svg>
-                        </div>
-                        <div className="style-module__languageName">استرالیا</div>
-                        <div className="style-module__languageName">بلژیک</div>
-                        <div className="style-module__languageName">برزیل</div>
-                        <div className="style-module__languageName">کانادا (انگلیسی)</div>
-                        <div className="style-module__languageName">کانادا (فرانسوی)</div>
-                        <div className="style-module__languageName">دانمارک</div>
-                        <div className="style-module__languageName">آلمان</div>
-                        <div className="style-module__languageName">اسپانیا</div>
-                        <div className="style-module__languageName">فرانسه</div>
-                        <div className="style-module__languageName">ایرلند</div>
-                        <div className="style-module__languageName">ایتالیا</div>
-                        <div className="style-module__languageName">هلند</div>
-                        <div className="style-module__languageName">نیوزیلند</div>
-                        <div className="style-module__languageName">انگلستان</div>
-                        <div className="style-module__languageName">USA (Español)</div>
-                        <div className="style-module__languageName">भारत</div>
-                        <div className="style-module__languageName">ভারত</div>
-                        <div className="style-module__languageName">대한민국</div>
-                        <div className="style-module__languageName">日本</div>
-                        <div className="style-module__languageName">简体中文</div>
-                        <div className="style-module__languageName">香港</div>
-                      </div>
-                    </div>
-                    <div className="style-module__bottomGradient" style={{opacity: 1}}></div>
-                  </div>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
-                  <path d="M13.6118 5.14644C13.7023 5.05596 13.8273 5 13.9653 5C14.2415 5 14.4653 5.22386 14.4653 5.5C14.4653 5.64045 14.4074 5.76737 14.3142 5.85819L9.32353 10.8489C9.2327 10.9421 9.10578 11 8.96533 11C8.82488 11 8.69796 10.9421 8.60714 10.8489L3.61648 5.85819C3.52324 5.76737 3.46533 5.64045 3.46533 5.5C3.46533 5.22386 3.68919 5 3.96533 5C4.1034 5 4.2284 5.05596 4.31888 5.14644L8.96533 9.79283L13.6118 5.14644Z" fill="#666666"></path>
-                </svg>
-              </div>
-            </div>
+            <a referrerPolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=681149&Code=fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" style={{display: 'inline-block', marginRight: '20px'}}>
+              <img referrerPolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=681149&Code=fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" alt="نشان اعتماد الکترونیکی" style={{height: '50px', width: 'auto', cursor: 'pointer'}} code="fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" />
+            </a>
           </div>
         </div>
-        <div className="style-module__gridContainer style-module__large">
+        <div className="style-module__gridContainer style-module__large" style={{ margin: '60px 0' }}>
           <div className="style-module__column">
             <div className="style-module__headerLabel">مرور</div>
             <a href="/chat" className="style-module__menuItem style-module__askQuestion">
@@ -89,7 +35,7 @@ const Footer = () => {
             </a>
             <a href="/en-us/library" className="style-module__menuItem">زمینه‌های حقوقی</a>
             <a href="/en-us/about" className="style-module__menuItem">درباره</a>
-            <a href="/en-us/for-lawyers/legal-network" className="style-module__menuItem">برای وکلا</a>
+            <a href="/en-us/about/legal-network" className="style-module__menuItem">برای وکلا</a>
             <a href="/account" className="style-module__menuItem">حساب کاربری</a>
           </div>
           <div className="style-module__column">
@@ -144,64 +90,6 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            <div className="style-module__languageSelectorContainer">
-              <div className="style-module__countryLanguageSelector">
-                <div className="style-module__clickableWrapper">
-                  <div className="style-module__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#666666" xmlns="http://www.w3.org/2000/svg">
-                      <g clipPath="url(#clip0_36_1915)">
-                        <path d="M11.8839 24.0007C5.09198 23.8856 -0.282071 18.4079 0.011478 11.3781C0.280085 4.94307 5.67716 -0.237198 12.4403 0.00838562C18.9175 0.244376 24.0921 5.46302 23.9635 12.347C23.8426 18.7974 18.505 24.0046 11.8839 23.9988V24.0007ZM1.61352 9.01438C1.52911 9.2427 1.46963 9.35782 1.44277 9.47869C0.679157 13.0051 1.38713 16.2169 3.69714 18.9797C7.10845 23.0568 13.0811 24.0966 17.6302 21.2878C17.9467 21.0921 18.0657 20.8964 18.0331 20.5261C17.9371 19.467 18.1942 18.5115 18.9291 17.6981C19.1478 17.4563 19.3473 17.157 19.4452 16.8481C19.8097 15.7065 19.7157 14.3923 18.0273 14.2829C17.5534 14.2522 17.0833 14.1371 16.619 14.0258C15.0784 13.6594 14.3378 12.4218 14.7023 10.885C15.0112 9.58038 15.7825 8.59804 16.809 7.78839C17.728 7.06507 18.7199 6.79838 19.8327 7.32984C20.0476 7.43152 20.2683 7.53129 20.4966 7.59652C20.9743 7.73083 21.4578 7.84019 21.9931 7.97257C21.0913 4.36557 15.2818 0.451587 12.0662 1.20752C12.0815 1.29578 12.0949 1.38595 12.1122 1.47613C12.4134 3.18754 11.6997 4.43464 10.0152 4.91429C9.15178 5.15988 8.22125 5.1618 7.33485 5.33447C6.52903 5.48988 5.72896 5.69709 4.94425 5.94075C4.53942 6.06546 4.33029 6.42425 4.27657 6.85594C4.14418 7.88623 4.85599 8.83979 5.87861 8.98177C6.2892 9.03932 6.7017 9.08153 7.1142 9.10456C8.04282 9.15636 8.77189 9.54968 9.2362 10.3593C9.75039 11.2592 10.4085 12.0055 11.2661 12.6022C12.0374 13.1394 12.4518 13.8934 12.2139 14.8738C11.9568 15.9387 11.3448 16.7234 10.2281 16.8826C9.24579 17.0208 8.62224 17.5542 8.08694 18.3139C7.73008 18.8185 7.34828 19.3174 6.91275 19.7529C6.39856 20.2671 5.72896 20.2402 5.26082 19.728C5.05169 19.4977 4.87326 19.2157 4.75622 18.926C4.38593 18.0108 4.23244 17.0592 4.41663 16.0711C4.54326 15.39 4.41663 14.7741 3.9504 14.2426C3.78156 14.0508 3.62807 13.8474 3.47075 13.6478C3.05057 13.1164 2.6726 12.5638 2.71865 11.8405C2.78772 10.7584 2.19103 9.94491 1.61161 9.01055L1.61352 9.01438Z"></path>
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_36_1915">
-                          <rect width="23.9655" height="24" fill="white"></rect>
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </div>
-                  <div className="style-module__language">
-                    USA
-                    <div className="style-module__selectorWrapper">
-                      <div className="style-module__selector">
-                        <div className="style-module__languages">
-                          <div className="style-module__languageName style-module__active">
-                            ایران
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                              <path d="M14.5 3.5C14.5 3.22386 14.2761 3 14 3C13.8608 3 13.7348 3.0569 13.6442 3.14872L5.00004 11.7929L2.35359 9.14642C2.26311 9.05594 2.13807 9 2 9C1.72386 9 1.5 9.22386 1.5 9.5C1.5 9.64045 1.55791 9.76737 1.65115 9.85819L4.64181 12.8489C4.73264 12.9421 4.85956 13 5 13C5.13809 13 5.2631 12.944 5.35358 12.8535L14.3536 3.85353C14.4441 3.76305 14.5 3.63806 14.5 3.5Z" fill="#666666"></path>
-                            </svg>
-                          </div>
-                          <div className="style-module__languageName">استرالیا</div>
-                          <div className="style-module__languageName">بلژیک</div>
-                          <div className="style-module__languageName">برزیل</div>
-                          <div className="style-module__languageName">کانادا (انگلیسی)</div>
-                          <div className="style-module__languageName">کانادا (فرانسوی)</div>
-                          <div className="style-module__languageName">دانمارک</div>
-                          <div className="style-module__languageName">آلمان</div>
-                          <div className="style-module__languageName">اسپانیا</div>
-                          <div className="style-module__languageName">فرانسه</div>
-                          <div className="style-module__languageName">ایرلند</div>
-                          <div className="style-module__languageName">ایتالیا</div>
-                          <div className="style-module__languageName">هلند</div>
-                          <div className="style-module__languageName">نیوزیلند</div>
-                          <div className="style-module__languageName">انگلستان</div>
-                          <div className="style-module__languageName">USA (Español)</div>
-                          <div className="style-module__languageName">भारत</div>
-                          <div className="style-module__languageName">ভারত</div>
-                          <div className="style-module__languageName">대한민국</div>
-                          <div className="style-module__languageName">日本</div>
-                          <div className="style-module__languageName">简体中文</div>
-                          <div className="style-module__languageName">香港</div>
-                        </div>
-                      </div>
-                      <div className="style-module__bottomGradient" style={{opacity: 1}}></div>
-                    </div>
-                  </div>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
-                    <path d="M13.6118 5.14644C13.7023 5.05596 13.8273 5 13.9653 5C14.2415 5 14.4653 5.22386 14.4653 5.5C14.4653 5.64045 14.4074 5.76737 14.3142 5.85819L9.32353 10.8489C9.2327 10.9421 9.10578 11 8.96533 11C8.82488 11 8.69796 10.9421 8.60714 10.8489L3.61648 5.85819C3.52324 5.76737 3.46533 5.64045 3.46533 5.5C3.46533 5.22386 3.68919 5 3.96533 5C4.1034 5 4.2284 5.05596 4.31888 5.14644L8.96533 9.79283L13.6118 5.14644Z" fill="#666666"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
           </div>
           <div className="style-module__copyright">
             <div>حق انتشار © {new Date().getFullYear()} LEAP Legal Software.</div>
@@ -213,7 +101,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
     </footer>
   );
 };

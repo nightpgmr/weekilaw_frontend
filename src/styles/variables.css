@@ -8,8 +8,8 @@
   --inner-content-max-width:1200px;
   --standard-max-width:1200px;
   --library-content-width:1120px;
-  --primary-color:#0070f3;
-  --secondary-color:#1a202c;
+ --primary-color:#03377B;
+ --secondary-color:#FDB913;
   --background-color:#ffffff;
   --text-color:#333333;
   --white:#ffffff;
@@ -21,18 +21,18 @@
   --brand-midnight:#191919;
   --brand-steel:#b0b7bd;
   --faded-midnight:rgba(25, 25, 25, 0.5);
-  --ui-blue:#0e5fe3;
+  --ui-blue:#03377B;
   --ui-green:#0b8124;
   --error-red:#bb1600;
   --warning-yellow:#ff9500;
   --success-green:#0b8124;
   --faded-light-greyish-blue:rgb(246, 247, 248, 0.5);
-  --light-purple:#b78fe2;
-  --lawyer-request-purple:#c8b2f9;
-  --lawyer-request-purple-faded:rgba(200, 178, 249, 0.89804);
-  --brand-dark-purple:#8b60ea;
-  --ui-blue-hover:#0056b3;
-  --brand-dark-blue:#0a49af;
+  --light-purple:#FDB913;
+  --lawyer-request-purple:#FDB913;
+  --lawyer-request-purple-faded:rgba(253, 185, 19, 0.89804);
+  --brand-dark-purple:#FDB913;
+  --ui-blue-hover:#02255A;
+  --brand-dark-blue:#03377B;
   --light-error:#ffeeec;
   --light-warning:#fff7ec;
   --light-success:#efffef;
@@ -107,7 +107,7 @@
   --chat-input-background-color:rgba(255, 255, 255, 0.69804);
   --chat-input-background-blur-color:rgba(248, 247, 243, 0.69804);
   --chat-input-attach-color:#cccccc;
-  --chat-sender-background-color:#0e5fe3;
+  --chat-sender-background-color:#03377B;
   --chat-sender-font-color:#ffffff;
   --chat-sender-dark-background-color:#162845
 }
@@ -149,7 +149,7 @@ body {
   -webkit-overflow-scrolling:touch
 }
 a {
-  color:#0e5fe3;
+  color:#03377B;
   color:var(--ui-blue);
   -webkit-text-decoration:none;
   text-decoration:none;

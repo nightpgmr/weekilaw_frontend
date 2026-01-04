@@ -248,7 +248,7 @@
 
 ._inputContainer_ky9b5_142 input:focus {
   outline: none;
-  border-color: #0e5fe3;
+  border-color: #03377B;
 }
 
 ._inputContainer_ky9b5_142 input[readonly] {
@@ -304,8 +304,8 @@
 
 ._actionButton_ky9b5_400 {
   background: transparent;
-  border: 2px solid #0e5fe3;
-  color: #0e5fe3;
+  border: 2px solid #03377B;
+  color: #03377B;
   padding: 12px 24px;
   border-radius: 50px;
   font-weight: 600;
@@ -319,7 +319,7 @@
 }
 
 ._actionButton_ky9b5_400:hover {
-  background-color: #0e5fe3;
+  background-color: #03377B;
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(14, 95, 227, 0.3);
@@ -386,7 +386,7 @@
 }
 
 .styles-module__switchButton___NHGRe.styles-module__on___erMrQ {
-  background-color: #0e5fe3;
+  background-color: #03377B;
 }
 
 .styles-module__switchButtonCircle___rU-H4 {

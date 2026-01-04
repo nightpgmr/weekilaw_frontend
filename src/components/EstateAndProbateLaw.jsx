@@ -1,10 +1,13 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageLayout from './PageLayout.jsx';
+import SummaryModal from './SummaryModal.jsx';
+import { areasOfLawContent as areas } from '../data/areas.js';
 
 const EstateAndProbateLaw = () => {
   const navigate = useNavigate();
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [heroStep, setHeroStep] = useState(0);
   const [showFixedChat, setShowFixedChat] = useState(false);
@@ -29,6 +32,9 @@ const EstateAndProbateLaw = () => {
   const moreInfoText = 'خلاصه‌ای از قوانین وصیت، ارث و میراث در ایران';
   const moreInfoHref = '/en-us/estate-and-probate-law/summary';
   const introImage = '/assets/intro-estate-probate.webp';
+
+  const areaData = areas['estate-and-probate-law'];
+  const modalContent = areaData.modalContent;
   const subcategoriesTitle = 'چه مسائل وصیت‌نامه، ارث و میراث می‌تواند دستیار حقوقی هوش مصنوعی ما به شما کمک کند';
   const subcategoriesDescription = 'دستیار حقوقی هوش مصنوعی ما آموزش دیده است تا در طیف وسیعی از مسائل وصیت‌نامه، ارث و برنامه‌ریزی دارایی کمک کند. در اینجا زمینه‌های اصلی که می‌تواند پشتیبانی فوری ارائه دهد آورده شده است:';
   const subCategories = [
@@ -452,7 +458,7 @@ const EstateAndProbateLaw = () => {
                       <div className="intro_moreInfoText">MORE INFO</div>
                     </div>
                     <div className="intro_moreInfoLinkContainer">
-                      <a href={moreInfoHref} className="intro_categoryActionContainer">
+                      <a onClick={() => setIsModalOpen(true)} className="intro_categoryActionContainer" style={{cursor: 'pointer'}}>
                         <span className="intro_categoryActionText">{moreInfoText}</span>
                         <div className="intro_categoryArrowContainer">
                           <img 
@@ -821,6 +827,11 @@ const EstateAndProbateLaw = () => {
         </div>
 
       </div>
+      <SummaryModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        content={modalContent}
+      />
     </PageLayout>
   );
 };

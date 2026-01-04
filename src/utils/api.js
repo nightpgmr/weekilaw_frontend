@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://panel.weekila.com';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://panel.weekilaw.com';
 const API_URL = `${API_BASE_URL}/api`;
 
 // API Endpoints

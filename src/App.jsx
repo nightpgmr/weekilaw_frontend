@@ -23,6 +23,9 @@ import ChatPage from './components/ChatPage.jsx';
 import AccountPage from './components/AccountPage.jsx';
 import SettingsPage from './components/SettingsPage.jsx';
 import FAQs from './components/FAQs.jsx';
+import Library from './components/Library.jsx';
+import About from './components/About.jsx';
+import Insights from './components/Insights.jsx';
 
 function App() {
   return (
@@ -52,6 +55,9 @@ function App() {
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/chat/:chatId" element={<ChatPage />} />
+          <Route path="/en-us/library" element={<Library />} />
+          <Route path="/en-us/about" element={<About />} />
+          <Route path="/en-us/insights" element={<Insights />} />
           <Route path="/faqs" element={<FAQs />} />
         </Routes>
       </div>
