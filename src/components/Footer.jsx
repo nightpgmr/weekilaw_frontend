@@ -16,7 +16,7 @@ const Footer = () => {
             />
           </a>
             <a referrerPolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=681149&Code=fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" style={{display: 'inline-block', marginRight: '20px'}}>
-              <img referrerPolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=681149&Code=fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" alt="نشان اعتماد الکترونیکی" style={{height: '50px', width: 'auto', cursor: 'pointer'}} code="fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" />
+              <img referrerPolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=681149&Code=fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" alt="نشان اعتماد الکترونیکی" style={{height: '100px', width: 'auto', cursor: 'pointer'}} code="fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" />
             </a>
           </div>
         </div>
