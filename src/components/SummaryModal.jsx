@@ -12,7 +12,7 @@ const SummaryModal = ({ isOpen, onClose, content }) => {
   return (
     <div className="intro-modal_modalOverlay__NWqo3" onClick={handleOverlayClick}>
       <div className="intro-modal_modalContent__rS1BA">
-        <div className="intro-modal_modalContentContainer__3O9ST" style={{ display: 'flex', maxHeight: '60vh' ,overflowY: 'hidden'}}>
+        <div className="intro-modal_modalContentContainer__3O9ST" style={{ display: 'flex', maxHeight: '80vh' ,overflowY: 'hidden'}}>
           {content.desktopImage && (
             <div className="intro-modal_modalDesktopImageContainer__vG73V">
               <img
@@ -38,7 +38,7 @@ const SummaryModal = ({ isOpen, onClose, content }) => {
                     height="0"
                     decoding="async"
                     className="intro-modal_infoIcon__w04cQ"
-                    src="/static/icons/light-bulb.svg"
+                    src="/assets/light-bulb.svg"
                     style={{ color: 'transparent' }}
                   />
                 </div>

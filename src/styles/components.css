@@ -5576,7 +5576,7 @@ to {
   display:flex;
   justify-content:space-between;
   width:100%;
-  padding:14px 20px
+  padding:14px 10px
 }
 .styles-module__areasMenuModal .styles-module__closeWrapper .styles-module__closeButton {
   cursor:pointer;
@@ -5596,7 +5596,7 @@ to {
   transform:rotate(-90deg)
 }
 .styles-module__areasMenuModal .styles-module__modalContent {
-  padding:40px 20px;
+  padding:40px 10px;
   display:flex;
   flex-direction:column;
   gap:20px
@@ -5604,7 +5604,8 @@ to {
 .styles-module__areasMenuModal .styles-module__modalContent .styles-module__areasList {
   display:flex;
   flex-direction:column;
-  gap:10px
+  gap:10px;
+  width: 100% !important;
 }
 .styles-module__areasMenuModal .styles-module__modalContent .styles-module__areasList .styles-module__areaItem {
   padding:10px 20px 16px
@@ -11464,6 +11465,7 @@ to {
 
 .intro-modal_modalContentWrapper__W2M0H {
   padding: 24px;
+  flex: 3;
 }
 
 .intro-modal_modalBody___B1CF {
@@ -11597,7 +11599,8 @@ to {
 
   .intro-modal_modalDesktopImageContainer__vG73V {
     display: block;
-    margin-bottom: 24px;
+    margin-bottom: 0px;
+    flex: 1;
   }
 
   .intro-modal_desktop__8tqEF {

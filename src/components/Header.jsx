@@ -10,6 +10,9 @@ const Header = ({ scrollElement }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState(null);
   const [showHelpModal, setShowHelpModal] = useState(false);
+  const [showAreasModal, setShowAreasModal] = useState(false);
+  const [showAboutModal, setShowAboutModal] = useState(false);
+  const [showLawyersModal, setShowLawyersModal] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Check authentication status on component mount and when localStorage changes
@@ -95,6 +98,9 @@ const Header = ({ scrollElement }) => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     setMobileSubMenu(null);
+    setShowAreasModal(false);
+    setShowAboutModal(false);
+    setShowLawyersModal(false);
   };
 
   const handleMobileSubMenu = (menu) => {
@@ -104,6 +110,9 @@ const Header = ({ scrollElement }) => {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
     setMobileSubMenu(null);
+    setShowAreasModal(false);
+    setShowAboutModal(false);
+    setShowLawyersModal(false);
   };
 
   useEffect(() => {
@@ -193,106 +202,28 @@ const Header = ({ scrollElement }) => {
             </div>
 
             {/* Areas of Law */}
-            <div className="styles-module__mainMenuLink" onClick={() => handleMobileSubMenu('areas')}>
+            <div className="styles-module__mainMenuLink" onClick={() => setShowAreasModal(true)}>
               <span>زمینه‌های حقوقی</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
                 <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
               </svg>
             </div>
-            {mobileSubMenu === 'areas' && (
-              <div className="styles-module__menuLinksContainer styles-module__subCategories">
-                {areasOfLaw.map((area, index) => (
-                  <Link
-                    key={index}
-                    to={`/en-us/${area.slug}`}
-                    className="styles-module__subMenuLink"
-                    onClick={closeMobileMenu}
-                  >
-                    <span>{area.title}</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
-                      <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
-                    </svg>
-                  </Link>
-                ))}
-              </div>
-            )}
 
             {/* About */}
-            <div className="styles-module__mainMenuLink" onClick={() => handleMobileSubMenu('about')}>
+            <div className="styles-module__mainMenuLink" onClick={() => setShowAboutModal(true)}>
               <span>درباره</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
                 <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
               </svg>
             </div>
-            {mobileSubMenu === 'about' && (
-              <div className="styles-module__menuLinksContainer styles-module__subCategories">
-                {aboutItems.map((item, index) => {
-                  const isInternal = !!item.to;
-                  if (isInternal) {
-                    return (
-                      <Link
-                        key={index}
-                        to={item.to}
-                        className="styles-module__subMenuLink"
-                        onClick={closeMobileMenu}
-                      >
-                        <span>{item.title}</span>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
-                          <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
-                        </svg>
-                      </Link>
-                    );
-                  }
-                  return (
-                    <a
-                      key={index}
-                      href={item.href}
-                      className="styles-module__subMenuLink"
-                      onClick={closeMobileMenu}
-                    >
-                      <span>{item.title}</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
-                        <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
-                      </svg>
-                    </a>
-                  );
-                })}
-              </div>
-            )}
 
             {/* For Lawyers */}
-            <div className="styles-module__mainMenuLink" onClick={() => handleMobileSubMenu('lawyers')}>
+            <div className="styles-module__mainMenuLink" onClick={() => setShowLawyersModal(true)}>
               <span>برای وکلا</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
                 <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
               </svg>
             </div>
-            {mobileSubMenu === 'lawyers' && (
-              <div className="styles-module__menuLinksContainer styles-module__subCategories">
-                <Link
-                  to="/en-us/about/legal-network"
-                  className="styles-module__subMenuLink"
-                  onClick={closeMobileMenu}
-                >
-                  <span>شبکه حقوقی ما</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
-                    <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
-                  </svg>
-                </Link>
-                <Link
-                  to="/en-us/for-lawyers/sign-up"
-                  className="styles-module__subMenuLink"
-                  onClick={closeMobileMenu}
-                >
-                  <span>ثبت نام</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
-                    <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
-                  </svg>
-                </Link>
-              </div>
-            )}
-
-            {/* Account */}
             <div className="styles-module__mainMenuLink" onClick={() => { closeMobileMenu(); handleAccountClick(); }}>
               <span>حساب کاربری</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
@@ -609,6 +540,93 @@ const Header = ({ scrollElement }) => {
                 </div>
               </div>
               <div className="styles-module__mobileBGIcon"></div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Areas Menu Modal */}
+      {showAreasModal && (
+        <div className="styles-module__areasMenuModal styles-module__subMenuContainer">
+          <div className="styles-module__closeWrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__closeButton styles-module__activeIcon" onClick={() => setShowAreasModal(false)}>
+              <path d="M19.5 3.75C19.9142 3.75 20.25 4.08579 20.25 4.5C20.25 4.70708 20.1661 4.89456 20.0304 5.03028L13.0607 12L20.0304 18.9696C20.1661 19.1054 20.25 19.2929 20.25 19.5C20.25 19.9142 19.9142 20.25 19.5 20.25C19.2894 20.25 19.099 20.1632 18.9628 20.0233L12.0001 13.0606L5.03039 20.0303C4.89466 20.166 4.70713 20.25 4.5 20.25C4.08579 20.25 3.75 19.9142 3.75 19.5C3.75 19.2912 3.83535 19.1023 3.97308 18.9663L10.9394 12L3.97671 5.03727C3.83685 4.90104 3.75 4.71066 3.75 4.5C3.75 4.08579 4.08579 3.75 4.5 3.75C4.70711 3.75 4.89462 3.83395 5.03034 3.96968L12.0001 10.9393L18.9663 3.97308C19.1023 3.83535 19.2912 3.75 19.5 3.75Z" fill="#333333"></path>
+            </svg>
+          </div>
+          <div className="styles-module__modalContent">
+            <Link to="/en-us/library" className="styles-module__headingContainer" onClick={() => setShowAreasModal(false)}>
+              <div className="styles-module__mainMenuLink styles-module__pageTitle">Areas of law</div>
+            </Link>
+            <div className="styles-module__areasList">
+              {areasOfLaw.map((area, index) => (
+                <Link key={index} className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to={`/en-us/${area.slug}`} onClick={() => setShowAreasModal(false)}>
+                  <div className="styles-module__menuDropdownItemTitleWrapper">
+                    <div className="styles-module__menuDropdownItemTitle">{area.title}</div>
+                  </div>
+                  <div className="styles-module__menuDropdownItemDescription">{area.description}</div>
+                </Link>
+              ))}
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" fill="none" className="styles-module__mobileBGIcon">
+              <g opacity="0.05" clipPath="url(#clip0_128_55)">
+                <path d="M120 240C186.274 240 240 186.274 240 120H180C180 153.137 153.137 180 120 180C86.8629 180 60 153.137 60 120C60 86.863 86.8629 60 120 60V0C53.7258 0 0 53.7258 0 120C0 186.274 53.7258 240 120 240Z" fill="#0E5FE3"></path>
+                <path d="M200 80C222.091 80 240 62.0914 240 40C240 17.9086 222.091 0 200 0C177.909 0 160 17.9086 160 40C160 62.0914 177.909 80 200 80Z" fill="#0E5FE3"></path>
+              </g>
+              <defs>
+                <clipPath id="clip0_128_55">
+                  <rect width="240" height="240" fill="white"></rect>
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      )}
+
+      {/* About Menu Modal */}
+      {showAboutModal && (
+        <div className="styles-module__areasMenuModal styles-module__subMenuContainer">
+          <div className="styles-module__closeWrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__closeButton styles-module__activeIcon" onClick={() => setShowAboutModal(false)}>
+              <path d="M19.5 3.75C19.9142 3.75 20.25 4.08579 20.25 4.5C20.25 4.70708 20.1661 4.89456 20.0304 5.03028L13.0607 12L20.0304 18.9696C20.1661 19.1054 20.25 19.2929 20.25 19.5C20.25 19.9142 19.9142 20.25 19.5 20.25C19.2894 20.25 19.099 20.1632 18.9628 20.0233L12.0001 13.0606L5.03039 20.0303C4.89466 20.166 4.70713 20.25 4.5 20.25C4.08579 20.25 3.75 19.9142 3.75 19.5C3.75 19.2912 3.83535 19.1023 3.97308 18.9663L10.9394 12L3.97671 5.03727C3.83685 4.90104 3.75 4.71066 3.75 4.5C3.75 4.08579 4.08579 3.75 4.5 3.75C4.70711 3.75 4.89462 3.83395 5.03034 3.96968L12.0001 10.9393L18.9663 3.97308C19.1023 3.83535 19.2912 3.75 19.5 3.75Z" fill="#333333"></path>
+            </svg>
+          </div>
+          <div className="styles-module__modalContent">
+            <div className="styles-module__areasList">
+              {aboutItems.map((area, index) => (
+                <Link key={index} className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to={area.to} onClick={() => setShowAboutModal(false)}>
+                  <div className="styles-module__menuDropdownItemTitleWrapper">
+                    <div className="styles-module__menuDropdownItemTitle">{area.title}</div>
+                  </div>
+                  <div className="styles-module__menuDropdownItemDescription">{area.description}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Lawyers Menu Modal */}
+      {showLawyersModal && (
+        <div className="styles-module__areasMenuModal styles-module__subMenuContainer">
+          <div className="styles-module__closeWrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__closeButton styles-module__activeIcon" onClick={() => setShowLawyersModal(false)}>
+              <path d="M19.5 3.75C19.9142 3.75 20.25 4.08579 20.25 4.5C20.25 4.70708 20.1661 4.89456 20.0304 5.03028L13.0607 12L20.0304 18.9696C20.1661 19.1054 20.25 19.2929 20.25 19.5C20.25 19.9142 19.9142 20.25 19.5 20.25C19.2894 20.25 19.099 20.1632 18.9628 20.0233L12.0001 13.0606L5.03039 20.0303C4.89466 20.166 4.70713 20.25 4.5 20.25C4.08579 20.25 3.75 19.9142 3.75 19.5C3.75 19.2912 3.83535 19.1023 3.97308 18.9663L10.9394 12L3.97671 5.03727C3.83685 4.90104 3.75 4.71066 3.75 4.5C3.75 4.08579 4.08579 3.75 4.5 3.75C4.70711 3.75 4.89462 3.83395 5.03034 3.96968L12.0001 10.9393L18.9663 3.97308C19.1023 3.83535 19.2912 3.75 19.5 3.75Z" fill="#333333"></path>
+            </svg>
+          </div>
+          <div className="styles-module__modalContent">
+            <div className="styles-module__areasList">
+              <Link className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to="/en-us/about/legal-network" onClick={() => setShowLawyersModal(false)}>
+                <div className="styles-module__menuDropdownItemTitleWrapper">
+                  <div className="styles-module__menuDropdownItemTitle">شبکه حقوقی ما</div>
+                </div>
+                <div className="styles-module__menuDropdownItemDescription">وکلای متخصص در تمام زمینه‌های حقوقی.</div>
+              </Link>
+              <Link className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to="/en-us/for-lawyers/sign-up" onClick={() => setShowLawyersModal(false)}>
+                <div className="styles-module__menuDropdownItemTitleWrapper">
+                  <div className="styles-module__menuDropdownItemTitle">ثبت نام</div>
+                </div>
+                <div className="styles-module__menuDropdownItemDescription">فرصت‌ها با Weekilaw.</div>
+              </Link>
             </div>
           </div>
         </div>
