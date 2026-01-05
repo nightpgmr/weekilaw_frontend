@@ -56,12 +56,54 @@ export const apiCall = async (url, options = {}) => {
   try {
     const response = await fetch(url, defaultOptions);
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+    // Handle authentication redirects
+    if (response.status === 401 || response.status === 302) {
+      // Clear invalid tokens
+      localStorage.removeItem('auth_token');
+      sessionStorage.removeItem('auth_token');
+
+      // Check if response is HTML (login redirect)
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('text/html')) {
+        throw new Error('Authentication required. Please log in first.');
+      }
     }
 
-    return await response.json();
+    if (!response.ok) {
+      let errorMessage = `HTTP error! status: ${response.status}`;
+
+      try {
+        // Read response as text first to avoid "body stream already read" error
+        const responseText = await response.text();
+
+        // Try to parse as JSON
+        try {
+          const errorData = JSON.parse(responseText);
+          errorMessage = errorData.message || errorMessage;
+        } catch (jsonError) {
+          // If not JSON, check if it's HTML (authentication redirect)
+          if (responseText.includes('<!DOCTYPE html>')) {
+            errorMessage = 'Authentication required. Please log in first.';
+          } else {
+            // Use the text content as error message
+            errorMessage = responseText || errorMessage;
+          }
+        }
+      } catch (e) {
+        // Fallback error message
+        errorMessage = `HTTP error! status: ${response.status}`;
+      }
+
+      throw new Error(errorMessage);
+    }
+
+    // For successful responses, try to parse as JSON
+    try {
+      const responseText = await response.text();
+      return JSON.parse(responseText);
+    } catch (e) {
+      throw new Error('Invalid JSON response from server');
+    }
   } catch (error) {
     console.error('API call failed:', error);
     throw error;
