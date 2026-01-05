@@ -302,19 +302,19 @@ export const areasOfLawContent = {
     helpTitle: 'نکته مهم',
     helpDescription: 'اطلاعات ارائه‌شده در این بخش صرفاً جهت افزایش آگاهی عمومی است و مشاوره حقوقی محسوب نمی‌شود. برای تصمیم‌گیری‌های مهم یا اقدامات حقوقی رسمی، توصیه می‌شود حتماً با وکیل متخصص مشورت شود.',
     modalContent: {
-      title: 'More information on commercial law',
-      desktopImage: '/static/cms/areas-of-law/intro-modal-us-commercial-desktop.webp',
-      tabletImage: '/static/cms/areas-of-law/intro-modal-us-commercial-tablet.webp',
-      mobileImage: '/static/cms/areas-of-law/intro-modal-us-commercial-mobile.webp',
-      text: `<p><span style="color: #333333">US commercial law helps business owners understand their rights and responsibilities when it comes to contracts, compliance, disputes and general operations. Whether you're starting a business, hiring staff or selling products and services, knowing which laws apply can help you make informed decisions and avoid costly mistakes.</span><br></p>
-<h3>Key legislation to consider</h3>
+      title: 'اطلاعات بیشتر درباره حقوق تجارت',
+      desktopImage: '/assets/legal-network/geographic-coverage.webp',
+      tabletImage: '/assets/legal-network/geographic-coverage.webp',
+      mobileImage: '/assets/legal-network/geographic-coverage.webp',
+      text: `<p><span style="color: #333333">حقوق تجارت به صاحبان کسب‌وکار کمک می‌کند تا حقوق و مسئولیت‌های خود را در زمینه قراردادها، رعایت قوانین، اختلافات و عملیات عمومی درک کنند. چه در حال راه‌اندازی کسب‌وکار باشید، چه استخدام پرسنل یا فروش محصولات و خدمات، دانستن اینکه کدام قوانین اعمال می‌شود می‌تواند به شما کمک کند تصمیمات آگاهانه بگیرید و از اشتباهات پرهزینه اجتناب کنید.</span><br></p>
+<h3>قوانین کلیدی که باید در نظر بگیرید</h3>
 <ul>
-<li><p><strong>The Uniform Commercial Code</strong> governs business transactions including sales of goods, contract terms, delivery obligations and remedies for breach. It has been adopted in some form by all 50 states.</p></li>
-<li><p><strong>The Federal Trade Commission Act</strong> enforces fair business practices, marketing standards and consumer protection rules across industries.</p></li>
-<li><p><strong>State business laws</strong> set out how to register and manage a company in your state, including LLC or corporation formation, tax ID registration and annual reporting requirements.</p></li>
-<li><p><strong>The Fair Labor Standards Act</strong> outlines minimum wage, overtime pay, employee classification and child labor protections for most private employers in the US.</p></li>
-<li><p><strong>The California Consumer Privacy Act</strong> and similar state privacy laws regulate how businesses collect, store and use customer data. These laws affect businesses that operate online or manage personal information.</p></li>
-<li><p><strong>US contract law</strong>, shaped by state statutes and case law, governs how contracts are formed and enforced. It covers issues like valid agreements, breach of contract and available remedies.</p></li>
+<li><p><strong>قانون تجارت الکترونیکی</strong> معاملات تجاری از جمله فروش کالا، شرایط قرارداد، تعهدات تحویل و درمان نقض را اداره می‌کند. این قانون در نظام حقوقی ایران به عنوان یکی از پایه‌های حقوق تجارت الکترونیکی مطرح است.</p></li>
+<li><p><strong>قانون حمایت از حقوق مصرف‌کنندگان</strong> شیوه‌های تجاری منصفانه، استانداردهای بازاریابی و قوانین حمایت از مصرف‌کننده را در سراسر صنایع اعمال می‌کند.</p></li>
+<li><p><strong>قوانین ثبت شرکت‌ها و مؤسسات</strong> نحوه ثبت و مدیریت شرکت در نظام حقوقی ایران را مشخص می‌کنند، از جمله تشکیل شرکت‌های سهامی، با مسئولیت محدود یا تعاونی، ثبت شماره اقتصادی و الزامات گزارش سالانه.</p></li>
+<li><p><strong>قانون کار</strong> حداقل دستمزد، پرداخت اضافه‌کاری، طبقه‌بندی کارکنان و حمایت از کار کودک را برای اکثر کارفرمایان خصوصی در ایران مشخص می‌کند.</p></li>
+<li><p><strong>قانون حمایت از داده‌های شخصی</strong> و قوانین مشابه حفظ حریم خصوصی نحوه جمع‌آوری، ذخیره و استفاده از داده‌های مشتری توسط کسب‌وکارها را تنظیم می‌کنند. این قوانین بر کسب‌وکارهایی که آنلاین فعالیت می‌کنند یا اطلاعات شخصی را مدیریت می‌کنند تأثیر می‌گذارد.</p></li>
+<li><p><strong>قوانین قرارداد ایران</strong> که توسط قوانین مدنی و قوانین دادگاه شکل گرفته، نحوه تشکیل و اجرای قراردادها را اداره می‌کند. این قوانین موضوعاتی مانند توافقات معتبر، نقض قرارداد و درمان‌های موجود را پوشش می‌دهد.</p></li>
 </ul>`
     }
   },

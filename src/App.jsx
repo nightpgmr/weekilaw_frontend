@@ -26,6 +26,7 @@ import FAQs from './components/FAQs.jsx';
 import Library from './components/Library.jsx';
 import About from './components/About.jsx';
 import Insights from './components/Insights.jsx';
+import ContactUs from './components/ContactUs.jsx';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
           <Route path="/en-us/library" element={<Library />} />
           <Route path="/en-us/about" element={<About />} />
           <Route path="/en-us/insights" element={<Insights />} />
+          <Route path="/en-us/contact-us" element={<ContactUs />} />
           <Route path="/faqs" element={<FAQs />} />
         </Routes>
       </div>

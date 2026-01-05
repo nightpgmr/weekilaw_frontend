@@ -45,23 +45,28 @@ const PropertyLaw = () => {
   const subCategories = [
     {
       title: 'خرید و فروش ملک',
-      image: '/assets/default-area-of-law.webp',
+      image: '/assets/property-law/1.webp',
       description: 'آشنایی با مراحل قانونی معامله، تنظیم قرارداد، انتقال مالکیت و نکات مهم قبل از امضای مبایعه‌نامه.'
     },
     {
       title: 'اجاره ملک',
-      image: '/assets/default-area-of-law.webp',
+      image: '/assets/property-law/2.webp',
       description: 'بررسی حقوق و وظایف موجر و مستأجر، شرایط فسخ قرارداد، افزایش اجاره‌بها و تخلیه ملک.'
     },
     {
       title: 'اختلافات ملکی',
-      image: '/assets/default-area-of-law.webp',
+      image: '/assets/property-law/3.webp',
       description: 'راهنمای کلی برای حل اختلافات رایج مانند تصرف، تخلیه، سرقفلی، حق کسب و پیشه و دعاوی مربوط به سند.'
     },
     {
       title: 'ساخت‌وساز و تغییرات ملکی',
-      image: '/assets/default-area-of-law.webp',
+      image: '/assets/property-law/4.webp',
       description: 'اطلاعات عمومی درباره لزوم اخذ مجوز، رعایت مقررات شهری و پیامدهای تخلف ساختمانی.'
+    },
+    {
+      title: 'از ما درباره هر موضوعی در حوزه حقوق خانواده سؤال بپرسید',
+      image: '/assets/property-law/5.webp',
+      description: 'این‌ها تنها چند نمونه از موضوعات متعددی هستند که راهنمای هوشمند ما می‌تواند در آن‌ها به شما کمک کند. سؤال خود را مطرح کنید تا اطلاعات حقوقی روشن و کاربردی، متناسب با قوانین ایران، دریافت کنید.'
     }
   ];
   const whyUseTitle = 'چرا از ویکیلا برای کمک در امور املاک استفاده کنید';

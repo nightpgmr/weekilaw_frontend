@@ -301,16 +301,16 @@ const Header = ({ scrollElement }) => {
             </div>
 
             {/* Footer Links Section */}
-            <Link
+            {/* <Link
               to="/en-us/insights"
               className="styles-module__mainMenuLink styles-module__footerLinkSpacing"
               onClick={closeMobileMenu}
             >
               <span>بینش‌ها</span>
-            </Link>
+            </Link> */}
             <Link
               to="/faqs"
-              className="styles-module__mainMenuLink"
+              className="styles-module__mainMenuLink  styles-module__footerLinkSpacing"
               onClick={closeMobileMenu}
             >
               <span>سؤالات متداول</span>

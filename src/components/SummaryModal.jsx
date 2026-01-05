@@ -12,7 +12,7 @@ const SummaryModal = ({ isOpen, onClose, content }) => {
   return (
     <div className="intro-modal_modalOverlay__NWqo3" onClick={handleOverlayClick}>
       <div className="intro-modal_modalContent__rS1BA">
-        <div className="intro-modal_modalContentContainer__3O9ST">
+        <div className="intro-modal_modalContentContainer__3O9ST" style={{ display: 'flex', maxHeight: '60vh' ,overflowY: 'hidden'}}>
           {content.desktopImage && (
             <div className="intro-modal_modalDesktopImageContainer__vG73V">
               <img
@@ -23,7 +23,7 @@ const SummaryModal = ({ isOpen, onClose, content }) => {
                 decoding="async"
                 className="intro-modal_modalImage__PgGy4 intro-modal_desktop__8tqEF"
                 src={content.desktopImage}
-                style={{ color: 'transparent' }}
+                style={{ color: 'transparent', height: '100%', objectFit: 'cover' }}
               />
             </div>
           )}
@@ -71,10 +71,12 @@ const SummaryModal = ({ isOpen, onClose, content }) => {
                   />
                 )}
               </div>
-              <div
-                className="intro-modal_modalText__KrS5v"
-                dangerouslySetInnerHTML={{ __html: content.text }}
-              />
+              <div style={{ height: '100%', overflowY: 'auto' }}>
+                <div
+                  className="intro-modal_modalText__KrS5v"
+                  dangerouslySetInnerHTML={{ __html: content.text }}
+                />
+              </div>
             </div>
           </div>
         </div>
