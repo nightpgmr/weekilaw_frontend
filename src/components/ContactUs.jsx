@@ -74,8 +74,25 @@ const ContactUs = () => {
                 />
               </div>
               <div className="contact_infoTextContainer">
-                <h3 className="contact_infoTitle">شماره تلفن</h3>
-                <p className="contact_infoDescription contact_phoneNumber">+۹۸ ۹۱۲ ۲۰۰ ۰۴۶۰</p>
+                <h3 className="contact_infoTitle">شماره تلفن گویا</h3>
+                <p className="contact_infoDescription contact_phoneNumber">۰۲۱۸۲۸۰۱۴۸۰</p>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="contact_infoContainer">
+              <div className="contact_infoIconContainer">
+                <img
+                  src="/assets/company/email-blue.svg"
+                  alt="ایمیل"
+                  className="contact_infoIcon"
+                  width="32"
+                  height="32"
+                />
+              </div>
+              <div className="contact_infoTextContainer">
+                <h3 className="contact_infoTitle">ایمیل</h3>
+                <p className="contact_infoDescription">lian@mail.weekilaw.com</p>
               </div>
             </div>
 
