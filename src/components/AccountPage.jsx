@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import PageLayout from './PageLayout.jsx';
+import AddMoneyModal from './AddMoneyModal.jsx';
 import '../styles/AccountPage.css';
 import { API_ENDPOINTS, apiCall } from '../utils/api.js';
 
 const AccountPage = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [walletBalance, setWalletBalance] = useState(0);
+  const [isLoadingBalance, setIsLoadingBalance] = useState(false);
+  const [showAddMoneyModal, setShowAddMoneyModal] = useState(false);
   const [recentChats, setRecentChats] = useState([]);
   const [isLoadingChats, setIsLoadingChats] = useState(true);
   const [allChats, setAllChats] = useState([]);
@@ -27,9 +32,30 @@ const AccountPage = () => {
     }
 
     fetchUserProfile();
+    // Try to refresh wallet balance from dedicated endpoint (optional)
+    // This will fail silently if endpoint doesn't exist yet
+    setTimeout(() => {
+      loadWalletBalance().catch(() => {
+        // Silently fail - balance from user profile is already set
+      });
+    }, 500);
     loadRecentChats();
     loadAllChats();
-  }, [navigate]);
+
+    // Check for payment callback
+    const paymentStatus = searchParams.get('payment');
+    if (paymentStatus === 'success') {
+      const amount = searchParams.get('amount');
+      alert(`پرداخت با موفقیت انجام شد! مبلغ ${parseInt(amount || 0).toLocaleString('fa-IR')} تومان به کیف پول شما اضافه شد.`);
+      loadWalletBalance();
+      // Clean URL
+      navigate('/account', { replace: true });
+    } else if (paymentStatus === 'failed' || paymentStatus === 'cancelled') {
+      const message = searchParams.get('message') || 'پرداخت ناموفق بود';
+      alert(message);
+      navigate('/account', { replace: true });
+    }
+  }, [navigate, searchParams]);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -49,6 +75,10 @@ const AccountPage = () => {
 
       if (data.success) {
         setUser(data.user);
+        // Set wallet balance from user profile (this is the primary source)
+        if (data.user.wallet_balance !== undefined) {
+          setWalletBalance(data.user.wallet_balance);
+        }
         // Store user data in localStorage for future use
         localStorage.setItem('user_data', JSON.stringify(data.user));
       }
@@ -57,10 +87,32 @@ const AccountPage = () => {
       // Try to get user data from localStorage as fallback
       const storedUser = localStorage.getItem('user_data');
       if (storedUser) {
-        setUser(JSON.parse(storedUser));
+        const parsed = JSON.parse(storedUser);
+        setUser(parsed);
+        if (parsed.wallet_balance !== undefined) {
+          setWalletBalance(parsed.wallet_balance);
+        }
       }
     } finally {
       setLoading(false);
+    }
+  };
+
+  const loadWalletBalance = async () => {
+    // Only try to load from wallet endpoint if it's available
+    // Otherwise, we'll use the balance from user profile
+    try {
+      setIsLoadingBalance(true);
+      const data = await apiCall(API_ENDPOINTS.WALLET.BALANCE);
+      if (data.success && data.balance !== undefined) {
+        setWalletBalance(data.balance);
+      }
+    } catch (error) {
+      // Silently fail - wallet endpoint might not be available on production yet
+      // The balance from user profile will be used instead
+      // Don't log error to avoid console spam
+    } finally {
+      setIsLoadingBalance(false);
     }
   };
 
@@ -204,6 +256,36 @@ const AccountPage = () => {
           <div className="_name_19xmy_213">
             {loading ? 'در حال بارگذاری...' : `سلام، ${user?.name || [user?.first_name, user?.last_name].filter(Boolean).join(' ') || 'کاربر'}`}
           </div>
+        </div>
+      </div>
+
+      {/* Wallet Section */}
+      <div className="_accountSection_llh05_73 _walletSection">
+        <div className="_title_llh05_109">کیف پول</div>
+        <div className="_walletContent">
+          <div className="_walletBalance">
+            <div className="_walletIcon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 4H3C1.89543 4 1 4.89543 1 6V18C1 19.1046 1.89543 20 3 20H21C22.1046 20 23 19.1046 23 18V6C23 4.89543 22.1046 4 21 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1 10H23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <div className="_walletInfo">
+              <div className="_walletLabel">موجودی کیف پول</div>
+              <div className="_walletAmount">
+                {isLoadingBalance ? 'در حال بارگذاری...' : `${(walletBalance / 10).toLocaleString('fa-IR')} تومان`}
+              </div>
+            </div>
+          </div>
+          <button 
+            className="_addMoneyButton"
+            onClick={() => setShowAddMoneyModal(true)}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            افزایش موجودی
+          </button>
         </div>
       </div>
 
@@ -545,6 +627,16 @@ const AccountPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Add Money Modal */}
+      <AddMoneyModal
+        isOpen={showAddMoneyModal}
+        onClose={() => setShowAddMoneyModal(false)}
+        onSuccess={() => {
+          setShowAddMoneyModal(false);
+          loadWalletBalance();
+        }}
+      />
       </div>
     </PageLayout>
   );

@@ -25,6 +25,13 @@ export const API_ENDPOINTS = {
     ACCOUNT: `${API_URL}/user/account`,
   },
 
+  // Wallet
+  WALLET: {
+    BALANCE: `${API_URL}/wallet/balance`,
+    ADD_MONEY: `${API_URL}/wallet/add-money`,
+    TRANSACTIONS: `${API_URL}/wallet/transactions`,
+  },
+
   // Chat
   CHAT: {
     ASK: `${API_URL}/chat/ask`,
