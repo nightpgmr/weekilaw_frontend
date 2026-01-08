@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './styles/pageVars.css';
+import UnderConstruction from './components/UnderConstruction.jsx';
 import MainContent from './components/MainContent.jsx';
 import EstateAndProbateLaw from './components/EstateAndProbateLaw.jsx';
 import CommercialLaw from './components/CommercialLaw.jsx';
@@ -32,7 +33,8 @@ function App() {
   return (
     <Router>
       <div className="App layout_body __variable_f367f3 __variable_ad9d8d">
-        <Routes>
+        <UnderConstruction />
+        {/* <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/en-us/commercial-law" element={<CommercialLaw />} />
           <Route path="/en-us/criminal-law" element={<CriminalLaw />} />
@@ -61,7 +63,7 @@ function App() {
           <Route path="/en-us/insights" element={<Insights />} />
           <Route path="/en-us/contact-us" element={<ContactUs />} />
           <Route path="/faqs" element={<FAQs />} />
-        </Routes>
+        </Routes> */}
       </div>
     </Router>
   );

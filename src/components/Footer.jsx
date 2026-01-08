@@ -15,9 +15,17 @@ const Footer = () => {
               src="/assets/logo-icon.png" 
             />
           </a>
-            <a referrerPolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=681149&Code=fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" style={{display: 'inline-block', marginRight: '20px'}}>
-              <img referrerPolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=681149&Code=fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" alt="نشان اعتماد الکترونیکی" style={{height: '100px', width: 'auto', cursor: 'pointer'}} code="fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" />
-            </a>
+            <div style={{display: 'flex', alignItems: 'center', gap: '20px'}}>
+              <a referrerPolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=681149&Code=fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" style={{display: 'inline-block'}}>
+                <img referrerPolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=681149&Code=fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" alt="نشان اعتماد الکترونیکی" style={{height: '100px', width: 'auto', cursor: 'pointer'}} code="fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" />
+              </a>
+              <img 
+                src="/assets/guild-logo.eps" 
+                alt="آرم سازمان نظام صنفی رایانه ای کشور" 
+                style={{height: '100px', width: 'auto', display: 'block'}}
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
         <div className="style-module__gridContainer style-module__large" style={{ margin: '60px 0' }}>
