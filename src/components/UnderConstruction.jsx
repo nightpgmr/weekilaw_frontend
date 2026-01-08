@@ -96,8 +96,8 @@ const UnderConstruction = () => {
 
         <div className="construction-contact">
           <p>برای اطلاعات بیشتر با ما تماس بگیرید:</p>
-          <a href="mailto:info@weekilaw.com" className="contact-link">
-            info@weekilaw.com
+          <a href="mailto:lian@mail.weekilaw.com" className="contact-link">
+            lian@mail.weekilaw.com
           </a>
         </div>
 
