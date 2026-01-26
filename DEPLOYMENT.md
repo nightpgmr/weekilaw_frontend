@@ -47,7 +47,7 @@ npm run build
 ssh -p 50022 user@78.110.124.182 "echo 'SSH working'"
 
 # 3. Upload files using rsync (recommended)
-rsync -avz -e "ssh -p 50022" --delete dist/ user@78.110.124.182:/var/www/weekilaw-frontend/
+rsync -avz -e "ssh -p 50022 -o ServerAliveInterval=60 -o ConnectTimeout=30" --delete --timeout=300 dist/ user@78.110.124.182:/var/www/weekilaw-frontend/
 
 # 4. Set permissions on server
 ssh -p 50022 user@78.110.124.182 << 'EOF'
@@ -74,6 +74,10 @@ REMOTE_PATH="/var/www/weekilaw-frontend"  # Remote directory
 ### Rsync Hanging Issues:
 - **Cause:** Problematic rsync switches or SSH timeouts
 - **Fix:** Use the updated workflow or manual rsync with timeouts
+
+### Rsync "--contimeout" Error:
+- **Cause:** `--contimeout` only works with rsync daemon, not SSH
+- **Fix:** Use `--timeout` for SSH connections instead
 
 ### Permission Denied:
 - **Cause:** Server-side permission issues

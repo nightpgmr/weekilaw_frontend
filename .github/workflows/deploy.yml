@@ -45,7 +45,7 @@ jobs:
     - name: Sync built files to server
       uses: burnett01/rsync-deployments@6.0.0
       with:
-        switches: -avz --delete --timeout=300 --contimeout=60 --progress
+        switches: -avz --delete --timeout=300
         path: dist/
         remote_path: /var/www/weekilaw-frontend
         remote_host: ${{ secrets.SSH_HOST }}
