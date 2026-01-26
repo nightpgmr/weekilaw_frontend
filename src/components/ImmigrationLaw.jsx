@@ -31,11 +31,11 @@ const ImmigrationLaw = () => {
 
   // Static content for Immigration Law
   const breadcrumbLabel = 'حقوق مهاجرت';
-  const breadcrumbHref = '/en-us/immigration-law';
+  const breadcrumbHref = '/immigration-law';
   const heroTitle = 'راهنمای هوشمند رایگان در امور مهاجرت';
   const introText = "به کمک هوش مصنوعی ویکیلا، اطلاعات رایگان و دقیق درباره‌ی اقامت، تابعیت، و امور مهاجرتی دریافت کنید. این سامانه به شما کمک می‌کند گزینه‌ها، مراحل، و الزامات قانونی را بهتر بفهمید تا تصمیم‌های آگاهانه‌تری بگیرید. همراه هوشمند شما در امور مهاجرتی موضوعاتی مانند ویزا، اقامت، تابعیت و پناهندگی می‌تواند پیچیده و استرس‌زا باشد. ویکیلا با بهره‌گیری از هوش مصنوعی و دانش حقوقی به‌روز، اطلاعات دقیق و قابل استناد ارائه می‌دهد تا احساس کنترل بیشتری بر شرایطتان داشته باشید — کاملاً رایگان. این سامانه بر پایه‌ی اصول تثبیت‌شده‌ی حقوق مهاجرت طراحی شده و به شما کمک می‌کند حقوق، مسئولیت‌ها و گزینه‌های خود را بهتر بشناسید.";
   const moreInfoText = 'خلاصه‌ای از قوانین مهاجرت در ایران';
-  const moreInfoHref = '/en-us/immigration-law/summary';
+  const moreInfoHref = '/immigration-law/summary';
   const introImage = '/assets/intro-immigration.webp';
 
   const areaData = areas['immigration-law'];
@@ -303,7 +303,7 @@ const ImmigrationLaw = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">Areas of law</a>
+                    <a href="/library">حوزه‌های حقوقی</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}

@@ -31,7 +31,7 @@ const EmploymentLaw = () => {
 
   // Static content for Employment Law
   const breadcrumbLabel = 'قانون استخدام';
-  const breadcrumbHref = '/en-us/employment-law';
+  const breadcrumbHref = '/employment-law';
   const heroTitle = 'پشتیبانی سریع و رایگان حقوق کار با دستیار هوش مصنوعی ویکیلا';
   const introText = `<p>اگر با یک مشکل جدی در محیط کار روبه‌رو هستید<br>
 مثل اخراج غیرقانونی، اختلاف حقوق و مزایا،<br>
@@ -45,7 +45,7 @@ const EmploymentLaw = () => {
  • قبل از مراجعه به وکیل یا اداره کار، با آگاهی جلو ببرید<br>
  • و با اعتمادبه‌نفس تصمیم بگیرید.</p>`;
   const moreInfoText = 'اطلاعات بیشتر درباره حقوق کار در ایران';
-  const moreInfoHref = '/en-us/employment-law/summary';
+  const moreInfoHref = '/employment-law/summary';
   const introImage = '/assets/intro-employment.webp';
 
   const areaData = areas['employment-law'];
@@ -486,7 +486,7 @@ const EmploymentLaw = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                  <a href="/en-us/library">حوزه‌های حقوقی</a>
+                  <a href="/library">حوزه‌های حقوقی</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}

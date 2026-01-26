@@ -38,35 +38,35 @@ function App() {
         <UnderConstruction />
         <Routes>
           <Route path="/" element={<MainContent />} />
-          <Route path="/en-us/commercial-law" element={<CommercialLaw />} />
-          <Route path="/en-us/criminal-law" element={<CriminalLaw />} />
-          <Route path="/en-us/employment-law" element={<EmploymentLaw />} />
-          <Route path="/en-us/estate-and-probate-law" element={<EstateAndProbateLaw />} />
-          <Route path="/en-us/family-law" element={<FamilyLaw />} />
-          <Route path="/en-us/immigration-law" element={<ImmigrationLaw />} />
-          <Route path="/en-us/litigation" element={<Litigation />} />
-          <Route path="/en-us/personal-injury-law" element={<PersonalInjuryLaw />} />
-          <Route path="/en-us/property-law" element={<PropertyLaw />} />
-          <Route path="/en-us/about/ai-technology" element={<AboutAITechnology />} />
-          <Route path="/en-us/about/legal-network" element={<LegalNetwork />} />
-          <Route path="/en-us/about/company" element={<Company />} />
-          <Route path="/en-us/about/careers" element={<Careers />} />
-          <Route path="/en-us/about/sailing" element={<Sailing />} />
+          <Route path="/commercial-law" element={<CommercialLaw />} />
+          <Route path="/criminal-law" element={<CriminalLaw />} />
+          <Route path="/employment-law" element={<EmploymentLaw />} />
+          <Route path="/estate-and-probate-law" element={<EstateAndProbateLaw />} />
+          <Route path="/family-law" element={<FamilyLaw />} />
+          <Route path="/immigration-law" element={<ImmigrationLaw />} />
+          <Route path="/litigation" element={<Litigation />} />
+          <Route path="/personal-injury-law" element={<PersonalInjuryLaw />} />
+          <Route path="/property-law" element={<PropertyLaw />} />
+          <Route path="/about/ai-technology" element={<AboutAITechnology />} />
+          <Route path="/about/legal-network" element={<LegalNetwork />} />
+          <Route path="/about/company" element={<Company />} />
+          <Route path="/about/careers" element={<Careers />} />
+          <Route path="/about/sailing" element={<Sailing />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/en-us/for-lawyers/sign-up" element={<SignUp />} />
+          <Route path="/for-lawyers/sign-up" element={<SignUp />} />
           <Route path="/auth/sign-in" element={<SignIn />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/chat/:chatId" element={<ChatPage />} />
-          <Route path="/en-us/library" element={<Library />} />
-          <Route path="/en-us/about" element={<About />} />
-          <Route path="/en-us/insights" element={<Insights />} />
-          <Route path="/en-us/contact-us" element={<ContactUs />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/faqs" element={<FAQs />} />
-          <Route path="/en-us/terms" element={<Terms />} />
-          <Route path="/en-us/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </div>
     </Router>

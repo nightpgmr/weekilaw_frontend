@@ -31,11 +31,11 @@ const PersonalInjuryLaw = () => {
 
   // Static content for Personal Injury Law
   const breadcrumbLabel = 'حقوق جراحات شخصی';
-  const breadcrumbHref = '/en-us/personal-injury-law';
+  const breadcrumbHref = '/personal-injury-law';
   const heroTitle = 'راهنمای هوشمند رایگان در امور صدمات شخصی و دعاوی مربوط به آن';
   const introText = "تجربه‌ی صدمات شخصی می‌تواند زندگی شما را کاملاً مختل کند و اغلب با هزینه‌های ناگهانی پزشکی، از دست دادن درآمد و استرس فراوان همراه است. اگر بر اثر سهل‌انگاری شخص دیگری آسیب دیده‌اید، باید از حقوق خود در مورد جبران خسارت و راه‌های قانونی پیش رو آگاه باشید. دستیار هوش مصنوعی رایگان ما راهنمایی فوری و بدون تعهدی در مورد مسئولیت مدنی، ادعاهای خسارت ناشی از حوادث، و پیگیری غرامت ارائه می‌دهد. دستیار هوشمند ما به شما کمک می‌کند تا پیچیدگی‌های ادعای صدمات شخصی را درک کنید و ارزیابی این موارد را برایتان ساده‌تر سازد: تعیین مسئولیت، مدارک مورد نیاز برای یک ادعا، و انواع خساراتی که ممکن است حق شما باشد.";
   const moreInfoText = 'مروری سریع بر قانون صدمات شخصی در نظام حقوقی ایران';
-  const moreInfoHref = '/en-us/personal-injury-law/summary';
+  const moreInfoHref = '/personal-injury-law/summary';
   const introImage = '/assets/intro-personal-injury.webp';
 
   const areaData = areas['personal-injury-law'];
@@ -309,7 +309,7 @@ const PersonalInjuryLaw = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">Areas of law</a>
+                    <a href="/library">حوزه‌های حقوقی</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}

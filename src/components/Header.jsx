@@ -54,11 +54,11 @@ const Header = ({ scrollElement }) => {
   ];
 
   const aboutItems = [
-    { title: "فناوری هوش مصنوعی ما", description: "قدرت هوش مصنوعی پیشرفته را به کار می‌گیرد.", to: "/en-us/about/ai-technology" },
-    { title: "شبکه حقوقی ما", description: "وکلای متخصص در تمام زمینه‌های حقوقی.", to: "/en-us/about/legal-network" },
-    { title: "شرکت", description: "ارزش‌ها و ساختار ما.", to: "/en-us/about/company" },
-    { title: "فرصت‌های شغلی", description: "فرصت‌ها با Weekilaw.", to: "/en-us/about/careers" },
-    { title: "قایق‌رانی", description: "درباره سوپر ماکسی سیدنی به هوبارت.", to: "/en-us/about/sailing" },
+    { title: "فناوری هوش مصنوعی ما", description: "قدرت هوش مصنوعی پیشرفته را به کار می‌گیرد.", to: "/about/ai-technology" },
+    { title: "شبکه حقوقی ما", description: "وکلای متخصص در تمام زمینه‌های حقوقی.", to: "/about/legal-network" },
+    { title: "شرکت", description: "ارزش‌ها و ساختار ما.", to: "/about/company" },
+    { title: "فرصت‌های شغلی", description: "فرصت‌ها با Weekilaw.", to: "/about/careers" },
+    { title: "قایق‌رانی", description: "درباره سوپر ماکسی سیدنی به هوبارت.", to: "/about/sailing" },
   ];
 
   const toggleDropdown = (dropdown) => {
@@ -233,7 +233,7 @@ const Header = ({ scrollElement }) => {
 
             {/* Footer Links Section */}
             {/* <Link
-              to="/en-us/insights"
+              to="/insights"
               className="styles-module__mainMenuLink styles-module__footerLinkSpacing"
               onClick={closeMobileMenu}
             >
@@ -247,21 +247,21 @@ const Header = ({ scrollElement }) => {
               <span>سؤالات متداول</span>
             </Link>
             <Link
-              to="/en-us/about/ai-technology"
+              to="/about/ai-technology"
               className="styles-module__mainMenuLink"
               onClick={closeMobileMenu}
             >
               <span>فناوری هوش مصنوعی ما</span>
             </Link>
             <Link
-              to="/en-us/about/company"
+              to="/about/company"
               className="styles-module__mainMenuLink"
               onClick={closeMobileMenu}
             >
               <span>شرکت</span>
             </Link>
             <Link
-              to="/en-us/contact-us"
+              to="/contact-us"
               className="styles-module__mainMenuLink"
               onClick={closeMobileMenu}
             >
@@ -319,7 +319,7 @@ const Header = ({ scrollElement }) => {
                       <div className="styles-module__innerWrapper styles-module__subMenuContainer">
                         <div className="styles-module__dropdownGrid">
                           {areasOfLaw.map((area, index) => (
-                            <Link key={index} className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to={`/en-us/${area.slug}`}>
+                            <Link key={index} className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to={`/${area.slug}`}>
                               <div className="styles-module__menuDropdownItemTitle">{area.title}</div>
                               <div className="styles-module__menuDropdownItemDescription">{area.description}</div>
                             </Link>
@@ -409,10 +409,10 @@ const Header = ({ scrollElement }) => {
                   </div>
                   {activeDropdown === 'lawyers' && (
                     <div className="styles-module__childContainer styles-module__hoverMenu">
-                      <Link to="/en-us/about/legal-network" className="styles-module__menuItem">
+                      <Link to="/about/legal-network" className="styles-module__menuItem">
                         <span className="styles-module__menuItemText">شبکه حقوقی ما</span>
                       </Link>
-                      <Link to="/en-us/for-lawyers/sign-up" className="styles-module__menuItem">
+                      <Link to="/for-lawyers/sign-up" className="styles-module__menuItem">
                         <span className="styles-module__menuItemText">ثبت نام</span>
                       </Link>
                     </div>
@@ -554,12 +554,12 @@ const Header = ({ scrollElement }) => {
             </svg>
           </div>
           <div className="styles-module__modalContent">
-            <Link to="/en-us/library" className="styles-module__headingContainer" onClick={() => setShowAreasModal(false)}>
+            <Link to="/library" className="styles-module__headingContainer" onClick={() => setShowAreasModal(false)}>
               <div className="styles-module__mainMenuLink styles-module__pageTitle">Areas of law</div>
             </Link>
             <div className="styles-module__areasList">
               {areasOfLaw.map((area, index) => (
-                <Link key={index} className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to={`/en-us/${area.slug}`} onClick={() => setShowAreasModal(false)}>
+                <Link key={index} className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to={`/${area.slug}`} onClick={() => setShowAreasModal(false)}>
                   <div className="styles-module__menuDropdownItemTitleWrapper">
                     <div className="styles-module__menuDropdownItemTitle">{area.title}</div>
                   </div>
@@ -615,13 +615,13 @@ const Header = ({ scrollElement }) => {
           </div>
           <div className="styles-module__modalContent">
             <div className="styles-module__areasList">
-              <Link className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to="/en-us/about/legal-network" onClick={() => setShowLawyersModal(false)}>
+              <Link className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to="/about/legal-network" onClick={() => setShowLawyersModal(false)}>
                 <div className="styles-module__menuDropdownItemTitleWrapper">
                   <div className="styles-module__menuDropdownItemTitle">شبکه حقوقی ما</div>
                 </div>
                 <div className="styles-module__menuDropdownItemDescription">وکلای متخصص در تمام زمینه‌های حقوقی.</div>
               </Link>
-              <Link className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to="/en-us/for-lawyers/sign-up" onClick={() => setShowLawyersModal(false)}>
+              <Link className="styles-module__menuDropdownItem styles-module__offsetDropdownItemRow" to="/for-lawyers/sign-up" onClick={() => setShowLawyersModal(false)}>
                 <div className="styles-module__menuDropdownItemTitleWrapper">
                   <div className="styles-module__menuDropdownItemTitle">ثبت نام</div>
                 </div>

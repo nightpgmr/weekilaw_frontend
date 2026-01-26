@@ -11,7 +11,7 @@ const Sailing = () => {
           <div className="styles_innerWidthWrapper ">
             <div className="styles_heroTitleContainer" style={{ maxWidth: '50%' }}>
               <div className="styles_breadcrumbsContainer">
-                <a href="/en-us/about" className="styles_breadcrumb ">
+                <a href="/about" className="styles_breadcrumb ">
                   درباره
                 </a>
                 <span className="styles_breadcrumb ">&nbsp;/&nbsp;</span>
@@ -132,7 +132,7 @@ const Sailing = () => {
                     'ویکیلا به‌عنوان یکی از پیشگامان فناوری حقوقی کشور، موفق شده است:<br><br>• هزاران کاربر را در مسیر صحیح قانونی هدایت کند<br>• در کاهش اطاله دادرسی نقش مؤثر داشته باشد<br>• دسترسی به دانش حقوقی را برای عموم مردم ساده و رایگان کند<br>• فرهنگ مراجعه آگاهانه حقوقی را توسعه دهد',
                 }}
               />
-              <a className="styles_watchLink" href="https://www.youtube.com/@asklawconnect" target="_blank" rel="noreferrer">
+              <a className="styles_watchLink" href="https://www.youtube.com/@askweekilaw" target="_blank" rel="noreferrer">
                 <span>مجموعه را همین حالا ببینید</span>
                 <div className="styles_watchArrowIconContainer">
                   <img

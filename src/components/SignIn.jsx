@@ -418,7 +418,7 @@ function SignIn() {
                   className="kinde-text-link kinde-text-link-is-inline"
                   data-kinde-text-link="true"
                   data-kinde-text-link-is-inline="true"
-                  href="/en-us/for-lawyers/sign-up"
+                  href="/for-lawyers/sign-up"
                 >
                   ایجاد کنید
                 </a>

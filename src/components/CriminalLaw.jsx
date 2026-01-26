@@ -31,7 +31,7 @@ const CriminalLaw = () => {
 
   // Static content for Criminal Law
   const breadcrumbLabel = 'حقوق کیفری';
-  const breadcrumbHref = '/en-us/criminal-law';
+  const breadcrumbHref = '/criminal-law';
   const heroTitle = 'دریافت اطلاعات فوری حقوق کیفری از دستیار هوش مصنوعی ما';
   const introText = `<p>آیا با اتهامات کیفری یا مسائل حقوقی مواجه هستید؟
 دستیار هوش مصنوعی ویکیلا می‌تواند:<br>
@@ -42,7 +42,7 @@ const CriminalLaw = () => {
 ما به شما کمک می‌کنیم تا مسائل پیچیده کیفری را به اطلاعات کاربردی و قابل‌اعتماد تبدیل کنید،
 تا بتوانید با اعتماد به نفس بیشتری برای قدم‌های بعدی خود تصمیم بگیرید</p>`;
   const moreInfoText = 'اطلاعات بیشتر درباره حقوق کیفری ایران';
-  const moreInfoHref = '/en-us/criminal-law/summary';
+  const moreInfoHref = '/criminal-law/summary';
   const introImage = '/assets/intro-criminal.webp';
 
   const areaData = areas['criminal-law'];
@@ -324,7 +324,7 @@ const CriminalLaw = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                  <a href="/en-us/library">حوزه‌های حقوقی</a>
+                  <a href="/library">حوزه‌های حقوقی</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}

@@ -31,11 +31,11 @@ const Litigation = () => {
 
   // Static content for Litigation Law
   const breadcrumbLabel = 'دادخواهی';
-  const breadcrumbHref = '/en-us/litigation';
+  const breadcrumbHref = '/litigation';
   const heroTitle = 'راهنمای هوشمند رایگان در امور اقامه دعوا و دعاوی حقوقی';
   const introText = "مواجهه با یک اختلاف حقوقی می‌تواند بسیار نگران‌کننده باشد، به‌ویژه زمانی که از حقوق خود یا بهترین مسیر اقدام مطمئن نیستید. فرقی نمی‌کند قصد طرح دعوا را دارید، درگیر یک پرونده‌ی مدنی هستید، یا در تلاش برای درک اختلافات تجاری خود، دستیار هوشمند حقوقی ما فوراً اطلاعات لازم را بدون فشار استخدام فوری وکیل فراهم می‌کند. دستیار هوشمند پیشرفته‌ی ما به شما کمک می‌کند تا موقعیت قانونی خود را درک کنید، گزینه‌هایتان را ارزیابی نمایید و در مورد حل اختلاف به درستی تصمیم بگیرید. از سؤالات ساده درباره‌ی حقوق قانونی تا اختلافات پیچیده‌ی تجاری، شفافیت لازم برای حرکت رو به جلو با اطمینان را به دست آورید.";
   const moreInfoText = 'مروری سریع بر حقوق دعاوی در نظام حقوقی ایران';
-  const moreInfoHref = '/en-us/litigation/summary';
+  const moreInfoHref = '/litigation/summary';
   const introImage = '/assets/intro-litigation.webp';
 
   const areaData = areas['litigation'];
@@ -303,7 +303,7 @@ const Litigation = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">Areas of law</a>
+                    <a href="/library">حوزه‌های حقوقی</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}

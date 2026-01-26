@@ -31,7 +31,7 @@ const CommercialLaw = () => {
 
   // Static content for Commercial Law
   const breadcrumbLabel = 'حقوق تجارت و کسب‌وکار';
-  const breadcrumbHref = '/en-us/commercial-law';
+  const breadcrumbHref = '/commercial-law';
   const heroTitle = 'راهنمایی حقوقی سریع و رایگان در امور تجاری، مبتنی بر قوانین ایران';
   const introText = `<p>شروع یا اداره یک کسب‌وکار در ایران، معمولاً با پرسش‌ها و چالش‌های حقوقی همراه است.
       از انتخاب نوع شرکت و تنظیم قراردادها گرفته تا اختلاف با مشتری، شریک یا تأمین‌کننده.
@@ -47,7 +47,7 @@ const CommercialLaw = () => {
       مشاوره حضوری با وکیل دادگستری نیستند.
       در دعاوی مهم، مراجعه به وکیل یا دفاتر خدمات الکترونیک قضایی توصیه می‌شود.`;
   const moreInfoText = 'مروری کوتاه بر اصول حقوق تجارت طبق قوانین ایران';
-  const moreInfoHref = '/en-us/commercial-law/summary';
+  const moreInfoHref = '/commercial-law/summary';
   const introImage = '/assets/intro-us-commercial.webp';
 
   const areaData = areas['commercial-law'];
@@ -449,7 +449,7 @@ const CommercialLaw = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">حوزه‌های حقوقی</a>
+                    <a href="/library">حوزه‌های حقوقی</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}

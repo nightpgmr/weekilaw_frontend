@@ -26,7 +26,7 @@ const EstateAndProbateLaw = () => {
 
   // Static content for Estate and Probate Law
   const breadcrumbLabel = 'ارث، وصیت و امور حسبی';
-  const breadcrumbHref = '/en-us/estate-and-probate-law';
+  const breadcrumbHref = '/estate-and-probate-law';
   const heroTitle = 'اهنمایی رایگان هوش مصنوعی در حوزه ارث، وصیت و امور حسبی';
   const introText = `<p>آیا با مسائل مربوط به وصیت‌نامه،
 تقسیم ترکه یا اختلافات ارثی مواجه هستید؟
@@ -39,7 +39,7 @@ const EstateAndProbateLaw = () => {
 در کوتاه‌ترین زمان ممکن
 به‌صورت رایگان در اختیار شما قرار می‌دهد.</p>`
   const moreInfoText = 'مروری کوتاه بر قوانین وصیت، ارث و امور ترکه در حقوق ایران';
-  const moreInfoHref = '/en-us/estate-and-probate-law/summary';
+  const moreInfoHref = '/estate-and-probate-law/summary';
   const introImage = '/assets/intro-estate-probate.webp';
 
   const areaData = areas['estate-and-probate-law'];
@@ -360,7 +360,7 @@ const EstateAndProbateLaw = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                  <a href="/en-us/library">حوزه‌های حقوقی</a>
+                  <a href="/library">حوزه‌های حقوقی</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}

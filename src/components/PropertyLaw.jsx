@@ -31,11 +31,11 @@ const PropertyLaw = () => {
 
   // Static content for Property Law
   const breadcrumbLabel = 'حقوق املاک';
-  const breadcrumbHref = '/en-us/property-law';
+  const breadcrumbHref = '/property-law';
   const heroTitle = 'راهنمای قانون املاک (Property Law) — ویکیلا';
   const introText = "ویکیلا راهنمایی جامع درباره «قانون املاک و مستغلات» ارائه می‌دهد که برای آشنایی عمومی با مسائل حقوقی مربوط به ملک طراحی شده است. این محتوا با زبانی ساده، مفاهیم پیچیده حقوقی را قابل‌فهم می‌کند. قانون املاک مجموعه‌ای از قوانین و مقررات است که به موضوعات مالکیت اموال غیرمنقول، خرید و فروش ملک، اجاره و روابط موجر و مستأجر، انتقال سند، اختلافات و دعاوی ملکی می‌پردازد. هدف ویکیلا این است که کاربران دید روشنی نسبت به حقوق و تعهدات خود در امور ملکی داشته باشند.";
   const moreInfoText = 'مروری سریع بر قانون املاک در نظام حقوقی ایران';
-  const moreInfoHref = '/en-us/property-law/summary';
+  const moreInfoHref = '/property-law/summary';
   const introImage = '/assets/intro-property.webp';
 
   const areaData = areas['property-law'];
@@ -298,7 +298,7 @@ const PropertyLaw = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">Areas of law</a>
+                    <a href="/library">حوزه‌های حقوقی</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}
