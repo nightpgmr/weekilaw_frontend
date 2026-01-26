@@ -32,36 +32,47 @@ const CriminalLaw = () => {
   // Static content for Criminal Law
   const breadcrumbLabel = 'حقوق کیفری';
   const breadcrumbHref = '/en-us/criminal-law';
-  const heroTitle = 'حقوق کیفری';
-  const introText = 'اطلاعات فوری حقوق کیفری با دستیار هوش مصنوعی در مواجهه با اتهامات کیفری یا سوالات حقوقی مرتبط، دستیار هوش مصنوعی ما اطلاعات لازم را در اختیار شما قرار می‌دهد تا تصمیمات آگاهانه‌تری دربارهٔ وضعیت حقوقی خود اتخاذ کنید. این سرویس پاسخ‌های ساده و قابل‌فهم دربارهٔ حقوق، روند دادگاهی و راهکارهای دفاعی ارائه می‌کند تا بتوانید در مسیر قانونی با اعتماد بیشتر حرکت کنید.';
-  const moreInfoText = 'خلاصه سریع درباره حقوق کیفری';
+  const heroTitle = 'دریافت اطلاعات فوری حقوق کیفری از دستیار هوش مصنوعی ما';
+  const introText = `<p>آیا با اتهامات کیفری یا مسائل حقوقی مواجه هستید؟
+دستیار هوش مصنوعی ویکیلا می‌تواند:<br>
+ • اطلاعات فوری و دقیق در مورد قوانین کیفری ایران به شما بدهد<br>
+ • توضیحاتی ساده و قابل‌فهم در مورد حقوق شما ارائه کند<br>
+ • اطلاعاتی در مورد فرآیندهای دادگاهی و چگونگی دفاع قانونی به شما بدهد<br>
+<br>
+ما به شما کمک می‌کنیم تا مسائل پیچیده کیفری را به اطلاعات کاربردی و قابل‌اعتماد تبدیل کنید،
+تا بتوانید با اعتماد به نفس بیشتری برای قدم‌های بعدی خود تصمیم بگیرید</p>`;
+  const moreInfoText = 'اطلاعات بیشتر درباره حقوق کیفری ایران';
   const moreInfoHref = '/en-us/criminal-law/summary';
   const introImage = '/assets/intro-criminal.webp';
 
   const areaData = areas['criminal-law'];
   const modalContent = areaData.modalContent;
-  const subcategoriesTitle = 'پشتیبانی حقوق کیفری توسط دستیار هوش مصنوعی';
-  const subcategoriesDescription = 'اگر با موضوعات حقوق کیفری روبه‌رو هستید، می‌توانید هرگونه سوال خود را دربارهٔ وضعیت‌تان مطرح کنید و پاسخ‌های مرتبط را دریافت کنید.';
+  const subcategoriesTitle = 'دستیار هوشمند ویکیلا  چه کمکی در امور کیفری به شما می‌کند؟';
+  const subcategoriesDescription = 'ویکیلا  طیف گسترده‌ای از خدمات حقوق کیفری را از طریق دستیار هوشمند خود ارائه می‌دهد. در ادامه، بخشی از این قابلیت‌ها را می‌بینید';
   const subCategories = [
     {
-      title: 'توضیح حقوق در زمان بازداشت',
+      title: 'اطلاعات پایه حقوق کیفری',
       image: '/assets/criminal-law/1.webp',
-      description: 'دستیار می‌تواند اطلاعات پایه‌ای دربارهٔ حقوق فرد در زمان بازداشت، از جمله حق سکوت، حق داشتن وکیل و روند بازجویی پلیس را برای شما توضیح دهد تا بهتر از حقوق خود آگاه باشید.'
+      description: `<p>توضیح شفاف و قابل فهم درباره جرایم، مجازات‌ها، مسئولیت کیفری، و حقوق قانونی اشخاص طبق قوانین کیفری ایران.<br>
+این بخش به شما کمک می‌کند درک درستی از موضوع پرونده، نوع جرم و آثار حقوقی آن داشته باشید؛ حتی بدون دانش حقوقی قبلی.</p>`
     },
     {
-      title: 'اقدام پس از اتهام‌زدن',
+      title: 'درک دقیق اتهام و وضعیت پرونده',
       image: '/assets/criminal-law/2.webp',
-      description: 'دستیار می‌تواند روند معمول بعد از اتهام‌زدن را شامل مراحل مثل قرار وثیقه، زمان‌های حضور در دادگاه و نحوهٔ آماده‌سازی دفاع توضیح دهد تا در مسیر قانونی بهتر پیش بروید.'
+      description: `<p>متوجه شوید اتهام مطرح‌شده دقیقاً به چه معناست، چه پیامدهای قانونی می‌تواند داشته باشد و چه عواملی بر روند رسیدگی و تصمیم مرجع قضایی اثر می‌گذارند.<br>
+چه با اتهامات کیفری سبک یا سنگین مواجه باشید و چه در جایگاه متهم، شاکی یا مطلع قرار داشته باشید، دستیار هوشمند ویکیلا به شما کمک می‌کند تصویر روشنی از وضعیت حقوقی خود داشته باشید.</p>`
     },
     {
-      title: 'دفاع از اتهامات کیفری',
+      title: 'راهنمای مراحل رسیدگی قضایی',
       image: '/assets/criminal-law/3.webp',
-      description: 'اطلاعات درباره گزینه‌های دفاعی، حقوق در دادگاه، وکیل تسخیری و استراتژی‌های رایج دفاعی در برابر اتهامات مختلف کیفری.'
+      description: `<p>با آگاهی مرحله‌به‌مرحله از روند رسیدگی کیفری، مسیر پرونده خود را بهتر مدیریت کنید.<br>
+از آشنایی با جلسات دادسرا و دادگاه، نحوه احضار و حضور در مرجع قضایی، تا آمادگی برای تفهیم اتهام، تحقیقات مقدماتی، رسیدگی دادگاه و صدور رأی، دستیار هوشمند ویکیلا  شما را همراهی می‌کند</p>`
     },
     {
-      title: 'پیامدهای کیفری و اصلاحات',
+      title: 'آشنایی با قرارهای تأمین و آزادی متهم',
       image: '/assets/criminal-law/4.webp',
-      description: 'در مورد انواع مجازات‌ها، گزینه‌های آزادی مشروط، اصلاحات زندان و تأثیرات قانونی سوابق کیفری بر زندگی آینده بیاموزید.'
+      description: `<p>شرایط قرارهای تأمین کیفری از جمله کفالت، وثیقه و سایر تضمین‌های قانونی را بشناسید، از تعهدات خود آگاه شوید و بدانید در صورت نقض شرایط یا نیاز به تغییر قرار چه پیامدهایی در انتظار شماست.<br>
+دستیار هوشمند ویکیلا  به شما کمک می‌کند تصمیمات قضایی مرتبط با آزادی یا بازداشت را بهتر درک کنید و مسیر قانونی مناسب را بشناسید.</p>`
     },
     {
       title: 'تعدیل و کاهش احکام کیفری',
@@ -69,62 +80,88 @@ const CriminalLaw = () => {
       description: 'راهنمایی در مورد فرآیندهای تعدیل حکم، کاهش مجازات‌ها، آزادی مشروط و داستان‌های واقعی از افرادی که موفق به کاهش احکام خود شده‌اند.'
     }
   ];
-  const whyUseTitle = 'چرا استفاده از هوش مصنوعی برای پشتیبانی حقوق کیفری؟';
-  const whyUseDescription = 'با استفاده از این سرویس می‌توانید اطلاعات حقوقی را که معمولاً پیچیده و دشوار هستند، به‌صورت ساده، بدون هزینه و بدون نیاز به مراجعهٔ اولیه به وکیل دریافت کنید.';
+  const whyUseTitle = 'چرا ویکیلا  انتخاب هوشمندانه در پرونده‌های کیفری است؟';
+  const whyUseDescription = `<p>ویکیلا مسیر دسترسی به اطلاعات حقوق کیفری را ساده و قابل‌فهم می‌کند.
+دستیار هوشمند حقوقی ویکیلا بدون  ایجاد فشار یا قضاوت، به شما کمک می‌کند پیش از هر تصمیم مهم، از وضعیت حقوقی خود آگاه شوید.<br>
+<br>
+چه با اتهام کیفری مواجه باشید، چه دغدغه قرار تأمین، بازداشت، دادسرا یا روند دادگاه داشته باشید، پاسخ‌ها متناسب با شرایط پرونده شما ارائه می‌شود.
+برخلاف جست‌وجوهای پراکنده و منابع پیچیده حقوقی، ویکیلا  اطلاعات شفاف، کاربردی و قابل اتکا را دقیقاً زمانی در اختیار شما می‌گذارد که بیش از هر زمان به شفافیت و آرامش تصمیم‌گیری نیاز دارید</p>`;
   const whyUseSections = [
     {
-      title: 'مبنای دانش حقوقی واقعی',
+      title: 'پشتیبانی‌شده با منابع معتبر حقوقی ایران',
       image: '/assets/criminal-law/8.webp',
-      description: 'دستیار هوش مصنوعی ما بر اساس محتوای واقعی قوانین تجاری ایالات متحده و اصول حقوقی آموزش دیده است. شما اطلاعات قابل اعتماد و دقیقی دریافت می‌کنید که با وضعیت کسب‌وکار شما همخوانی دارد.'
+      description: `<p>ویکیلا  بر پایه منابع معتبر، قوانین لازم‌الاجرا و رویه‌های حقوقی ایران فعالیت می‌کند.<br>
+پاسخ‌ها صرفاً اطلاعات عمومی یا محتوای کلی نیستند، بلکه بر اساس قوانین موضوعه، آیین دادرسی، آراء و رویه‌های شناخته‌شده قضایی و دانش تخصصی حقوقی ارائه می‌شوند.<br>
+<br>
+این رویکرد به شما کمک می‌کند در مسائل کیفری، درک دقیق‌تری از وضعیت حقوقی خود داشته باشید و تصمیم‌های آگاهانه‌تری در چارچوب نظام حقوقی ایران اتخاذ کنید.</p>`
     },
     {
-      title: 'پاسخ‌هایی متناسب با کسب‌وکار شما',
+      title: 'دسترسی فوری به پاسخ‌های هوشمند حقوقی، هر زمان که نیاز دارید',
       image: '/assets/criminal-law/9.webp',
-      description: 'پاسخ‌ها بر اساس نوع کسب‌وکار، مشکل حقوقی و وضعیت شما تنظیم شده است. چه تازه شروع کرده باشید و چه در حال مدیریت یک اختلاف باشید، پاسخ‌های مرتبط و عملی دریافت خواهید کرد.'
+      description: `<p>با ویکیلا  پاسخ‌های حقوقی متناسب با سؤال و شرایط پرونده شما را بدون نیاز به تعیین وقت، انتظار طولانی یا هزینه‌های پیش‌بینی‌نشده دریافت کنید.<br>
+دستیار هوشمند حقوقی ویکیلا  در هر زمان، اطلاعات شفاف و کاربردی را در اختیار شما قرار می‌دهد تا بتوانید با آرامش و آگاهی تصمیم بگیرید</p>`,
     },
     {
-      title: 'استفاده رایگان در هر زمان',
+      title: 'دسترسی دائمی به پشتیبانی هوشمند حقوقی',
       image: '/assets/criminal-law/10.webp',
-      description: 'استفاده از دستیار هوش مصنوعی هزینه‌ای ندارد. سوالات خود را هر زمان که برای شما مناسب است بپرسید. نیازی به تعیین وقت قبلی یا انتظار برای ساعات کاری نیست.'
+      description: `<p>ویکیلا به‌صورت ۲۴ ساعته و بدون وقفه در دسترس است؛<br>
+مناسب برای مواقعی که سؤال حقوقی شما فوری است، خارج از ساعات اداری مطرح می‌شود یا نیاز دارید در شرایط پرتنش، پاسخ قابل اتکا دریافت کنید.<br>
+دستیار هوشمند ویکیلا  در هر زمان، همراه شماست.</p>`,
     },
     {
-      title: 'محرمانه و خصوصی',
+      title: 'امنیت و محرمانگی اطلاعات شما',
       image: '/assets/criminal-law/11.webp',
-      description: 'شما می‌توانید سوالات خود را به صورت ناشناس بپرسید. تمامی مکالمات امن و محرمانه هستند تا بتوانید گزینه‌های خود را در فضایی خصوصی و مورد اعتماد بررسی کنید.'
+      description: `<p>ویکیلا  اطلاعات شما را به‌صورت امن، محرمانه و ناشناس نگهداری می‌کند
+تا بتوانید بدون نگرانی از قضاوت، افشا یا پیامدهای ناخواسته،
+گزینه‌های حقوقی خود را بررسی و آگاهانه تصمیم‌گیری کنید.</p>`,
     }
   ];
-  const howItWorksTitle = 'نحوه کار با سرویس حقوق کیفری';
-  const howItWorksDescription = 'فرآیند ساده و کاربرپسند برای دریافت کمک حقوقی:';
+  const howItWorksTitle = 'ویکیلا  چگونه در پرونده‌های کیفری به شما کمک می‌کند؟';
+  const howItWorksDescription = `<p>شروع کار بسیار ساده است.<br>
+شما همواره کنترل کامل اطلاعاتی که وارد می‌کنید و نوع راهنمایی‌ای که دریافت می‌کنید را در اختیار دارید</p>`;
   const howItWorksSteps = [
     {
-      title: '۱. توضیح وضعیت خود',
+      title: 'شرح مسئله حقوقی شما',
       image: '/assets/how-it-works-step1-desktop.webp',
-      description: 'وضعیت حقوقی یا مسئلهٔ کیفری خود را با جزئیات لازم شرح دهید تا دستیار هوش مصنوعی بتواند بهترین پاسخ را برای شما تهیه کند.'
+      description: `<p>از همین‌جا شروع کنید.<br>
+کافی‌ست با زبان ساده و بدون اصطلاحات حقوقی توضیح دهید چه اتفاقی افتاده است.<br>
+فرقی نمی‌کند با یک اتهام کیفری روبه‌رو هستید، برای مراجعه به مرجع قضایی نگرانی دارید یا فقط از حقوق قانونی خود مطمئن نیستید؛<br>
+دستیار هوشمند ویکیلا به دقت به توضیحات شما گوش می‌دهد و متناسب با شرایطتان راهنمایی دقیق ارائه می‌کند.</p>`
     },
     {
-      title: '۲. توضیح قوانین مرتبط',
+      title: 'قوانین مؤثر پرونده شما به زبان ساده',
       image: '/assets/how-it-works-step2-desktop.webp',
-      description: 'دستیار اطلاعات کلیدی از قوانین کیفری مرتبط با وضعیت شما را ارائه می‌دهد.'
+      description: `<p>قوانین مهمی مانند قانون مجازات اسلامی، قوانین آیین دادرسی، قوانین خاص کیفری و اصول قانون اساسی، چارچوب جرایم و مجازات‌ها را در ایران تعیین می‌کنند.<br>
+ویکیلا  این قوانین را به زبان ساده و قابل فهم توضیح می‌دهد تا بدون سردرگمی، از حقوق، تکالیف و گزینه‌های قانونی پیشِ روی خود آگاه شوید.</p>`
     },
     {
-      title: '۳. دریافت گزارش شخصی‌شده',
+      title: 'گزارش حقوقی اختصاصی شما، بلافاصله',
       image: '/assets/how-it-works-step3-v2-desktop.webp',
-      description: 'در نهایت گزارش حقوقی مناسب و مرتبط با سوال شما تهیه می‌شود تا وضعیت‌تان را بهتر درک کنید و تصمیم مناسب‌تری اتخاذ کنید.'
+      description: `<p>پس از پایان گفت‌وگو با دستیار هوشمند حقوقی ویکیلا ، یک گزارش حقوقی شخصی‌سازی‌شده متناسب با وضعیت شما تهیه می‌شود.<br>
+این گزارش شامل جمع‌بندی حقوقی، تحلیل وضعیت، ریسک‌های احتمالی و مسیرهای قانونی پیشِ رو است تا بتوانید با دید روشن‌تری تصمیم بگیرید.</p>`
     }
   ];
-  const faqTitle = 'سوالات متداول دربارهٔ حقوق کیفری';
+  const faqTitle = 'پرسش‌های متداول دستیار هوشمند حقوق کیفری ویکیلا';
   const faqItems = [
-    { question: 'آیا دستیار هوش مصنوعی مشاورهٔ حقوقی رسمی می‌دهد؟', answer: 'خیر. اطلاعات ارائه‌شده مبتنی بر قوانین عمومی و منابع معتبر حقوقی است و مشاورهٔ رسمی و حرفه‌ای حقوقی محسوب نمی‌شود. برای دریافت مشاورهٔ دقیق و تخصصی باید با وکیل متخصص در این حوزه مشورت کنید.' },
-    { question: 'آیا استفاده از این سرویس رایگان است؟', answer: 'بله. استفاده از دستیار حقوق کیفری برای پرسش و دریافت پاسخ، کاملاً رایگان است و هیچ هزینهٔ پنهانی یا تعهدی برای ادامهٔ فرآیند ایجاد نمی‌کند.' },
-    { question: 'اطلاعات ارائه‌شده چقدر قابل اتکا هستند؟', answer: 'اطلاعات بر اساس اصول و قوانین کیفری موجود در حوزهٔ قضایی ایالات متحده تدوین شده‌اند. این اطلاعات می‌تواند نقطهٔ شروع خوبی برای درک موضوع باشد، اما برای مسائل پیچیده‌تر یا شرایط خاص حتماً لازم است با وکیل متخصص مشورت کنید.' },
-    { question: 'آیا گفتگوها و اطلاعات من محرمانه هستند؟', answer: 'بله. تمامی گفتگوها به‌صورت امن و محرمانه نگهداری می‌شوند و اطلاعات شما بدون رضایت‌تان به اشخاص ثالث ارائه نمی‌شود.' },
-    { question: 'آیا لازم است حتماً اقدامی قانونی انجام دهم؟', answer: 'نه. شما می‌توانید فقط برای کسب اطلاعات دربارهٔ حقوق و گزینه‌های موجود از سرویس استفاده کنید و هیچ فشار یا الزام قانونی برای شروع یا ادامهٔ فرآیند وجود ندارد.' },
-    { question: 'آیا سرویس همیشه در دسترس است؟', answer: 'بله. این سرویس هوش مصنوعی به‌صورت شبانه‌روزی در دسترس است، حتی در تعطیلات و ساعات غیراداری.' },
-    { question: 'چگونه می‌تواند حقوق من در زمان بازداشت را توضیح دهد؟', answer: 'دستیار می‌تواند اطلاعات پایه‌ای دربارهٔ حقوق فرد در زمان بازداشت، از جمله حق سکوت، حق داشتن وکیل و روند بازجویی پلیس را برای شما توضیح دهد تا بهتر از حقوق خود آگاه باشید.' },
-    { question: 'چگونه می‌توانم پس از اتهام‌زدن اقدام کنم؟', answer: 'دستیار می‌تواند روند معمول بعد از اتهام‌زدن را شامل مراحل مثل قرار وثیقه، زمان‌های حضور در دادگاه و نحوهٔ آماده‌سازی دفاع توضیح دهد تا در مسیر قانونی بهتر پیش بروید.' }
+    { question: 'آیا دستیار هوشمند ویکیلا مشاوره حقوقی واقعی ارائه می‌دهد؟', answer: `<p>ویکیلا جایگزین وکیل نیست، اما اطلاعات حقوقی دقیق، تحلیلی و مبتنی بر قوانین ایران ارائه می‌دهد تا قبل از هر اقدام، آگاهانه تصمیم بگیرید. در صورت نیاز، امکان ارتباط با وکیل نیز فراهم است.</p>` },
+    { question: 'آیا استفاده از ویکیلا  کاملاً رایگان است؟', answer: `<p>بله. دسترسی اولیه به دستیار هوشمند و دریافت اطلاعات حقوقی پایه رایگان است. برخی خدمات تخصصی ممکن است مشمول شرایط جداگانه باشند.</p>` },
+    { question: 'اطلاعات ارائه‌شده توسط ویکیلا  چقدر قابل اعتماد است؟', answer: `<p>پاسخ‌ها بر اساس قوانین کیفری ایران، آیین دادرسی کیفری، رویه‌های قضایی و تحلیل کارشناسان خبره تهیه می‌شوند و از منابع عمومی و غیرمعتبر استفاده نمی‌شود.</p>` },
+    { question: 'آیا گفت‌وگوی من با ویکیلا محرمانه است؟', answer: `<p>بله. کلیه گفت‌وگوها محرمانه بوده و امکان استفاده ناشناس نیز وجود دارد. حفظ حریم خصوصی کاربران یکی از اصول اصلی ویکیلا  است.</p>` },
+    { question: 'اگر هنوز قصد اقدام قانونی ندارم، می‌توانم از ویکیلا  استفاده کنم؟', answer: `<p>کاملاً. ویکیلا  برای آگاهی، بررسی گزینه‌ها و تصمیم‌گیری قبل از هر اقدام حقوقی طراحی شده است.
+</p>` },
+    { question: ' آیا ویکیلا  خارج از ساعات اداری هم در دسترس است؟', answer: `<p>بله. دستیار هوشمند ویکیلا به‌صورت ۲۴ ساعته و در تمام روزهای هفته در دسترس شماست.</p>` },
+    { question: 'اگر بازداشت شوم، ویکیلا چگونه به من کمک می‌کند؟', answer: `<p>ویکیلا  حقوق قانونی شما، مراحل قانونی پس از بازداشت، نحوه برخورد با ضابطان قضایی و گزینه‌های پیش‌رو را به‌صورت شفاف توضیح می‌دهد.</p>` },
+    { question: 'پس از تفهیم اتهام، ویکیلا چه کمکی می‌کند؟', answer: `<p>به شما کمک می‌کند بدانید:<br>
+ • اتهام چیست<br>
+ • چه اقداماتی فوراً باید انجام شود<br>
+ • چه تصمیم‌هایی می‌تواند به نفع یا ضرر شما باشد</p>` },
+    { question: 'آیا می‌توانم برای دفاع شخصی از راهنمایی ویکیلا  استفاده کنم؟', answer: `<p>بله. ویکیلا  مسیرهای قانونی، حقوق شما و الزامات دفاع را توضیح می‌دهد، اما در پرونده‌های حساس توصیه می‌شود از وکیل استفاده شود.</p>` },
+    { question: 'ویکیلا  چگونه حقوق من را در بازرسی‌ها و تفتیش‌ها توضیح می‌دهد؟', answer: `<p>حقوق شما در تفتیش، شرایط قانونی ورود، حدود اختیارات ضابطان و موارد قابل اعتراض به زبان ساده توضیح داده می‌شود.</p>` },
+    { question: 'آیا ویکیلا  تأثیر سابقه کیفری بر آینده شغلی و اجتماعی را توضیح می‌دهد؟', answer: `<p>بله. آثار قانونی و اجتماعی سابقه کیفری، محدودیت‌ها و راهکارهای قانونی مرتبط به‌طور شفاف بررسی می‌شود.</p>` },
+    { question: 'ویکیلا  چگونه در آماده‌سازی دفاع مؤثر کمک می‌کند؟', answer: `<p>با شناسایی مسیرهای دفاع، نقاط حساس پرونده، گزینه‌های قانونی و امکان ارتباط با وکیل یا کارشناس خبره.</p>` },
   ];
-  const helpTitle = 'توضیح مهم';
-  const helpDescription = 'مطالب ارائه‌شده در این بخش صرفاً برای افزایش آگاهی عمومی هستند و جایگزین مشاورهٔ حقوقی تخصصی و قانونی با وکیل متخصص نمی‌شوند. در موارد حقوقی پیچیده یا خاص، توصیه می‌شود با وکیل حرفه‌ای مشورت کنید.';
+  const helpTitle = 'نیاز به راهنمایی در یک پرونده کیفری دارید؟';
+  const helpDescription = 'با مطرح‌کردن پرسش حقوقی، اطلاعات اولیه، حقوق قانونی و گزینه‌های پیش روی خود را در پرونده‌های کیفری دریافت کنید.';
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -287,7 +324,7 @@ const CriminalLaw = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">Areas of law</a>
+                  <a href="/en-us/library">حوزه‌های حقوقی</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}
@@ -349,7 +386,7 @@ const CriminalLaw = () => {
                         id="double-input-criminal"
                         className="style-module__textareaInput style-module__withPreTextIcon"
                         rows="1"
-                        placeholder="سؤال حقوقی خود را بپرسید"
+                        placeholder="سؤال حقوقی خود را اینجا بنویسید"
                         value={chatInput}
                         onChange={(e) => setChatInput(e.target.value)}
                         onKeyDown={(e) => {
@@ -384,7 +421,7 @@ const CriminalLaw = () => {
                     />
                   </div>
                   <p className="styles_featureText">
-                    پاسخ‌های رایگان هوش مصنوعی دریافت کنید
+                  دریافت پاسخ فوری به سؤالات حقوق کیفری شما از دستیار هوش مصنوعی ما
                   </p>
                 </div>
                 <div className="styles_featureCard styles_featureCardTwo">
@@ -398,7 +435,7 @@ const CriminalLaw = () => {
                     />
                   </div>
                   <p className="styles_featureText">
-                    تصمیمات آگاهانه بگیرید
+                  آیا با اتهام یا مسائل حقوقی کیفری روبه‌رو هستید؟
                   </p>
                 </div>
               </div>
@@ -423,9 +460,7 @@ const CriminalLaw = () => {
             <div className="content_sectionContainer">
               <div className="content_innerWidthWrapper">
                 <div className="content_descriptionHeader">
-                  <div className="content_bodyText content_maxWidth">
-                    <p>{introText}</p>
-                  </div>
+                  <div className="content_bodyText content_maxWidth" dangerouslySetInnerHTML={{ __html: introText }} />
                   {/* MORE INFO Section */}
                   <div className="intro_moreInfoContainer">
                     <div className="intro_moreInfo">
@@ -438,7 +473,7 @@ const CriminalLaw = () => {
                           height="24"
                         />
                       </div>
-                      <div className="intro_moreInfoText">MORE INFO</div>
+                      <div className="intro_moreInfoText">اطلاعات بیشتر</div>
                     </div>
                     <div className="intro_moreInfoLinkContainer">
                       <a onClick={() => setIsModalOpen(true)} className="intro_categoryActionContainer" style={{cursor: 'pointer'}}>
@@ -516,7 +551,7 @@ const CriminalLaw = () => {
                         <div className="subcategories_categoryTitle">{category.title}</div>
                         <div className="subcategories_categoryDescription">
                           <p>
-                            <span style={{color: '#333333'}}>{category.description}</span>
+                            <span style={{color: '#333333'}} dangerouslySetInnerHTML={{ __html: category.description }} />
                           </p>
                         </div>
                       </a>
@@ -545,6 +580,53 @@ const CriminalLaw = () => {
           </div>
         </div>
 
+        {/* Need Help Section */}
+        <div className="landing-page_widthWrapper">
+          <div className="landing-page_innerWidthWrapper">
+            <div className="styles_container">
+              <div className="styles_card" style={{ maxWidth: '100%' }}>
+                <div className="styles_textWrapper">
+                  <div className="styles_title" style={{ textAlign: 'start' }}>{helpTitle}</div>
+                  <div className="styles_description" style={{ textAlign: 'start' }}>{helpDescription}</div>
+                </div>
+                <div className="styles_imageWrapper">
+                  <a
+                    href="/chat"
+                    className="styles_buttonWrapper styles_startCaseButton"
+                    style={{'--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)'}}
+                  >
+                    <div className="styles_buttonText">سؤال حقوقی خود را مطرح کنید</div>
+                    <div className="styles_buttonArrow">
+                      <div className="styles_arrowIconWrapperHover">
+                        <img
+                          alt="arrow-right"
+                          loading="lazy"
+                          width="16"
+                          height="16"
+                          className="styles_arrowIcon"
+                          src="/assets/arrow-right-blue.svg"
+                        />
+                      </div>
+                      <div className="styles_arrowIconWrapper">
+                        <img
+                          alt="arrow-right-white"
+                          loading="lazy"
+                          width="16"
+                          height="16"
+                          className="styles_arrowIcon"
+                          src="/assets/arrow-right-white.svg"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                  <div className="styles_backgroundColour"></div>
+                  <div className="styles_backgroundSquare" style={{backgroundColor: '#F0EFEC'}}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Why Use AI Section */}
         <div className="category_libraryGapWrapper">
           <div className="why-use_widthWrapper">
@@ -554,9 +636,7 @@ const CriminalLaw = () => {
             </div>
             <div className="why-use_descriptionContainer">
               <p className="why-use_description">
-                <span style={{color: '#191919'}}>
-                  {whyUseDescription}
-                </span>
+                <span style={{color: '#191919'}} dangerouslySetInnerHTML={{ __html: whyUseDescription }} />
               </p>
             </div>
             <div className="styles-module__container why-use_carouselWrapper">
@@ -600,9 +680,7 @@ const CriminalLaw = () => {
                 <div className="how-it-works_titleContainer">
                   <h2 className="how-it-works_title">{howItWorksTitle}</h2>
                   <p className="how-it-works_description">
-                    <span style={{color: '#191919'}}>
-                      {howItWorksDescription}
-                    </span>
+                    <span style={{color: '#191919'}} dangerouslySetInnerHTML={{ __html: howItWorksDescription }}/>
                   </p>
                 </div>
                 <div className="how-it-works_stepsContainer">
@@ -640,7 +718,7 @@ const CriminalLaw = () => {
                       <div className="how-it-works_stepContent">
                         <h3 className="how-it-works_stepTitle">{step.title}</h3>
                         <p className="how-it-works_stepDescription">
-                          <span style={{color: '#333333'}}>{step.description}</span>
+                          <span style={{color: '#333333'}} dangerouslySetInnerHTML={{ __html: step.description }}/>
                         </p>
                       </div>
                     </div>
@@ -674,9 +752,7 @@ const CriminalLaw = () => {
                         />
                       </div>
                       <div className={`dropdown_dropDownItemContent ${openFaqIndex === index ? 'dropdown_open' : ''} faq-content_dropDownContent`}>
-                        <div>
-                          <p>{faq.answer}</p>
-                        </div>
+                        <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
                       </div>
                     </div>
                   ))}
@@ -699,10 +775,10 @@ const CriminalLaw = () => {
         <div className="landing-page_widthWrapper">
           <div className="landing-page_innerWidthWrapper">
             <div className="styles_container">
-              <div className="styles_card">
+              <div className="styles_card" style={{ maxWidth: '100%' }}>
                 <div className="styles_textWrapper">
-                  <div className="styles_title">{helpTitle}</div>
-                  <div className="styles_description">{helpDescription}</div>
+                  <div className="styles_title" style={{ textAlign: 'start' }}>{helpTitle}</div>
+                  <div className="styles_description" style={{ textAlign: 'start' }}>{helpDescription}</div>
                 </div>
                 <div className="styles_imageWrapper">
                   <a
@@ -710,7 +786,7 @@ const CriminalLaw = () => {
                     className="styles_buttonWrapper styles_startCaseButton"
                     style={{'--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)'}}
                   >
-                    <div className="styles_buttonText">همین حالا شروع کنید</div>
+                    <div className="styles_buttonText">سؤال حقوقی خود را مطرح کنید</div>
                     <div className="styles_buttonArrow">
                       <div className="styles_arrowIconWrapperHover">
                         <img
@@ -747,7 +823,9 @@ const CriminalLaw = () => {
           <div className="landing-page_innerWidthWrapper">
             <div className="disclaimer_disclaimerTextWrapper">
               <div className="disclaimer_disclaimer">
-                <b>سلب مسئولیت</b>: محتوای ارائه شده در این وب‌سایت فقط برای اهداف اطلاعاتی است و نباید به عنوان جایگزین مشاوره حقوقی مورد اعتماد قرار گیرد. به گیرندگان توصیه می‌شود قبل از اجرای هر گونه توصیه‌ای در اینجا، با مشاور حقوقی واجد شرایط مشورت کنند. Weekilaw مسئولیت اقدامات انجام شده بر اساس این اطلاعات را نخواهد داشت.
+              محتوای ارائه‌شده در ویکیلا  صرفاً جنبه اطلاع‌رسانی حقوقی دارد و جایگزین مشاوره تخصصی وکیل یا کارشناس رسمی نیست.
+کاربران پیش از هر اقدام حقوقی یا قضایی، باید با وکیل دادگستری یا مرجع ذی‌صلاح مشورت نمایند.
+ویکیلا  مسئولیتی در قبال تصمیمات اتخاذشده بر اساس این اطلاعات نخواهد داشت.
               </div>
             </div>
           </div>
@@ -789,7 +867,7 @@ const CriminalLaw = () => {
                           id="double-input-criminal-last-section"
                           className="style-module__textareaInput style-module__withPreTextIcon"
                           rows="1"
-                          placeholder="سؤال حقوقی خود را بپرسید"
+                          placeholder="سؤال حقوقی خود را اینجا بنویسید"
                           style={{height: '72px'}}
                           value={lastSectionChatInput}
                           onChange={(e) => setLastSectionChatInput(e.target.value)}

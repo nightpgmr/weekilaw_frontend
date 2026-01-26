@@ -30,109 +30,264 @@ const CommercialLaw = () => {
   const [percentageCards, setPercentageCards] = useState(0);
 
   // Static content for Commercial Law
-  const breadcrumbLabel = 'حقوق تجارت';
+  const breadcrumbLabel = 'حقوق تجارت و کسب‌وکار';
   const breadcrumbHref = '/en-us/commercial-law';
-  const heroTitle = 'حقوق تجارت، دقیقاً وقتی به آن نیاز دارید';
-  const introText = 'مدیریت یا راه‌اندازی یک کسب‌وکار، همواره با تصمیم‌های حقوقی همراه است. از تنظیم و بررسی قراردادها گرفته تا روابط با شرکا، مشتریان و تأمین‌کنندگان، آشنایی با اصول حقوق تجارت نقش مهمی در کاهش ریسک و تصمیم‌گیری درست دارد. ما با استفاده از دستیار هوشمند حقوقی، اطلاعات حقوقی مرتبط با کسب‌وکار را به‌صورت ساده، قابل‌فهم و در دسترس در اختیار شما قرار می‌دهیم تا بتوانید با آگاهی بیشتری مسیر خود را انتخاب کنید.';
-  const moreInfoText = 'خلاصه سریع درباره حقوق تجارت';
+  const heroTitle = 'راهنمایی حقوقی سریع و رایگان در امور تجاری، مبتنی بر قوانین ایران';
+  const introText = `<p>شروع یا اداره یک کسب‌وکار در ایران، معمولاً با پرسش‌ها و چالش‌های حقوقی همراه است.
+      از انتخاب نوع شرکت و تنظیم قراردادها گرفته تا اختلاف با مشتری، شریک یا تأمین‌کننده.
+<br><br>
+      در ویکیلا 
+      می‌توانید با استفاده از دستیار هوش مصنوعی حقوقی،
+      وضعیت حقوقی خود را مطابق با قوانین جمهوری اسلامی ایران بررسی کنید و
+      پیش از هر اقدام، مسیر قانونی مناسب را بشناسید.
+      <br><br>
+      هدف ما این است که با اطمینان و آگاهی حقوقی تصمیم بگیرید و جلو بروید.</p>`;
+  const introTextAlert = `⚠️ توجه:
+      پاسخ‌های ارائه‌شده صرفاً جنبه‌ی اطلاع‌رسانی حقوقی دارند و جایگزین
+      مشاوره حضوری با وکیل دادگستری نیستند.
+      در دعاوی مهم، مراجعه به وکیل یا دفاتر خدمات الکترونیک قضایی توصیه می‌شود.`;
+  const moreInfoText = 'مروری کوتاه بر اصول حقوق تجارت طبق قوانین ایران';
   const moreInfoHref = '/en-us/commercial-law/summary';
   const introImage = '/assets/intro-us-commercial.webp';
 
   const areaData = areas['commercial-law'];
   const modalContent = areaData.modalContent;
-  const subcategoriesTitle = 'چگونه می‌توانیم کمک کنیم';
-  const subcategoriesDescription = 'دستیار حقوقی ما برای پاسخ‌گویی به سوالات رایج و کاربردی در حوزه حقوق تجارت طراحی شده است؛ سوالاتی که بسیاری از صاحبان کسب‌وکار روزانه با آن‌ها مواجه می‌شوند. شما می‌توانید درباره موضوعاتی مانند:';
+  const subcategoriesTitle = 'دستیار هوش مصنوعی ویکیلا  در چه موضوعات حقوق تجاری به شما کمک می‌کند؟';
+  const subcategoriesDescription = 'دستیار هوش مصنوعی ویکیلا  برای طیف گسترده‌ای از مسائل حقوق تجارت و کسب‌وکار طراحی شده و می‌تواند در موضوعات زیر، راهنمایی اولیه و فوری ارائه دهد:';
   const subCategories = [
     {
-      title: 'شروع کسب‌وکار و تأسیس شرکت',
+      title: 'راه‌اندازی کسب‌وکار و ثبت شرکت',
       image: '/assets/commercial-law/1.webp',
-      description: 'نمی‌دانید از کجا شروع کنید؟ دستیار هوش مصنوعی ما می‌تواند ساختارهای کسب‌وکار مانند شرکت‌های مسئولیت محدود (LLC) و سهامی، الزامات ثبت‌نام، اصول رعایت قوانین و مدارکی که برای شروع نیاز دارید را توضیح دهد.'
+      description: `<p>اگر نمی‌دانید از کجا شروع کنید، دستیار هوش مصنوعی ویکیلا  به شما کمک می‌کند تا:<br>
+        • انواع شرکت‌ها در ایران (مسئولیت محدود، سهامی خاص و …) را بشناسید<br>
+        • الزامات قانونی ثبت شرکت را درک کنید<br>
+        • با مدارک و مراحل اداری لازم آشنا شوید<br>
+        • الزامات اولیه مالیاتی و قانونی را بشناسید
+        <br>
+        تا کسب‌وکار خود را درست و قانونی راه‌اندازی کنید.</p>`,
     },
     {
-      title: 'قراردادها و توافق‌نامه‌های تجاری',
+      title: 'قراردادها و توافقات تجاری',
       image: '/assets/commercial-law/2.webp',
-      description: 'در تلاش برای درک یک قرارداد هستید؟ آن را کپی کرده یا توضیح دهید و دستیار ما مفاد کلیدی، مسئولیت‌ها و ریسک‌ها را برای شما توضیح خواهد داد تا قبل از امضاء، احساس اطمینان بیشتری داشته باشید.'
+      description: `<p>اگر قصد امضای قرارداد دارید یا در مفاد آن ابهام دارید، لکسی لگال به شما کمک می‌کند تا:<br>
+ • بندهای مهم قرارداد را بهتر درک کنید<br>
+ • حقوق و تعهدات طرفین را بشناسید<br>
+ • ریسک‌های حقوقی احتمالی را تشخیص دهید<br>
+ • پیش از امضا، تصمیم آگاهانه بگیرید</p>`,
     },
     {
       title: 'اختلافات تجاری و نقض قرارداد',
       image: '/assets/commercial-law/3.webp',
-      description: 'در حال پیگیری پرداخت یا مواجه با نقض یک توافق‌نامه هستید؟ دستیار هوش مصنوعی می‌تواند به شما در درک موقعیت قانونی‌تان کمک کند و گزینه‌های عملی برای حل اختلافات قراردادی را ارائه دهد.'
+      description: `<p>اگر در کسب‌وکار خود با اختلاف تجاری یا عدم انجام تعهدات قراردادی مواجه شده‌اید،
+دستیار هوش مصنوعی ویکیلا  به شما کمک می‌کند تا:<br>
+ • موقعیت حقوقی خود را مطابق با قوانین ایران بررسی کنید<br>
+ • تشخیص دهید آیا قرارداد نقض شده است یا خیر<br>
+ • راهکارهای قانونی موجود را بشناسید (مطالبه وجه، الزام به انجام تعهد، فسخ، مطالبه خسارت و …)<br>
+ • قبل از اقدام قضایی، بهترین مسیر حقوقی را انتخاب کنید<br>
+
+این راهنمایی‌ها به شما کمک می‌کند با آگاهی و کم‌ریسک‌تر برای حل اختلاف تصمیم بگیرید.</p>`,
     },
     {
       title: 'خرید یا فروش کسب‌وکار',
       image: '/assets/commercial-law/4.webp',
-      description: 'اگر در فرایند فروش یا انتقال یک کسب‌وکار هستید، دستیار هوش مصنوعی ما می‌تواند مراحل مختلف این فرایند، از تحقیق دقیق و مذاکرات گرفته تا قراردادها و ریسک‌های قانونی، را برای شما توضیح دهد.'
+      description: `<p>اگر قصد خرید، فروش یا انتقال یک کسب‌وکار را دارید،<br>
+دستیار هوش مصنوعی ویکیلا  به شما کمک می‌کند تا:<br>
+ • مراحل حقوقی معامله را مطابق با قوانین ایران بشناسید<br>
+ • وضعیت مالکیت، بدهی‌ها و تعهدات کسب‌وکار را بررسی کنید<br>
+ • ریسک‌های حقوقی احتمالی را قبل از معامله شناسایی کنید<br>
+ • برای تنظیم قراردادهای انتقال، مشارکت یا واگذاری، تصمیم آگاهانه بگیرید<br>
+<br>
+این راهنمایی‌ها به شما کمک می‌کند با اطمینان و حداقل ریسک حقوقی وارد معامله شوید</p>`,
     },
     {
-      title: 'اختلافات مشتری و حمایت از مصرف‌کننده',
+      title: 'دستیار هوشمند ویکیلا  در چه دعاوی و امور حقوق تجارت کاربرد دارد؟',
       image: '/assets/commercial-law/5.webp',
-      description: 'آیا شکایت یا درخواست بازپرداخت دارید؟ با قوانین حمایت از مصرف‌کننده در ایران آشنا شوید و یاد بگیرید چگونه به طور عادلانه و قانونی پاسخ دهید و تعهدات قانونی خود را رعایت کنید.'
+      description: `<p>دستیار حقوقی هوشمند ویکیلا  قادر است در دامنه وسیعی از موضوعات مرتبط با حقوق تجارت و امور بازرگانی راهنمایی عمومی ارائه دهد.
+در ادامه، مهم‌ترین زمینه‌هایی که این سامانه می‌تواند در آن‌ها پشتیبانی سریع فراهم کند معرفی شده است</p>`
     },
     {
-      title: 'حریم خصوصی، مالکیت معنوی و اسناد قانونی وب‌سایت',
+      title: 'حریم خصوصی، مالکیت فکری و اسناد حقوقی وب‌سایت',
       image: '/assets/commercial-law/6.webp',
-      description: 'نیاز به کمک در تهیه سیاست حریم خصوصی، حفاظت از حقوق مالکیت معنوی یا شرایط وب‌سایت دارید؟ دستیار ما می‌تواند توضیح دهد که برای رعایت قوانین و محافظت از کسب‌وکار آنلاین خود چه مواردی لازم است.'
+      description: `
+اگر وب‌سایت، اپلیکیشن یا کسب‌وکار آنلاین دارید،<br>
+دستیار هوش مصنوعی ویکیلا به شما کمک می‌کند تا:<br>
+ • الزامات قانونی مربوط به حریم خصوصی کاربران را بشناسید<br>
+ • با اصول حمایت از مالکیت فکری (نام تجاری، محتوا، نرم‌افزار) آشنا شوید<br>
+ • اسناد حقوقی ضروری مانند سیاست حفظ حریم خصوصی و شرایط و مقررات استفاده را درک کنید<br>
+ • ریسک‌های حقوقی فعالیت آنلاین خود را کاهش دهید<br>
+<br>
+این راهنمایی‌ها به شما کمک می‌کند کسب‌وکار آنلاین خود را قانون‌مند و ایمن مدیریت کنید.`,
     },
     {
-      title: 'هر گونه سوال عمومی در مورد حقوق تجارت',
+      title: 'سؤالات عمومی حقوق کسب‌وکار',
       image: '/assets/commercial-law/7.webp',
-      description: 'اگر مطمئن نیستید از کجا شروع کنید یا آیا مشکل شما جنبه حقوقی دارد یا خیر، سوال خود را به زبان خود از دستیار هوش مصنوعی بپرسید. این یک روش مفید و بدون قضاوت برای برداشتن اولین قدم است.'
+      description: `اگر مطمئن نیستید مسئله‌ای که با آن مواجه شده‌اید حقوقی است یا نه،
+یا نمی‌دانید از کجا باید پیگیری را شروع کنید،
+می‌توانید سؤال خود را با زبان ساده و به‌صورت آزاد مطرح کنید.
+
+دستیار هوش مصنوعی ویکیلا  به شما کمک می‌کند تا:
+ • موضوع خود را بهتر بشناسید
+ • تشخیص دهید مسئله شما در چه حوزه حقوقی قرار می‌گیرد
+ • مسیر مناسب قانونی یا غیرقضایی را شناسایی کنید
+
+این بخش یک قدم اول امن و بدون قضاوت برای شروع مسیر حقوقی شماست`,
     }
   ];
-  const whyUseTitle = 'دریافت سریع اطلاعات حقوقی';
-  const whyUseDescription = 'بدون نیاز به جست‌وجوی طولانی یا اصطلاحات پیچیده حقوقی، کافی است وضعیت خود را توضیح دهید تا دستیار هوشمند، اطلاعات مرتبط را به زبان ساده در اختیار شما قرار دهد. این اطلاعات به شما کمک می‌کند:';
+  const whyUseTitle = 'چرا از هوش مصنوعی برای مسائل حقوقی تجاری استفاده کنیم؟';
+  const whyUseDescription = `<p>در اداره یک کسب‌وکار، مسائل حقوقی می‌توانند پیچیده، زمان‌بر و پرهزینه باشند.<br>
+بسیاری از افراد نمی‌دانند از کجا شروع کنند یا چه اقدامی درست است.
+
+در ویکیلا  دستیار هوش مصنوعی حقوقی به شما کمک می‌کند تا:<br>
+ • حقوق و تعهدات قانونی خود را بهتر بشناسید<br>
+ • بدون استرس و سردرگمی، وضعیت حقوقی‌تان را بررسی کنید<br>
+ • پیش از هر اقدام، تصویر روشنی از مسیر قانونی داشته باشید<br>
+
+پاسخ‌ها سریع، قابل‌فهم و مطابق با قوانین ایران ارائه می‌شوند تا بتوانید
+با اطمینان بیشتری تصمیم بگیرید.</p>`;
   const whyUseSections = [
     {
-      title: 'مبنای دانش حقوقی واقعی',
+      title: 'بر پایه اصول و مقررات واقعی حقوق ایران',
       image: '/assets/commercial-law/8.webp',
-      description: 'دستیار هوش مصنوعی ما بر اساس محتوای واقعی قوانین تجاری ایالات متحده و اصول حقوقی آموزش دیده است. شما اطلاعات قابل اعتماد و دقیقی دریافت می‌کنید که با وضعیت کسب‌وکار شما همخوانی دارد.'
+      description: `<p>
+      دستیار هوش مصنوعی ویکیلا  بر پایه‌ی
+قوانین، مقررات و اصول حقوقی ایران طراحی شده است.
+<br>
+پاسخ‌ها به‌گونه‌ای ارائه می‌شوند که:<br>
+ • دقیق و قابل‌اعتماد باشند<br>
+ • با چارچوب‌های حقوقی ایران هم‌خوانی داشته باشند<br>
+ • متناسب با شرایط و مسئله‌ی کسب‌وکار شما تنظیم شوند<br>
+هدف، ارائه‌ی راهنمایی حقوقی واقعی و کاربردی است، نه پاسخ‌های کلی و غیرقابل اتکا.
+      </p>`,
     },
     {
-      title: 'پاسخ‌هایی متناسب با کسب‌وکار شما',
+      title: 'پاسخ‌های متناسب با شرایط کسب‌وکار شما',
       image: '/assets/commercial-law/9.webp',
-      description: 'پاسخ‌ها بر اساس نوع کسب‌وکار، مشکل حقوقی و وضعیت شما تنظیم شده است. چه تازه شروع کرده باشید و چه در حال مدیریت یک اختلاف باشید، پاسخ‌های مرتبط و عملی دریافت خواهید کرد.'
+      description: `<p>پاسخ‌های ارائه‌شده در ویکیلا به‌صورت کلی و یکسان نیستند.<br>
+این پاسخ‌ها بر اساس:<br>
+ • نوع کسب‌وکار شما<br>
+ • مسئله حقوقی مطرح‌شده<br>
+ • شرایط و وضعیت خاص شما<br>
+تنظیم می‌شوند.
+<br>
+فرقی نمی‌کند در ابتدای مسیر کسب‌وکار باشید یا درگیر یک اختلاف حقوقی؛
+راهنمایی‌ها مرتبط، کاربردی و قابل استفاده در عمل ارائه می‌شوند تا بتوانید تصمیم آگاهانه‌تری بگیرید</p>`,
     },
     {
-      title: 'استفاده رایگان در هر زمان',
+      title: 'رایگان و در دسترس در هر زمان',
       image: '/assets/commercial-law/10.webp',
-      description: 'استفاده از دستیار هوش مصنوعی هزینه‌ای ندارد. سوالات خود را هر زمان که برای شما مناسب است بپرسید. نیازی به تعیین وقت قبلی یا انتظار برای ساعات کاری نیست.'
+      description: `<p>استفاده از دستیار هوش مصنوعی ویکیلا  کاملاً رایگان است.<br>
+می‌توانید هر زمان که نیاز داشتید، سؤال حقوقی خود را مطرح کنید؛<br>
+بدون نیاز به نوبت، بدون انتظار و بدون محدودیت زمانی.<br>
+
+ویکیلا  در تمام ساعات شبانه‌روز در کنار شماست تا<br>
+در اولین قدم، مسیر حقوقی‌تان را روشن کند.<br>
+پاسخ‌های اولیه رایگان هستند و در صورت نیاز به خدمات تخصصی، ممکن است هزینه جداگانه داشته باشند.</p>`,
     },
     {
-      title: 'محرمانه و خصوصی',
+      title: 'کاملاً محرمانه و امن',
       image: '/assets/commercial-law/11.webp',
-      description: 'شما می‌توانید سوالات خود را به صورت ناشناس بپرسید. تمامی مکالمات امن و محرمانه هستند تا بتوانید گزینه‌های خود را در فضایی خصوصی و مورد اعتماد بررسی کنید.'
+      description: `<p>شما می‌توانید بدون درج هویت واقعی خود سوالات حقوقی‌تان را مطرح کنید.
+کلیه مکالمات در ویکیلا  به‌صورت محرمانه نگهداری می‌شود تا امکان بررسی موضوعات حقوقی در یک بستر امن و مورد اعتماد فراهم باشد.</p>`
     }
   ];
-  const howItWorksTitle = 'چه زمانی باید با وکیل صحبت کنید؟';
-  const howItWorksDescription = 'همه مسائل حقوقی نیاز به مراجعه فوری به وکیل ندارند. در بسیاری از موارد، آگاهی اولیه می‌تواند مسیر تصمیم‌گیری را روشن کند. اما در شرایطی که موضوع:';
+  const howItWorksTitle = 'راهنمای استفاده از ویکیلا  در امور حقوق تجارت';
+  const howItWorksDescription = `<p>شروع استفاده از ویکیلا ساده و سریع است.
+شما همیشه کنترل کامل دارید که:<br>
+ • چه اطلاعاتی وارد کنید<br>
+ • چه نوع راهنمایی حقوقی دریافت نمایید</p>`;
   const howItWorksSteps = [
     {
-      title: 'پیچیده یا حساس باشد',
+      title: 'وضعیت خود را توضیح دهید',
       image: '/assets/how-it-works-step1-desktop.webp',
-      description: 'برای مسائل پیچیده، مشاوره وکیل ضروری است.'
+      description: `<p>مسئله حقوقی خود را با زبان ساده و به بیان خودتان توضیح دهید.
+فرقی نمی‌کند موضوع شما مربوط به:<br>
+ • قراردادهای تجاری<br>
+ • راه‌اندازی یا مدیریت کسب‌وکار<br>
+ • اختلافات تجاری<br>
+ • یا مسائل استخدامی<br>
+ <br>
+باشد؛ فقط توضیح دهید چه اتفاقی افتاده و دغدغه شما چیست.<br>
+<br>
+دستیار هوش مصنوعی ویکیلا  بر اساس اطلاعاتی که ارائه می‌کنید،<br>
+وضعیت حقوقی شما را بررسی کرده و راهنمایی اولیه متناسب با قوانین ایران ارائه می‌دهد</p>`
     },
     {
-      title: 'تبعات مالی یا حقوقی جدی داشته باشد',
+      title: 'دریافت راهنمایی حقوقی متناسب با شرایط شما',
       image: '/assets/how-it-works-step2-desktop.webp',
-      description: 'در صورت تبعات جدی، با وکیل متخصص مشورت کنید.'
+      description: `<p>در این مرحله، ویکیلا  بر اساس اطلاعاتی که شما ارائه کرده‌اید،
+راهنمایی حقوقی متناسب با شرایط خاص شما ارائه می‌دهد.<br>
+<br>
+در این راهنمایی:<br>
+ • وضعیت حقوقی شما توضیح داده می‌شود<br>
+ • ریسک‌ها و پیامدهای احتمالی مشخص می‌گردد<br>
+ • گزینه‌ها و اقدامات قانونی پیشِ‌رو معرفی می‌شوند<br>
+<br>
+تا بتوانید با آگاهی و اطمینان بیشتر برای قدم بعدی تصمیم بگیرید</p>`
     },
     {
-      title: 'نیاز به اقدام رسمی یا تنظیم اسناد حقوقی داشته باشد',
+      title: 'گزارش شخصی‌سازی‌شده حقوقی شما، بلافاصله آماده است',
       image: '/assets/how-it-works-step3-v2-desktop.webp',
-      description: 'دستیار هوشمند به شما پیشنهاد می‌دهد که با وکیل متخصص حقوق تجارت مشورت کنید.'
+      description: `<p>پس از پایان گفت‌وگو با دستیار هوش مصنوعی ویکیلا 
+یک گزارش حقوقی شخصی‌سازی‌شده بر اساس مسئله شما تهیه می‌شود.<br>
+<br>
+این گزارش شامل:<br>
+ • خلاصه وضعیت حقوقی شما<br>
+ • ریسک‌ها و نکات مهم<br>
+ • گزینه‌ها و اقدامات قانونی پیشنهادی<br>
+<br>
+است و به‌صورت رایگان، سریع و در هر زمان در دسترس شما خواهد بود
+تا بتوانید در صورت نیاز، دوباره به آن مراجعه کنید.</p>`
     }
   ];
   const faqTitle = 'سوالات متداول حقوق تجارت';
   const faqItems = [
-    { question: 'آیا استفاده از این خدمات رایگان است؟', answer: 'بله. استفاده از دستیار هوشمند برای دریافت اطلاعات حقوقی عمومی در حوزه حقوق تجارت رایگان است.' },
-    { question: 'چه نوع سوالاتی را می‌توانم مطرح کنم؟', answer: 'سوالات مرتبط با فعالیت‌های تجاری و کسب‌وکار، از جمله قراردادها، اختلافات، تعهدات قانونی و مسائل روزمره شرکت.' },
-    { question: 'آیا این اطلاعات جایگزین مشاوره حقوقی است؟', answer: 'خیر. اطلاعات ارائه‌شده صرفاً جنبه آگاهی‌بخشی دارد و جایگزین مشاوره تخصصی و رسمی حقوقی نیست.' },
-    { question: 'آیا اطلاعات من محرمانه می‌ماند؟', answer: 'بله. گفتگوها به‌صورت امن و محرمانه انجام می‌شود و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.' },
-    { question: 'آیا این خدمات همیشه در دسترس است؟', answer: 'بله. دستیار حقوقی به‌صورت ۲۴ ساعته در دسترس است.' }
+    { question: 'آیا دستیار هوش مصنوعی ویکیلا می‌تواند در مسائل حقوقی کسب‌وکار کمک کند؟', answer: `<p>بله.<br>
+دستیار هوش مصنوعی ویکیلا می‌تواند در موضوعاتی مانند:<br>
+ • قراردادهای تجاری<br>
+ • ثبت و راه‌اندازی شرکت<br>
+ • اختلافات تجاری<br>
+ • آشنایی با الزامات قانونی و مقررات<br>
+ • مسائل استخدامی<br>
+ • و سایر موضوعات حقوقی مرتبط با کسب‌وکار<br>
+<br>
+راهنمایی حقوقی اولیه و کاربردی ارائه دهد.</p>` },
+    { question: 'آیا استفاده از این سرویس واقعاً رایگان است؟', answer: `<p>بله.<br>
+پرسش و دریافت راهنمایی حقوقی اولیه از دستیار هوش مصنوعی ویکیلا رایگان است.<br>
+در صورتی که برای پیگیری موضوع به خدمات تخصصی یا وکیل نیاز باشد، ممکن است هزینه جداگانه مطرح شود.</p>` },
+    { question: 'چه نوع مسائلی را می‌توانم در ویکیلا مطرح کنم؟', answer: `<p>
+می‌توانید طیف گسترده‌ای از مسائل حقوق تجارت و کسب‌وکار را مطرح کنید، از جمله:<br>
+ • مشکلات و ابهامات قراردادی<br>
+ • اختلاف با شریک، مشتری یا تأمین‌کننده<br>
+ • مسائل مربوط به شرکت‌ها<br>
+ • حقوق و تعهدات قانونی کسب‌وکار<br>
+ • سؤالات کلی حقوقی در حوزه تجارت<br>
+<br>
+اگر مطمئن نیستید موضوع شما حقوقی است یا نه، باز هم می‌توانید سؤال خود را مطرح کنید.</p>` },
+    { question: 'هزینه مراجعه به وکیل حقوق تجارت چقدر است؟', answer: `<p>هزینه وکالت بسته به:<br>
+ • نوع پرونده<br>
+ • میزان پیچیدگی موضوع<br>
+ • مدت‌زمان رسیدگی<br>
+<br>
+متفاوت است.<br>
+ویکیلا  به شما کمک می‌کند قبل از مراجعه به وکیل، وضعیت حقوقی خود را بهتر بشناسید و با آگاهی بیشتری تصمیم بگیرید.</p>` },
+    { question: 'آیا برای حل اختلاف تجاری حتماً باید به دادگاه مراجعه کنم؟', answer: `<p>خیر.<br>
+در بسیاری از موارد، اختلافات تجاری می‌توانند از طریق:<br>
+ • مذاکره<br>
+ • صلح و سازش<br>
+ • داوری<br>
+ • یا روش‌های غیرقضایی<br>
+<br>
+حل‌وفصل شوند.<br>
+دستیار هوش مصنوعی ویکیلا می‌تواند مسیرهای مختلف قانونی را به شما معرفی کند.</p>` },
+    { question: 'حل یک مسئله حقوقی چقدر زمان می‌برد؟', answer: `<p>مدت‌زمان حل مسائل حقوقی به عوامل مختلفی بستگی دارد، از جمله:<br>
+ • نوع اختلاف<br>
+ • همکاری طرفین<br>
+ • مسیر انتخاب‌شده (قضایی یا غیرقضایی)<br>
+<br>
+ویکیلا  به شما کمک می‌کند تصویر واقع‌بینانه‌تری از زمان، مراحل و پیچیدگی موضوع داشته باشید.</p>` },
   ];
-  const helpTitle = 'نکته مهم';
-  const helpDescription = 'اطلاعات ارائه‌شده در این بخش صرفاً جهت افزایش آگاهی عمومی است و مشاوره حقوقی محسوب نمی‌شود. برای تصمیم‌گیری‌های مهم یا اقدامات حقوقی رسمی، توصیه می‌شود حتماً با وکیل متخصص مشورت شود.';
-
+  const helpTitle = 'به کمک حقوقی در امور تجاری نیاز دارید؟';
+  const helpDescription = 'با طرح سؤال حقوقی خود، بررسی مسئله را همین حالا شروع کنید و راهنمایی اولیه متناسب با قوانین ایران دریافت نمایید.'
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
@@ -294,7 +449,7 @@ const CommercialLaw = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">Areas of law</a>
+                    <a href="/en-us/library">حوزه‌های حقوقی</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}
@@ -356,7 +511,7 @@ const CommercialLaw = () => {
                         id="double-input-commercial"
                         className="style-module__textareaInput style-module__withPreTextIcon"
                         rows="1"
-                        placeholder="سؤال حقوقی خود را بپرسید"
+                        placeholder="سؤال حقوقی خود را اینجا بنویسید"
                         value={chatInput}
                         onChange={(e) => setChatInput(e.target.value)}
                         onKeyDown={(e) => {
@@ -391,7 +546,7 @@ const CommercialLaw = () => {
                     />
                   </div>
                   <p className="styles_featureText">
-                    پاسخ‌های رایگان هوش مصنوعی دریافت کنید
+                  دریافت پاسخ هوشمند و رایگان درباره مسائل حقوقی تجاری
                   </p>
                 </div>
                 <div className="styles_featureCard styles_featureCardTwo">
@@ -405,7 +560,7 @@ const CommercialLaw = () => {
                     />
                   </div>
                   <p className="styles_featureText">
-                    تصمیمات آگاهانه بگیرید
+                  شناخت مسیر درست حقوقی قبل از هر اقدام قانونی
                   </p>
                 </div>
               </div>
@@ -431,7 +586,8 @@ const CommercialLaw = () => {
               <div className="content_innerWidthWrapper">
                 <div className="content_descriptionHeader">
                   <div className="content_bodyText content_maxWidth">
-                    <p>{introText}</p>
+                    <div dangerouslySetInnerHTML={{ __html: introText }} />
+                    <p style={{ fontSize: '14px', marginTop: '50px' }}>{introTextAlert}</p>
                   </div>
                   {/* MORE INFO Section */}
                   <div className="intro_moreInfoContainer">
@@ -445,7 +601,7 @@ const CommercialLaw = () => {
                           height="24"
                         />
                       </div>
-                      <div className="intro_moreInfoText">MORE INFO</div>
+                      <div className="intro_moreInfoText">اطلاعات بیشتر</div>
                     </div>
                     <div className="intro_moreInfoLinkContainer">
                       <a onClick={() => setIsModalOpen(true)} className="intro_categoryActionContainer" style={{cursor: 'pointer'}}>
@@ -523,7 +679,7 @@ const CommercialLaw = () => {
                         <div className="subcategories_categoryTitle">{category.title}</div>
                         <div className="subcategories_categoryDescription">
                           <p>
-                            <span style={{color: '#333333'}}>{category.description}</span>
+                            <span style={{color: '#333333'}} dangerouslySetInnerHTML={{ __html: category.description }}/>
                           </p>
                         </div>
                       </a>
@@ -552,6 +708,53 @@ const CommercialLaw = () => {
           </div>
         </div>
 
+        {/* Need Help Section */}
+        <div className="landing-page_widthWrapper">
+          <div className="landing-page_innerWidthWrapper">
+            <div className="styles_container">
+              <div className="styles_card" style={{ maxWidth: '100%' }}>
+                <div className="styles_textWrapper">
+                  <div className="styles_title" style={{ textAlign: 'start' }}>{helpTitle}</div>
+                  <div className="styles_description" style={{ textAlign: 'start' }}>{helpDescription}</div>
+                </div>
+                <div className="styles_imageWrapper">
+                  <a
+                    href="/chat"
+                    className="styles_buttonWrapper styles_startCaseButton"
+                    style={{'--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)'}}
+                  >
+                    <div className="styles_buttonText">شروع بررسی حقوقی</div>
+                    <div className="styles_buttonArrow">
+                      <div className="styles_arrowIconWrapperHover">
+                        <img
+                          alt="arrow-right"
+                          loading="lazy"
+                          width="16"
+                          height="16"
+                          className="styles_arrowIcon"
+                          src="/assets/arrow-right-blue.svg"
+                        />
+                      </div>
+                      <div className="styles_arrowIconWrapper">
+                        <img
+                          alt="arrow-right-white"
+                          loading="lazy"
+                          width="16"
+                          height="16"
+                          className="styles_arrowIcon"
+                          src="/assets/arrow-right-white.svg"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                  <div className="styles_backgroundColour"></div>
+                  <div className="styles_backgroundSquare" style={{backgroundColor: '#F0EFEC'}}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Why Use AI Section */}
         <div className="category_libraryGapWrapper">
           <div className="why-use_widthWrapper">
@@ -561,9 +764,7 @@ const CommercialLaw = () => {
             </div>
             <div className="why-use_descriptionContainer">
               <p className="why-use_description">
-                <span style={{color: '#191919'}}>
-                  {whyUseDescription}
-                </span>
+                <span style={{color: '#191919'}} dangerouslySetInnerHTML={{ __html: whyUseDescription }}/>
               </p>
             </div>
             <div className="styles-module__container why-use_carouselWrapper">
@@ -588,7 +789,7 @@ const CommercialLaw = () => {
                       <div className="why-use_categoryTitle">{section.title}</div>
                       <div className="why-use_categoryDescription">
                         <p>
-                          <span style={{color: '#333333'}}>{section.description}</span>
+                          <span style={{color: '#333333'}} dangerouslySetInnerHTML={{ __html: section.description }}/>
                         </p>
                       </div>
                     </div>
@@ -607,9 +808,7 @@ const CommercialLaw = () => {
                 <div className="how-it-works_titleContainer">
                   <h2 className="how-it-works_title">{howItWorksTitle}</h2>
                   <p className="how-it-works_description">
-                    <span style={{color: '#191919'}}>
-                      {howItWorksDescription}
-                    </span>
+                    <span style={{color: '#191919'}} dangerouslySetInnerHTML={{ __html: howItWorksDescription }}/>
                   </p>
                 </div>
                 <div className="how-it-works_stepsContainer">
@@ -647,7 +846,7 @@ const CommercialLaw = () => {
                       <div className="how-it-works_stepContent">
                         <h3 className="how-it-works_stepTitle">{step.title}</h3>
                         <p className="how-it-works_stepDescription">
-                          <span style={{color: '#333333'}}>{step.description}</span>
+                          <span style={{color: '#333333'}} dangerouslySetInnerHTML={{ __html: step.description }}/>
                         </p>
                       </div>
                     </div>
@@ -682,7 +881,7 @@ const CommercialLaw = () => {
                       </div>
                       <div className={`dropdown_dropDownItemContent ${openFaqIndex === index ? 'dropdown_open' : ''} faq-content_dropDownContent`}>
                         <div>
-                          <p>{faq.answer}</p>
+                          <p dangerouslySetInnerHTML={{ __html: faq.answer }}/>
                         </div>
                       </div>
                     </div>
@@ -706,10 +905,10 @@ const CommercialLaw = () => {
         <div className="landing-page_widthWrapper">
           <div className="landing-page_innerWidthWrapper">
             <div className="styles_container">
-              <div className="styles_card">
+              <div className="styles_card" style={{ maxWidth: '100%' }}>
                 <div className="styles_textWrapper">
-                  <div className="styles_title">{helpTitle}</div>
-                  <div className="styles_description">{helpDescription}</div>
+                  <div className="styles_title" style={{ textAlign: 'start' }}>{helpTitle}</div>
+                  <div className="styles_description" style={{ textAlign: 'start' }}>{helpDescription}</div>
                 </div>
                 <div className="styles_imageWrapper">
                   <a
@@ -717,7 +916,7 @@ const CommercialLaw = () => {
                     className="styles_buttonWrapper styles_startCaseButton"
                     style={{'--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)'}}
                   >
-                    <div className="styles_buttonText">همین حالا شروع کنید</div>
+                    <div className="styles_buttonText">شروع بررسی حقوقی</div>
                     <div className="styles_buttonArrow">
                       <div className="styles_arrowIconWrapperHover">
                         <img
@@ -754,7 +953,10 @@ const CommercialLaw = () => {
           <div className="landing-page_innerWidthWrapper">
             <div className="disclaimer_disclaimerTextWrapper">
               <div className="disclaimer_disclaimer">
-                <b>سلب مسئولیت</b>: محتوای ارائه شده در این وب‌سایت فقط برای اهداف اطلاعاتی است و نباید به عنوان جایگزین مشاوره حقوقی مورد اعتماد قرار گیرد. به گیرندگان توصیه می‌شود قبل از اجرای هر گونه توصیه‌ای در اینجا، با مشاور حقوقی واجد شرایط مشورت کنند. Weekilaw مسئولیت اقدامات انجام شده بر اساس این اطلاعات را نخواهد داشت.
+                <p>سلب مسئولیت:
+محتوای ارائه‌شده در اپلیکیشن و وب‌سایت ویکیلا  صرفاً جنبه‌ی اطلاع‌رسانی و آموزش حقوقی دارد و به‌هیچ‌وجه جایگزین مشاوره حقوقی، وکالت یا نظر تخصصی وکیل دادگستری محسوب نمی‌شود.
+کاربران توصیه می‌شوند پیش از هرگونه اقدام حقوقی یا اتخاذ تصمیم نهایی، با وکیل دادگستری یا مشاور حقوقی واجد صلاحیت مشورت نمایند.
+ویکیلا  هیچ‌گونه مسئولیتی در قبال اقدامات، تصمیمات یا نتایجی که بر اساس این اطلاعات اتخاذ می‌شود، نخواهد داشت.</p>
               </div>
             </div>
           </div>
@@ -796,7 +998,7 @@ const CommercialLaw = () => {
                           id="double-input-commercial-last-section"
                           className="style-module__textareaInput style-module__withPreTextIcon"
                           rows="1"
-                          placeholder="سؤال حقوقی خود را بپرسید"
+                          placeholder="سؤال حقوقی خود را اینجا بنویسید"
                           value={lastSectionChatInput}
                           onChange={(e) => setLastSectionChatInput(e.target.value)}
                           onKeyDown={(e) => {

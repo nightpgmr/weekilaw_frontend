@@ -25,117 +25,173 @@ const EstateAndProbateLaw = () => {
   const carouselRef = useRef(null);
 
   // Static content for Estate and Probate Law
-  const breadcrumbLabel = 'حقوق املاک و وصیت‌نامه';
+  const breadcrumbLabel = 'ارث، وصیت و امور حسبی';
   const breadcrumbHref = '/en-us/estate-and-probate-law';
-  const heroTitle = 'مشاوره هوشمند رایگان در زمینه وصیت‌نامه و امور ارث و میراث | ویکیلا';
-  const introText = "به کمک هوش مصنوعی، تصمیم‌های آگاهانه درباره امور وصیت‌نامه، وقف و ارث اتخاذ کنید برنامه‌ریزی و مدیریت دارایی با راهنمای هوشمند ویکیلا اگر درگیر تنظیم وصیت‌نامه، امور پس از فوت نزدیکان، یا اختلافات ارث و میراث هستید، دستیار حقوقی هوش مصنوعی ویکیلا اطلاعات کاربردی و روشن را در چند دقیقه در اختیارتان قرار می‌دهد — کاملاً رایگان. این دستیار بر اساس اصول تثبیت‌شده حقوق ارث و وصیت طراحی شده تا بتوانید وضعیت خود را بهتر درک کنید، گزینه‌هایتان را بسنجید و با اطمینان تصمیم بگیرید.";
-  const moreInfoText = 'خلاصه‌ای از قوانین وصیت، ارث و میراث در ایران';
+  const heroTitle = 'اهنمایی رایگان هوش مصنوعی در حوزه ارث، وصیت و امور حسبی';
+  const introText = `<p>آیا با مسائل مربوط به وصیت‌نامه،
+تقسیم ترکه یا اختلافات ارثی مواجه هستید؟
+<br><br>
+خواه در حال برنامه‌ریزی برای تنظیم وصیت‌نامه خود باشید،
+خواه در مقام یکی از وراث به‌دنبال اداره امور متوفی،
+و خواه درگیر اختلاف در تقسیم ارث باشید،
+دستیار حقوقی هوش مصنوعی ویکیلا 
+اطلاعات حقوقی روشن، مستند و کاربردی
+در کوتاه‌ترین زمان ممکن
+به‌صورت رایگان در اختیار شما قرار می‌دهد.</p>`
+  const moreInfoText = 'مروری کوتاه بر قوانین وصیت، ارث و امور ترکه در حقوق ایران';
   const moreInfoHref = '/en-us/estate-and-probate-law/summary';
   const introImage = '/assets/intro-estate-probate.webp';
 
   const areaData = areas['estate-and-probate-law'];
   const modalContent = areaData.modalContent;
-  const subcategoriesTitle = 'چه مسائل وصیت‌نامه، ارث و میراث می‌تواند دستیار حقوقی هوش مصنوعی ما به شما کمک کند';
-  const subcategoriesDescription = 'دستیار حقوقی هوش مصنوعی ما آموزش دیده است تا در طیف وسیعی از مسائل وصیت‌نامه، ارث و برنامه‌ریزی دارایی کمک کند. در اینجا زمینه‌های اصلی که می‌تواند پشتیبانی فوری ارائه دهد آورده شده است:';
+  const subcategoriesTitle = 'اطلاعات حقوقی سریع و رایگان درباره وصیت‌نامه، ارث و امور ترکه';
+  const subcategoriesDescription = `<p>دستیار حقوقی هوشمند ویکیلا برای پشتیبانی از شما در تمام موضوعات مربوط به وصیت، ارث و امور ترکه طراحی شده است.<br>
+از سوالات اولیه درباره تنظیم وصیت‌نامه گرفته تا اختلافات پیچیده ارثی، ویکیلا  به شما کمک می‌کند رایج‌ترین مسائل این حوزه را بهتر درک کنید و مسیر درست حقوقی را بشناسید.</p>`;
   const subCategories = [
     {
       title: 'تنظیم یا به‌روزرسانی وصیت‌نامه',
       image: '/assets/family-property-finances.webp',
-      description: 'اگر قصد دارید نخستین وصیت‌نامه‌تان را بنویسید یا نسخه قدیمی را به‌روز کنید، دستیار ویکیلا شرایط لازم برای اعتبار وصیت‌نامه در ایران را توضیح می‌دهد: قوانین مربوط به شاهدها و نحوه تنظیم رسمی، انواع وصیت‌نامه (رسمی، خودنوشت، سری) و نیز اینکه اگر فردی بدون وصیت‌نامه از دنیا برود، چه اتفاقی برای اموالش می‌افتد.'
+      description: `<p>در فکر نوشتن اولین وصیت‌نامه‌تان هستید یا می‌خواهید وصیت‌نامه قبلی را اصلاح کنید؟<br>
+دستیار حقوقی ویکیلا  شرایط اعتبار وصیت‌نامه، حدود قانونی وصیت، نحوه تنظیم درست آن و زمان مناسب برای به‌روزرسانی وصیت‌نامه را برایتان توضیح می‌دهد.
+همچنین با انواع وصیت‌نامه و پیامدهای فوت بدون وصیت‌نامه (فوت بلاوصیت) آشنا می‌شوید</p>`
     },
     {
-      title: 'انتخاب بهترین روش برنامه‌ریزی دارایی',
+      title: 'بررسی راهکارهای برنامه‌ریزی ارث و ترکه',
       image: '/assets/what-expert-lawyer-referral-2x.webp',
-      description: 'برنامه‌ریزی برای توزیع دارایی‌ها پس از فوت تنها مربوط به وصیت‌نامه نیست. ویکیلا اطلاعات شفافی درباره قوانین مالیات بر ارث در ایران، انتقال دارایی‌ها در زمان حیات (هبه، صلح‌نامه و …) و بهترین ساختار برای حفظ سرمایه خانواده در اختیارتان قرار می‌دهد تا از نظر مالی و قانونی بهترین تصمیم را بگیرید.'
+      description: `<p>آیا قصد دارید درباره نحوه انتقال اموال و تقسیم ترکه خود برنامه‌ریزی کنید؟
+در این بخش با قواعد مربوط به تقسیم ترکه، حدود وصیت، مالیات بر ارث، انتقال اموال در زمان حیات و شیوه تنظیم صحیح دارایی‌ها آشنا می‌شوید.<br>
+همچنین مشخص می‌شود در چه مواردی، با توجه به پیچیدگی موضوع، مراجعه به وکیل یا مشاور حقوقی ضروری خواهد بود</p>`
     },
     {
-      title: 'راهنمای رایگان برای روند انحصار وراثت',
+      title: 'راهنمای رایگان انحصار وراثت و رسیدگی به ترکه',
       image: '/assets/what-navigating-probate-2x.webp',
-      description: 'در صورت فوت یکی از عزیزان، ویکیلا روند حقوقی صدور گواهی انحصار وراثت، تعیین مدیر ترکه و تقسیم اموال را برای شما توضیح می‌دهد. اطلاعاتی درباره مراحل رسمی و غیررسمی، مدارک مورد نیاز و زمان‌بندی نیز ارائه می‌شود.'
+      description: `<p>در صورت فوت یکی از بستگان و لزوم پیگیری امور ترکه، دستیار حقوقی هوشمند ویکیلا  فرآیند انحصار وراثت، موارد الزام به اخذ گواهی انحصار وراثت، نحوه تقدیم دادخواست به مرجع صالح و تکالیف مدیر یا نماینده ترکه را تبیین می‌کند.<br>
+همچنین تفاوت تشریفات عادی و رسمی رسیدگی به ترکه و مواعد زمانی معمول این مراحل برای شما تشریح می‌شود.</p>`
     },
     {
-      title: 'مالیات و هزینه‌های ارث',
+      title: 'راهنمای مالیات بر ارث و تکالیف مالیاتی وراث',
       image: '/assets/what-letters-admin-2x.webp',
-      description: 'نگران مالیات بر ارث هستید؟ دستیار هوشمند ویکیلا میزان معافیت‌ها، نرخ‌های قانونی و راهکارهای کاهش هزینه انتقال ارث را برایتان شرح می‌دهد، از جمله مواردی مثل بخشش و هبه در زمان حیات، معافیت همسر و فرزندان، زمان پرداخت مالیات بر ارث.'
+      description: `<p>آیا درباره آثار مالیاتی انتقال اموال پس از فوت دغدغه دارید؟<br>
+در این بخش، مقررات قانون مالیات‌های مستقیم در خصوص مالیات بر ارث، میزان معافیت‌ها، مواعد پرداخت و شیوه‌های قانونی کاهش بدهی مالیاتی تشریح می‌شود.<br>
+همچنین موضوع هبه در زمان حیات، معافیت‌های قانونی وراث و زمان تعلق مالیات بر ارث مورد بررسی قرار می‌گیرد.</p>`
     },
     {
-      title: 'ایجاد یا اداره اعتمادها (تراست‌ها)',
+      title: 'راهنمای تعیین وصی، امین و اداره ترکه',
       image: '/assets/commercial-business-contract.webp',
-      description: 'اگر به فکر ایجاد صندوق یا اعتماد مالی هستید، یا وظیفه اداره آن را دارید، ویکیلا اطلاعاتی درباره انواع اعتمادهای رایج، مسئولیت‌های متولی، و آثار مالیاتی مرتبط ارائه می‌دهد. با توضیح تفاوت تراست‌های قابل فسخ و غیرقابل فسخ، بهترین گزینه را برای شرایط خود انتخاب کنید.'
+      description: `<p>چنانچه قصد دارید برای اداره اموال خود یا اموال متوفی سازوکاری حقوقی پیش‌بینی کنید، در این بخش با شیوه‌های قانونی تعیین وصی، امین یا مدیر ترکه، آثار مالیاتی آن‌ها و حدود مسئولیت‌های قانونی ایشان آشنا می‌شوید.<br>
+همچنین تبیین می‌شود در چه مواردی استفاده از این نهادهای حقوقی متناسب با شرایط شما خواهد بود.</p>`
     },
     {
-      title: 'حل اختلافات مربوط به وصیت‌نامه و ارث',
+      title: 'راهنمای دعاوی وصیت‌نامه و اختلافات ارثی',
       image: '/assets/what-will-disputes-2x.webp',
-      description: 'در صورت بروز اختلاف میان وراث یا وصی‌ها، ویکیلا راهنمای جامع ارائه می‌دهد درباره دلایل قانونی ابطال وصیت‌نامه، دعاوی حذف‌شدگان از ارث، اختلاف میان وراث بر سر دارایی‌ها تا بتوانید حقوق خود را بشناسید و اقدامات قانونی مناسب انجام دهید.'
+      description: `<p>چنانچه نسبت به وصیت‌نامه اعتراض دارید یا بین وراث در خصوص تقسیم ترکه اختلاف ایجاد شده است، دستیار حقوقی هوشمند ویکیلا جهات قانونی اعتراض به وصیت‌نامه، دعاوی وراث جامانده از ارث، اختلافات میان ذی‌نفعان و حقوق قانونی هر یک از وراث را تبیین می‌کند.<br>
+همچنین مسیرهای حقوقی قابل پیگیری در صورت بروز اختلاف در امور ترکه برای شما تشریح می‌شود.</p>`
     }
   ];
-  const whyUseTitle = 'چرا از ویکیلا برای کمک در امور وصیت‌نامه و ارث استفاده کنید';
-  const whyUseDescription = "ویکیلا تحول تازه‌ای در دسترسی به مشاوره حقوقی ایجاد کرده است. با بهره‌گیری از هوش مصنوعی، در اولین قدم به شما اعتماد و آگاهی می‌دهد تا پیش از تصمیم‌های مهم، شرایط خود را بهتر درک کنید. پایگاه دانش اختصاصی حقوق ارث ویکیلا بر اساس بانک اطلاعاتی گسترده‌ای از قوانین و آیین‌نامه‌های ارث و وصیت ایران طراحی شده است.";
+  const whyUseTitle = 'دستیار حقوقی هوشمند ویکیلا  در امور وصیت‌نامه و ارث';
+  const whyUseDescription = `<p>ویکیلا  با فراهم‌سازی یک گام اولیه اطمینان‌بخش برای اشخاصی که نسبت به وضعیت حقوقی خود در حوزه وصیت و ارث مردد هستند، دسترسی به اطلاعات حقوقی این حوزه را تسهیل کرده است.<br>
+این سامانه با بهره‌گیری از هوش مصنوعی، اطلاعات عمومی رایگان و متناسب با شرایط کاربر ارائه می‌دهد تا پیش از تصمیم‌گیری‌های مهم در خصوص برنامه‌ریزی ارث یا رسیدگی به ترکه، درک دقیق‌تری از وضعیت خود حاصل نمایید.</p>`;
   const whyUseSections = [
     {
-      title: "بر اساس قوانین و آیین‌نامه‌های معتبر ایران",
+      title: "مبتنی بر پایگاه داده حقوقی اختصاصی ویکیلا",
       image: '/assets/legal-knowledge.webp',
-      description: "اطلاعات ارائه‌شده مطابق آخرین مصوبات قانونی و اصول معتبر حقوقی کشور بوده و برای عموم قابل فهم است. با اینکه شرایط هر استان ممکن است جزئی تفاوت‌هایی داشته باشد، ما تلاش می‌کنیم راهنمایی کلی و قابل اتکا ارائه دهیم."
+      description: `<p>دستیار حقوقی هوشمند ویکیلا  مبتنی بر مجموعه‌ای جامع از قوانین موضوعه، مقررات و اصول حقوقی حاکم بر حوزه وصیت، ارث و امور ترکه در حقوق ایران توسعه یافته است.<br>
+این سامانه با اتکا به آخرین اصلاحات قانونی و رویه‌های عملی مراجع قضایی، اطلاعات عمومی دقیق و قابل استنادی ارائه می‌دهد.<br>
+راهنمایی‌های ارائه‌شده ناظر بر مقررات جاری کشور بوده و با این وجود، حسب مورد ممکن است جزئیات حقوقی با توجه به شرایط خاص هر پرونده یا رویه مرجع رسیدگی‌کننده متفاوت باشد.</p>`
     },
     {
-      title: 'دسترسی آسان و رایگان به اطلاعات حقوقی',
+      title: 'راهنمای فوری در تشخیص مسیر حقوقی و ضرورت مراجعه به وکیل',
       image: '/assets/always-ready.webp',
-      description: 'بدون نیاز به جست‌وجوی طولانی یا اصطلاحات پیچیده حقوقی، کافی است وضعیت خود را توضیح دهید تا دستیار هوشمند، اطلاعات مرتبط را به زبان ساده در اختیار شما قرار دهد. این اطلاعات به شما کمک می‌کند تصمیمات آگاهانه‌تری اتخاذ کنید.'
+      description: `<p>در این بخش می‌توانید اطلاعات عمومی، شفاف و متناسب با وضعیت خود در حوزه وصیت‌نامه، انحصار وراثت، مالیات بر ارث و رسیدگی به ترکه دریافت کنید.
+دستیار حقوقی هوشمند ویکیلا به‌صورت شبانه‌روزی و بدون دریافت هزینه، از نخستین طرح موضوع شما را همراهی می‌کند و در تشخیص مواردی که نیازمند اخذ مشاوره تخصصی حقوقی است یاری می‌رساند.</p>`
     },
     {
-      title: "اطلاعات به زبان ساده و قابل درک",
+      title: "اطلاعات حقوقی به زبان ساده",
       image: '/assets/personalised-legal-information.webp',
-      description: 'پاسخ‌های بدون اصطلاحات پیچیده حقوقی که به راحتی قابل درک هستند. گفتگوها به‌صورت امن و محرمانه انجام می‌شود و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.'
+      description: `<p>کلیه مکالمات شما در ویکیلا به‌صورت محرمانه و امن نگهداری می‌شود.
+اعم از اینکه موضوع پرسش شما اعتبار وصیت‌نامه، تشریفات انحصار وراثت یا اختلافات ارثی باشد، این سامانه امکان بررسی گزینه‌های حقوقی را بدون الزام به طرح دعوا یا اقدام رسمی تا زمان آمادگی شما فراهم می‌کند.</p>`
     }
   ];
-  const howItWorksTitle = 'آماده‌اید شروع کنید؟';
-  const howItWorksDescription = "به سادگی سؤال خود را در مورد وصیت‌نامه یا ارث مطرح کنید و پاسخ تخصصی رایگان دریافت کنید. ویکیلا – آینده مشاوره حقوقی هوشمند در ایران.";
+  const howItWorksTitle = 'دستیار هوشمند ویکیلا  چگونه کار می‌کند؟';
+  const howItWorksDescription = `<p>ویکیلا  فرآیند دسترسی به اطلاعات حقوقی مربوط به وصیت، ارث و امور ترکه را ساده و قابل فهم می‌کند.<br>
+این سامانه به‌گونه‌ای طراحی شده که هر کسی بتواند بدون استرس و پیچیدگی، با این مفاهیم حقوقی مهم ارتباط بگیرد و وضعیت حقوقی خود را بهتر درک کند.</p>`;
   const howItWorksSteps = [
     {
-      title: 'سؤال خود را مطرح کنید',
+      title: 'وضعیت خود را توضیح دهید',
       image: '/assets/how-it-works-step1-desktop.webp',
-      description: "هر سؤالی درباره وصیت‌نامه، ارث یا برنامه‌ریزی دارایی دارید، به سادگی آن را با کلمات خودتان مطرح کنید. نیازی به دانستن اصطلاحات حقوقی نیست."
+      description: `<p>نحوه عملکرد دستیار حقوقی هوشمند ویکیلا 
+<br><br>
+ویکیلا  با هدف تسهیل دسترسی اشخاص به اطلاعات عمومی حقوقی در حوزه وصیت، ارث و امور ترکه طراحی شده و فرآیند آشنایی با این مفاهیم را شفاف و قابل فهم می‌سازد.
+این سامانه به نحوی توسعه یافته که کاربران بتوانند بدون مواجهه با پیچیدگی‌های اصطلاحات حقوقی، وضعیت حقوقی خود را بهتر درک نمایند</p>`
     },
     {
-      title: 'پاسخ هوشمند دریافت کنید',
+      title: 'دریافت راهنمایی حقوقی متناسب با وضعیت کاربر',
       image: '/assets/how-it-works-step2-desktop.webp',
-      description: "دستیار هوشمند ویکیلا بر اساس قوانین ایران به شما پاسخ می‌دهد و اطلاعات کاربردی، شفاف و قابل اتکا ارائه می‌دهد."
+      description: `<p>دستیار حقوقی هوشمند ویکیلا  بر مبنای اوضاع و احوال خاص هر کاربر، اطلاعات عمومی و کاربردی ارائه می‌کند.<br>
+این راهنمایی‌ها شامل تشریح مقررات مرتبط با وصیت‌نامه و انحصار وراثت، حقوق و تعهدات قانونی اشخاص، گزینه‌های قابل پیگیری و اقدامات عملی بعدی است تا کاربر بتواند تصمیم آگاهانه‌تری اتخاذ نماید</p>`
     },
     {
-      title: 'تصمیم آگاهانه بگیرید',
+      title: 'دریافت گزارش حقوقی شخصی‌سازی‌شده به‌صورت فوری',
       image: '/assets/how-it-works-step3-v2-desktop.webp',
-      description: "با اطلاعات دریافتی، وضعیت خود را بهتر درک کنید، گزینه‌هایتان را بسنجید و با اطمینان تصمیم بگیرید."
+      description: `<p>پس از پایان گفت‌وگو با دستیار حقوقی هوشمند ویکیلا ، گزارشی متناسب با وضعیت حقوقی کاربر تهیه و ارائه می‌شود.<br>
+این گزارش به‌صورت رایگان و فوری در اختیار کاربر قرار گرفته و امکان مراجعه مجدد به آن در هر زمان فراهم است</p>`
     }
   ];
-  const faqTitle = 'سؤالات متداول درباره وصیت‌نامه و ارث';
+  const faqTitle = 'پرسش‌های پرتکرار در خصوص دستیار حقوقی هوشمند ویکیلا';
   const faqItems = [
     {
-      question: 'آیا استفاده از ویکیلا رایگان است؟',
-      answer: 'بله، استفاده از دستیار هوشمند ویکیلا برای دریافت اطلاعات حقوقی عمومی در حوزه وصیت‌نامه و ارث کاملاً رایگان است.'
+      question: 'آیا دستیار هوشمند ویکیلا  مشاوره حقوقی می‌دهد؟',
+      answer: `<p>دستیار حقوقی هوشمند ویکیلا صرفاً اطلاعات عمومی حقوقی در حوزه وصیت، ارث و امور ترکه ارائه می‌نماید تا کاربران بتوانند درک اولیه‌ای از وضعیت حقوقی خود پیدا کنند.<br>
+این سامانه ارائه‌دهنده مشاوره تخصصی حقوقی محسوب نمی‌شود و جایگزین مراجعه به وکیل یا کارشناس رسمی دادگستری نیست.
+بدیهی است ارائه نظر حقوقی اختصاصی مستلزم بررسی اسناد و اوضاع و احوال خاص هر پرونده توسط مرجع 
+صلاحیت‌دار می‌باشد.</p>`
     },
     {
-      question: 'چه نوع سوالاتی می‌توانم بپرسم؟',
-      answer: 'می‌توانید درباره تنظیم وصیت‌نامه، قوانین ارث، مالیات بر ارث، اعتمادها، اختلافات ارثی و سایر مسائل مرتبط با برنامه‌ریزی دارایی بپرسید.'
+      question: 'آیا استفاده از ویکیلا  واقعاً رایگان است؟',
+      answer: `<p>استفاده از دستیار حقوقی هوشمند سایت ویکیلا رایگان می‌باشد.
+کاربران می‌توانند بدون پرداخت هرگونه وجه، نسبت به طرح تعدادی پرسش، دریافت اطلاعات عمومی حقوقی و بررسی گزینه‌های قانونی خود اقدام نمایند.</p>`
     },
     {
-      question: 'آیا این اطلاعات جایگزین مشاوره حقوقی است؟',
-      answer: 'خیر. اطلاعات ارائه‌شده صرفاً جنبه آگاهی‌بخشی دارد و جایگزین مشاوره تخصصی و رسمی حقوقی نیست.'
+      question: 'اطلاعاتی که ویکیلا  می‌دهد چقدر دقیق است؟',
+      answer: `<p>اطلاعاتی که ویکیلا  می‌دهد چقدر دقیق است؟<br>
+اطلاعات ارائه‌شده توسط دستیار حقوقی هوشمند ویکیلا  مبتنی بر قوانین موضوعه، مقررات و اصول کلی حقوق ایران در حوزه وصیت، ارث و امور ترکه بوده و به‌صورت مستمر به‌روزرسانی می‌شود.
+با این وجود، به دلیل تفاوت اوضاع و احوال هر پرونده و تنوع رویه‌های قضایی، ممکن است برخی جزئیات حقوقی در موارد خاص متفاوت اعمال شود.<br>
+این سامانه صرفاً به‌منظور ارائه اطلاعات عمومی حقوقی طراحی شده و جایگزین بررسی تخصصی اسناد و شرایط خاص هر پرونده توسط وکیل یا مرجع صالح نمی‌باشد.<br>
+برای اخذ نظر حقوقی قطعی و متناسب با وضعیت شخصی، مراجعه به وکیل دادگستری یا مشاور حقوقی توصیه می‌شود</p>`
     },
     {
-      question: 'آیا اطلاعات من محرمانه می‌ماند؟',
-      answer: 'بله. تمامی گفتگوها به‌صورت امن و محرمانه نگهداری می‌شوند و اطلاعات شما بدون رضایتتان ذخیره یا منتشر نمی‌شود.'
+      question: 'انحصار وراثت چیست و چگونه انجام می‌شود؟',
+      answer: `<p>انحصار وراثت چیست و چگونه انجام می‌شود؟<br>
+انحصار وراثت فرآیند حقوقی‌ای است که طی آن، وراث قانونی متوفی شناسایی شده و وضعیت وصیت‌نامه (در صورت وجود) مورد بررسی قرار می‌گیرد و سپس ماترک متوفی تحت نظارت مرجع صالح قانونی اداره و تقسیم می‌شود.<br>
+در نظام حقوقی ایران، این فرآیند عموماً با صدور گواهی انحصار وراثت آغاز شده و شامل تعیین وراث، احراز سهم‌الارث هر یک، شناسایی دارایی‌ها، پرداخت دیون و مطالبات اشخاص ثالث و نهایتاً تقسیم ترکه میان وراث می‌باشد.<br>
+<br>
+لزوم طی این فرآیند و میزان پیچیدگی آن به عواملی نظیر میزان دارایی، وجود یا فقدان وصیت‌نامه، اختلاف میان وراث و نوع اموال بستگی دارد.<br>
+سامانه ویکیلا می‌تواند در تشخیص ضرورت طرح درخواست انحصار وراثت و آشنایی با مراحل قانونی مرتبط، راهنمایی اولیه ارائه نماید.</p>`
     },
     {
-      question: 'آیا همیشه نیاز به وکیل دارم؟',
-      answer: 'نه همیشه. در بسیاری از موارد، آگاهی اولیه می‌تواند مسیر تصمیم‌گیری را روشن کند، اما برای مسائل پیچیده، مشاوره وکیل ضروری است.'
+      question: 'آیا می‌توانم بدون وکیل وصیت‌نامه تنظیم کنم؟',
+      answer: `<p>بله، تنظیم وصیت‌نامه بدون حضور وکیل امکان‌پذیر است و در صورتی که مطابق مقررات قانونی تنظیم شود، دارای اعتبار حقوقی خواهد بود.<br>
+در نظام حقوقی ایران، وصیت‌نامه می‌تواند به‌صورت رسمی (تنظیم‌شده در دفتر اسناد رسمی)، خودنوشت (به خط موصی با ذکر تاریخ و امضا) یا سری باشد که هر یک شرایط شکلی خاص خود را دارد.</p>`
     },
     {
-      question: 'آیا ویکیلا همیشه در دسترس است؟',
-      answer: 'بله. دستیار حقوقی به‌صورت ۲۴ ساعته در دسترس است.'
+      question: 'اگر کسی بدون وصیت‌نامه فوت کند چه اتفاقی می‌افتد؟',
+      answer: `<p></p>`
+    },
+    {
+      question: 'تفاوت رسیدگی رسمی و غیررسمی به ترکه چیست؟',
+      answer: `<p></p>`
+    },
+    {
+      question: 'آیا می‌توان به وصیت‌نامه اعتراض کرد؟',
+      answer: `<p></p>`
+    },
+    {
+      question: 'از کجا بفهمم نیاز به مراجعه به وکیل دارم؟',
+      answer: `<p></p>`
     }
   ];
-  const helpTitle = 'کمک به یک مسئله وصیت‌نامه یا ارث نیاز دارید؟';
-  const helpDescription = 'هر سؤالی درباره وصیت‌نامه، ارث یا برنامه‌ریزی دارایی دارید، همین حالا بپرسید و پاسخ رایگان دریافت کنید';
+  const helpTitle = 'برای مسائل مربوط به وصیت‌نامه و ارث نیاز به راهنمایی دارید؟';
+  const helpDescription = 'با پرسیدن سوال حقوقی خود درباره وصیت، ارث و انحصار وراثت شروع کنید';
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -304,7 +360,7 @@ const EstateAndProbateLaw = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">Areas of law</a>
+                  <a href="/en-us/library">حوزه‌های حقوقی</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}
@@ -366,7 +422,7 @@ const EstateAndProbateLaw = () => {
                         id="double-input-estate"
                         className="style-module__textareaInput style-module__withPreTextIcon"
                         rows="1"
-                        placeholder="سؤال حقوقی خود را بپرسید"
+                        placeholder="سؤال حقوقی خود را مطرح کنید"
                         value={estateChatInput}
                         onChange={(e) => setEstateChatInput(e.target.value)}
                         onKeyDown={(e) => {
@@ -401,7 +457,7 @@ const EstateAndProbateLaw = () => {
                     />
                   </div>
                   <p className="styles_featureText">
-                    پاسخ‌های رایگان هوش مصنوعی دریافت کنید
+                  دریافت پاسخ‌های رایگان درباره ارث، وصیت و امور حسبی
                   </p>
                 </div>
                 <div className="styles_featureCard styles_featureCardTwo">
@@ -415,7 +471,7 @@ const EstateAndProbateLaw = () => {
                     />
                   </div>
                   <p className="styles_featureText">
-                    تصمیمات آگاهانه بگیرید
+                  تصمیم‌گیری آگاهانه در خصوص تقسیم ترکه و حقوق وراث
                   </p>
                 </div>
               </div>
@@ -440,9 +496,7 @@ const EstateAndProbateLaw = () => {
             <div className="content_sectionContainer">
               <div className="content_innerWidthWrapper">
                 <div className="content_descriptionHeader">
-                  <div className="content_bodyText content_maxWidth">
-                    <p>{introText}</p>
-                  </div>
+                  <div className="content_bodyText content_maxWidth" dangerouslySetInnerHTML={{ __html: introText }} />
                   {/* MORE INFO Section */}
                   <div className="intro_moreInfoContainer">
                     <div className="intro_moreInfo">
@@ -455,7 +509,7 @@ const EstateAndProbateLaw = () => {
                           height="24"
                         />
                       </div>
-                      <div className="intro_moreInfoText">MORE INFO</div>
+                      <div className="intro_moreInfoText">اطلاعات بیشتر</div>
                     </div>
                     <div className="intro_moreInfoLinkContainer">
                       <a onClick={() => setIsModalOpen(true)} className="intro_categoryActionContainer" style={{cursor: 'pointer'}}>
@@ -507,7 +561,7 @@ const EstateAndProbateLaw = () => {
                 </h2>
               </div>
               <div className="subcategories_descriptionContainer">
-                <p className="subcategories_description">{subcategoriesDescription}</p>
+                <p className="subcategories_description" dangerouslySetInnerHTML={{ __html: subcategoriesDescription }} />
               </div>
               <div className="styles-module__container subcategories_carouselWrapper">
                 <div className="styles-module__cardsContainer">
@@ -533,7 +587,7 @@ const EstateAndProbateLaw = () => {
                         <div className="subcategories_categoryTitle">{category.title}</div>
                         <div className="subcategories_categoryDescription">
                           <p>
-                            <span style={{color: '#333333'}}>{category.description}</span>
+                            <span style={{color: '#333333'}} dangerouslySetInnerHTML={{ __html: category.description }} />
                           </p>
                         </div>
                       </a>
@@ -562,6 +616,53 @@ const EstateAndProbateLaw = () => {
           </div>
         </div>
 
+        {/* Need Help Section */}
+        <div className="landing-page_widthWrapper">
+          <div className="landing-page_innerWidthWrapper">
+            <div className="styles_container">
+              <div className="styles_card" style={{ maxWidth: '100%' }}>
+                <div className="styles_textWrapper">
+                  <div className="styles_title" style={{ textAlign: 'start' }}>{helpTitle}</div>
+                  <div className="styles_description" style={{ textAlign: 'start' }}>{helpDescription}</div>
+                </div>
+                <div className="styles_imageWrapper">
+                  <a
+                    href="/chat"
+                    className="styles_buttonWrapper styles_startCaseButton"
+                    style={{'--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)'}}
+                  >
+                    <div className="styles_buttonText">سؤال حقوقی خود را مطرح کنید</div>
+                    <div className="styles_buttonArrow">
+                      <div className="styles_arrowIconWrapperHover">
+                        <img
+                          alt="arrow-right"
+                          loading="lazy"
+                          width="16"
+                          height="16"
+                          className="styles_arrowIcon"
+                          src="/assets/arrow-right-blue.svg"
+                        />
+                      </div>
+                      <div className="styles_arrowIconWrapper">
+                        <img
+                          alt="arrow-right-white"
+                          loading="lazy"
+                          width="16"
+                          height="16"
+                          className="styles_arrowIcon"
+                          src="/assets/arrow-right-white.svg"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                  <div className="styles_backgroundColour"></div>
+                  <div className="styles_backgroundSquare" style={{backgroundColor: '#F0EFEC'}}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Why Use AI Section */}
         <div className="category_libraryGapWrapper">
           <div className="why-use_widthWrapper">
@@ -571,9 +672,7 @@ const EstateAndProbateLaw = () => {
             </div>
             <div className="why-use_descriptionContainer">
               <p className="why-use_description">
-                <span style={{color: '#191919'}}>
-                  {whyUseDescription}
-                </span>
+                <span style={{color: '#191919'}} dangerouslySetInnerHTML={{ __html: whyUseDescription }} />
               </p>
             </div>
             <div className="styles-module__container why-use_carouselWrapper">
@@ -598,7 +697,7 @@ const EstateAndProbateLaw = () => {
                       <div className="why-use_categoryTitle">{section.title}</div>
                       <div className="why-use_categoryDescription">
                         <p>
-                          <span style={{color: '#333333'}}>{section.description}</span>
+                          <span style={{color: '#333333'}} dangerouslySetInnerHTML={{ __html: section.description }} />
                         </p>
                       </div>
                     </div>
@@ -617,9 +716,7 @@ const EstateAndProbateLaw = () => {
                 <div className="how-it-works_titleContainer">
                   <h2 className="how-it-works_title">{howItWorksTitle}</h2>
                   <p className="how-it-works_description">
-                    <span style={{color: '#191919'}}>
-                      {howItWorksDescription}
-                    </span>
+                    <span style={{color: '#191919'}} dangerouslySetInnerHTML={{ __html: howItWorksDescription }} />
                   </p>
                 </div>
                 <div className="how-it-works_stepsContainer">
@@ -657,7 +754,7 @@ const EstateAndProbateLaw = () => {
                       <div className="how-it-works_stepContent">
                         <h3 className="how-it-works_stepTitle">{step.title}</h3>
                         <p className="how-it-works_stepDescription">
-                          <span style={{color: '#333333'}}>{step.description}</span>
+                          <span style={{color: '#333333'}} dangerouslySetInnerHTML={{ __html: step.description }} />
                         </p>
                       </div>
                     </div>
@@ -691,9 +788,7 @@ const EstateAndProbateLaw = () => {
                         />
                       </div>
                       <div className={`dropdown_dropDownItemContent ${openFaqIndex === index ? 'dropdown_open' : ''} faq-content_dropDownContent`}>
-                        <div>
-                          <p>{faq.answer}</p>
-                        </div>
+                        <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
                       </div>
                     </div>
                   ))}
@@ -716,36 +811,36 @@ const EstateAndProbateLaw = () => {
         <div className="landing-page_widthWrapper">
           <div className="landing-page_innerWidthWrapper">
             <div className="styles_container">
-              <div className="styles_card">
+              <div className="styles_card" style={{ maxWidth: '100%' }}>
                 <div className="styles_textWrapper">
-                  <div className="styles_title">{helpTitle}</div>
-                  <div className="styles_description">{helpDescription}</div>
+                  <div className="styles_title" style={{ textAlign: 'start' }}>{helpTitle}</div>
+                  <div className="styles_description" style={{ textAlign: 'start' }}>{helpDescription}</div>
                 </div>
                 <div className="styles_imageWrapper">
-                  <a 
-                    href="/chat" 
+                  <a
+                    href="/chat"
                     className="styles_buttonWrapper styles_startCaseButton"
                     style={{'--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)'}}
                   >
-                    <div className="styles_buttonText">همین حالا شروع کنید</div>
+                    <div className="styles_buttonText">سؤال حقوقی خود را مطرح کنید</div>
                     <div className="styles_buttonArrow">
                       <div className="styles_arrowIconWrapperHover">
-                        <img 
-                          alt="arrow-right" 
-                          loading="lazy" 
-                          width="16" 
-                          height="16" 
-                          className="styles_arrowIcon" 
+                        <img
+                          alt="arrow-right"
+                          loading="lazy"
+                          width="16"
+                          height="16"
+                          className="styles_arrowIcon"
                           src="/assets/arrow-right-blue.svg"
                         />
                       </div>
                       <div className="styles_arrowIconWrapper">
-                        <img 
-                          alt="arrow-right-white" 
-                          loading="lazy" 
-                          width="16" 
-                          height="16" 
-                          className="styles_arrowIcon" 
+                        <img
+                          alt="arrow-right-white"
+                          loading="lazy"
+                          width="16"
+                          height="16"
+                          className="styles_arrowIcon"
                           src="/assets/arrow-right-white.svg"
                         />
                       </div>
@@ -806,7 +901,7 @@ const EstateAndProbateLaw = () => {
                           id="double-input-estate-last-section"
                           className="style-module__textareaInput style-module__withPreTextIcon"
                           rows="1"
-                          placeholder="سؤال حقوقی خود را بپرسید"
+                          placeholder="سؤال حقوقی خود را مطرح کنید"
                           style={{height: '72px'}}
                           value={estateLastSectionChatInput}
                           onChange={(e) => setEstateLastSectionChatInput(e.target.value)}

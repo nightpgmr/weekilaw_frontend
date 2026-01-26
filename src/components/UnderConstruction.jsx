@@ -3,12 +3,30 @@ import { API_ENDPOINTS, apiCall } from '../utils/api.js';
 import '../styles/UnderConstruction.css';
 
 const UnderConstruction = () => {
-//   const [isLoading, setIsLoading] = useState(true);
-//   const [isUnderConstruction, setIsUnderConstruction] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(true);
 
-//   useEffect(() => {
-//     checkUnderConstructionStatus();
-//   }, []);
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      // Listen for Ctrl+Shift+B to bypass under construction page
+      if (event.ctrlKey && event.shiftKey && event.key === 'B') {
+        event.preventDefault();
+        setShowOverlay(false);
+      }
+    };
+
+    // Add event listener
+    document.addEventListener('keydown', handleKeyPress);
+
+    // Cleanup
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
+
+  // If user pressed the bypass key, don't show the overlay
+  if (!showOverlay) {
+    return null;
+  }
 
 //   const checkUnderConstructionStatus = async () => {
 //     try {

@@ -34,7 +34,7 @@ function App() {
     <Router>
       <div className="App layout_body __variable_f367f3 __variable_ad9d8d">
         <UnderConstruction />
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/en-us/commercial-law" element={<CommercialLaw />} />
           <Route path="/en-us/criminal-law" element={<CriminalLaw />} />
@@ -63,7 +63,7 @@ function App() {
           <Route path="/en-us/insights" element={<Insights />} />
           <Route path="/en-us/contact-us" element={<ContactUs />} />
           <Route path="/faqs" element={<FAQs />} />
-        </Routes> */}
+        </Routes>
       </div>
     </Router>
   );
