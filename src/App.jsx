@@ -28,6 +28,8 @@ import Library from './components/Library.jsx';
 import About from './components/About.jsx';
 import Insights from './components/Insights.jsx';
 import ContactUs from './components/ContactUs.jsx';
+import Terms from './components/Terms.jsx';
+import PrivacyPolicy from './components/PrivacyPolicy.jsx';
 
 function App() {
   return (
@@ -63,6 +65,8 @@ function App() {
           <Route path="/en-us/insights" element={<Insights />} />
           <Route path="/en-us/contact-us" element={<ContactUs />} />
           <Route path="/faqs" element={<FAQs />} />
+          <Route path="/en-us/terms" element={<Terms />} />
+          <Route path="/en-us/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </div>
     </Router>

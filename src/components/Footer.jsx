@@ -100,7 +100,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="style-module__copyright">
-            <div>حق انتشار © {new Date().getFullYear()} LEAP Legal Software.</div>
+            <div>حق انتشار © {new Date().getFullYear()} Weekilaw Software.</div>
             <div className="style-module__copyrightBottom">
               <div>تمام حقوق محفوظ است.&nbsp;</div>
               <div>
