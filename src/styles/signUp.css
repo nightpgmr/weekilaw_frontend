@@ -16075,3 +16075,10 @@
    width:12px;
    height:12px
 }
+
+@media (max-width:769px) {
+  .button_buttonContainer .content-card_stackButtonContainer,
+  .button_buttonContainer.content-card_stackButtonContainer {
+    max-width: 200px;
+  }
+}

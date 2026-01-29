@@ -35,7 +35,7 @@ function App() {
   return (
     <Router>
       <div className="App layout_body __variable_f367f3 __variable_ad9d8d">
-        <UnderConstruction />
+        {/* <UnderConstruction /> */}
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/commercial-law" element={<CommercialLaw />} />

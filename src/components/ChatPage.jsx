@@ -130,6 +130,7 @@ const ChatPage = () => {
       setIsSending(false);
     }
   };
+  
 
   const callChatApi = useMemo(
     () =>
@@ -138,7 +139,7 @@ const ChatPage = () => {
           const data = await apiCall(API_ENDPOINTS.CHAT.ASK, {
             method: 'POST',
             body: JSON.stringify({
-              question: text,
+              message: text,
               chat_id: currentChatId
             }),
           });
@@ -147,11 +148,14 @@ const ChatPage = () => {
             throw new Error(data.answer || 'خطا در دریافت پاسخ');
           }
 
-          // Update current chat ID if this is a new chat
-          if (data.chat_id && !currentChatId) {
-            setCurrentChatId(data.chat_id);
-            // Update URL to include chat ID
-            navigate(`/chat/${data.chat_id}`, { replace: true });
+          // Update current chat ID if we receive one back (new chat or existing chat)
+          if (data.chat_id) {
+            // Update chat ID if it's different from current, or if we don't have one yet
+            if (data.chat_id !== currentChatId) {
+              setCurrentChatId(data.chat_id);
+              // Update URL to include chat ID
+              navigate(`/chat/${data.chat_id}`, { replace: true });
+            }
           }
 
           return data.answer;
