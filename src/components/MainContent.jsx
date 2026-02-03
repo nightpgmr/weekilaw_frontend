@@ -27,15 +27,15 @@ const MainContent = () => {
   ];
 
   const areasOfLaw = [
-    { name: "حقوق بازرگانی", href: "/en-us/commercial-law", image: "/assets/commercial-law.webp" },
-    { name: "حقوق کیفری", href: "/en-us/criminal-law", image: "/assets/criminal-law.webp" },
-    { name: "حقوق کار", href: "/en-us/employment-law", image: "/assets/employment-law.webp" },
-    { name: "حقوق ارث و املاک", href: "/en-us/estate-and-probate-law", image: "/assets/estate-and-probate-law.webp" },
-    { name: "حقوق خانواده", href: "/en-us/family-law", image: "/assets/family-law.webp" },
-    { name: "حقوق مهاجرت", href: "/en-us/immigration-law", image: "/assets/immigration-law.webp" },
-    { name: "دادرسی", href: "/en-us/litigation", image: "/assets/litigation.webp" },
-    { name: "حقوق جراحت شخصی", href: "/en-us/personal-injury-law", image: "/assets/personal-injury-law.webp" },
-    { name: "حقوق املاک", href: "/en-us/property-law", image: "/assets/property-law.webp" },
+    { name: "حقوق بازرگانی", href: "/commercial-law", image: "/assets/commercial-law.webp" },
+    { name: "حقوق کیفری", href: "/criminal-law", image: "/assets/criminal-law.webp" },
+    { name: "حقوق کار", href: "/employment-law", image: "/assets/employment-law.webp" },
+    { name: "حقوق ارث و املاک", href: "/estate-and-probate-law", image: "/assets/estate-and-probate-law.webp" },
+    { name: "حقوق خانواده", href: "/family-law", image: "/assets/family-law.webp" },
+    { name: "حقوق مهاجرت", href: "/immigration-law", image: "/assets/immigration-law.webp" },
+    { name: "دادرسی", href: "/litigation", image: "/assets/litigation.webp" },
+    { name: "حقوق جراحت شخصی", href: "/personal-injury-law", image: "/assets/personal-injury-law.webp" },
+    { name: "حقوق املاک", href: "/property-law", image: "/assets/property-law.webp" },
   ];
 
   const faqItems = [
@@ -67,35 +67,35 @@ const MainContent = () => {
 
   const siteCards = [
     {
-      href: "/en-us/about/sailing",
+      href: "/about/sailing",
       image: "/assets/about-sailing.webp",
       title: "ویکیلا؛ پیشگام عدالت هوشمند در ایران",
       description: "ویکیلا تنها یک سامانه‌ی پاسخ‌گویی حقوقی نیست؛ بلکه یک حرکت ملی برای دسترسی سریع، دقیق و عادلانه به خدمات حقوقی در سراسر کشور است.",
       linkText: "درباره ویکیلا"
     },
     {
-      href: "/en-us/about/ai-technology",
+      href: "/about/ai-technology",
       image: "/assets/about-technology.webp",
       title: "فناوری AI ما",
       description: "Weekilaw از قدرت AI پیشرفته برای ارائه اطلاعات حقوقی سفارشی رایگان استفاده می‌کند.",
       linkText: "فناوری AI ما"
     },
     {
-      href: "/en-us/about/legal-network",
+      href: "/about/legal-network",
       image: "/assets/about-network.webp",
       title: "شبکه وکلای مورد اعتماد ما",
       description: "ما افتخار می‌کنیم که به کاربران خود دسترسی به شبکه‌ای از متخصصان حقوقی واجد شرایط ارائه می‌دهیم.",
       linkText: "شبکه حقوقی ما"
     },
     {
-      href: "/en-us/about/company",
+      href: "/about/company",
       image: "/assets/about-company.webp",
       title: "کمک حقوقی را برای همه قابل دسترس کردن",
       description: "ما متعهد هستیم که به همه کمک کنیم منابع حقوقی مورد نیاز خود را پیدا کنند.",
       linkText: "شرکت ما"
     },
     {
-      href: "/en-us/about/careers",
+      href: "/about/careers",
       image: "/assets/about-careers.webp",
       title: "مشاغل Weekilaw می‌توانند شما را به هر جایی ببرند",
       description: "ما طیف متنوعی از موقعیت‌ها را در چندین مکان در دسترس داریم.",
@@ -771,7 +771,7 @@ const MainContent = () => {
               </div>
             </div>
             <div className="knowledge_knowledgeButtonContainer">
-              <a className="button_buttonContainer knowledge_knowledgeButton" href="/en-us/library">
+              <a className="button_buttonContainer knowledge_knowledgeButton" href="/library">
                 <div className="button_buttonText knowledge_knowledgeButtonText">حوزه‌های حقوق</div>
                 <div className="button_buttonArrow knowledge_knowledgeButtonArrow">
                   <div className="button_arrowIconWrapperHover">
@@ -904,7 +904,7 @@ const MainContent = () => {
                 </div>
               </div>
               <div className="help_helpButtonContainer">
-                <a className="button_buttonContainer help_helpButton" href="/en-us/faqs">
+                <a className="button_buttonContainer help_helpButton" href="/faqs">
                   <div className="button_buttonText help_helpButtonText">سؤالات متداول</div>
                   <div className="button_buttonArrow help_helpButtonArrow">
                     <div className="button_arrowIconWrapperHover">

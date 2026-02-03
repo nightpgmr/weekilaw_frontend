@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import AccountModal from './AccountModal.jsx';
+import { API_ENDPOINTS, apiCall } from '../utils/api.js';
 
 const Header = ({ scrollElement }) => {
   const navigate = useNavigate();
@@ -14,27 +15,93 @@ const Header = ({ scrollElement }) => {
   const [showAboutModal, setShowAboutModal] = useState(false);
   const [showLawyersModal, setShowLawyersModal] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [userCoins, setUserCoins] = useState(0);
+  const accountMenuTimeoutRef = useRef(null);
+
+  // Fetch user profile data
+  const fetchUserProfile = useCallback(async () => {
+    try {
+      // Try new API endpoint first, fallback to legacy
+      let data;
+      try {
+        data = await apiCall(API_ENDPOINTS.AUTH.PROFILE);
+      } catch (e) {
+        // Fallback to legacy endpoint
+        data = await apiCall(API_ENDPOINTS.USER.PROFILE);
+      }
+
+      if (data.success && data.user) {
+        setUserData(data.user);
+        // Get coins from user profile
+        if (data.user.coins !== undefined) {
+          setUserCoins(data.user.coins);
+        } else if (data.user.wallet_balance !== undefined) {
+          setUserCoins(data.user.wallet_balance);
+        }
+      }
+    } catch (error) {
+      console.error('Failed to fetch user profile in header:', error);
+      // Try to get from localStorage as fallback
+      const storedUser = localStorage.getItem('user_data');
+      if (storedUser) {
+        try {
+          const parsed = JSON.parse(storedUser);
+          setUserData(parsed);
+          if (parsed.coins !== undefined) {
+            setUserCoins(parsed.coins);
+          } else if (parsed.wallet_balance !== undefined) {
+            setUserCoins(parsed.wallet_balance);
+          }
+        } catch (e) {
+          // Ignore parse errors
+        }
+      }
+    }
+  }, []);
 
   // Check authentication status on component mount and when localStorage changes
   useEffect(() => {
     const checkAuth = () => {
       const authStatus = localStorage.getItem('is_authenticated') === 'true' ||
-                        sessionStorage.getItem('is_authenticated') === 'true';
+                        sessionStorage.getItem('is_authenticated') === 'true' ||
+                        localStorage.getItem('access_token') ||
+                        localStorage.getItem('auth_token') ||
+                        sessionStorage.getItem('access_token') ||
+                        sessionStorage.getItem('auth_token');
       setIsAuthenticated(authStatus);
+      
+      // Fetch user profile if authenticated
+      if (authStatus) {
+        fetchUserProfile();
+      } else {
+        setUserData(null);
+        setUserCoins(0);
+      }
     };
 
     checkAuth();
 
     // Listen for storage changes (in case auth status changes in another tab)
     const handleStorageChange = (e) => {
-      if (e.key === 'is_authenticated') {
+      if (e.key === 'is_authenticated' || e.key === 'access_token' || e.key === 'auth_token' || e.key === 'user_data') {
         checkAuth();
       }
     };
 
+    // Listen for custom logout event
+    const handleLogoutEvent = () => {
+      checkAuth();
+    };
+
     window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
-  }, []);
+    window.addEventListener('logout', handleLogoutEvent);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('logout', handleLogoutEvent);
+    };
+  }, [fetchUserProfile]);
 
   const handleScroll = useCallback(() => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -89,9 +156,59 @@ const Header = ({ scrollElement }) => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('is_authenticated');
-    sessionStorage.removeItem('is_authenticated');
+    // Clear ALL authentication tokens and data (comprehensive cleanup)
+    const keysToRemove = [
+      'is_authenticated',
+      'access_token',
+      'auth_token',
+      'refresh_token',
+      'preauth_token',
+      'user_data',
+      'token',
+      'user',
+      'auth',
+    ];
+    
+    // Clear from localStorage
+    keysToRemove.forEach(key => {
+      localStorage.removeItem(key);
+    });
+    
+    // Clear from sessionStorage
+    keysToRemove.forEach(key => {
+      sessionStorage.removeItem(key);
+    });
+    
+    // Also clear all localStorage/sessionStorage items that might contain auth data
+    try {
+      Object.keys(localStorage).forEach(key => {
+        if (key.toLowerCase().includes('token') || 
+            key.toLowerCase().includes('auth') || 
+            key.toLowerCase().includes('user') ||
+            key.toLowerCase().includes('login')) {
+          localStorage.removeItem(key);
+        }
+      });
+      Object.keys(sessionStorage).forEach(key => {
+        if (key.toLowerCase().includes('token') || 
+            key.toLowerCase().includes('auth') || 
+            key.toLowerCase().includes('user') ||
+            key.toLowerCase().includes('login')) {
+          sessionStorage.removeItem(key);
+        }
+      });
+    } catch (e) {
+      console.warn('Error clearing storage:', e);
+    }
+    
     setIsAuthenticated(false);
+    setUserData(null);
+    setUserCoins(0);
+    setShowAccountModal(false);
+    
+    // Dispatch custom event to trigger auth check in other components
+    window.dispatchEvent(new Event('logout'));
+    
     navigate('/');
   };
 
@@ -144,6 +261,15 @@ const Header = ({ scrollElement }) => {
     return () => window.removeEventListener('storage', checkAuth);
   }, []);
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (accountMenuTimeoutRef.current) {
+        clearTimeout(accountMenuTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <>
       {/* Mobile Menu */}
@@ -180,9 +306,6 @@ const Header = ({ scrollElement }) => {
               src="/assets/logo-icon.png"
             />
           </Link>
-          <Link to="/chat" className="styles-module__mobileChatButton" onClick={closeMobileMenu}>
-            <div className="styles-module__mobileChatButtonLabel">چت کنید</div>
-          </Link>
         </div>
       </div>
 
@@ -195,7 +318,7 @@ const Header = ({ scrollElement }) => {
               className="styles-module__mainMenuLink styles-module__gradientText"
               onClick={() => { closeMobileMenu(); setShowHelpModal(true); }}
             >
-              <span className="styles-module__gradientTextContent">کمک بگیرید</span>
+              <span className="styles-module__gradientTextContent">دریافت راهنمایی</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
                 <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
               </svg>
@@ -203,7 +326,7 @@ const Header = ({ scrollElement }) => {
 
             {/* Areas of Law */}
             <div className="styles-module__mainMenuLink" onClick={() => setShowAreasModal(true)}>
-              <span>زمینه‌های حقوقی</span>
+              <span>حوزه‌های حقوقی</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
                 <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
               </svg>
@@ -211,7 +334,7 @@ const Header = ({ scrollElement }) => {
 
             {/* About */}
             <div className="styles-module__mainMenuLink" onClick={() => setShowAboutModal(true)}>
-              <span>درباره</span>
+              <span>درباره ما</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
                 <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
               </svg>
@@ -219,13 +342,20 @@ const Header = ({ scrollElement }) => {
 
             {/* For Lawyers */}
             <div className="styles-module__mainMenuLink" onClick={() => setShowLawyersModal(true)}>
-              <span>برای وکلا</span>
+              <span>ویژه وکلا</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
                 <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
               </svg>
             </div>
+
             <div className="styles-module__mainMenuLink" onClick={() => { closeMobileMenu(); handleAccountClick(); }}>
-              <span>حساب کاربری</span>
+              <span>
+                {isAuthenticated && userData ? (
+                  userData.name || userData.full_name || userData.first_name || 'کاربر'
+                ) : (
+                  'حساب کاربری'
+                )}
+              </span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="styles-module__menuChevron">
                 <path d="M15.0303 7.71966C15.1661 7.58394 15.3536 7.5 15.5607 7.5C15.9749 7.5 16.3107 7.83579 16.3107 8.25C16.3107 8.46067 16.2238 8.65105 16.084 8.78729L8.59798 16.2733C8.46174 16.4131 8.27136 16.5 8.06067 16.5C7.85003 16.5 7.65965 16.4131 7.52341 16.2733L0.0373535 8.78728C-0.102509 8.65105 -0.189453 8.46067 -0.189453 8.25C-0.189453 7.83579 0.146336 7.5 0.56067 7.5C0.767766 7.5 0.955266 7.58394 1.09098 7.71966L8.06067 14.6892L15.0303 7.71966Z" fill="currentColor" transform="rotate(90 8 8)"/>
               </svg>
@@ -240,25 +370,25 @@ const Header = ({ scrollElement }) => {
               <span>بینش‌ها</span>
             </Link> */}
             <Link
+              to="/insights"
+              className="styles-module__mainMenuLink styles-module__footerLinkSpacing"
+              onClick={closeMobileMenu}
+            >
+              <span>مطالب آموزشی</span>
+            </Link>
+            <Link
               to="/faqs"
-              className="styles-module__mainMenuLink  styles-module__footerLinkSpacing"
+              className="styles-module__mainMenuLink"
               onClick={closeMobileMenu}
             >
               <span>سؤالات متداول</span>
             </Link>
             <Link
-              to="/about/ai-technology"
+              to="/sample-cases"
               className="styles-module__mainMenuLink"
               onClick={closeMobileMenu}
             >
-              <span>فناوری هوش مصنوعی ما</span>
-            </Link>
-            <Link
-              to="/about/company"
-              className="styles-module__mainMenuLink"
-              onClick={closeMobileMenu}
-            >
-              <span>شرکت</span>
+              <span>نمونه پرونده‌ها</span>
             </Link>
             <Link
               to="/contact-us"
@@ -268,6 +398,65 @@ const Header = ({ scrollElement }) => {
               <span>تماس با ما</span>
             </Link>
           </div>
+          
+          {/* Coins Display - Mobile - Right Side (Bottom) */}
+          {isAuthenticated && userCoins > 0 && (
+            <div 
+              onClick={() => { closeMobileMenu(); navigate('/account'); }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  closeMobileMenu();
+                  navigate('/account');
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              style={{ 
+                padding: '16px 20px', 
+                borderTop: '2px solid #FFE5B4',
+                backgroundColor: '#FFFFFF',
+                marginTop: '8px',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s ease',
+                direction: 'rtl'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#FFF9E6';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#FFFFFF';
+              }}
+            >
+              <div style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', gap: '12px' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: '#999', flexShrink: 0, transform: 'scaleX(-1)' }}>
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+                  <span style={{ fontSize: '18px', fontWeight: '700', color: '#FF8C00', letterSpacing: '-0.3px', whiteSpace: 'nowrap' }}>
+                    {userCoins.toLocaleString('fa-IR')} سکه
+                  </span>
+                </div>
+                <div style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  backgroundColor: '#FFF9E6',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="#FFA500" opacity="0.2"/>
+                    <circle cx="12" cy="12" r="9" stroke="#FFA500" strokeWidth="2" fill="none"/>
+                    <circle cx="12" cy="12" r="6" stroke="#FFA500" strokeWidth="1.5" fill="none" opacity="0.6"/>
+                    <path d="M12 6L12 18M6 12L18 12" stroke="#FFA500" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -277,8 +466,8 @@ const Header = ({ scrollElement }) => {
             className={`styles-module__floatingContainer ${isScrolled ? 'styles-module__shrink' : ''}`}
             id="FLOATING_CONTAINER_ID"
           >
-            <div className="styles-module__menuContentContainer">
-              <Link to="/" className="styles-module__logoContainer">
+            <div className="styles-module__menuContentContainer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative', width: '100%' }}>
+              <Link to="/" className="styles-module__logoContainer" style={{ flexShrink: 0 }}>
                 <img
                   alt="logo"
                   width="0"
@@ -287,14 +476,7 @@ const Header = ({ scrollElement }) => {
                   src="/assets/logo-icon.png"
                 />
               </Link>
-              <div className="styles-module__menuLinksContainer">
-                <Link
-                  to="/chat"
-                  className={`styles-module__gradientButton ${isScrolled ? 'styles-module__isScrolled' : ''}`}
-                >
-                  <div className="styles-module__gradientButtonLabel">چت کنید</div>
-                </Link>
-                <div className="styles-module__spacer"></div>
+              <div className="styles-module__menuLinksContainer" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 1, position: 'absolute', left: '50%', transform: 'translateX(-50%)', width: 'auto' }}>
 
                 {/* Areas of law dropdown */}
                 <div
@@ -304,8 +486,8 @@ const Header = ({ scrollElement }) => {
                 >
                   <div className="styles-module__menuItemContainer">
                     <div className="styles-module__labelContainer">
-                      <span className="styles-module__labelTitle" title="زمینه‌های حقوقی">
-                        زمینه‌های حقوقی
+                      <span className="styles-module__labelTitle" title="حوزه‌های حقوقی">
+                        حوزه‌های حقوقی
                       </span>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="#333333" xmlns="http://www.w3.org/2000/svg" className="styles-module__chevronIcon">
                         <g id="icon/chevron down">
@@ -347,7 +529,7 @@ const Header = ({ scrollElement }) => {
                 >
                   <div className="styles-module__menuItemContainer">
                     <div className="styles-module__labelContainer">
-                      <span className="styles-module__labelTitle" title="درباره">درباره</span>
+                      <span className="styles-module__labelTitle" title="درباره ما">درباره ما</span>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="#333333" xmlns="http://www.w3.org/2000/svg" className="styles-module__chevronIcon">
                         <g id="icon/chevron down">
                           <path id="Union" d="M12.6467 5.14644C12.7372 5.05596 12.8622 5 13.0002 5C13.2764 5 13.5002 5.22386 13.5002 5.5C13.5002 5.64045 13.4423 5.76737 13.3491 5.85819L8.35844 10.8489C8.26761 10.9421 8.14069 11 8.00024 11C7.8598 11 7.73287 10.9421 7.64205 10.8489L2.65139 5.85819C2.55815 5.76737 2.50024 5.64045 2.50024 5.5C2.50024 5.22386 2.7241 5 3.00024 5C3.13831 5 3.26331 5.05596 3.35379 5.14644L8.00024 9.79283L12.6467 5.14644Z"></path>
@@ -399,7 +581,7 @@ const Header = ({ scrollElement }) => {
                 >
                   <div className="styles-module__menuItemContainer">
                     <div className="styles-module__labelContainer">
-                      <span className="styles-module__labelTitle" title="برای وکلا">برای وکلا</span>
+                      <span className="styles-module__labelTitle" title="ویژه وکلا">ویژه وکلا</span>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="#333333" xmlns="http://www.w3.org/2000/svg" className="styles-module__chevronIcon">
                         <g id="icon/chevron down">
                           <path id="Union" d="M12.6467 5.14644C12.7372 5.05596 12.8622 5 13.0002 5C13.2764 5 13.5002 5.22386 13.5002 5.5C13.5002 5.64045 13.4423 5.76737 13.3491 5.85819L8.35844 10.8489C8.26761 10.9421 8.14069 11 8.00024 11C7.8598 11 7.73287 10.9421 7.64205 10.8489L2.65139 5.85819C2.55815 5.76737 2.50024 5.64045 2.50024 5.5C2.50024 5.22386 2.7241 5 3.00024 5C3.13831 5 3.26331 5.05596 3.35379 5.14644L8.00024 9.79283L12.6467 5.14644Z"></path>
@@ -424,8 +606,21 @@ const Header = ({ scrollElement }) => {
                   className="styles-module__menuItemWrapper styles-module__accountLinkWrapper"
                   role="button"
                   tabIndex={0}
-                  onMouseEnter={() => isAuthenticated && setActiveDropdown('account')}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => {
+                    if (accountMenuTimeoutRef.current) {
+                      clearTimeout(accountMenuTimeoutRef.current);
+                      accountMenuTimeoutRef.current = null;
+                    }
+                    if (isAuthenticated) {
+                      setActiveDropdown('account');
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    // Add a delay before closing to allow mouse to move to dropdown
+                    accountMenuTimeoutRef.current = setTimeout(() => {
+                      setActiveDropdown(null);
+                    }, 200);
+                  }}
                   onClick={handleAccountClick}
                   onKeyDown={handleAccountKeyDown}
                 >
@@ -449,8 +644,12 @@ const Header = ({ scrollElement }) => {
                           src="/assets/account-profile.svg"
                         />
                       </div>
-                      <span className="styles-module__labelTitle styles-module__accountLabelTitle" title="حساب کاربری">
-                        حساب کاربری
+                      <span className="styles-module__labelTitle styles-module__accountLabelTitle" title={userData?.name || userData?.full_name || 'حساب کاربری'}>
+                        {isAuthenticated && userData ? (
+                          userData.name || userData.full_name || userData.first_name || 'کاربر'
+                        ) : (
+                          'حساب کاربری'
+                        )}
                       </span>
                       {isAuthenticated && (
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="#333333" xmlns="http://www.w3.org/2000/svg" className="styles-module__chevronIcon">
@@ -462,7 +661,24 @@ const Header = ({ scrollElement }) => {
                     </div>
                   </div>
                   {isAuthenticated && activeDropdown === 'account' && (
-                    <div className="styles-module__childContainer styles-module__hoverMenu">
+                    <div 
+                      className="styles-module__childContainer styles-module__hoverMenu"
+                      onMouseEnter={() => {
+                        // Clear the timeout when mouse enters dropdown
+                        if (accountMenuTimeoutRef.current) {
+                          clearTimeout(accountMenuTimeoutRef.current);
+                          accountMenuTimeoutRef.current = null;
+                        }
+                        setActiveDropdown('account');
+                      }}
+                      onMouseLeave={() => {
+                        // Close immediately when leaving dropdown
+                        setActiveDropdown(null);
+                      }}
+                    >
+                      <div className="styles-module__menuItem" onClick={(e) => { e.stopPropagation(); navigate('/account'); setActiveDropdown(null); }}>
+                        <span className="styles-module__menuItemText">مشاهده پروفایل</span>
+                      </div>
                       <div className="styles-module__menuItem" onClick={(e) => { e.stopPropagation(); navigate('/account'); setActiveDropdown(null); }}>
                         <span className="styles-module__menuItemText">چت های من</span>
                       </div>
@@ -476,6 +692,75 @@ const Header = ({ scrollElement }) => {
                   )}
                 </div>
               </div>
+              
+              {/* Coins Display - Outside Menu, Right Side */}
+              {isAuthenticated && userCoins > 0 ? (
+                <div 
+                  onClick={() => navigate('/account')}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      navigate('/account');
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  style={{ 
+                    display: 'flex', 
+                    flexDirection: 'row-reverse',
+                    alignItems: 'center', 
+                    gap: isScrolled ? '8px' : '10px',
+                    padding: isScrolled ? '8px 14px' : '10px 18px',
+                    backgroundColor: '#FFFFFF',
+                    borderRadius: isScrolled ? '12px' : '16px',
+                    border: isScrolled ? '1.5px solid #FFA500' : '2px solid #FFA500',
+                    boxShadow: '0 2px 8px rgba(255, 165, 0, 0.15)',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    minWidth: isScrolled ? '120px' : '140px',
+                    direction: 'rtl',
+                    flexShrink: 0
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#FFF9E6';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(255, 165, 0, 0.25)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#FFFFFF';
+                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(255, 165, 0, 0.15)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  <svg width={isScrolled ? '16' : '18'} height={isScrolled ? '16' : '18'} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: '#999', flexShrink: 0, transform: 'scaleX(-1)' }}>
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+                    <span style={{ fontSize: isScrolled ? '16px' : '18px', fontWeight: '700', color: '#FF8C00', letterSpacing: '-0.3px', whiteSpace: 'nowrap' }}>
+                      {userCoins.toLocaleString('fa-IR')} سکه
+                    </span>
+                  </div>
+                  <div style={{
+                    width: isScrolled ? '32px' : '36px',
+                    height: isScrolled ? '32px' : '36px',
+                    borderRadius: '50%',
+                    backgroundColor: '#FFF9E6',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    <svg width={isScrolled ? '18' : '20'} height={isScrolled ? '18' : '20'} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="12" r="10" fill="#FFA500" opacity="0.2"/>
+                      <circle cx="12" cy="12" r="9" stroke="#FFA500" strokeWidth="2" fill="none"/>
+                      <circle cx="12" cy="12" r="6" stroke="#FFA500" strokeWidth="1.5" fill="none" opacity="0.6"/>
+                      <path d="M12 6L12 18M6 12L18 12" stroke="#FFA500" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+              ) : (
+                <div style={{ flexShrink: 0, width: isScrolled ? '120px' : '140px' }}></div>
+              )}
             </div>
           </div>
         </div>

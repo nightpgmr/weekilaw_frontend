@@ -5411,7 +5411,6 @@ to {
 .styles-module__menuItemDropdown {
   position:absolute;
   top:100%;
-  left:0;
   border-top:1px solid var(--grey-5);
   background:rgba(255, 255, 255, .96863);
   display:flex;
@@ -5964,7 +5963,7 @@ to {
 .styles-module__menuItemDropdown {
   position:absolute;
   top:100%;
-  left:0;
+  right:-35vw;
   border-top:1px solid var(--grey-5);
   background:rgba(255, 255, 255, .96863);
   -webkit-backdrop-filter:blur(10px);
@@ -6701,7 +6700,10 @@ to {
   }
 }
 @media only screen and (min-width:1185px) {
-  .style-module__footer .style-module__gridContainer.style-module__large, .style-module__footer .style-module__logoContainer.style-module__large {
+  .style-module__footer .style-module__gridContainer.style-module__large {
+    grid-template-columns:repeat(5, 1fr)
+  }
+  .style-module__footer .style-module__logoContainer.style-module__large {
     grid-template-columns:repeat(4, 1fr)
   }
 }
@@ -6866,6 +6868,41 @@ to {
 }
 .style-module__headerLabel {
   color:var(--grey-2)
+}
+.style-module__downloadAppColumn {
+  display:flex;
+  flex-direction:column;
+  gap:20px
+}
+.style-module__downloadAppContainer {
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:10px
+}
+.style-module__appStoreButton {
+  display:inline-block;
+  transition:opacity .3s ease, transform .3s ease;
+  text-decoration:none;
+  width:100%;
+  max-width:140px
+}
+.style-module__appStoreButton:hover {
+  opacity:.8;
+  transform:scale(1.05)
+}
+.style-module__appStoreButton svg {
+  width:100%;
+  height:auto;
+  display:block
+}
+@media only screen and (max-width:769px) {
+  .style-module__downloadAppContainer {
+    align-items:center
+  }
+  .style-module__appStoreButton {
+    max-width:120px
+  }
 }
 .style-module__countryLanguageSelector {
   position:relative;

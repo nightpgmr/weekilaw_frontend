@@ -30,11 +30,11 @@ const LegalNetwork = () => {
               <div className="page-header_innerWidthWrapper legal-network-content_heroInnerClassName">
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/about">درباره</a>
+                    <a href="/about">درباره</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}
-                    <a href="/en-us/about/legal-network">شبکه حقوقی ما</a>
+                    <a href="/about/legal-network">شبکه حقوقی ما</a>
                   </span>
                 </div>
                 <h1 className="page-header_title">شبکه وکلای مورد اعتماد ما</h1>
@@ -149,7 +149,7 @@ const LegalNetwork = () => {
                   </div>
                 </div>
                 <div className="lawyer-carousel_buttonContainer">
-                  <a className="button_buttonContainer lawyer-carousel_button" href="/en-us/for-lawyers/sign-up">
+                  <a className="button_buttonContainer lawyer-carousel_button" href="https://app.weekilaw.com" target="_blank" rel="noopener noreferrer">
                     <div className="button_buttonText lawyer-carousel_buttonText">به شبکه ما بپیوندید</div>
                     <div className="button_buttonArrow lawyer-carousel_buttonArrow">
                       <div className="button_arrowIconWrapperHover">
@@ -359,7 +359,7 @@ const LegalNetwork = () => {
                           'آیا شما یک متخصص حقوقی هستید که به دنبال ایجاد کسب‌وکار جدید هستید؟<br><br>به شبکه ما بپیوندید و مستقیماً با مشتریانی که به تخصص خاص شما نیاز دارند ارتباط برقرار کنید. فعالیت خود را گسترش دهید و روابط مشتری ارزشمند را از طریق سیستم تولید سرنخ ساده‌سازی شده ما بسازید.',
                       }}
                     />
-                    <a className="button_buttonContainer join-network-card_buttonContainer" href="/en-us/for-lawyers/sign-up">
+                    <a className="button_buttonContainer join-network-card_buttonContainer" href="https://app.weekilaw.com" target="_blank" rel="noopener noreferrer">
                       <div className="button_buttonText join-network-card_buttonText">همین حالا ثبت نام کنید</div>
                       <div className="button_buttonArrow">
                         <div className="button_arrowIconWrapperHover">

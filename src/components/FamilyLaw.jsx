@@ -31,11 +31,11 @@ const FamilyLaw = () => {
 
   // Static content for Family Law
   const breadcrumbLabel = 'حقوق خانواده';
-  const breadcrumbHref = '/en-us/family-law';
+  const breadcrumbHref = '/family-law';
   const heroTitle = 'مشاوره هوشمند رایگان در زمینه حقوق خانواده';
   const introText = "به کمک دستیار هوش مصنوعی ویکیلا، پاسخ رایگان به پرسش‌های خود درباره‌ی طلاق، حضانت، نفقه و سایر موضوعات مربوط به حقوق خانواده دریافت کنید. با راهنمایی شفاف و قابل‌فهم ما، تصمیم‌های آگاهانه‌تری درباره‌ پرونده‌های خانوادگی بگیرید. همراه هوشمند شما در حل مسائل خانوادگی موضوعاتی مانند طلاق، حضانت فرزند، توافق مالی، یا خشونت خانگی می‌تواند فشار روانی زیادی به همراه داشته باشد. ویکیلا با بهره‌گیری از هوش مصنوعی و دانش حقوقی به‌روز، اطلاعات دقیق و قابل استناد ارائه می‌دهد تا احساس کنترل بیشتری بر شرایطتان داشته باشید — کاملاً رایگان. این سامانه بر پایه‌ی اصول تثبیت‌شده‌ی حقوق خانواده طراحی شده و به شما کمک می‌کند حقوق، مسئولیت‌ها و گزینه‌های خود را بهتر بشناسید.";
   const moreInfoText = 'خلاصه‌ای از قوانین خانواده در ایران';
-  const moreInfoHref = '/en-us/family-law/summary';
+  const moreInfoHref = '/family-law/summary';
   const introImage = '/assets/intro-family.webp';
 
   const areaData = areas['family-law'];
@@ -308,7 +308,7 @@ const FamilyLaw = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">Areas of law</a>
+                    <a href="/library">Areas of law</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}

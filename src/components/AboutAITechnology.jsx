@@ -12,11 +12,11 @@ const AboutAITechnology = () => {
               <div className="page-header_innerWidthWrapper styles_heroInnerClassName">
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem styles_breadcrumbClass">
-                    <a href="/en-us/about">درباره</a>
+                    <a href="/about">درباره</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem styles_breadcrumbClass">
                     &nbsp;/&nbsp;
-                    <a href="/en-us/about/ai-technology">فناوری هوش مصنوعی ما</a>
+                    <a href="/about/ai-technology">فناوری هوش مصنوعی ما</a>
                   </span>
                 </div>
                 <h1 className="page-header_title styles_headerClass">قدرت هوش مصنوعی پیشرفته را به کار می‌گیرد</h1>
@@ -132,7 +132,7 @@ const AboutAITechnology = () => {
                         ما به شما کمک می‌کنیم تا متخصص حقوقی مناسب را از شبکه گسترده وکلای ما پیدا کنید و اتصال با وکیلی که برای موقعیت شما مناسب است را آسان می‌کنیم.
                       </div>
                       <div className="need-lawyer-card_imageTextButton">
-                        <a className="button_buttonContainer need-lawyer-card_buttonContainer" href="/en-us/about/legal-network">
+                        <a className="button_buttonContainer need-lawyer-card_buttonContainer" href="/about/legal-network">
                           <div className="button_buttonText need-lawyer-card_buttonText">شبکه حقوقی ما</div>
                           <div className="button_buttonArrow">
                             <div className="button_arrowIconWrapperHover">

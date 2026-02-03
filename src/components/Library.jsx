@@ -9,58 +9,61 @@ const Library = () => {
     {
       title: 'حقوق بازرگانی',
       description: 'حقوق بازرگانی چارچوب قانونی برای معاملات و توافقات تجاری را پوشش می‌دهد.',
-      href: '/en-us/commercial-law',
+      href: '/commercial-law',
       image: '/assets/commercial-law.webp'
     },
     {
       title: 'حقوق کیفری',
       description: 'حفظ عدالت، حمایت از افراد و جامعه، و درک حقوق خود.',
-      href: '/en-us/criminal-law',
+      href: '/criminal-law',
       image: '/assets/criminal-law.webp'
     },
     {
       title: 'حقوق کار',
       description: 'رفتار منصفانه برای کارفرمایان و کارمندان.',
-      href: '/en-us/employment-law',
+      href: '/employment-law',
       image: '/assets/employment-law.webp'
     },
     {
       title: 'حقوق ارث و املاک',
       description: 'درک برنامه‌ریزی ارث و فرآیندهای املاک.',
-      href: '/en-us/estate-and-probate-law',
+      href: '/estate-and-probate-law',
       image: '/assets/estate-and-probate-law.webp'
     },
     {
       title: 'حقوق خانواده',
       description: 'ناوبری حقوق خانواده در ایالات متحده می‌تواند پیچیده و چالش‌برانگیز باشد.',
-      href: '/en-us/family-law',
+      href: '/family-law',
       image: '/assets/family-law.webp'
     },
     {
       title: 'حقوق مهاجرت',
       description: 'ناوبری خانواده، حمایت، ویزا، درخواست‌ها و اقامت.',
-      href: '/en-us/immigration-law',
+      href: '/immigration-law',
       image: '/assets/immigration-law.webp'
     },
     {
       title: 'دادرسی',
       description: 'دادرسی حل اختلافات از طریق دادگاه‌ها و مراحل قانونی است.',
-      href: '/en-us/litigation',
+      href: '/litigation',
       image: '/assets/litigation.webp'
     },
     {
       title: 'حقوق جراحت شخصی',
       description: 'اقدامات پیشگیرانه برای جلوگیری از اختلافات یا آماده‌سازی برای اقدام.',
-      href: '/en-us/personal-injury-law',
+      href: '/personal-injury-law',
       image: '/assets/personal-injury-law.webp'
     },
     {
       title: 'حقوق املاک',
       description: 'حقوق املاک حقوق استفاده و مالکیت زمین و ساختمان‌ها و نحوه انتقال آن‌ها را پوشش می‌دهد',
-      href: '/en-us/property-law',
+      href: '/property-law',
       image: '/assets/property-law.webp'
     }
   ];
+
+  const helpTitle = 'به کمک حقوقی در امور تجاری نیاز دارید؟';
+  const helpDescription = 'با طرح سؤال حقوقی خود، بررسی مسئله را همین حالا شروع کنید و راهنمایی اولیه متناسب با قوانین ایران دریافت نمایید.'
 
   return (
     <PageLayout>
@@ -73,7 +76,7 @@ const Library = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">کتابخانه</a>
+                    <a href="/library">کتابخانه</a>
                   </span>
                 </div>
 
@@ -171,10 +174,10 @@ const Library = () => {
         <div className="landing-page_widthWrapper">
           <div className="landing-page_innerWidthWrapper">
             <div className="styles_container">
-              <div className="styles_card">
+              <div className="styles_card" style={{ maxWidth: '100%' }}>
                 <div className="styles_textWrapper">
-                  <div className="styles_title">Need help with an issue?</div>
-                  <div className="styles_description">Ask LawConnect your legal question for quick, free answers!</div>
+                  <div className="styles_title" style={{ textAlign: 'start' }}>{helpTitle}</div>
+                  <div className="styles_description" style={{ textAlign: 'start' }}>{helpDescription}</div>
                 </div>
                 <div className="styles_imageWrapper">
                   <a
@@ -182,7 +185,7 @@ const Library = () => {
                     className="styles_buttonWrapper styles_startCaseButton"
                     style={{'--need-help-full-colour': 'linear-gradient(135deg, #B78FE2 -20%, #0E5FE3 80%)'}}
                   >
-                    <div className="styles_buttonText">Start now</div>
+                    <div className="styles_buttonText">سؤال حقوقی خود را مطرح کنید</div>
                     <div className="styles_buttonArrow">
                       <div className="styles_arrowIconWrapperHover">
                         <img

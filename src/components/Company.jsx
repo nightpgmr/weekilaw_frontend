@@ -11,7 +11,7 @@ const Company = () => {
           <div className="styles_innerWidthWrapper ">
             <div className="styles_heroTitleContainer">
               <div className="styles_breadcrumbsContainer">
-                <a href="/en-us/about" className="styles_breadcrumb ">
+                <a href="/about" className="styles_breadcrumb ">
                   درباره
                 </a>
                 <span className="styles_breadcrumb ">&nbsp;/&nbsp;</span>

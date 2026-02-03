@@ -53,7 +53,7 @@ function App() {
           <Route path="/about/careers" element={<Careers />} />
           <Route path="/about/sailing" element={<Sailing />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/for-lawyers/sign-up" element={<SignUp />} />
+          {/* <Route path="/for-lawyers/sign-up" element={<SignUp />} /> */}
           <Route path="/auth/sign-in" element={<SignIn />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/account" element={<AccountPage />} />

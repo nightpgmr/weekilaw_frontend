@@ -20,7 +20,7 @@ const Footer = () => {
                 <img referrerPolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=681149&Code=fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" alt="نشان اعتماد الکترونیکی" style={{height: '100px', width: 'auto', cursor: 'pointer'}} code="fG5Z7QqJnj0GzhWs9K0DBxGIQ6XtFIbs" />
               </a>
               <img 
-                src="/assets/guild-logo.eps" 
+                src="/assets/guild-logo.png" 
                 alt="آرم سازمان نظام صنفی رایانه ای کشور" 
                 style={{height: '100px', width: 'auto', display: 'block'}}
                 loading="lazy"
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
           <div className="style-module__column">
             <div className="style-module__headerLabel"></div>
-            {/* <a href="/en-us/insights" className="style-module__menuItem">بینش‌ها</a> */}
+            {/* <a href="/insights" className="style-module__menuItem">بینش‌ها</a> */}
             <a href="/faqs" className="style-module__menuItem">سؤالات متداول</a>
             <a href="/about/ai-technology" className="style-module__menuItem">فناوری هوش مصنوعی ما</a>
             <a href="/about/company" className="style-module__menuItem">شرکت</a>
@@ -67,6 +67,57 @@ const Footer = () => {
             <a href="/immigration-law" className="style-module__menuItem">حقوق مهاجرت</a>
             <a href="/litigation" className="style-module__menuItem">دادخواهی</a>
             <a href="/personal-injury-law" className="style-module__menuItem">حقوق جراحات شخصی</a>
+          </div>
+          <div className="style-module__column style-module__downloadAppColumn">
+            <div className="style-module__headerLabel">دانلود اپلیکیشن</div>
+            <div className="style-module__downloadAppContainer">
+              <a 
+                href="https://apps.apple.com/app/weekilaw" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="style-module__appStoreButton"
+                aria-label="دانلود از اپ استور"
+              >
+                <svg width="135" height="40" viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="135" height="40" rx="8" fill="#000"/>
+                  <path d="M23 14C23 13.4477 23.4477 13 24 13H28C28.5523 13 29 13.4477 29 14V18C29 18.5523 28.5523 19 28 19H24C23.4477 19 23 18.5523 23 18V14Z" fill="#fff"/>
+                  <path d="M24 12C23.4477 12 23 12.4477 23 13V19C23 19.5523 23.4477 20 24 20H28C28.5523 20 29 19.5523 29 19V13C29 12.4477 28.5523 12 28 12H24Z" stroke="#fff" strokeWidth="0.5" fill="none"/>
+                  <text x="67.5" y="18" fontFamily="Arial, sans-serif" fontSize="7" fill="#fff" textAnchor="middle" fontWeight="400">Download on the</text>
+                  <text x="67.5" y="28" fontFamily="Arial, sans-serif" fontSize="11" fill="#fff" textAnchor="middle" fontWeight="600">App Store</text>
+                </svg>
+              </a>
+              <a 
+                href="https://play.google.com/store/apps/details?id=com.weekilaw" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="style-module__appStoreButton"
+                aria-label="دانلود از گوگل پلی"
+              >
+                <svg width="135" height="40" viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="135" height="40" rx="8" fill="#000"/>
+                  <path d="M18 12L28 20L18 28V12Z" fill="#fff"/>
+                  <path d="M28 20L18 28L28 28L38 20L28 20Z" fill="#fff" opacity="0.6"/>
+                  <path d="M28 12L38 20L28 28L28 20L18 12L28 12Z" fill="#fff" opacity="0.3"/>
+                  <text x="80" y="18" fontFamily="Arial, sans-serif" fontSize="7" fill="#fff" textAnchor="middle" fontWeight="400">GET IT ON</text>
+                  <text x="80" y="28" fontFamily="Arial, sans-serif" fontSize="11" fill="#fff" textAnchor="middle" fontWeight="600">Google Play</text>
+                </svg>
+              </a>
+              <a 
+                href="https://cafebazaar.ir/app/com.weekilaw" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="style-module__appStoreButton"
+                aria-label="دانلود از کافه‌بازار"
+              >
+                <svg width="135" height="40" viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="135" height="40" rx="8" fill="#000"/>
+                  <circle cx="25" cy="20" r="7" fill="#fff"/>
+                  <path d="M25 13L25 27M18 20L32 20" stroke="#000" strokeWidth="2.5" strokeLinecap="round"/>
+                  <text x="67.5" y="18" fontFamily="Arial, sans-serif" fontSize="7" fill="#fff" textAnchor="middle" fontWeight="400">دانلود از</text>
+                  <text x="67.5" y="28" fontFamily="Arial, sans-serif" fontSize="11" fill="#fff" textAnchor="middle" fontWeight="600">کافه‌بازار</text>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
         <div className="style-module__bottomBarContainer">

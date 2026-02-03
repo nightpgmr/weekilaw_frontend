@@ -15,6 +15,7 @@ function SignIn() {
   const [countdown, setCountdown] = useState(0);
   const [retryCount, setRetryCount] = useState(0);
   const [lastErrorTime, setLastErrorTime] = useState(null);
+  const [showRegistrationModal, setShowRegistrationModal] = useState(false);
 
   const validatePhone = (phoneNumber) => {
     const phoneRegex = /^09\d{9}$/;
@@ -60,7 +61,8 @@ function SignIn() {
 
     try {
       clearMessages();
-      const data = await apiCall(API_ENDPOINTS.AUTH.PHONE.SEND_LOGIN_OTP, {
+      // Use new API endpoint
+      const data = await apiCall(API_ENDPOINTS.AUTH.SEND_OTP, {
         method: 'POST',
         body: JSON.stringify({ phone }),
       });
@@ -68,7 +70,8 @@ function SignIn() {
       if (data.success) {
         setMessage(data.message);
         setStep('otp');
-        setCountdown(300); // 5 minutes
+        // Use expires_in from response, default to 120 seconds (2 minutes)
+        setCountdown(data.expires_in || 120);
 
         // Start countdown timer
         const timer = setInterval(() => {
@@ -81,9 +84,9 @@ function SignIn() {
           });
         }, 1000);
 
-        // In development mode, show the OTP code for testing
-        if (data.dev_otp) {
-          setMessage(`${data.message} (برای تست: ${data.dev_otp})`);
+        // Show OTP code if provided (for development/testing)
+        if (data.code) {
+          setMessage(`${data.message} (برای تست: ${data.code})`);
         }
 
         setRetryCount(0); // Reset retry count on success
@@ -104,7 +107,7 @@ function SignIn() {
     setMessage('');
 
     if (otp.length < 4 || otp.length > 6) {
-      setError('کد تایید باید 4 رقم باشد');
+      setError('کد تایید باید 5 رقم باشد');
       return;
     }
 
@@ -112,26 +115,65 @@ function SignIn() {
 
     try {
       clearMessages();
-      const data = await apiCall(API_ENDPOINTS.AUTH.PHONE.VERIFY_LOGIN_OTP, {
+      // Use new API endpoint
+      const data = await apiCall(API_ENDPOINTS.AUTH.VERIFY_OTP, {
         method: 'POST',
-        body: JSON.stringify({ phone, otp }),
+        body: JSON.stringify({ 
+          phone, 
+          otp_code: otp,
+          user_type: 'regular' // Default user type
+        }),
       });
 
       if (data.success) {
-        setMessage('ورود با موفقیت انجام شد');
-        // Store authentication state and token
-        localStorage.setItem('is_authenticated', 'true');
-        if (data.token) {
-          localStorage.setItem('auth_token', data.token);
+        // Check if registration completion is required
+        // Check if message contains the registration completion text
+        const registrationKeywords = ['ادامه ثبت‌نام لازم است', 'ثبت‌نام لازم است', 'complete registration'];
+        const needsRegistration = data.message && registrationKeywords.some(keyword => 
+          data.message.includes(keyword)
+        );
+        
+        if (needsRegistration) {
+          // Show registration modal instead of redirecting
+          setShowRegistrationModal(true);
+          setMessage('');
+        } else {
+          setMessage('ورود با موفقیت انجام شد');
+          
+          // Store authentication state
+          localStorage.setItem('is_authenticated', 'true');
+          
+          // Store tokens (new API uses access_token and refresh_token)
+          if (data.access_token) {
+            localStorage.setItem('access_token', data.access_token);
+            localStorage.setItem('auth_token', data.access_token); // Keep for backward compatibility
+          } else if (data.token) {
+            // Also support legacy token format
+            localStorage.setItem('auth_token', data.token);
+            localStorage.setItem('access_token', data.token); // Store as access_token too
+          }
+          
+          if (data.refresh_token) {
+            localStorage.setItem('refresh_token', data.refresh_token);
+          }
+          
+          // Store user data
+          if (data.user) {
+            localStorage.setItem('user_data', JSON.stringify(data.user));
+          }
+          
+          // Verify token was stored before redirect
+          const storedToken = localStorage.getItem('access_token') || localStorage.getItem('auth_token');
+          if (!storedToken) {
+            setError('خطا در ذخیره اطلاعات احراز هویت. لطفاً دوباره تلاش کنید.');
+            return;
+          }
+          
+          // Redirect to account page
+          setTimeout(() => {
+            navigate('/account');
+          }, 1000);
         }
-        // Store user data
-        if (data.user) {
-          localStorage.setItem('user_data', JSON.stringify(data.user));
-        }
-        // Redirect to account page
-        setTimeout(() => {
-          navigate('/account');
-        }, 1000);
       } else {
         setError(data.message || 'کد تایید اشتباه است');
       }
@@ -149,14 +191,15 @@ function SignIn() {
 
     try {
       clearMessages();
-      const data = await apiCall(API_ENDPOINTS.AUTH.PHONE.RESEND_OTP, {
+      // Use new API endpoint (same as send-otp)
+      const data = await apiCall(API_ENDPOINTS.AUTH.SEND_OTP, {
         method: 'POST',
-        body: JSON.stringify({ phone, type: 'login' }),
+        body: JSON.stringify({ phone }),
       });
 
       if (data.success) {
         setMessage('کد جدید ارسال شد');
-        setCountdown(300);
+        setCountdown(data.expires_in || 120);
 
         const timer = setInterval(() => {
           setCountdown((prev) => {
@@ -168,9 +211,9 @@ function SignIn() {
           });
         }, 1000);
 
-        // In development mode, show the OTP code for testing
-        if (data.dev_otp) {
-          setMessage(`کد جدید ارسال شد (برای تست: ${data.dev_otp})`);
+        // Show OTP code if provided (for development/testing)
+        if (data.code) {
+          setMessage(`کد جدید ارسال شد (برای تست: ${data.code})`);
         }
       } else {
         setError(data.message || 'خطا در ارسال کد جدید');
@@ -179,21 +222,6 @@ function SignIn() {
       handleError(err, 'Resend OTP');
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleGoogleLogin = async () => {
-    try {
-      clearMessages();
-      const data = await apiCall(API_ENDPOINTS.AUTH.GOOGLE.URL);
-
-      if (data.success) {
-        window.location.href = data.auth_url;
-      } else {
-        setError('خطا در دریافت لینک گوگل');
-      }
-    } catch (err) {
-      handleError(err, 'Google Login');
     }
   };
 
@@ -370,55 +398,15 @@ function SignIn() {
                 </form>
               )}
 
-              <p className="kinde-choice-separator" data-kinde-choice-separator="true">
-                یا
-              </p>
-
-              <div style={{ textAlign: 'center' }}>
-                <button
-                  className="kinde-button kinde-button-variant-secondary"
-                  type="button"
-                  onClick={handleGoogleLogin}
-                  style={{ width: '100%', marginBottom: '15px' }}
-                >
-                  <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-                    <svg
-                      fill="none"
-                      aria-hidden="true"
-                      focusable="false"
-                      viewBox="0 0 32 32"
-                      xmlns="http://www.w3.org/2000/svg"
-                      style={{ width: '20px', height: '20px' }}
-                    >
-                      <path
-                        fill="#4285F4"
-                        d="M30.363 16.337c0-.987-.088-1.925-.238-2.837H16v5.637h8.087c-.362 1.85-1.424 3.413-3 4.476v3.75h4.826c2.825-2.613 4.45-6.463 4.45-11.026"
-                      />
-                      <path
-                        fill="#34A853"
-                        d="M16 31c4.05 0 7.438-1.35 9.913-3.637l-4.826-3.75c-1.35.9-3.062 1.45-5.087 1.45-3.912 0-7.225-2.638-8.413-6.2H2.612v3.862C5.075 27.625 10.137 31 16 31"
-                      />
-                      <path
-                        fill="#FBBC05"
-                        d="M7.588 18.863A8.7 8.7 0 0 1 7.112 16c0-1 .175-1.963.476-2.863V9.275H2.612a14.83 14.83 0 0 0 0 13.45z"
-                      />
-                      <path
-                        fill="#EA4335"
-                        d="M16 6.938c2.212 0 4.188.762 5.75 2.25l4.275-4.276C23.438 2.487 20.05 1 16 1 10.137 1 5.075 4.375 2.612 9.275l4.975 3.862c1.188-3.562 4.5-6.2 8.413-6.2Z"
-                      />
-                    </svg>
-                    ادامه با گوگل
-                  </span>
-                </button>
-              </div>
-
               <p className="kinde-fallback-action" data-kinde-fallback-action="true">
                 <span data-kinde-fallback-action-helper-text="true">حساب کاربری ندارید؟ </span>
                 <a
                   className="kinde-text-link kinde-text-link-is-inline"
                   data-kinde-text-link="true"
                   data-kinde-text-link-is-inline="true"
-                  href="/for-lawyers/sign-up"
+                  href="https://app.weekilaw.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   ایجاد کنید
                 </a>
@@ -427,6 +415,103 @@ function SignIn() {
           </div>
         </article>
       </PageLayout>
+
+      {/* Registration Completion Modal */}
+      {showRegistrationModal && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 10000,
+            padding: '20px'
+          }}
+          onClick={() => setShowRegistrationModal(false)}
+        >
+          <div 
+            style={{
+              backgroundColor: '#fff',
+              borderRadius: '8px',
+              padding: '30px',
+              maxWidth: '500px',
+              width: '100%',
+              textAlign: 'center',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 style={{
+              marginBottom: '20px',
+              color: '#333',
+              fontSize: '20px',
+              fontWeight: 'bold'
+            }}>
+              کد تایید تایید شد
+            </h2>
+            <p style={{
+              marginBottom: '30px',
+              color: '#666',
+              fontSize: '16px',
+              lineHeight: '1.6'
+            }}>
+              کد تایید شد - ادامه ثبت‌نام لازم است
+            </p>
+            <div style={{
+              display: 'flex',
+              gap: '10px',
+              justifyContent: 'center',
+              flexWrap: 'wrap'
+            }}>
+              <a
+                href="https://app.weekilaw.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  backgroundColor: '#007bff',
+                  color: '#fff',
+                  padding: '12px 24px',
+                  borderRadius: '5px',
+                  textDecoration: 'none',
+                  fontSize: '16px',
+                  fontWeight: '500',
+                  display: 'inline-block',
+                  cursor: 'pointer',
+                  border: 'none',
+                  transition: 'background-color 0.3s'
+                }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#007bff'}
+              >
+                تکمیل ثبت‌نام
+              </a>
+              <button
+                onClick={() => setShowRegistrationModal(false)}
+                style={{
+                  backgroundColor: '#6c757d',
+                  color: '#fff',
+                  padding: '12px 24px',
+                  borderRadius: '5px',
+                  fontSize: '16px',
+                  fontWeight: '500',
+                  cursor: 'pointer',
+                  border: 'none',
+                  transition: 'background-color 0.3s'
+                }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#5a6268'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#6c757d'}
+              >
+                بستن
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

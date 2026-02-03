@@ -22,7 +22,7 @@ const AccountModal = ({ open, onClose }) => {
         </p>
 
         <div className="account-modal_actions">
-          <a className="account-modal_button account-modal_buttonPrimary" href="/en-us/for-lawyers/sign-up">
+          <a className="account-modal_button account-modal_buttonPrimary" href="https://app.weekilaw.com" target="_blank" rel="noopener noreferrer">
             حساب کاربری خود را ایجاد کنید
           </a>
           <a className="account-modal_button account-modal_buttonSecondary" href="/auth/sign-in">

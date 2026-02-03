@@ -2,7 +2,53 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import '../styles/chatModal.css';
 import PageLayout from './PageLayout.jsx';
-import { API_ENDPOINTS, apiCall } from '../utils/api.js';
+import { API_ENDPOINTS, apiCall, streamChatApi } from '../utils/api.js';
+
+/**
+ * Format AI chat message text for proper display
+ * - Converts double newlines to paragraphs
+ * - Converts single newlines to line breaks
+ * - Preserves existing HTML
+ * - Adds proper spacing
+ */
+const formatChatMessage = (text) => {
+  if (!text) return '';
+  
+  // Check if text contains complex HTML (not just simple tags like <br>, <p>)
+  const hasComplexHTML = /<(?!\/?(?:br|p|strong|em|b|i|u|span|div)\b)[^>]+>/i.test(text);
+  
+  if (hasComplexHTML) {
+    // Text has complex HTML, preserve it but still format newlines
+    // Replace double newlines with paragraph breaks
+    text = text.replace(/(\n\s*\n)+/g, '</p><p>');
+    // Replace single newlines with <br>
+    text = text.replace(/\n/g, '<br>');
+    // Ensure wrapped in paragraph if needed
+    if (!text.trim().startsWith('<p') && !text.trim().startsWith('</p>')) {
+      text = '<p>' + text + '</p>';
+    }
+  } else {
+    // Plain text or simple HTML: convert to HTML with proper formatting
+    // First, normalize existing <br> and <p> tags
+    text = text.replace(/<br\s*\/?>/gi, '\n');
+    text = text.replace(/<\/p>\s*<p>/gi, '\n\n');
+    text = text.replace(/<\/?p>/gi, '');
+    
+    // Split by double newlines for paragraphs
+    const paragraphs = text.split(/\n\s*\n+/).filter(p => p.trim());
+    
+    // Convert each paragraph: single newlines become <br>
+    const formattedParagraphs = paragraphs.map(para => {
+      const trimmed = para.trim();
+      if (!trimmed) return '';
+      return '<p>' + trimmed.replace(/\n+/g, '<br>') + '</p>';
+    });
+    
+    text = formattedParagraphs.join('');
+  }
+  
+  return text;
+};
 
 /**
  * Full-page chat experience (no iframe). Plug your API into `callChatApi`.
@@ -21,7 +67,12 @@ const ChatPage = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [currentChatId, setCurrentChatId] = useState(null);
   const [isLoadingChat, setIsLoadingChat] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
   const processedPrompt = useRef('');
+  
+  // Check authentication status - must be declared before useEffects that use it
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
   useEffect(() => {
     const prev = document.body.style.background;
@@ -84,6 +135,11 @@ const ChatPage = () => {
 
   // Handle initial prompt from URL or navigation state
   useEffect(() => {
+    // Wait for auth check to complete
+    if (isCheckingAuth) {
+      return;
+    }
+
     const urlParams = new URLSearchParams(location.search);
     const initialPrompt = urlParams.get('prompt') || location.state?.initialPrompt;
     const trimmedPrompt = initialPrompt?.trim();
@@ -95,7 +151,7 @@ const ChatPage = () => {
       processedPrompt.current = trimmedPrompt;
       handleInitialPrompt(trimmedPrompt);
     }
-  }, [location]);
+  }, [location, isAuthenticated, isCheckingAuth, messages]);
 
   // Auto-scroll to bottom when new messages are added
   useEffect(() => {
@@ -111,15 +167,46 @@ const ChatPage = () => {
   }, [messages]);
 
   const handleInitialPrompt = async (prompt) => {
+    // Re-check authentication before processing initial prompt
+    const isAuth = checkAuth();
+    
+    // Also directly check if tokens exist in storage (double verification)
+    const hasToken = localStorage.getItem('access_token') || 
+                     localStorage.getItem('auth_token') ||
+                     sessionStorage.getItem('access_token') ||
+                     sessionStorage.getItem('auth_token');
+    
+    if (!isAuth || !isAuthenticated || !hasToken) {
+      // Clear any remaining state
+      setIsAuthenticated(false);
+      
+      // Show message instead of redirecting
+      const authMessage = {
+        id: `auth-${Date.now()}`,
+        role: 'assistant',
+        text: 'برای استفاده از چت، لطفاً ابتدا <a href="/auth/sign-in" style="color: #007bff; text-decoration: underline;">وارد شوید</a>.',
+      };
+      setMessages((prev) => [...prev, authMessage]);
+      return;
+    }
+
     const userMessage = { id: `u-${Date.now()}`, role: 'user', text: prompt };
     setMessages((prev) => [...prev, userMessage]);
     setIsSending(true);
 
     try {
-      const reply = await callChatApi(prompt);
-      const botMessage = { id: `b-${Date.now()}`, role: 'assistant', text: reply || '...' };
-      setMessages((prev) => [...prev, botMessage]);
+      // callChatApi now handles adding the bot message via streaming
+      await callChatApi(prompt);
     } catch (err) {
+      // Remove any temporary bot message that might have been added
+      setMessages((prev) => {
+        const lastMessage = prev[prev.length - 1];
+        if (lastMessage && lastMessage.role === 'assistant' && lastMessage.text === '') {
+          return prev.slice(0, -1);
+        }
+        return prev;
+      });
+      
       const errorMessage = {
         id: `e-${Date.now()}`,
         role: 'assistant',
@@ -135,36 +222,116 @@ const ChatPage = () => {
   const callChatApi = useMemo(
     () =>
       async (text) => {
-        try {
-          const data = await apiCall(API_ENDPOINTS.CHAT.ASK, {
-            method: 'POST',
-            body: JSON.stringify({
-              message: text,
-              chat_id: currentChatId
-            }),
-          });
-
-          if (!data.success) {
-            throw new Error(data.answer || 'خطا در دریافت پاسخ');
+        return new Promise((resolve, reject) => {
+          // Final check: Verify tokens still exist before making API call
+          const hasToken = localStorage.getItem('access_token') || 
+                           localStorage.getItem('auth_token') ||
+                           sessionStorage.getItem('access_token') ||
+                           sessionStorage.getItem('auth_token');
+          
+          if (!hasToken) {
+            setIsAuthenticated(false);
+            reject(new Error('Authentication required. Please log in first.'));
+            return;
           }
+          
+          let accumulatedText = '';
+          let streamChatId = currentChatId;
+          let isComplete = false;
+          let hasReceivedFirstChunk = false;
 
-          // Update current chat ID if we receive one back (new chat or existing chat)
-          if (data.chat_id) {
-            // Update chat ID if it's different from current, or if we don't have one yet
-            if (data.chat_id !== currentChatId) {
-              setCurrentChatId(data.chat_id);
-              // Update URL to include chat ID
-              navigate(`/chat/${data.chat_id}`, { replace: true });
+          // Create a temporary bot message that will be updated as chunks arrive
+          const tempBotMessageId = `b-${Date.now()}`;
+          // Don't add empty message yet - wait for first chunk
+          // Don't set isStreaming yet - let typing indicator show until first chunk arrives
+
+          streamChatApi(
+            API_ENDPOINTS.CHAT.ASK_STREAM,
+            {
+              method: 'POST',
+              body: JSON.stringify({
+                message: text,
+                chat_id: currentChatId
+              }),
+            },
+            {
+              onChunk: (chunk) => {
+                accumulatedText += chunk;
+                
+                // Add message on first chunk if not already added
+                if (!hasReceivedFirstChunk) {
+                  hasReceivedFirstChunk = true;
+                  // Now mark as streaming and hide typing indicator
+                  setIsStreaming(true);
+                  setMessages((prev) => [
+                    ...prev,
+                    { id: tempBotMessageId, role: 'assistant', text: accumulatedText },
+                  ]);
+                } else {
+                  // Update the temporary bot message with accumulated text
+                  setMessages((prev) =>
+                    prev.map((msg) =>
+                      msg.id === tempBotMessageId
+                        ? { ...msg, text: accumulatedText }
+                        : msg
+                    )
+                  );
+                }
+              },
+              onMetadata: (metadata) => {
+                if (metadata.chat_id && metadata.chat_id !== streamChatId) {
+                  streamChatId = metadata.chat_id;
+                  setCurrentChatId(metadata.chat_id);
+                  navigate(`/chat/${metadata.chat_id}`, { replace: true });
+                }
+              },
+              onDone: (data) => {
+                isComplete = true;
+                setIsStreaming(false);
+                
+                // If we never received chunks, add message now
+                if (!hasReceivedFirstChunk) {
+                  setMessages((prev) => [
+                    ...prev,
+                    { id: tempBotMessageId, role: 'assistant', text: accumulatedText || '...' },
+                  ]);
+                } else {
+                  // Finalize the message with complete text
+                  setMessages((prev) =>
+                    prev.map((msg) =>
+                      msg.id === tempBotMessageId
+                        ? { ...msg, text: accumulatedText || '...' }
+                        : msg
+                    )
+                  );
+                }
+
+                if (data.chat_id && data.chat_id !== currentChatId) {
+                  setCurrentChatId(data.chat_id);
+                  navigate(`/chat/${data.chat_id}`, { replace: true });
+                }
+
+                resolve(accumulatedText);
+              },
+              onError: (error) => {
+                console.error('Stream API call failed:', error);
+                setIsStreaming(false);
+                // Remove the temporary message on error
+                setMessages((prev) => prev.filter((msg) => msg.id !== tempBotMessageId));
+                reject(new Error('متأسفانه، مشکلی در ارتباط با سرور پیش آمد. لطفاً دوباره امتحان کنید.'));
+              },
             }
-          }
-
-          return data.answer;
-        } catch (error) {
-          console.error('API call failed:', error);
-          throw new Error('متأسفانه، مشکلی در ارتباط با سرور پیش آمد. لطفاً دوباره امتحان کنید.');
-        }
+          ).catch((error) => {
+            setIsStreaming(false);
+            if (!isComplete) {
+              // Remove the temporary message on error
+              setMessages((prev) => prev.filter((msg) => msg.id !== tempBotMessageId));
+              reject(error);
+            }
+          });
+        });
       },
-    [currentChatId, navigate]
+    [currentChatId, navigate, setIsStreaming]
   );
 
   const handleSend = async (event) => {
@@ -172,16 +339,47 @@ const ChatPage = () => {
     const trimmed = input.trim();
     if (!trimmed || isSending) return;
 
+    // Re-check authentication status before sending (in case tokens were cleared)
+    const isAuth = checkAuth();
+    
+    // Also directly check if tokens exist in storage (double verification)
+    const hasToken = localStorage.getItem('access_token') || 
+                     localStorage.getItem('auth_token') ||
+                     sessionStorage.getItem('access_token') ||
+                     sessionStorage.getItem('auth_token');
+    
+    if (!isAuth || !isAuthenticated || !hasToken) {
+      // Clear any remaining state
+      setIsAuthenticated(false);
+      
+      // Show message instead of redirecting
+      const authMessage = {
+        id: `auth-${Date.now()}`,
+        role: 'assistant',
+        text: 'برای استفاده از چت، لطفاً ابتدا <a href="/auth/sign-in" style="color: #007bff; text-decoration: underline;">وارد شوید</a>.',
+      };
+      setMessages((prev) => [...prev, authMessage]);
+      return;
+    }
+
     const userMessage = { id: `u-${Date.now()}`, role: 'user', text: trimmed };
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
     setIsSending(true);
 
     try {
-      const reply = await callChatApi(trimmed);
-      const botMessage = { id: `b-${Date.now()}`, role: 'assistant', text: reply || '...' };
-      setMessages((prev) => [...prev, botMessage]);
+      // callChatApi now handles adding the bot message via streaming
+      await callChatApi(trimmed);
     } catch (err) {
+      // Remove any temporary bot message that might have been added
+      setMessages((prev) => {
+        const lastMessage = prev[prev.length - 1];
+        if (lastMessage && lastMessage.role === 'assistant' && lastMessage.text === '') {
+          return prev.slice(0, -1);
+        }
+        return prev;
+      });
+      
       const errorMessage = {
         id: `e-${Date.now()}`,
         role: 'assistant',
@@ -193,21 +391,33 @@ const ChatPage = () => {
     }
   };
 
-  // Check authentication status
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const checkAuth = () => {
-      const authStatus = localStorage.getItem('is_authenticated') === 'true' ||
-                        sessionStorage.getItem('is_authenticated') === 'true';
-      setIsAuthenticated(authStatus);
-    };
-
-    checkAuth();
-    // Listen for storage changes
-    window.addEventListener('storage', checkAuth);
-    return () => window.removeEventListener('storage', checkAuth);
+  // Authentication check function - can be called directly
+  const checkAuth = React.useCallback(() => {
+    const authStatus = localStorage.getItem('is_authenticated') === 'true' ||
+                      sessionStorage.getItem('is_authenticated') === 'true' ||
+                      localStorage.getItem('access_token') ||
+                      localStorage.getItem('auth_token') ||
+                      sessionStorage.getItem('access_token') ||
+                      sessionStorage.getItem('auth_token');
+    setIsAuthenticated(authStatus);
+    setIsCheckingAuth(false);
+    return authStatus;
   }, []);
+
+  // Authentication check effect - no redirect, just check status
+  useEffect(() => {
+    checkAuth();
+    // Listen for storage changes (works across tabs)
+    window.addEventListener('storage', checkAuth);
+    // Also listen for custom logout event
+    const handleLogoutEvent = () => checkAuth();
+    window.addEventListener('logout', handleLogoutEvent);
+    
+    return () => {
+      window.removeEventListener('storage', checkAuth);
+      window.removeEventListener('logout', handleLogoutEvent);
+    };
+  }, [checkAuth]);
 
   const handleMenuToggle = () => setShowMenu((prev) => !prev);
 
@@ -234,11 +444,64 @@ const ChatPage = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('is_authenticated');
-    sessionStorage.removeItem('is_authenticated');
+    // Clear ALL authentication tokens and data (comprehensive cleanup)
+    const keysToRemove = [
+      'is_authenticated',
+      'access_token',
+      'auth_token',
+      'refresh_token',
+      'preauth_token',
+      'user_data',
+      'token',
+      'user',
+      'auth',
+    ];
+    
+    // Clear from localStorage
+    keysToRemove.forEach(key => {
+      localStorage.removeItem(key);
+    });
+    
+    // Clear from sessionStorage
+    keysToRemove.forEach(key => {
+      sessionStorage.removeItem(key);
+    });
+    
+    // Also clear all localStorage/sessionStorage items that might contain auth data
+    // This is a safety measure to catch any unexpected keys
+    try {
+      Object.keys(localStorage).forEach(key => {
+        if (key.toLowerCase().includes('token') || 
+            key.toLowerCase().includes('auth') || 
+            key.toLowerCase().includes('user') ||
+            key.toLowerCase().includes('login')) {
+          localStorage.removeItem(key);
+        }
+      });
+      Object.keys(sessionStorage).forEach(key => {
+        if (key.toLowerCase().includes('token') || 
+            key.toLowerCase().includes('auth') || 
+            key.toLowerCase().includes('user') ||
+            key.toLowerCase().includes('login')) {
+          sessionStorage.removeItem(key);
+        }
+      });
+    } catch (e) {
+      console.warn('Error clearing storage:', e);
+    }
+    
+    // Update authentication state immediately
     setIsAuthenticated(false);
+    setIsCheckingAuth(false);
+    
+    // Dispatch custom event to trigger auth check in other components
+    window.dispatchEvent(new Event('logout'));
+    
+    // Force a re-check of auth status
+    checkAuth();
+    
     setShowMenu(false);
-    // Optionally redirect to home or show a message
+    navigate('/auth/sign-in');
   };
 
   const handleAttachClick = () => {
@@ -314,11 +577,11 @@ const ChatPage = () => {
                 ) : (
                   <>
                     <button type="button" className="chat-menu_item" onClick={handleReset}>
-                      <span>Reset</span>
+                      <span>بازنشانی</span>
                       <span className="chat-menu_icon">↻</span>
                     </button>
                     <button type="button" className="chat-menu_item" onClick={handleDelete}>
-                      <span>Delete</span>
+                      <span>حذف</span>
                       <span className="chat-menu_icon">🗑</span>
                     </button>
                   </>
@@ -328,6 +591,11 @@ const ChatPage = () => {
           </div>
         </div>
 
+        {!isAuthenticated && !isCheckingAuth && (
+          <div className="chat-warning-banner" style={{ backgroundColor: '#fff3cd', color: '#856404', textAlign: 'center', padding: '15px', marginBottom: '10px', borderRadius: '8px' }}>
+            ⚠️ برای ارسال پیام و استفاده از چت، لطفاً ابتدا <a href="/auth/sign-in" style={{ color: '#007bff', textDecoration: 'underline', fontWeight: 'bold' }}>وارد شوید</a>
+          </div>
+        )}
         <div className="chat-warning-banner">
           ⚠️ پاسخ‌ها جنبه راهنمایی عمومی دارد و جایگزین مشاوره وکالتی نیست
         </div>
@@ -341,13 +609,17 @@ const ChatPage = () => {
                   className={`chat-modal_message ${m.role === 'assistant' ? 'is-assistant' : 'is-user'}`}
                 >
                   {m.role === 'assistant' && <div className="chat-modal_avatar">AI</div>}
-                  <div className="chat-modal_bubble" dangerouslySetInnerHTML={{ __html: m.text }}></div>
+                  <div 
+                    className="chat-modal_bubble" 
+                    dangerouslySetInnerHTML={{ __html: m.role === 'assistant' ? formatChatMessage(m.text || '...') : (m.text || '...') }}
+                    style={m.role === 'assistant' ? { whiteSpace: 'pre-wrap', lineHeight: '1.6' } : {}}
+                  ></div>
                 </div>
               ))}
-              {isSending && (
+              {isSending && !isStreaming && (
                 <div className="chat-modal_message is-assistant">
                   <div className="chat-modal_avatar">AI</div>
-                  <div className="chat-modal_bubble">Typing…</div>
+                  <div className="chat-modal_bubble">درحال پردازش و دریافت پاسخ...</div>
                 </div>
               )}
             </div>
@@ -362,9 +634,10 @@ const ChatPage = () => {
                     handleSend(e);
                   }
                 }}
-                placeholder="سؤال حقوقی خود را اینجا بنویسید"
+                placeholder={isAuthenticated ? "سؤال حقوقی خود را اینجا بنویسید" : "برای ارسال پیام، لطفاً ابتدا وارد شوید"}
                 rows={1}
                 className="chat-modal_textarea"
+                disabled={!isAuthenticated || isCheckingAuth}
               />
 
               <div className="chat-modal_icons">
@@ -387,7 +660,7 @@ const ChatPage = () => {
                   </svg>
                 </button>
 
-                <button className="chat-modal_iconBtn is-send" type="submit" disabled={isSending || !input.trim()} aria-label="ارسال پیام">
+                <button className="chat-modal_iconBtn is-send" type="submit" disabled={isSending || !input.trim() || !isAuthenticated || isCheckingAuth} aria-label="ارسال پیام">
                   <div className="style-module__sendArrowImageWrapper">
                     <div className="style-module__sendArrowWrapperHover">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="style-module__sendArrow">

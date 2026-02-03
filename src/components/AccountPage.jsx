@@ -24,7 +24,11 @@ const AccountPage = () => {
   // Check authentication and fetch user profile and recent chats on component mount
   useEffect(() => {
     const isAuthenticated = localStorage.getItem('is_authenticated') === 'true' ||
-                           sessionStorage.getItem('is_authenticated') === 'true';
+                           sessionStorage.getItem('is_authenticated') === 'true' ||
+                           localStorage.getItem('access_token') ||
+                           localStorage.getItem('auth_token') ||
+                           sessionStorage.getItem('access_token') ||
+                           sessionStorage.getItem('auth_token');
 
     if (!isAuthenticated) {
       navigate('/auth/sign-in');
@@ -32,27 +36,60 @@ const AccountPage = () => {
     }
 
     fetchUserProfile();
-    // Try to refresh wallet balance from dedicated endpoint (optional)
-    // This will fail silently if endpoint doesn't exist yet
-    setTimeout(() => {
-      loadWalletBalance().catch(() => {
-        // Silently fail - balance from user profile is already set
-      });
-    }, 500);
+    // Note: We get coins from profile API, so we don't need to call loadWalletBalance
+    // The profile API returns coins directly, which is what we display
     loadRecentChats();
     loadAllChats();
 
     // Check for payment callback
     const paymentStatus = searchParams.get('payment');
+    const state = searchParams.get('State'); // SEP payment state parameter
+    const token = searchParams.get('Token'); // SEP token parameter
+    const resNum = searchParams.get('ResNum'); // SEP reservation number
+    
+    // Debug logging
+    if (paymentStatus || state || token) {
+      console.log('Payment callback detected:', {
+        payment: paymentStatus,
+        state: state,
+        token: token,
+        resNum: resNum,
+        coins: searchParams.get('coins'),
+        allParams: Object.fromEntries(searchParams.entries())
+      });
+    }
+    
     if (paymentStatus === 'success') {
-      const amount = searchParams.get('amount');
-      alert(`پرداخت با موفقیت انجام شد! مبلغ ${parseInt(amount || 0).toLocaleString('fa-IR')} تومان به کیف پول شما اضافه شد.`);
-      loadWalletBalance();
+      const coins = searchParams.get('coins') || searchParams.get('amount');
+      alert(`پرداخت با موفقیت انجام شد! ${parseInt(coins || 0).toLocaleString('fa-IR')} سکه به حساب شما اضافه شد.`);
+      // Refresh coins from profile
+      fetchUserProfile();
       // Clean URL
       navigate('/account', { replace: true });
     } else if (paymentStatus === 'failed' || paymentStatus === 'cancelled') {
       const message = searchParams.get('message') || 'پرداخت ناموفق بود';
       alert(message);
+      navigate('/account', { replace: true });
+    } else if ((state === '0' || state?.toUpperCase() === 'OK') && token && resNum) {
+      // SEP redirected directly to frontend with success state, but backend hasn't processed it
+      // This means callback URL might be misconfigured or backend redirect failed
+      // Redirect to backend callback to process the payment
+      console.warn('SEP callback received directly on frontend. Redirecting to backend for processing.');
+      // Use backend API URL - check if we have it configured, otherwise use panel subdomain
+      const backendUrl = import.meta.env.VITE_API_BASE_URL || 'https://panel.weekilaw.com';
+      const backendCallbackUrl = `${backendUrl}/api/wallet/callback?${new URLSearchParams({
+        Token: token,
+        ResNum: resNum,
+        State: state,
+        RefNum: searchParams.get('RefNum') || '',
+        TraceNo: searchParams.get('TraceNo') || ''
+      }).toString()}`;
+      window.location.href = backendCallbackUrl;
+      return; // Don't continue processing
+    } else if (state && state !== '0' && state.toUpperCase() !== 'OK') {
+      // SEP returned with non-zero state (payment failed/cancelled)
+      console.warn('SEP payment failed or cancelled. State:', state);
+      alert('پرداخت ناموفق بود یا لغو شد.');
       navigate('/account', { replace: true });
     }
   }, [navigate, searchParams]);
@@ -71,26 +108,69 @@ const AccountPage = () => {
 
   const fetchUserProfile = async () => {
     try {
-      const data = await apiCall(API_ENDPOINTS.USER.PROFILE);
+      // Check if token exists before making the request
+      const accessToken = localStorage.getItem('access_token') || sessionStorage.getItem('access_token');
+      const authToken = localStorage.getItem('auth_token') || sessionStorage.getItem('auth_token');
+      const token = accessToken || authToken;
+      
+      if (!token) {
+        localStorage.removeItem('is_authenticated');
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('auth_token');
+        navigate('/auth/sign-in');
+        return;
+      }
+      
+      // Try new API endpoint first, fallback to legacy
+      let data;
+      try {
+        data = await apiCall(API_ENDPOINTS.AUTH.PROFILE);
+      } catch (e) {
+        // Fallback to legacy endpoint
+        data = await apiCall(API_ENDPOINTS.USER.PROFILE);
+      }
 
       if (data.success) {
         setUser(data.user);
-        // Set wallet balance from user profile (this is the primary source)
-        if (data.user.wallet_balance !== undefined) {
+        // Set coins from user profile (API returns coins directly)
+        if (data.user.coins !== undefined) {
+          setWalletBalance(data.user.coins);
+        } else if (data.user.wallet_balance !== undefined) {
+          // Fallback: use wallet_balance if coins not available
           setWalletBalance(data.user.wallet_balance);
         }
         // Store user data in localStorage for future use
         localStorage.setItem('user_data', JSON.stringify(data.user));
       }
     } catch (error) {
-      console.error('Failed to fetch user profile:', error);
+      // If it's a 401 error, clear tokens and redirect to login
+      if (error.message && (error.message.includes('401') || error.message.includes('توکن') || error.message.includes('احراز هویت'))) {
+        localStorage.removeItem('is_authenticated');
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('refresh_token');
+        sessionStorage.removeItem('access_token');
+        sessionStorage.removeItem('auth_token');
+        sessionStorage.removeItem('refresh_token');
+        navigate('/auth/sign-in');
+        return;
+      }
+      
       // Try to get user data from localStorage as fallback
       const storedUser = localStorage.getItem('user_data');
       if (storedUser) {
-        const parsed = JSON.parse(storedUser);
-        setUser(parsed);
-        if (parsed.wallet_balance !== undefined) {
-          setWalletBalance(parsed.wallet_balance);
+        try {
+          const parsed = JSON.parse(storedUser);
+          setUser(parsed);
+          if (parsed.coins !== undefined) {
+            // API returns coins directly
+            setWalletBalance(parsed.coins);
+          } else if (parsed.wallet_balance !== undefined) {
+            // Fallback: use wallet_balance if coins not available
+            setWalletBalance(parsed.wallet_balance);
+          }
+        } catch (parseError) {
+          console.error('Failed to parse stored user data:', parseError);
         }
       }
     } finally {
@@ -99,17 +179,19 @@ const AccountPage = () => {
   };
 
   const loadWalletBalance = async () => {
-    // Only try to load from wallet endpoint if it's available
-    // Otherwise, we'll use the balance from user profile
+    // Refresh coins from profile API (not wallet balance endpoint)
+    // The profile API returns coins directly
     try {
       setIsLoadingBalance(true);
-      const data = await apiCall(API_ENDPOINTS.WALLET.BALANCE);
-      if (data.success && data.balance !== undefined) {
-        setWalletBalance(data.balance);
+      const data = await apiCall(API_ENDPOINTS.AUTH.PROFILE);
+      if (data.success && data.user) {
+        // Use coins directly from profile API
+        if (data.user.coins !== undefined) {
+          setWalletBalance(data.user.coins);
+        }
       }
     } catch (error) {
-      // Silently fail - wallet endpoint might not be available on production yet
-      // The balance from user profile will be used instead
+      // Silently fail - will use cached value from fetchUserProfile
       // Don't log error to avoid console spam
     } finally {
       setIsLoadingBalance(false);
@@ -126,6 +208,13 @@ const AccountPage = () => {
       }
     } catch (error) {
       console.error('Error loading recent chats:', error);
+      // If authentication error, redirect to login
+      if (error.message && (error.message.includes('Authentication') || error.message.includes('401'))) {
+        localStorage.removeItem('is_authenticated');
+        sessionStorage.removeItem('is_authenticated');
+        navigate('/auth/sign-in');
+        return;
+      }
       // Keep empty array on error
     } finally {
       setIsLoadingChats(false);
@@ -142,6 +231,13 @@ const AccountPage = () => {
       }
     } catch (error) {
       console.error('Error loading all chats:', error);
+      // If authentication error, redirect to login
+      if (error.message && (error.message.includes('Authentication') || error.message.includes('401'))) {
+        localStorage.removeItem('is_authenticated');
+        sessionStorage.removeItem('is_authenticated');
+        navigate('/auth/sign-in');
+        return;
+      }
       // Keep empty array on error
     } finally {
       setIsLoadingAllChats(false);
@@ -211,12 +307,55 @@ const AccountPage = () => {
   };
 
   const handleLogout = () => {
-    // Clear any stored authentication data
-    localStorage.removeItem('auth_token');
-    localStorage.removeItem('is_authenticated');
-    sessionStorage.clear();
-
-    // Redirect to home page first
+    // Clear ALL authentication tokens and data (comprehensive cleanup)
+    const keysToRemove = [
+      'is_authenticated',
+      'access_token',
+      'auth_token',
+      'refresh_token',
+      'preauth_token',
+      'user_data',
+      'token',
+      'user',
+      'auth',
+    ];
+    
+    // Clear from localStorage
+    keysToRemove.forEach(key => {
+      localStorage.removeItem(key);
+    });
+    
+    // Clear from sessionStorage
+    keysToRemove.forEach(key => {
+      sessionStorage.removeItem(key);
+    });
+    
+    // Also clear all localStorage/sessionStorage items that might contain auth data
+    try {
+      Object.keys(localStorage).forEach(key => {
+        if (key.toLowerCase().includes('token') || 
+            key.toLowerCase().includes('auth') || 
+            key.toLowerCase().includes('user') ||
+            key.toLowerCase().includes('login')) {
+          localStorage.removeItem(key);
+        }
+      });
+      Object.keys(sessionStorage).forEach(key => {
+        if (key.toLowerCase().includes('token') || 
+            key.toLowerCase().includes('auth') || 
+            key.toLowerCase().includes('user') ||
+            key.toLowerCase().includes('login')) {
+          sessionStorage.removeItem(key);
+        }
+      });
+    } catch (e) {
+      console.warn('Error clearing storage:', e);
+    }
+    
+    // Dispatch custom event to trigger auth check in other components
+    window.dispatchEvent(new Event('logout'));
+    
+    // Redirect to home page
     navigate('/');
   };
 
@@ -259,21 +398,22 @@ const AccountPage = () => {
         </div>
       </div>
 
-      {/* Wallet Section */}
+      {/* Coins Section */}
       <div className="_accountSection_llh05_73 _walletSection">
-        <div className="_title_llh05_109">کیف پول</div>
+        <div className="_title_llh05_109">سکه</div>
         <div className="_walletContent">
           <div className="_walletBalance">
             <div className="_walletIcon">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 4H3C1.89543 4 1 4.89543 1 6V18C1 19.1046 1.89543 20 3 20H21C22.1046 20 23 19.1046 23 18V6C23 4.89543 22.1046 4 21 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M1 10H23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                <circle cx="12" cy="12" r="6" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                <path d="M12 6V18M6 12H18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
               </svg>
             </div>
             <div className="_walletInfo">
-              <div className="_walletLabel">موجودی کیف پول</div>
+              <div className="_walletLabel">تعداد سکه</div>
               <div className="_walletAmount">
-                {isLoadingBalance ? 'در حال بارگذاری...' : `${(walletBalance / 10).toLocaleString('fa-IR')} تومان`}
+                {isLoadingBalance ? 'در حال بارگذاری...' : `${walletBalance.toLocaleString('fa-IR')} سکه`}
               </div>
             </div>
           </div>
@@ -284,7 +424,7 @@ const AccountPage = () => {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            افزایش موجودی
+            خرید سکه
           </button>
         </div>
       </div>
@@ -633,6 +773,8 @@ const AccountPage = () => {
         isOpen={showAddMoneyModal}
         onClose={() => setShowAddMoneyModal(false)}
         onSuccess={() => {
+          // Refresh user profile to get updated balance/coins
+          fetchUserProfile();
           setShowAddMoneyModal(false);
           loadWalletBalance();
         }}

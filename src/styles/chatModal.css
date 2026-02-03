@@ -270,10 +270,24 @@
   padding: 10px 12px;
   border-radius: 14px;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #1f2933;
   background: #ffffff;
   border: 1px solid #e5e9f0;
+  word-wrap: break-word;
+}
+
+.chat-modal_bubble p {
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+}
+
+.chat-modal_bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.chat-modal_bubble br {
+  line-height: 1.6;
 }
 
 .chat-modal_message.is-user .chat-modal_bubble {

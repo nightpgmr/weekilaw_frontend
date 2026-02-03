@@ -11,7 +11,7 @@ const Careers = () => {
           <div className="styles_innerWidthWrapper ">
             <div className="styles_heroTitleContainer">
               <div className="styles_breadcrumbsContainer">
-                <a href="/en-us/about" className="styles_breadcrumb ">
+                <a href="/about" className="styles_breadcrumb ">
                   درباره
                 </a>
                 <span className="styles_breadcrumb ">&nbsp;/&nbsp;</span>
@@ -90,7 +90,7 @@ const Careers = () => {
               </div>
             </div>
             <div className="styles_buttonContainer">
-              <a className="button_buttonContainer " href="/en-us/about/company">
+              <a className="button_buttonContainer " href="/about/company">
                 <div className="button_buttonText styles_buttonText">تماس با ما</div>
                 <div className="button_buttonArrow ">
                   <div className="button_arrowIconWrapperHover ">

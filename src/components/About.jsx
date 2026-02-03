@@ -71,7 +71,7 @@ const About = () => {
               <p className="about_sectionDescription">
                 فناوری پیشرفتهٔ ما با استفاده از یادگیری ماشین و پردازش زبان طبیعی، پاسخ‌های حقوقی دقیقی ارائه می‌دهد که توسط وکلای متخصص بررسی و تأیید می‌شوند.
               </p>
-              <a href="/en-us/about/ai-technology" className="about_sectionLink">
+              <a href="/about/ai-technology" className="about_sectionLink">
                 <span>درباره فناوری هوش مصنوعی</span>
                 <img src="/assets/arrow-right-blue.svg" alt="arrow" className="about_arrowIcon" />
               </a>
@@ -96,7 +96,7 @@ const About = () => {
               <p className="about_sectionDescription">
                 ما با هزاران وکیل در سراسر ایالات متحده همکاری می‌کنیم تا اطمینان حاصل کنیم که مشتریان ما بهترین کمک حقوقی ممکن را دریافت کنند.
               </p>
-              <a href="/en-us/about/legal-network" className="about_sectionLink">
+              <a href="/about/legal-network" className="about_sectionLink">
                 <span>درباره شبکه حقوقی</span>
                 <img src="/assets/arrow-right-blue.svg" alt="arrow" className="about_arrowIcon" />
               </a>
@@ -168,7 +168,7 @@ const About = () => {
                   src="/assets/double-quotes-down-white.svg"
                 />
               </div>
-              <a className="button_buttonContainer__gCB6U company-card_buttonContainer__cJHyU" href="/en-us/about/company">
+              <a className="button_buttonContainer__gCB6U company-card_buttonContainer__cJHyU" href="/about/company">
                 <div className="button_buttonText__1_evT company-card_buttonText__kQ9Yo">شرکت ما</div>
                 <div className="button_buttonArrow__75UxD company-card_buttonArrow__ORgAZ">
                   <div className="button_arrowIconWrapperHover__E_U1V">
@@ -213,7 +213,7 @@ const About = () => {
               <p className="about_sectionDescription">
                 تیم LawConnect از افرادی تشکیل شده است که به دنبال نوآوری در صنعت حقوقی هستند و می‌خواهند دسترسی به عدالت را برای همه ممکن سازند.
               </p>
-              <a href="/en-us/about/sailing" className="about_sectionLink">
+              <a href="/about/sailing" className="about_sectionLink">
                 <span>درباره ماجراجویی ما</span>
                 <img src="/assets/arrow-right-blue.svg" alt="arrow" className="about_arrowIcon" />
               </a>

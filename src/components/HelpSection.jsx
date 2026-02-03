@@ -11,7 +11,7 @@ const HelpSection = () => {
               {/* FAQ content preserved from original */}
             </div>
             <div className="help-helpButtonContainer">
-              <a href="/en-us/faqs" className="button-buttonContainer help-helpButton">
+              <a href="/faqs" className="button-buttonContainer help-helpButton">
                 <div className="button-buttonText help-helpButtonText">سؤالات متداول</div>
                 <div className="button-buttonArrow help-helpButtonArrow">
                   <div className="button-arrowIconWrapperHover">

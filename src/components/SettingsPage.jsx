@@ -30,7 +30,14 @@ const SettingsPage = () => {
           return;
         }
 
-        const data = await apiCall(API_ENDPOINTS.USER.PROFILE);
+        // Try new API endpoint first, fallback to legacy
+        let data;
+        try {
+          data = await apiCall(API_ENDPOINTS.AUTH.PROFILE);
+        } catch (e) {
+          // Fallback to legacy endpoint
+          data = await apiCall(API_ENDPOINTS.USER.PROFILE);
+        }
 
           if (data.success && data.user) {
             setFormData({
@@ -48,6 +55,8 @@ const SettingsPage = () => {
           // Authentication failed, redirect to sign-in
           localStorage.removeItem('is_authenticated');
           localStorage.removeItem('auth_token');
+          localStorage.removeItem('access_token');
+          localStorage.removeItem('refresh_token');
           sessionStorage.clear();
           navigate('/auth/sign-in');
           return;

@@ -22,7 +22,7 @@ const Insights = () => {
       title: "هوش مصنوعی حقوقی چیست؟",
       description: "درک اصول هوش مصنوعی در زمینه حقوق و چگونگی کمک به تحقیقات و تحلیل‌های حقوقی.",
       image: "/assets/about-ai-what-is-legal-ai.webp",
-      link: "/en-us/insights/what-is-legal-ai",
+      link: "/insights/what-is-legal-ai",
       category: "هوش مصنوعی حقوقی"
     },
     {
@@ -30,7 +30,7 @@ const Insights = () => {
       title: "آیا می‌توان به هوش مصنوعی حقوقی اعتماد کرد؟",
       description: "بررسی قابلیت اطمینان و محدودیت‌های ابزارهای حقوقی مبتنی بر هوش مصنوعی و زمان مشاوره با وکلای انسانی.",
       image: "/assets/about-ai-can-you-trust.webp",
-      link: "/en-us/insights/can-you-trust-legal-ai",
+      link: "/insights/can-you-trust-legal-ai",
       category: "هوش مصنوعی حقوقی"
     },
     {
@@ -38,7 +38,7 @@ const Insights = () => {
       title: "هوش مصنوعی در خدمات حقوقی",
       description: "چگونگی تحول هوش مصنوعی در خدمات حقوقی، از تحلیل قراردادها تا پیش‌بینی پرونده‌ها.",
       image: "/assets/about-ai-ai-in-legal-services.webp",
-      link: "/en-us/insights/ai-in-legal-services",
+      link: "/insights/ai-in-legal-services",
       category: "هوش مصنوعی حقوقی"
     },
     {
@@ -46,7 +46,7 @@ const Insights = () => {
       title: "آیا نیاز به دادگاه دارم؟",
       description: "درک زمان ضرورت دادرسی و بررسی روش‌های جایگزین حل اختلاف.",
       image: "/assets/about-ai-do-i-need-court.webp",
-      link: "/en-us/insights/do-i-need-court",
+      link: "/insights/do-i-need-court",
       category: "فرآیند حقوقی"
     },
     {
@@ -54,7 +54,7 @@ const Insights = () => {
       title: "حقوق خود را بشناسید",
       description: "راهنمای جامع برای درک حقوق قانونی شما در موقعیت‌های مختلف.",
       image: "/assets/legal-aid.webp",
-      link: "/en-us/insights/know-your-rights",
+      link: "/insights/know-your-rights",
       category: "حقوق قانونی"
     },
     {
@@ -62,7 +62,7 @@ const Insights = () => {
       title: "کمک حقوقی آنلاین",
       description: "چگونگی دسترسی به کمک‌های حقوقی رایگان و منابع آنلاین برای کسانی که توان مالی ندارند.",
       image: "/assets/legal-knowledge.webp",
-      link: "/en-us/insights/legal-aid-online",
+      link: "/insights/legal-aid-online",
       category: "کمک حقوقی"
     },
     {
@@ -70,7 +70,7 @@ const Insights = () => {
       title: "SEO برای وکلا",
       description: "استراتژی‌های بازاریابی دیجیتال ویژه دفاتر حقوقی برای جذب مشتریان بیشتر آنلاین.",
       image: "/assets/seo-for-lawyer.png",
-      link: "/en-us/insights/seo-for-lawyers",
+      link: "/insights/seo-for-lawyers",
       category: "بازاریابی حقوقی"
     },
     {
@@ -78,7 +78,7 @@ const Insights = () => {
       title: "جنبه‌های حقوقی جام ملت‌های استرالیا",
       description: "درک مفاهیم حقوقی و مقررات پیرامون رویدادهای ورزشی بزرگ مانند جام ملت‌های استرالیا.",
       image: "/assets/melbourne-cup-2025-search-5.png",
-      link: "/en-us/insights/melbourne-cup-legal",
+      link: "/insights/melbourne-cup-legal",
       category: "حقوق رویدادها"
     },
     {
@@ -86,7 +86,7 @@ const Insights = () => {
       title: "مطالعه موردی فینچلی",
       description: "تحلیل عمیق پرونده حقوقی فینچلی و تأثیرات آن بر اختلافات تجاری مشابه.",
       image: "/assets/blog-finchly-lc-pr.jpg",
-      link: "/en-us/insights/finchly-case-study",
+      link: "/insights/finchly-case-study",
       category: "مطالعات موردی"
     }
   ];
@@ -115,7 +115,7 @@ const Insights = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">Areas of law</a>
+                    <a href="/library">Areas of law</a>
                   </span>
                   <span className="breadcrumb_breadcrumbItem">
                     {' / '}

@@ -9,47 +9,47 @@ const Library = () => {
     {
       title: 'Commercial law',
       description: 'Commercial law covers the legal framework for business transactions and agreements.',
-      href: '/en-us/commercial-law'
+      href: '/commercial-law'
     },
     {
       title: 'Criminal law',
       description: 'Uphold justice, protect individuals and society, and understand your rights.',
-      href: '/en-us/criminal-law'
+      href: '/criminal-law'
     },
     {
       title: 'Employment law',
       description: 'Fair treatment for both employers and employees.',
-      href: '/en-us/employment-law'
+      href: '/employment-law'
     },
     {
       title: 'Estate and probate law',
       description: 'Understanding estate planning and probate processes.',
-      href: '/en-us/estate-and-probate-law'
+      href: '/estate-and-probate-law'
     },
     {
       title: 'Family law',
       description: 'Navigating family law in the United States can be complex and challenging.',
-      href: '/en-us/family-law'
+      href: '/family-law'
     },
     {
       title: 'Immigration law',
       description: 'Navigating family, sponsorships, visas, applications, and residency.',
-      href: '/en-us/immigration-law'
+      href: '/immigration-law'
     },
     {
       title: 'Litigation',
       description: 'Litigation is resolving disputes through courts and legal proceedings.',
-      href: '/en-us/litigation'
+      href: '/litigation'
     },
     {
       title: 'Personal injury law',
       description: 'Proactive measures to prevent disputes or prepare for action.',
-      href: '/en-us/personal-injury-law'
+      href: '/personal-injury-law'
     },
     {
       title: 'Property law',
       description: 'Property law covers the rights to use and own land and buildings and how they can be transferred',
-      href: '/en-us/property-law'
+      href: '/property-law'
     }
   ];
 
@@ -64,7 +64,7 @@ const Library = () => {
                 {/* Breadcrumb */}
                 <div className="breadcrumb_breadcrumbContainer">
                   <span className="breadcrumb_breadcrumbItem">
-                    <a href="/en-us/library">Library</a>
+                    <a href="/library">Library</a>
                   </span>
                 </div>
 
