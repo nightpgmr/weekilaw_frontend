@@ -28,7 +28,7 @@ const PaymentListener = () => {
     let link = `${urlObj.origin}${urlObj.pathname}${urlObj.search}`;
 
     const urlParams = new URLSearchParams(window.location.search);
-    const verifyUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/payment/verify`;
+    const verifyUrl = `https://www.weekilaw.com/api/payment/verify`;
 
     // Get payment data from POST body (sent by gateway via backend redirect)
     // The backend encodes the body data in the URL as 'bodyData' param

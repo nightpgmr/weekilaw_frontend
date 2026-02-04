@@ -24,9 +24,7 @@ const AddMoneyModal = ({ isOpen, onClose, onSuccess }) => {
       // Accept messages from payment gateway domain or same origin
       const allowedOrigins = [
         window.location.origin,
-        'https://weekilaw.com',
-        'http://localhost:8000', // For local development
-        'http://localhost:3000', // For local development
+        'https://weekilaw.com'
       ];
 
       if (!allowedOrigins.includes(event.origin) && event.origin !== '*') {
