@@ -30,6 +30,7 @@ import Insights from './components/Insights.jsx';
 import ContactUs from './components/ContactUs.jsx';
 import Terms from './components/Terms.jsx';
 import PrivacyPolicy from './components/PrivacyPolicy.jsx';
+import PaymentListener from './pages/PaymentListener.jsx';
 
 function App() {
   return (
@@ -67,6 +68,7 @@ function App() {
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/payment-listener" element={<PaymentListener />} />
         </Routes>
       </div>
     </Router>

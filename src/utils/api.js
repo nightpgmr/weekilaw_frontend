@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://panel.weekilaw.com';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://weekilaw.com';
 const API_URL = `${API_BASE_URL}/api`;
 
 // API Endpoints
@@ -38,6 +38,14 @@ export const API_ENDPOINTS = {
     BALANCE: `${API_URL}/wallet/balance`,
     ADD_MONEY: `${API_URL}/wallet/add-money`,
     TRANSACTIONS: `${API_URL}/wallet/transactions`,
+  },
+
+  // Payment
+  PAYMENT: {
+    GATEWAYS: `${API_URL}/payment/gateways`,
+    COIN_PACKAGES: `${API_URL}/payment/coin-packages`,
+    INITIATE: `${API_URL}/payment/initiate`,
+    VERIFY: `${API_URL}/payment/verify`,
   },
 
   // Chat

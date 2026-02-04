@@ -20,9 +20,8 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'https://panel.weekilaw.com',
+        target: 'http://127.0.0.1:8000',
         changeOrigin: true,
-        secure: true,
       }
     }
   }

@@ -1775,7 +1775,7 @@
  [tabindex="-1"]:focus {
    outline:none
 }
- /*# sourceMappingURL=style.css.map */ :root {
+:root {
    --kinde-layout-page-card-background-color:#fff;
    --kinde-layout-page-card-background-color-dark:#0f0f0f;
    --kinde-layout-page-card-inline-size:31rem;
@@ -2121,5 +2121,3 @@
   margin-inline: calc(-1 * var(--kinde-layout-page-main-padding, 3rem));
   width: calc(100% + calc(var(--kinde-layout-page-main-padding, 3rem) * 2));
 }
-
-/*# sourceMappingURL=style.css.map */

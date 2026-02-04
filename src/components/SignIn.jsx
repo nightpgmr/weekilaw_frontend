@@ -157,8 +157,10 @@ function SignIn() {
             localStorage.setItem('refresh_token', data.refresh_token);
           }
           
-          // Store user data
-          if (data.user) {
+          // Store user data (support both 'user' and 'user_data' keys)
+          if (data.user_data) {
+            localStorage.setItem('user_data', JSON.stringify(data.user_data));
+          } else if (data.user) {
             localStorage.setItem('user_data', JSON.stringify(data.user));
           }
           
