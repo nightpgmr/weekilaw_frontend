@@ -26,6 +26,7 @@ const AddMoneyModal = ({ isOpen, onClose, onSuccess }) => {
         window.location.origin,
         'https://weekilaw.com'
       ];
+      
 
       if (!allowedOrigins.includes(event.origin) && event.origin !== '*') {
         return;
